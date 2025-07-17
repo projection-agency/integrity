@@ -11,10 +11,10 @@ export default async function BlogPage({
   searchParams,
   params,
 }: {
-  searchParams: { category?: string }
+  searchParams: Promise<{ category?: string }>
   params: Promise<{ locale: string }>
 }) {
-  const { locale } = await params
+  const [{ locale }, { category }] = await Promise.all([params, searchParams])
   const payload = await getPayload({ config })
 
   const { docs } = await payload.find({
@@ -22,7 +22,7 @@ export default async function BlogPage({
     where: { slug: { equals: 'blog' } },
     locale: locale as 'en',
   })
-  const categoryId = searchParams.category || 'all'
+  const categoryId = category || 'all'
 
   const [categories, posts] = await Promise.all([getCategories(), getPostsWithFilter(categoryId)])
 
