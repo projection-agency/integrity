@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import PhoneInput from 'react-phone-input-2'
 import 'react-phone-input-2/lib/style.css'
 import styles from './FillForm.module.css'
+import Image from 'next/image'
 
 const FillForm = () => {
   const [phoneNumber, setPhoneNumber] = useState('')
@@ -13,8 +14,20 @@ const FillForm = () => {
         <div className={styles.expertBlock}>
           <div className={styles.expertCard}>
             <div className={styles.expertAvatarWrapper}>
-              <img src="/images/icons/frame.png" alt="Avatar" className={styles.expertAvatar} />
-              <img src="/images/icons/chat.svg" alt="Chat" className={styles.expertChatIcon} />
+              <Image
+                src="/images/icons/frame.png"
+                alt="Avatar"
+                className={styles.expertAvatar}
+                width={98}
+                height={98}
+              />
+              <Image
+                src="/images/icons/chat.svg"
+                alt="Chat"
+                className={styles.expertChatIcon}
+                width={98}
+                height={98}
+              />
             </div>
             <div className={styles.expertTitle}>
               <span className={styles.expertTitleLine}>TALK TO</span>
@@ -29,7 +42,13 @@ const FillForm = () => {
         <form className={styles.form}>
           <h3 className={styles.title}>
             <span>FILL</span>
-            <img src="/images/icons/report.svg" alt="Report" className={styles.titleIcon} />
+            <Image
+              src="/images/icons/report.svg"
+              alt="Report"
+              className={styles.titleIcon}
+              width={24}
+              height={24}
+            />
             <span>OUT THE FORM</span>
           </h3>
           <div className={styles.inputGroup}>
@@ -66,7 +85,13 @@ const FillForm = () => {
             </label>
           </div>
           <button type="submit" className={styles.submitBtn}>
-            <img src="/images/icons/message.svg" alt="Chat" className={styles.btnIcon} />
+            <Image
+              src="/images/icons/message.svg"
+              alt="Chat"
+              className={styles.btnIcon}
+              width={24}
+              height={24}
+            />
             <p className={styles.order}>Order a call</p>
           </button>
         </form>

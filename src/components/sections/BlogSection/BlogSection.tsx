@@ -2,8 +2,9 @@ import Link from 'next/link'
 import Image from 'next/image'
 import s from './BlogSection.module.css'
 
-export default function BlogPosts({ posts }: { posts: any[] }) {
-  console.log(posts[0].featuredImage)
+export default function BlogPosts({ posts }: { posts: any[] | undefined }) {
+  if (!posts) return null
+
   return (
     <div>
       {posts.map((post) => (

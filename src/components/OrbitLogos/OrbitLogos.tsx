@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import styles from './OrbitLogos.module.css'
-
+import Image from 'next/image'
 const radiiVW = ['42.5vw', '35vw', '27vw', '19vw'] // половина від 85, 70, 54, 38
 const speeds = [0.005, 0.0033, -0.0027, 0.002]
 const icons = [
@@ -15,7 +15,6 @@ function vwToPx(vw: string) {
 }
 
 const OrbitLogos = () => {
-  // refs: [ [circle0icon0, circle0icon1, ...], [circle1icon0, ...], ... ]
   const refs = useRef<Array<Array<HTMLDivElement | null>>>([])
   const [radiiPx, setRadiiPx] = useState([0, 0, 0, 0])
 
@@ -70,7 +69,7 @@ const OrbitLogos = () => {
               }}
               style={{ position: 'absolute', left: '50%', top: '50%' }}
             >
-              <img src={icons[i]} alt="logo" />
+              <Image src={icons[i]} alt="logo" width={100} height={100} />
             </div>
           )),
         )}

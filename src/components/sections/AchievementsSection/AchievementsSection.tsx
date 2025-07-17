@@ -1,7 +1,5 @@
 'use client'
 import Image from 'next/image'
-import { useTranslations } from 'next-intl'
-import { Link } from '@/i18n/navigation'
 import TabSection from '@/components/ui/TabSection/TabSection'
 import s from './AchievementsSection.module.css'
 import MainTitle from '@/components/ui/MainTitle/MainTitle'
@@ -28,7 +26,6 @@ export default function AchievementsSection({
   block: AchievementsBlock
   locale: string
 }) {
-  const t = useTranslations('HomePage')
   return (
     <div className={s.section}>
       <div className={s.headWrapper}>

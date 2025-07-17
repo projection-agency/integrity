@@ -1,13 +1,13 @@
 'use client'
 import s from './CountryInput.module.css'
-import React, { useState, useMemo } from 'react'
+import React, { useMemo } from 'react'
 import Select from 'react-select'
 import { useFormikContext } from 'formik'
 import countryList from 'react-select-country-list'
 
 function CountrySelector() {
   const options = useMemo(() => countryList().getData(), [])
-  const { setFieldValue, setFieldTouched, touched } = useFormikContext()
+  const { setFieldValue, setFieldTouched } = useFormikContext()
 
   const changeHandler = (value: string) => {
     setFieldValue('country', value)
