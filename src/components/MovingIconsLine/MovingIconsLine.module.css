@@ -21,7 +21,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
+  transform-origin: center center;
   border-radius: 1.25vw;
   border: 0.05vw solid #fff;
   background: var(
