@@ -4,6 +4,7 @@ import React from 'react'
 import { useRouter, usePathname } from '@/i18n/navigation'
 import { useLocale } from 'next-intl'
 import s from './Header.module.css'
+import Image from 'next/image'
 
 const locales = [
   {
@@ -37,11 +38,13 @@ export default function LocaleSwitcher() {
           onClick={() => handleSwitch(code)}
         >
           {code === currentLocale && (
-            <img
+            <Image
               src={flag}
               alt={label}
               className={s.flag}
               style={{ fontSize: '1.5em', marginRight: 4 }}
+              width={24}
+              height={24}
             />
           )}
           <span className={s.localeName}>{label}</span>

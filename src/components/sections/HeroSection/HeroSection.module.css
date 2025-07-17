@@ -20,7 +20,9 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 2.5vw
+        gap: 2.5vw;
+        position: relative;
+        z-index: 9;
     }
     .subtitle{
         display: flex;
@@ -59,7 +61,7 @@
         background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-        max-width: 48vw;
+        max-width: 48.2vw;
     }
     p{
         color: var(--Light-garay-2, #B5B5B5);

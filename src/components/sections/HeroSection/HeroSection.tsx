@@ -1,6 +1,5 @@
 'use client'
-import { useTranslations } from 'next-intl'
-import { Link } from '@/i18n/navigation'
+
 import s from './HeroSection.module.css'
 import IconHero from '../../icons/IconHero/IconHero'
 import GridBackground from '../../GridBackground/GridBackground'
@@ -19,8 +18,6 @@ export default function HeroSection({ block }: { block: HeroBlock }) {
   }
 
   const parts = block.title?.split(/(\{icon\})/g) || []
-
-  const t = useTranslations('HomePage')
   return (
     <div className={s.section}>
       <div className={s.heroWrap}>
@@ -38,20 +35,7 @@ export default function HeroSection({ block }: { block: HeroBlock }) {
             ),
           )}
         </h1>
-        <p>
-          {block.description
-            ? block.description.split(/(\[\[.*?\]\])/g).map((part, i) => {
-                if (part.startsWith('[[') && part.endsWith(']]')) {
-                  return (
-                    <span key={i} style={{ fontWeight: 'bold' }}>
-                      {part.slice(2, -2)}
-                    </span>
-                  )
-                }
-                return part
-              })
-            : null}
-        </p>
+        <p dangerouslySetInnerHTML={{ __html: block.description || '' }} />
         <div className={s.wrapButtons}>
           <button className={s.firstButton}>
             {iconFirst}

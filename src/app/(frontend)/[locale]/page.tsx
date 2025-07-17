@@ -60,15 +60,15 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         if (block.enabled === false) return null
         const BlockComponent = BLOCK_COMPONENTS[
           block.blockType as keyof typeof BLOCK_COMPONENTS
-        ] as any
+        ] as unknown as React.ComponentType<{ block: unknown; locale: string }>
         if (!BlockComponent) return null
 
         if (block.blockType === 'faq-block') {
           // Кастимо до типу, який приймає faqs
           const FaqBlockComponent = BlockComponent as React.ComponentType<{
-            block: any
+            block: unknown
             locale: string
-            faqs: any
+            faqs: unknown
           }>
           return <FaqBlockComponent key={block.id || i} block={block} locale={locale} faqs={faqs} />
         }
