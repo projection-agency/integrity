@@ -1,0 +1,63 @@
+.blogSection{
+    display: flex;
+    flex-direction: column;
+    gap: 3.91vw;
+    margin-left: auto;
+    margin-right: auto;
+    width: 91.67vw;
+    padding-bottom: 10.42vw;
+
+
+    .items{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 0.83vw;
+        row-gap: 3.125vw;
+    }
+}
+
+
+.filterPostsCategories{
+
+    display: flex;
+    align-items: center;
+
+
+    .filterPostsCategory {
+
+        display: flex;
+        align-items: center;
+        gap: 0.52vw;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        padding: 1vw 1.66vw;
+        border-radius: 0.625vw;
+        border: 1px solid var(--Black, #222);
+        background: white;
+        color: var(--black);
+
+        text-align: center;
+        font-family: var(--font-mont);
+        font-size: 0.83vw;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 100%; /* 16px */
+
+
+        .filterPostsCategoryCount{
+            font-size: 0.72vw;
+        }
+        
+    }
+
+    .filterPostsCategory:hover:not(.active) {
+        border-color: rgba(34, 34, 34, 0.6);
+        color: rgba(34, 34, 34, 0.6);
+    }
+
+    .filterPostsCategory.active {
+        background-color: var(--black);
+        color: var(--white);
+        border-color: var(--black);
+    }
+}

@@ -196,6 +196,22 @@ export interface Post {
   id: string;
   title?: string | null;
   categories?: (string | Category)[] | null;
+  excerptTitle?: string | null;
+  excerpt?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
   featuredImage?: (string | null) | Media;
   content?: {
     root: {
@@ -617,6 +633,8 @@ export interface MediaSelect<T extends boolean = true> {
 export interface PostsSelect<T extends boolean = true> {
   title?: T;
   categories?: T;
+  excerptTitle?: T;
+  excerpt?: T;
   featuredImage?: T;
   content?: T;
   readingTime?: T;
