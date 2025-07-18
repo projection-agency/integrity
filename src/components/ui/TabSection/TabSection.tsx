@@ -4,7 +4,7 @@ import s from './TabSection.module.css'
 const TabSection = ({ style, text }: { style: string; text: string }) => {
   return (
     <div className={`${s[style]} ${s.tabSection}`}>
-      <h2>{text}</h2>
+      <span>{text}</span>
     </div>
   )
 }

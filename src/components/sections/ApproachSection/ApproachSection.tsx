@@ -30,7 +30,13 @@ const advantages = [
     post_title: 'Straight answers from the people responsible',
   },
 ]
-export default function ApproachSection() {
+
+type ApproachSection = {
+  subtitle: string
+  title: string
+}
+
+export default function ApproachSection({ block }: { block: ApproachSection }) {
   const iconMap: Record<string, JSX.Element> = {
     star,
     precision,
@@ -42,8 +48,8 @@ export default function ApproachSection() {
     <section className={s.section}>
       <div className={s.container}>
         <div className={s.topBlock}>
-          <p className={s.upperDescr}>our team</p>
-          <MainTitle title="our [[approach]]" />
+          <p className={s.upperDescr}>{block.subtitle}</p>
+          <MainTitle title={block.title} />
         </div>
 
         <div className={s.sloganCont}>
@@ -98,7 +104,7 @@ export default function ApproachSection() {
 
 const decision = (
   <svg width="73" height="72" viewBox="0 0 73 72" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <g clip-path="url(#clip0_3035_8831)">
+    <g clipPath="url(#clip0_3035_8831)">
       <path
         d="M59.5 20.4165C59.5 20.8824 59.1222 21.2602 58.6563 21.2602H57.3571C50.2673 21.2602 44.5 26.9231 44.5 33.8847V38.8985C44.5 39.5451 45.1974 39.9514 45.7599 39.6325L49.4776 37.5245C49.8785 37.2972 50.3877 37.4336 50.6212 37.831L51.5003 39.3266C51.9359 40.0679 53.0714 39.7589 53.0714 38.8991V33.8847C53.0714 31.5649 54.9946 29.6765 57.3571 29.6765H58.6563C59.1222 29.6765 59.5 30.0543 59.5 30.5203V33.2784C59.5 33.9682 60.2829 34.3665 60.8405 33.9604L71.5636 26.1504C72.0263 25.8134 72.0263 25.1233 71.5636 24.7863L60.8405 16.9763C60.2829 16.5702 59.5 16.9685 59.5 17.6584V20.4165Z"
         fill="#B5B5B5"
@@ -130,10 +136,10 @@ const decision = (
 
 const logo = (
   <svg xmlns="http://www.w3.org/2000/svg" width="73" height="72" viewBox="0 0 73 72" fill="none">
-    <g clip-path="url(#clip0_3035_8839)">
+    <g clipPath="url(#clip0_3035_8839)">
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M54.5543 4.8231L36.5362 0L18.5181 4.8231L5.328 18L0.500061 36L5.328 54L18.5181 67.1769L36.5362 72L54.5543 67.1769L67.7444 54L72.5724 36L67.7444 18L54.5543 4.8231ZM53.0356 7.31035L36.4847 2.88L19.9338 7.31035L7.81775 19.4143L3.38295 35.9485L7.81775 52.4828L19.9338 64.5867L36.4847 69.0171L53.0356 64.5867L65.1516 52.4828L69.5864 35.9485L65.1516 19.4143L53.0356 7.31035Z"
         fill="#222222"
       />
@@ -216,12 +222,12 @@ const computer = (
         y2="9.71811"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#EBEBEB" />
-        <stop offset="0.255809" stop-color="#777777" />
-        <stop offset="0.429644" stop-color="#A1A1A1" />
-        <stop offset="0.523944" stop-color="#777777" />
-        <stop offset="0.617099" stop-color="#777777" />
-        <stop offset="1" stop-color="#EBEBEB" />
+        <stop stopColor="#EBEBEB" />
+        <stop offset="0.255809" stopColor="#777777" />
+        <stop offset="0.429644" stopColor="#A1A1A1" />
+        <stop offset="0.523944" stopColor="#777777" />
+        <stop offset="0.617099" stopColor="#777777" />
+        <stop offset="1" stopColor="#EBEBEB" />
       </linearGradient>
       <linearGradient
         id="paint1_linear_3035_8921"
@@ -231,12 +237,12 @@ const computer = (
         y2="9.71811"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#EBEBEB" />
-        <stop offset="0.255809" stop-color="#777777" />
-        <stop offset="0.429644" stop-color="#A1A1A1" />
-        <stop offset="0.523944" stop-color="#777777" />
-        <stop offset="0.617099" stop-color="#777777" />
-        <stop offset="1" stop-color="#EBEBEB" />
+        <stop stopColor="#EBEBEB" />
+        <stop offset="0.255809" stopColor="#777777" />
+        <stop offset="0.429644" stopColor="#A1A1A1" />
+        <stop offset="0.523944" stopColor="#777777" />
+        <stop offset="0.617099" stopColor="#777777" />
+        <stop offset="1" stopColor="#EBEBEB" />
       </linearGradient>
       <linearGradient
         id="paint2_linear_3035_8921"
@@ -246,12 +252,12 @@ const computer = (
         y2="9.71811"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#EBEBEB" />
-        <stop offset="0.255809" stop-color="#777777" />
-        <stop offset="0.429644" stop-color="#A1A1A1" />
-        <stop offset="0.523944" stop-color="#777777" />
-        <stop offset="0.617099" stop-color="#777777" />
-        <stop offset="1" stop-color="#EBEBEB" />
+        <stop stopColor="#EBEBEB" />
+        <stop offset="0.255809" stopColor="#777777" />
+        <stop offset="0.429644" stopColor="#A1A1A1" />
+        <stop offset="0.523944" stopColor="#777777" />
+        <stop offset="0.617099" stopColor="#777777" />
+        <stop offset="1" stopColor="#EBEBEB" />
       </linearGradient>
       <linearGradient
         id="paint3_linear_3035_8921"
@@ -261,12 +267,12 @@ const computer = (
         y2="30.3859"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#EBEBEB" />
-        <stop offset="0.255809" stop-color="#777777" />
-        <stop offset="0.429644" stop-color="#A1A1A1" />
-        <stop offset="0.523944" stop-color="#777777" />
-        <stop offset="0.617099" stop-color="#777777" />
-        <stop offset="1" stop-color="#EBEBEB" />
+        <stop stopColor="#EBEBEB" />
+        <stop offset="0.255809" stopColor="#777777" />
+        <stop offset="0.429644" stopColor="#A1A1A1" />
+        <stop offset="0.523944" stopColor="#777777" />
+        <stop offset="0.617099" stopColor="#777777" />
+        <stop offset="1" stopColor="#EBEBEB" />
       </linearGradient>
       <linearGradient
         id="paint4_linear_3035_8921"
@@ -276,12 +282,12 @@ const computer = (
         y2="-1.51258"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#EBEBEB" />
-        <stop offset="0.255809" stop-color="#777777" />
-        <stop offset="0.429644" stop-color="#A1A1A1" />
-        <stop offset="0.523944" stop-color="#777777" />
-        <stop offset="0.617099" stop-color="#777777" />
-        <stop offset="1" stop-color="#EBEBEB" />
+        <stop stopColor="#EBEBEB" />
+        <stop offset="0.255809" stopColor="#777777" />
+        <stop offset="0.429644" stopColor="#A1A1A1" />
+        <stop offset="0.523944" stopColor="#777777" />
+        <stop offset="0.617099" stopColor="#777777" />
+        <stop offset="1" stopColor="#EBEBEB" />
       </linearGradient>
     </defs>
   </svg>
@@ -302,12 +308,12 @@ const like = (
         y2="50.9494"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#EBEBEB" />
-        <stop offset="0.255809" stop-color="#777777" />
-        <stop offset="0.429644" stop-color="#A1A1A1" />
-        <stop offset="0.523944" stop-color="#777777" />
-        <stop offset="0.617099" stop-color="#777777" />
-        <stop offset="1" stop-color="#EBEBEB" />
+        <stop stopColor="#EBEBEB" />
+        <stop offset="0.255809" stopColor="#777777" />
+        <stop offset="0.429644" stopColor="#A1A1A1" />
+        <stop offset="0.523944" stopColor="#777777" />
+        <stop offset="0.617099" stopColor="#777777" />
+        <stop offset="1" stopColor="#EBEBEB" />
       </linearGradient>
     </defs>
   </svg>
@@ -315,7 +321,7 @@ const like = (
 
 const star = (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-    <g clip-path="url(#clip0_3035_8986)">
+    <g clipPath="url(#clip0_3035_8986)">
       <path
         d="M23.9372 9.2048C23.7792 8.71883 23.3482 8.37477 22.8402 8.32881L15.9121 7.69983L13.1741 1.28956C12.972 0.818609 12.512 0.514648 12 0.514648C11.4881 0.514648 11.0279 0.818609 10.827 1.28956L8.08902 7.69983L1.15982 8.32881C0.651881 8.37568 0.221759 8.71974 0.0628208 9.2048C-0.0952019 9.69077 0.0507355 10.2238 0.434897 10.5607L5.67198 15.1529L4.12783 21.9539C4.01485 22.454 4.20895 22.9711 4.62387 23.271C4.8469 23.4331 5.10893 23.514 5.37187 23.514C5.59783 23.514 5.82396 23.4539 6.02593 23.3331L12 19.761L17.973 23.3331C18.4112 23.5949 18.9622 23.5709 19.3762 23.271C19.7911 22.9711 19.9852 22.454 19.8722 21.9539L18.3281 15.1529L23.5652 10.5607C23.9491 10.2238 24.0953 9.69186 23.9372 9.2048Z"
         fill="#FFE414"
@@ -331,7 +337,7 @@ const star = (
 
 const precision = (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-    <g clip-path="url(#clip0_3035_8977)">
+    <g clipPath="url(#clip0_3035_8977)">
       <path
         d="M22.2616 10.8503H20.7476C20.2286 6.9038 17.08 3.75792 13.1322 3.24308V1.73959C13.1322 1.11 12.6219 0.599609 11.9923 0.599609C11.3627 0.599609 10.8523 1.11 10.8523 1.73959V3.24308C6.90452 3.75792 3.7559 6.90383 3.23699 10.8503H1.74155C1.11195 10.8503 0.601562 11.3607 0.601562 11.9903C0.601562 12.6199 1.11195 13.1303 1.74155 13.1303H3.23462C3.74614 17.0854 6.89837 20.2404 10.8523 20.756V22.2595C10.8523 22.8891 11.3627 23.3995 11.9923 23.3995C12.6219 23.3995 13.1322 22.8891 13.1322 22.2595V20.756C17.0862 20.2404 20.2384 17.0854 20.7499 13.1303H22.2616C22.8912 13.1303 23.4016 12.6199 23.4016 11.9903C23.4016 11.3607 22.8912 10.8503 22.2616 10.8503ZM11.9923 18.6243C8.34865 18.6243 5.36749 15.6432 5.36749 11.9995C5.36749 8.3559 8.34865 5.37477 11.9923 5.37477C15.6359 5.37477 18.617 8.3559 18.617 11.9995C18.617 15.6432 15.6359 18.6243 11.9923 18.6243Z"
         fill="#FFE414"
@@ -351,7 +357,7 @@ const precision = (
 
 const focused = (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-    <g clip-path="url(#clip0_3035_8959)">
+    <g clipPath="url(#clip0_3035_8959)">
       <path
         d="M22.2616 10.8503H20.7476C20.2286 6.9038 17.08 3.75792 13.1322 3.24308V1.73959C13.1322 1.11 12.6219 0.599609 11.9923 0.599609C11.3627 0.599609 10.8523 1.11 10.8523 1.73959V3.24308C6.90452 3.75792 3.7559 6.90383 3.23699 10.8503H1.74155C1.11195 10.8503 0.601562 11.3607 0.601562 11.9903C0.601562 12.6199 1.11195 13.1303 1.74155 13.1303H3.23462C3.74614 17.0854 6.89837 20.2404 10.8523 20.756V22.2595C10.8523 22.8891 11.3627 23.3995 11.9923 23.3995C12.6219 23.3995 13.1322 22.8891 13.1322 22.2595V20.756C17.0862 20.2404 20.2384 17.0854 20.7499 13.1303H22.2616C22.8912 13.1303 23.4016 12.6199 23.4016 11.9903C23.4016 11.3607 22.8912 10.8503 22.2616 10.8503ZM11.9923 18.6243C8.34865 18.6243 5.36749 15.6432 5.36749 11.9995C5.36749 8.3559 8.34865 5.37477 11.9923 5.37477C15.6359 5.37477 18.617 8.3559 18.617 11.9995C18.617 15.6432 15.6359 18.6243 11.9923 18.6243Z"
         fill="#FFE414"
@@ -375,7 +381,7 @@ const focused = (
 
 const chat = (
   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-    <g clip-path="url(#clip0_3035_8968)">
+    <g clipPath="url(#clip0_3035_8968)">
       <path
         d="M20.4816 4.64062H19.7785V10.9688C19.7785 13.6824 17.5703 15.8906 14.8566 15.8906H9.70715L7.00781 17.9703C7.60657 18.4285 8.34741 18.7031 9.13788 18.7031H14.766L21.1848 23.6483V18.6324C22.7873 18.3056 23.9973 16.8856 23.9973 15.1875V8.15625C23.9973 6.2179 22.42 4.64062 20.4816 4.64062Z"
         fill="#FFE414"

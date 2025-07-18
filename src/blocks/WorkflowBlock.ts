@@ -1,4 +1,5 @@
 import type { Block } from 'payload'
+import { StyledText } from '@/plugin/sl_StyledText'
 
 export const WorkflowBlock: Block = {
   slug: 'workflow-block',
@@ -26,6 +27,11 @@ export const WorkflowBlock: Block = {
       localized: true,
       label: {
         en: 'Title',
+      },
+      admin: {
+        components: {
+          Field: StyledText,
+        },
       },
     },
   ],

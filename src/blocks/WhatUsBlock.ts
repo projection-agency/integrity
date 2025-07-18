@@ -1,4 +1,5 @@
 import type { Block } from 'payload'
+import { StyledText } from '@/plugin/sl_StyledText'
 
 export const WhatUsBlock: Block = {
   slug: 'what-us-block',
@@ -18,6 +19,7 @@ export const WhatUsBlock: Block = {
       label: {
         en: 'Subtitle',
       },
+
     },
     {
       name: 'title',
@@ -26,6 +28,11 @@ export const WhatUsBlock: Block = {
       localized: true,
       label: {
         en: 'Title',
+      },
+      admin: {
+        components: {
+          Field: StyledText,
+        },
       },
     },
   ],

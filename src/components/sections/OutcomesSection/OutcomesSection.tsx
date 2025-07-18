@@ -11,6 +11,8 @@ import { EffectCoverflow, Pagination, Navigation } from 'swiper/modules'
 import { GlobeIcon, ChartIcon, AnalyticsIcon, GroupIcon } from '../../Icon/Icon'
 import SliderNav from './SliderNav'
 import FillForm from '@/components/FillForm/FillForm'
+import TabSection from '@/components/ui/TabSection/TabSection'
+import MainTitle from '@/components/ui/MainTitle/MainTitle'
 
 const outcomes = [
   {
@@ -65,7 +67,12 @@ const outcomes = [
   },
 ]
 
-export default function OutcomesSection() {
+type OutcomesSection = {
+  subtitle: string
+  title: string
+}
+
+export default function OutcomesSection({ block }: { block: any }) {
   const swiperRef = useRef<any>(null)
   const [swiperIndex, setSwiperIndex] = useState(0)
   const [mounted, setMounted] = useState(false)
@@ -77,14 +84,10 @@ export default function OutcomesSection() {
   return (
     <section className={s.section}>
       <div className={s.headWrapper}>
-        <div className={s.outcomesLabel}>
-          <span className={s.outcomesLabelText}>OUTCOMES</span>
-        </div>
-        <div className={s.headlineContainer}>
-          <div className={s.headlineMain}>BASED ON CLIENT EXPERIENCE</div>
-          <div className={s.headlineItalic}>
-            AND DATA-DRIVEN APPROACH <span className={s.headlineCount}>(5)</span>
-          </div>
+        <TabSection style="white" text={block.subtitle} />
+        <div className={s.wrapHeading}>
+          <MainTitle title={block.title} />
+          <div className={s.count}>(5)</div>
         </div>
       </div>
       <div className={s.outcomes}>

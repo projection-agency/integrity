@@ -1,0 +1,32 @@
+.checkboxLabel {
+  flex-grow: 1;
+  display: inline-flex;
+  gap: 0.63vw;
+  align-items: center;
+  padding: 1.15vw 1.25vw;
+  box-sizing: border-box;
+  border-radius: 0.63vw;
+  background-color: rgba(249, 249, 249, 1);
+
+  font-size: 0.73vw;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 100%;
+  color: rgba(34, 34, 34, 1);
+
+  svg.icon {
+    display: block;
+    width: 1.04vw;
+    height: 1.04vw;
+    flex-shrink: 0;
+  }
+
+  .labelText {
+    white-space: nowrap;
+  }
+}
+
+.active {
+  border: 0.05vw solid rgba(34, 34, 34, 1);
+  padding: 1.05vw 1.2vw;
+}

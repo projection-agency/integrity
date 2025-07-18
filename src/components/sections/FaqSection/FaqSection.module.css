@@ -1,0 +1,19 @@
+.section {
+  padding-top: 10.42vw;
+  padding-bottom: 10.42vw;
+  background-color: rgba(249, 249, 249, 1);
+
+  .topBlock {
+    margin-bottom: 6.25vw;
+  }
+
+  .accordionCont {
+    width: 64.58vw;
+    display: flex;
+    flex-direction: column;
+    gap: 0.625vw;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+}

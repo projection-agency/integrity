@@ -1,23 +1,30 @@
-import Link from 'next/link'
-import Image from 'next/image'
 import s from './BlogSection.module.css'
+import ArticleItem from '@/components/ui/ArticleItem/ArticleItem'
+import FilterBlog from './FilterBlog'
 
-export default function BlogPosts({ posts }: { posts: any[] }) {
-  console.log(posts[0].featuredImage)
+type Category = {
+  id: string
+  name: string
+  count: number
+}
+
+export default function BlogPosts({
+  posts,
+  categories,
+}: {
+  posts: any[] | undefined
+  categories: Category[]
+}) {
+  if (!posts) return null
+
   return (
-    <div>
-      {posts.map((post) => (
-        <Link href={`/blog/${post.slug}`} key={post.id}>
-          <Image
-            src={post.featuredImage?.url}
-            alt={post.title}
-            width={100}
-            height={100}
-            className={s.image}
-          />
-          {post.title}
-        </Link>
-      ))}
+    <div className={s.blogSection}>
+      <FilterBlog categories={categories} />
+      <div className={s.items}>
+        {posts.map((post, index) => (
+          <ArticleItem key={post.id} post={post} idx={index} />
+        ))}
+      </div>
     </div>
   )
 }

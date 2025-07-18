@@ -1,4 +1,5 @@
 import type { Block } from 'payload'
+import { StyledText } from '@/plugin/sl_StyledText'
 
 export const CasesBlock: Block = {
   slug: 'cases-block',
@@ -17,7 +18,7 @@ export const CasesBlock: Block = {
       localized:true,
       label: {
         en: 'Subtitle',
-      },
+      }
     },
     {
       name: 'title',
@@ -26,6 +27,11 @@ export const CasesBlock: Block = {
       localized:true,
       label: {
         en: 'Title',
+      },
+      admin: {
+        components: {
+          Field: StyledText,
+        },
       },
     },
     {
@@ -48,19 +54,31 @@ export const CasesBlock: Block = {
           name: 'case_client_website',
           type: 'text',
           localized: true,
-          label:'Case Client'
+          label:'Case Client',
+          admin: {
+            components: {
+              Field: StyledText,
+            },
+          },
         },
         {
           name: 'case_client',
           type: 'text',
           localized: true,
-          label:'Case Client WebSite'
+          label:'Case Client WebSite',
+
         },
         {
           name: 'case_goal',
           type: 'text',
           localized: true,
-          label:'Case Goal'
+          label:'Case Goal',
+          admin: {
+            components: {
+              Field: StyledText,
+            },
+          },
+
         },
         {
           name: 'case_time',
@@ -78,13 +96,19 @@ export const CasesBlock: Block = {
               name:'point',
               type:'text',
               label:'Point',
+              admin: {
+                components: {
+                  Field: StyledText,
+                },
+              },
+              
             }
           ]
         },
         {
           name: 'case_image',
           type: 'upload',
-          relationTo: 'media', // назва колекції, де зберігаються зображення
+          relationTo: 'media',
           label: 'Case Image',
           localized: false // якщо потрібно мати різні зображення для різних мов — постав true
         }

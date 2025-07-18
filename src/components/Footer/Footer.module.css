@@ -1,0 +1,185 @@
+.footer {
+  padding: 5.21vw 4.17vw;
+  background-color: rgba(34, 34, 34, 1);
+  border-top-left-radius: 2.08vw;
+  border-top-right-radius: 2.08vw;
+
+  .topBlock {
+    display: flex;
+    justify-content: space-between;
+    .slogan {
+      width: 36.31vw;
+
+      font-size: 4.17vw;
+      font-style: italic;
+      font-weight: 900;
+      line-height: 1.2;
+      text-transform: uppercase;
+      background: linear-gradient(
+        169deg,
+        rgba(255, 255, 255, 0.16) -6.56%,
+        rgba(255, 255, 255, 0.03) 112.07%
+      );
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+
+      .logoContainer {
+        display: inline-flex;
+        transform: none;
+        width: max-content;
+        background-color: rgba(34, 34, 34, 1);
+
+        .logo {
+          width: 4.17vw;
+          height: 4.17vw;
+          fill: rgba(255, 228, 20, 1);
+          background-color: rgba(34, 34, 34, 1);
+        }
+      }
+    }
+
+    .rightBlock {
+      display: flex;
+      gap: 7.29vw;
+      .footerNav {
+        ul {
+          display: flex;
+          gap: 1.04vw;
+          flex-direction: column;
+
+          li {
+            a {
+              font-size: 1.04vw;
+              font-style: normal;
+              font-weight: 700;
+              line-height: 1.4; /* 28px */
+              letter-spacing: -0.4px;
+
+              color: #ffffff;
+            }
+          }
+        }
+      }
+
+      .contatcs {
+        display: flex;
+        flex-direction: column;
+        height: 16.46vw;
+
+        .contactItem {
+          display: flex;
+          span {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 1.67vw;
+            height: 1.67vw;
+            border-radius: 50%;
+            background-color: linear-gradient(
+              141deg,
+              rgba(255, 255, 255, 0.12) 8.87%,
+              rgba(41, 41, 41, 0.12) 93.36%
+            );
+
+            svg {
+              width: 0.83vw;
+              height: 0.83vw;
+            }
+          }
+
+          .contactInfo {
+            p {
+              margin-bottom: 0.26vw;
+              font-size: 0.83vw;
+              font-style: normal;
+              font-weight: 600;
+              line-height: 1.2;
+
+              color: rgba(181, 181, 181, 1);
+            }
+
+            a {
+              font-size: 1.25vw;
+              font-style: italic;
+              font-weight: 800;
+              line-height: 1.2;
+
+              color: #ffffff;
+            }
+          }
+        }
+
+        .phone {
+          margin-bottom: 1.67vw;
+        }
+
+        .socialsList {
+          margin-top: auto;
+          display: flex;
+          gap: 0.83vw;
+
+          li {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 5.21vw;
+            height: 5.21vw;
+            border-radius: 1.3vw;
+            border: 0.05vw solid #fff;
+            background: linear-gradient(
+              141deg,
+              rgba(255, 255, 255, 0.12) 8.87%,
+              rgba(41, 41, 41, 0.12) 93.36%
+            );
+
+            svg {
+              width: 1.98vw;
+              height: 1.98vw;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .bottomBlock {
+    padding-top: 6.25vw;
+
+    svg {
+      margin-bottom: 2.92vw;
+    }
+    .privacyCont {
+      display: flex;
+      justify-content: space-between;
+
+      p {
+        font-size: 0.83vw;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 1.2;
+
+        color: rgba(181, 181, 181, 1);
+      }
+
+      a {
+        font-size: 0.83vw;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 1.2;
+        text-decoration-line: underline;
+        text-decoration-style: solid;
+        text-decoration-skip-ink: auto;
+        text-decoration-thickness: auto;
+        text-underline-offset: auto;
+        text-underline-position: from-font;
+        color: rgba(181, 181, 181, 1);
+      }
+
+      .developers {
+        display: flex;
+        gap: 0.3vw;
+      }
+    }
+  }
+}

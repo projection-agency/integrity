@@ -4,6 +4,7 @@ import './styles.css'
 import { getPayload } from 'payload'
 import config from '@/payload.config'
 import Header from '@/components/Header/Header'
+import Footer from '@/components/Footer/Footer'
 import { NextIntlClientProvider, hasLocale } from 'next-intl'
 import { notFound } from 'next/navigation'
 import { routing } from '@/i18n/routing'
@@ -45,6 +46,7 @@ export default async function LocaleLayout({
         <NextIntlClientProvider>
           <Header menu={headerMenu} logo={main.logo || ''} buttonText={main.button || ''} />
           <main>{children}</main>
+          <Footer />
         </NextIntlClientProvider>
       </body>
     </html>

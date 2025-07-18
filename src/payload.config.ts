@@ -1,6 +1,6 @@
 // storage-adapter-import-placeholder
 import { mongooseAdapter } from '@payloadcms/db-mongodb'
-import { seoPlugin } from '@payloadcms/plugin-seo';
+import { seoPlugin } from '@payloadcms/plugin-seo'
 import { payloadCloudPlugin } from '@payloadcms/payload-cloud'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import path from 'path'
@@ -17,13 +17,10 @@ import { Pages } from './collections/Pages'
 import { FAQ } from '@/collections/FAQ'
 import { buildConfig } from 'payload'
 
-import {  OrderCall } from '@/endpoints/OrderCall'
+import { OrderCall } from '@/endpoints/OrderCall'
 import Applications from '@/collections/Applications'
 import applicationCategory from '@/collections/categories/applicationCategory'
 import { OrderCallFull } from '@/endpoints/OrderCallFull'
-import { Test } from '@/collections/Test'
-
-
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -36,8 +33,7 @@ export default buildConfig({
     },
   },
   globals: [MainInfo, Menu],
-  collections:
-  [
+  collections: [
     applicationCategory,
     Users,
     Media,
@@ -46,7 +42,6 @@ export default buildConfig({
     Pages,
     FAQ,
     Applications,
-    Test,
   ],
   localization: {
     locales: [
@@ -74,19 +69,14 @@ export default buildConfig({
   plugins: [
     payloadCloudPlugin(),
     seoPlugin({
-      collections: [
-        'pages',
-        'posts'
-      ],
+      collections: ['pages', 'posts'],
       uploadsCollection: 'media',
       generateTitle: ({ doc }) => `${doc.title} — INTEGRITY`,
       generateDescription: ({ doc }) => doc.description,
-      generateURL: ({doc, collectionSlug}) => `https://integrity.com/${collectionSlug}/${doc.slug}`,
-      tabbedUI: true
+      generateURL: ({ doc, collectionSlug }) =>
+        `https://integrity.com/${collectionSlug}/${doc.slug}`,
+      tabbedUI: true,
     }),
   ],
-  endpoints:[
-    OrderCall,
-    OrderCallFull,
-  ]
+  endpoints: [OrderCall, OrderCallFull],
 })

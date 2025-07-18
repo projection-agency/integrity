@@ -1,7 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
 import s from './Header.module.css'
-import { useRouter, usePathname } from '@/i18n/navigation'
 import LocaleSwitcher from './LocaleSwitcher'
 
 // Додаємо тип для пункту меню

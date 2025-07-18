@@ -1,4 +1,5 @@
 import type { Block } from 'payload'
+import { StyledText } from '@/plugin/sl_StyledText'
 
 export const AboutFounderBlock: Block = {
   slug: 'about-founder-block',
@@ -26,6 +27,11 @@ export const AboutFounderBlock: Block = {
       localized:true,
       label: {
         en: 'Title',
+      },
+      admin: {
+        components: {
+          Field: StyledText,
+        },
       },
     },
   ],

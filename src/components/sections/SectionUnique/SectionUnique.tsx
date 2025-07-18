@@ -9,6 +9,8 @@ import {
   DocumentIcon,
   AnalyticsIcon,
 } from '../../Icon/Icon'
+import TabSection from '@/components/ui/TabSection/TabSection'
+import MainTitle from '@/components/ui/MainTitle/MainTitle'
 
 const cards = [
   {
@@ -43,51 +45,51 @@ const cards = [
   },
 ]
 
-const SectionUnique = () => (
-  <section style={{ marginTop: '200px', marginBottom: '200px' }}>
-    <div
-      style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: 40 }}
-    >
-      <div className={styles.sectionUniqueBadge}>
-        WHY US?
-        {/* <p className={styles.sectionLabel}>WHY US?</p> */}
-      </div>
-      <h2 className={styles.sectionUniqueTitle}>
-        WHAT MAKES <span>US UNIQUE?</span>
-      </h2>
-    </div>
-    <div className={styles.sectionUnique}>
-      <div className={styles.sectionUniqueSide}>
-        <div className={styles.sideAvatarBlock}>
-          <div className={styles.sideAvatarBg}>
-            <img src="/images/icons/chat.svg" alt="Chat" className={styles.sideChatIcon} />
-          </div>
-          <img src="/images/icons/frame.png" alt="Avatar" className={styles.sideAvatar} />
-        </div>
-        <div className={styles.sideTitle}>
-          YOU ARE HERE <span>TO ACHIEVE RESULTS</span>
-        </div>
-        <div className={styles.sideDescription}>
-          Order your first free call and receive a tailored strategy to promote your business
-        </div>
-        <button className={styles.sideButton}>
-          <PhoneIcon className={styles.sidePhoneIcon} />
-          Demo call
-        </button>
-      </div>
-      <div className={styles.sectionUniqueContent}>
-        <div className={styles.sectionUniqueGrid}>
-          {cards.map((card, idx) => (
-            <div className={styles.sectionUniqueCard} key={idx}>
-              <div className={styles.cardIcon}>{card.icon}</div>
-              <div className={styles.cardTitle}>{card.title}</div>
-              <div className={styles.cardDescription}>{card.description}</div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  </section>
-)
+type SectionUnique = {
+  subtitle: string
+  title: string
+}
 
-export default SectionUnique
+export default function SectionUnique({ block }: { block: SectionUnique }) {
+  return (
+    <section style={{ marginTop: '200px', marginBottom: '200px' }}>
+      <div
+        style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: 40 }}
+      >
+        <TabSection style="gray" text={block.subtitle} />
+        <MainTitle title={block.title} />
+      </div>
+      <div className={styles.sectionUnique}>
+        <div className={styles.sectionUniqueSide}>
+          <div className={styles.sideAvatarBlock}>
+            <div className={styles.sideAvatarBg}>
+              <img src="/images/icons/chat.svg" alt="Chat" className={styles.sideChatIcon} />
+            </div>
+            <img src="/images/icons/frame.png" alt="Avatar" className={styles.sideAvatar} />
+          </div>
+          <div className={styles.sideTitle}>
+            YOU ARE HERE <span>TO ACHIEVE RESULTS</span>
+          </div>
+          <div className={styles.sideDescription}>
+            Order your first free call and receive a tailored strategy to promote your business
+          </div>
+          <button className={styles.sideButton}>
+            <PhoneIcon className={styles.sidePhoneIcon} />
+            Demo call
+          </button>
+        </div>
+        <div className={styles.sectionUniqueContent}>
+          <div className={styles.sectionUniqueGrid}>
+            {cards.map((card, idx) => (
+              <div className={styles.sectionUniqueCard} key={idx}>
+                <div className={styles.cardIcon}>{card.icon}</div>
+                <div className={styles.cardTitle}>{card.title}</div>
+                <div className={styles.cardDescription}>{card.description}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}

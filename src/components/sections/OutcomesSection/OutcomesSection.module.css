@@ -24,14 +24,6 @@
   margin-bottom: 4.2vw;
 }
 
-.wrapHeading {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5vw;
-  margin-bottom: 4.2vw;
-}
-
 .title {
   font-family: var(--third-family);
   font-style: italic;
@@ -329,7 +321,6 @@
 
 .headlineContainer {
   width: 66.667vw;
-  height: 8.021vw;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -397,4 +388,23 @@
   text-transform: uppercase;
   text-align: center;
   color: var(--black);
+}
+
+
+.wrapHeading{
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 0.63vw;
+
+  .count{
+      color: #F5DA0A;
+      font-family: "Inter Tight";
+      font-size: 2.08333vw;
+      font-style: italic;
+      font-weight: 900;
+      line-height: 100%; /* 2.08333rem */
+      text-transform: uppercase;
+      margin-bottom: 2vw;
+  }
 }

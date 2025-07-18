@@ -1,4 +1,5 @@
 import type { Block } from 'payload'
+import { StyledText } from '@/plugin/sl_StyledText'
 
 export const TariffsBlock: Block = {
   slug: 'tariffs-block',
@@ -26,6 +27,11 @@ export const TariffsBlock: Block = {
       localized: true,
       label: {
         en: 'Title',
+      },
+      admin: {
+        components: {
+          Field: StyledText,
+        },
       },
     },
     {
@@ -60,6 +66,11 @@ export const TariffsBlock: Block = {
           required: true,
           label: {
             en: 'Description',
+          },
+          admin: {
+            components: {
+              Field: StyledText,
+            },
           },
         },
         {

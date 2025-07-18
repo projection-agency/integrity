@@ -1,5 +1,7 @@
 import React from 'react'
 import styles from './LatestInsightsSection.module.css'
+import TabSection from '@/components/ui/TabSection/TabSection'
+import MainTitle from '@/components/ui/MainTitle/MainTitle'
 
 const posts = [
   {
@@ -28,14 +30,17 @@ const posts = [
   },
 ]
 
-export default function LatestInsightsSection() {
+type LatestInsightsSection = {
+  subtitle: string
+  title: string
+}
+
+export default function LatestInsightsSection({ block }: { block: LatestInsightsSection }) {
   return (
     <section className={styles.latestInsightsSection}>
       <div className={styles.latestInsightsHeader}>
-        <div className={styles.latestInsightsLabel}>ARTICLES</div>
-        <h2 className={styles.latestInsightsTitle}>
-          LATEST <span className={styles.latestInsightsTitleItalic}>INSIGHTS</span>
-        </h2>
+        <TabSection style="gray" text={block.subtitle} />
+        <MainTitle title={block.title} />
       </div>
       <div className={styles.latestInsightsCards}>
         {posts.map((post, idx) => (

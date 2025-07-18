@@ -3,11 +3,17 @@ import TabSection from '@/components/ui/TabSection/TabSection'
 import s from './AboutTheFounderSection.module.css'
 import Image from 'next/image'
 import IconHero from '@/components/icons/IconHero/IconHero'
-const AboutTheFounderSection = () => {
+
+type AboutTheFounderSection = {
+  subtitle: string
+  title: string
+}
+
+const AboutTheFounderSection = ({ block }: { block: AboutTheFounderSection }) => {
   return (
     <section className={s.section}>
-      <TabSection style="gray" text="about the founder" />
-      <MainTitle title="the mind > [[behind the mission]]" />
+      <TabSection style="gray" text={block.subtitle} />
+      <MainTitle title={block.title} />
       <div className={s.contentContainer}>
         <div className={s.imgContainer}>
           <Image
@@ -96,9 +102,9 @@ const spendBg = (
         x="0"
         y="0"
         filterUnits="userSpaceOnUse"
-        color-interpolation-filters="sRGB"
+        colorInterpolationFilters="sRGB"
       >
-        <feFlood flood-opacity="0" result="BackgroundImageFix" />
+        <feFlood floodOpacity="0" result="BackgroundImageFix" />
         <feColorMatrix
           in="SourceAlpha"
           type="matrix"
@@ -125,12 +131,12 @@ const spendBg = (
         y2="99.5851"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#737373" />
-        <stop offset="0.255809" stop-color="#222222" />
-        <stop offset="0.429644" stop-color="#737373" />
-        <stop offset="0.523944" stop-color="#222222" />
-        <stop offset="0.784245" stop-color="#222222" />
-        <stop offset="1" stop-color="#737373" />
+        <stop stopColor="#737373" />
+        <stop offset="0.255809" stopColor="#222222" />
+        <stop offset="0.429644" stopColor="#737373" />
+        <stop offset="0.523944" stopColor="#222222" />
+        <stop offset="0.784245" stopColor="#222222" />
+        <stop offset="1" stopColor="#737373" />
       </linearGradient>
     </defs>
   </svg>

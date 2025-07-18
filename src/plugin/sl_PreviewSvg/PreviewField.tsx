@@ -17,6 +17,7 @@ const PreviewField = (props: any) => {
           value={value || ''}
           onChange={(e) => setValue(e.target.value)}
           rows={10}
+          placeholder='asd'
         />
       </div>
       <div

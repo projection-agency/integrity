@@ -2,6 +2,7 @@
   padding-top: 10.42vw;
   padding-bottom: 20.84vw;
   background-color: rgba(34, 34, 34, 1);
+  overflow: hidden;
 
   .container {
     position: relative;
@@ -90,10 +91,14 @@
           position: relative;
           z-index: 10;
           right: 1vw;
+          width: 6.1vw;
+          height: 6.1vw;
+          border-radius: 50%;
         }
       }
 
       h3 {
+        width: 47.04vw;
         text-align: center;
         font-size: 2.5vw;
         font-style: italic;
@@ -153,7 +158,7 @@
 
     .iconsLineCont {
       position: absolute;
-      bottom: 30%;
+      bottom: 22.92vw;
       left: 0;
     }
 

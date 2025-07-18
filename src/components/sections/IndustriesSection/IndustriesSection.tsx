@@ -2,9 +2,16 @@ import styles from './IndustriesSection.module.css'
 import { IndustriesGrid } from './IndustriesGrid'
 import { IndustriesHeader } from './IndustriesHeader'
 
-export const IndustriesSection = () => (
-  <section className={styles.section}>
-    <IndustriesHeader casesCount={5} />
-    <IndustriesGrid />
-  </section>
-)
+type IndustriesSection = {
+  subtitle: string
+  title: string
+}
+
+export default function IndustriesSection({ block }: { block: IndustriesSection }) {
+  return (
+    <section className={styles.section}>
+      <IndustriesHeader block={block} />
+      <IndustriesGrid />
+    </section>
+  )
+}

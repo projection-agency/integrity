@@ -1,4 +1,5 @@
 import type { Block } from 'payload'
+import { StyledText } from '@/plugin/sl_StyledText'
 
 export const HeroBlock: Block = {
   slug: 'hero-block',
@@ -32,7 +33,13 @@ export const HeroBlock: Block = {
       name: 'description',
       type: 'text',
       localized: true,
+      admin: {
+            components: {
+              Field: StyledText,
+            },
+          },
     },
+
     {
       type: 'row',
       fields: [
