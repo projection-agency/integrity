@@ -1,197 +1,189 @@
 .section {
   padding: 10vw 0;
 
-  .wrapHeading{
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    gap: 0.63vw;
+  .headWrapper {
+    margin-bottom: 4.17vw;
+    .wrapHeading {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 0.63vw;
 
-    .count{
-        color: #F5DA0A;
-        font-family: "Inter Tight";
+      .count {
+        color: #f5da0a;
+        font-family: 'Inter Tight';
         font-size: 2.08333vw;
         font-style: italic;
         font-weight: 900;
         line-height: 100%; /* 2.08333rem */
         text-transform: uppercase;
         margin-top: 0.6vw;
+      }
     }
   }
-}
 
-.casesLayout {
-  display: flex;
-  gap: 2vw;
-  margin-top: 3vw;
-}
+  .content {
+    width: 91.67vw;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    gap: 2.08vw;
 
-.pagination {
-  display: flex;
-  flex-direction: column;
-  gap: 1vw;
-  min-width: 220px;
-  align-items: flex-end;
-}
+    .paginationCont {
+      display: flex;
+      gap: 1.67vw;
 
-.paginationItem {
-  cursor: pointer;
-  padding: 1vw 1.5vw;
-  border-radius: 12px 0 0 12px;
-  background: #f5f5f5;
-  transition: background 0.2s, color 0.2s;
-  text-align: right;
-  border-right: 4px solid transparent;
-}
+      .falsePagination {
+        display: flex;
+        flex-direction: column;
+        gap: 0.83vw;
+      }
 
-.paginationItem:hover,
-.paginationItem.active {
-  background: #fffbe6;
-  color: #222;
-  border-right: 4px solid #f5da0a;
-}
+      .paginationBullet {
+        width: 0.31vw;
+        height: 0.31vw;
+        background-color: rgba(239, 239, 239, 1);
+        border-radius: 50%;
+      }
 
-.paginationCase {
-  font-size: 1.1vw;
-  font-weight: 700;
-  color: #bdbdbd;
-  margin-bottom: 0.2vw;
-}
+      .paginationBulletActive {
+        height: 1.88vw;
+        background-color: rgba(34, 34, 34, 1);
+        border-radius: 4.17vw;
+      }
 
-.paginationTitle {
-  font-size: 1.2vw;
-  font-weight: 600;
-  color: #222;
-}
+      .swiperShort {
+        display: flex;
+        flex-direction: column;
 
-.caseContentWrap {
-  display: flex;
-  gap: 2vw;
-  background: #fff;
-  border-radius: 24px;
-  box-shadow: 0 4px 32px rgba(0,0,0,0.06);
-  padding: 2.5vw 3vw;
-  align-items: stretch;
-  min-width: 600px;
-}
+        .swiperShortItem {
+          width: 17.24vw;
+          padding: 1.25vw;
+          border-radius: 0.83vw;
+          transition: background-color 300ms ease-in-out;
+          background-color: #ffffff;
 
-.caseMain {
-  flex: 2;
-  display: flex;
-  flex-direction: column;
-  gap: 1.2vw;
-}
+          p {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            white-space: nowrap;
+            width: max-content;
+            padding: 0.42vw 0.83vw;
+            margin-bottom: 1.04vw;
+            border-radius: 0.63vw;
+            transition: background-color 300ms ease-in-out;
+            transition: color 300ms ease-in-out;
+            background-color: rgba(249, 249, 249, 1);
 
-.caseTitle {
-  font-size: 2vw;
-  font-weight: 800;
-  margin-bottom: 0.7vw;
-  color: #222;
-}
+            font-size: 0.63vw;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 1.4; /* 16.8px */
+            letter-spacing: 1.56px;
+            text-transform: uppercase;
+            color: rgba(181, 181, 181, 1);
+          }
 
-.caseInfoRow {
-  display: flex;
-  gap: 2vw;
-  margin-bottom: 0.7vw;
-}
+          h3 {
+            font-size: 0.83vw;
+            font-style: normal;
+            font-weight: 800;
+            line-height: 1.4;
+            letter-spacing: -0.32px;
+            transition: color 300ms ease-in-out;
+            color: rgba(181, 181, 181, 1);
+          }
+        }
 
-.caseInfoCard {
-  background: #f7f7f7;
-  border-radius: 10px;
-  padding: 0.7vw 1vw;
-  min-width: 120px;
-}
+        .swiperShortActive {
+          background-color: rgba(249, 249, 249, 1);
+          p {
+            background-color: rgba(34, 34, 34, 1);
+            color: #ffffff;
+          }
+          h3 {
+            color: rgba(34, 34, 34, 1);
+          }
+        }
+      }
+    }
 
-.caseInfoLabel {
-  font-size: 0.9vw;
-  color: #bdbdbd;
-  font-weight: 600;
-  margin-bottom: 0.2vw;
-}
+    .swiperContainer {
+      width: 70.36vw;
 
-.caseWhatWeDid {
-  margin-top: 1vw;
-}
+      .controlsCont {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 1.67vw;
+        background-color: rgba(249, 249, 249, 1);
+        border-radius: 0.83vw;
 
-.caseWhatWeDid ul {
-  margin: 0.5vw 0 0 1vw;
-  padding: 0;
-  list-style: disc;
-}
+        p {
+          font-size: 0.83vw;
+          font-style: normal;
+          font-weight: 800;
+          line-height: 1.2;
+          letter-spacing: -0.32px;
+          text-transform: capitalize;
 
-.caseWhatWeDid li {
-  font-size: 1vw;
-  margin-bottom: 0.2vw;
-}
+          color: rgba(104, 104, 104, 1);
+        }
+        .controls {
+          width: max-content;
+          padding: 0.42vw;
+          display: flex;
+          gap: 1.67vw;
+          align-items: center;
+          background-color: rgba(249, 249, 249, 1);
+          border-radius: 0.83vw;
 
-.caseStatsBlock {
-  flex: 1;
-  background: #f5da0a;
-  border-radius: 16px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 2vw 1.5vw;
-  min-width: 180px;
-  max-width: 220px;
-  gap: 1vw;
-  box-shadow: 0 2px 12px rgba(245,218,10,0.08);
-}
+          .pagination {
+            width: max-content;
+            display: flex;
+            justify-content: center;
+            gap: 0.83vw;
 
-.caseStatItem {
-  margin-bottom: 0.7vw;
-}
+            .paginationBullet {
+              width: 0.31vw;
+              height: 0.31vw;
+              background-color: rgba(239, 239, 239, 1);
+              border-radius: 50%;
+            }
 
-.caseStatValue {
-  font-size: 1.5vw;
-  font-weight: 900;
-  color: #222;
-}
+            .paginationBulletActive {
+              width: 1.88vw;
+              background-color: rgba(34, 34, 34, 1);
+              border-radius: 4.17vw;
+            }
+          }
 
-.caseStatLabel {
-  font-size: 1vw;
-  color: #7a7a7a;
-  font-weight: 600;
-}
+          .navigationBtn {
+            width: 8.54vw;
+            height: 2.92vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 0.83vw;
+            background-color: #ffffff;
+          }
 
-@media (max-width: 900px) {
-  .casesLayout {
-    flex-direction: column;
-    gap: 3vw;
-  }
-  .caseContentWrap {
-    flex-direction: column;
-    min-width: unset;
-    padding: 5vw 3vw;
-  }
-  .pagination {
-    flex-direction: row;
-    min-width: unset;
-    align-items: flex-start;
-    gap: 2vw;
-  }
-  .paginationItem {
-    border-radius: 12px 12px 0 0;
-    border-right: none;
-    border-bottom: 4px solid transparent;
-    text-align: center;
-    padding: 1vw 2vw;
-  }
-  .paginationItem.active {
-    border-bottom: 4px solid #f5da0a;
-    border-right: none;
-  }
-  .caseStatsBlock {
-    min-width: unset;
-    max-width: unset;
-    width: 100%;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 2vw 2vw;
-  }
-  .caseStatItem {
-    margin-bottom: 0;
+          .navigationPrev {
+          }
+
+          .navigationNext {
+            transform: rotateZ(180deg);
+          }
+
+          .disabled {
+            .navArrow {
+              fill-opacity: 0.6;
+            }
+          }
+        }
+      }
+    }
   }
 }

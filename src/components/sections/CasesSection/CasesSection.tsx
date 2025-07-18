@@ -1,8 +1,47 @@
+'use client'
 import TabSection from '@/components/ui/TabSection/TabSection'
 import s from './CasesSection.module.css'
 import MainTitle from '@/components/ui/MainTitle/MainTitle'
+import { useState, useEffect, useRef } from 'react'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Navigation, Pagination } from 'swiper/modules'
+import CaseItem from '@/components/CaseItem/CaseItem'
+import { CasesBlock } from '@/blocks/CasesBlock'
 
-export default function CasesSection() {
+export interface CaseItemType {
+  case_title: string
+  case_location: string
+  case_client: string
+  case_client_website: string
+  case_goal: string
+  case_time: string
+  case_image?: {
+    url: string
+    filename?: string
+    id?: string
+  }
+  case_wwd: {
+    id: number
+    point: string
+  }[]
+}
+
+export interface CasesBlockData {
+  enabled: boolean
+  subtitle: string
+  title: string
+  case: CaseItemType[]
+}
+export default function CasesSection({ block }: { block: CasesBlockData }) {
+  const swiperRef = useRef<any>(null)
+  const [caseData, setCaseData] = useState<CaseItemType[]>([])
+  const [activeSlide, setActiveSlide] = useState<number | null>(null)
+
+  useEffect(() => {
+    console.log(block.case)
+    setCaseData(block.case)
+  }, [block.case])
+
   return (
     <div className={s.section}>
       <div className={s.headWrapper}>
@@ -14,6 +53,93 @@ export default function CasesSection() {
           </div>
         </div>
       </div>
+
+      <div className={s.content}>
+        <div className={s.paginationCont}>
+          <div className={s.falsePagination}>
+            {caseData.map((item, idx) => {
+              return (
+                <div
+                  key={idx}
+                  className={`${s.paginationBullet} ${activeSlide === idx ? s.paginationBulletActive : ''}`}
+                ></div>
+              )
+            })}
+          </div>
+          <ul className={s.swiperShort}>
+            {caseData.map((item, idx) => {
+              return (
+                <li
+                  key={idx}
+                  className={`${s.swiperShortItem} ${activeSlide === idx ? s.swiperShortActive : ''}`}
+                  onClick={() => {
+                    setActiveSlide(idx)
+                    swiperRef.current?.slideTo(idx)
+                  }}
+                >
+                  <p>Case {idx + 1}</p>
+                  <h3>{item.case_title}</h3>
+                </li>
+              )
+            })}
+          </ul>
+        </div>
+        <div className={s.swiperContainer}>
+          <Swiper
+            modules={[Navigation, Pagination]}
+            pagination={{
+              el: `.${s.pagination}`,
+              bulletActiveClass: s.paginationBulletActive,
+              bulletClass: s.paginationBullet,
+            }}
+            navigation={{
+              prevEl: `.${s.navigationPrev}`,
+              nextEl: `.${s.navigationNext}`,
+              disabledClass: s.disabled,
+            }}
+            onSlideChange={(swiper) => {
+              console.log(swiper.activeIndex)
+              setActiveSlide(swiper.activeIndex)
+            }}
+            onSwiper={(swiper) => {
+              setActiveSlide(swiper.activeIndex)
+              swiperRef.current = swiper
+            }}
+          >
+            {caseData.map((item, idx) => {
+              return (
+                <SwiperSlide key={idx}>
+                  <CaseItem item={item} />
+                </SwiperSlide>
+              )
+            })}
+          </Swiper>
+          <div className={s.controlsCont}>
+            <p>Switch to the next case</p>
+            <div className={s.controls}>
+              <button className={`${s.navigationBtn} ${s.navigationPrev}`}>{navArrow}</button>
+              <div className={s.pagination}></div>
+              <button className={`${s.navigationBtn} ${s.navigationNext}`}>{navArrow}</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   )
 }
+
+const navArrow = (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="20"
+    height="16"
+    viewBox="0 0 20 16"
+    fill="none"
+    className={s.navArrow}
+  >
+    <path
+      d="M19 7C19.5523 7 20 7.44772 20 8C20 8.55228 19.5523 9 19 9V7ZM0.292892 8.70711C-0.0976315 8.31658 -0.0976315 7.68342 0.292892 7.29289L6.65685 0.928932C7.04738 0.538408 7.68054 0.538408 8.07107 0.928932C8.46159 1.31946 8.46159 1.95262 8.07107 2.34315L2.41421 8L8.07107 13.6569C8.46159 14.0474 8.46159 14.6805 8.07107 15.0711C7.68054 15.4616 7.04738 15.4616 6.65685 15.0711L0.292892 8.70711ZM19 8V9H1V8V7H19V8Z"
+      fill="#222222"
+    />
+  </svg>
+)
