@@ -14,6 +14,7 @@ import AboutTheFounderSection from '@/components/sections/AboutTheFounderSection
 import ApproachSection from '@/components/sections/ApproachSection/ApproachSection'
 import ReviewsSection from '@/components/sections/ReviewsSection/ReviewsSection'
 import TariffsSection from '@/components/sections/TariffsSection/TariffsSection'
+import WorkflowSection from '@/components/sections/WorkflowSection/WorkflowSection'
 
 import FaqSection from '@/components/sections/FaqSection/FaqSection'
 import FormSection from '@/components/sections/FormSection/FormSection'
@@ -75,6 +76,7 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
 
         return <BlockComponent key={block.id || i} block={block} locale={locale} />
       })}
+      <WorkflowSection />
     </div>
   )
 }
