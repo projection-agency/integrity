@@ -3,7 +3,10 @@ import config from 'next/config'
 
 export async function getCategories() {
   const payloadConfig = await config
-  const payload = await getPayload({ config: payloadConfig as any })
+  const payload = await getPayload({
+    config: payloadConfig as any,
+    secret: process.env.PAYLOAD_SECRET!,
+  } as any)
 
   // Отримуємо всі категорії
   const categories = await payload.find({
