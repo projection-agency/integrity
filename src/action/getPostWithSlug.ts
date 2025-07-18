@@ -1,13 +1,15 @@
 import { getPayload } from 'payload'
-import config from 'next/config'
+import payloadConfig from '@/payload.config' // 🔧 правильний конфіг
 
 export async function getPostsWithSlug(slug?: string, locale?: string) {
-  const payloadConfig = await config
-  const payload = await getPayload({ config: payloadConfig as any })
-
   if (!slug || !locale) {
     return null
   }
+
+  const payload = await getPayload({
+    config: payloadConfig,
+    secret: process.env.PAYLOAD_SECRET!,
+  } as any)
 
   const posts = await payload.find({
     collection: 'posts',

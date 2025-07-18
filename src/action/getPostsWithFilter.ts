@@ -3,7 +3,10 @@ import config from 'next/config'
 
 export async function getPostsWithFilter(categoryId?: string) {
   const payloadConfig = await config
-  const payload = await getPayload({ config: payloadConfig as any })
+  const payload = await getPayload({
+    config: payloadConfig as any,
+    secret: process.env.PAYLOAD_SECRET!,
+  } as any)
 
   const where: any = {}
 
