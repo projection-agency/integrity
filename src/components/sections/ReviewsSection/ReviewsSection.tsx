@@ -29,7 +29,7 @@ export default function ReviewsSection({ block }: { block: ReviewsSection }) {
     return () => {
       window.removeEventListener('resize', handleResize)
     }
-  }, [window.innerWidth])
+  }, [])
 
   const slidesCount = 4
   const slideWidth = windowWidth * 0.4875
