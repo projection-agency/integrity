@@ -6,6 +6,7 @@ import { getPostsWithFilter } from '@/action/getPostsWithFilter'
 import BlogPosts from '@/components/sections/BlogSection/BlogSection'
 import s from './page.module.css'
 import FillForm from '@/components/FillForm/FillForm'
+import GridBackground from '@/components/GridBackground/GridBackground'
 
 export default async function BlogPage({
   searchParams,
@@ -33,6 +34,7 @@ export default async function BlogPage({
           <span>{docs[0].title}</span>
         </div>
         <h1>{docs[0].description}</h1>
+        <GridBackground />
       </div>
       <BlogPosts posts={posts} categories={categories} />
 
