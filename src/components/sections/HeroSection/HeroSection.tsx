@@ -3,6 +3,7 @@
 import s from './HeroSection.module.css'
 import IconHero from '../../icons/IconHero/IconHero'
 import GridBackground from '../../GridBackground/GridBackground'
+import Image from 'next/image'
 
 type HeroBlock = {
   title?: string
@@ -79,10 +80,28 @@ export default function HeroSection({ block }: { block: HeroBlock }) {
         </svg>
 
         <div className={s.iconsWrapper}>
-          <img src="/images/icons/meta.png" className="icon" />
-          <img src="/images/icons/in.png" className="icon" />
-          <img src="/images/icons/adwords.png" className="icon" />
-          <img src="/images/icons/tiktok.png" className="icon" />
+          <Image
+            src="/images/icons/meta.png"
+            className="icon"
+            alt="meta"
+            width={100}
+            height={100}
+          />
+          <Image src="/images/icons/in.png" className="icon" alt="in" width={100} height={100} />
+          <Image
+            src="/images/icons/adwords.png"
+            className="icon"
+            alt="adwords"
+            width={100}
+            height={100}
+          />
+          <Image
+            src="/images/icons/tiktok.png"
+            className="icon"
+            alt="tiktok"
+            width={100}
+            height={100}
+          />
         </div>
       </div>
       <GridBackground />

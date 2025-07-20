@@ -1,6 +1,6 @@
 .section {
   width: 100%;
-  padding: clamp(32px, 5vw, 80px) 0 0 0;
+  padding: 10.42vw 0 5.21vw 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -39,7 +39,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  height: clamp(400px, 60vw, 830px);
 }
 
 .cardsRow {
@@ -125,11 +124,10 @@
 
 /* Додаю відступ для секції з формою */
 .fillFormSection {
-  margin-top: 100px;
+  margin-top: 12.8vw;
   width: 100%;
   display: flex;
   justify-content: center;
-  padding-bottom: 100px;
 }
 
 .arrowContainer .arrowBtn{

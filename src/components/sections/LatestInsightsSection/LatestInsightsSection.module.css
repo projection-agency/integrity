@@ -1,12 +1,11 @@
 .latestInsightsSection {
   width: 100vw;
   max-width: 100vw;
-  min-height: 71.4vw;
   background: #fff;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 3vw;
+  padding: 10.42vw 0;
   box-sizing: border-box;
 }
 .breadcrumbs {
@@ -56,9 +55,9 @@
   width: 91.6vw;
   max-width: 91.6vw;
   display: flex;
-  gap: 1vw;
+  gap: 0.83vw;
   justify-content: center;
-  margin-bottom: 2vw;
+  margin-bottom: 2.76vw;
 }
 .insightCard {
   width: 30vw;
@@ -168,7 +167,7 @@
   align-items: center;
   justify-content: center;
   gap: 0.5vw;
-  margin: 2vw auto 0 auto;
+  margin: 0 auto;
   border: none;
   cursor: pointer;
 }

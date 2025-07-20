@@ -3,10 +3,12 @@
   height: 137.76vw;
   background: var(--black);
   /* display: flex; */
-  justifyent: center;
+  justify-content: center;
   padding-top: 10.42vw;
   padding-bottom: 10.42vw;
   margin: 0 auto;
+  position: relative;
+  overflow: auto;
 }
 
 .workflow-grid {
@@ -16,6 +18,8 @@
   gap: 3.125vw 5.2vw;
   justify-content: center;
   align-items: start;
+  position: relative;
+  z-index: 9;
 }
 
 .workflow-left {
@@ -47,7 +51,6 @@
   border-radius: 1.67vw;
   backdrop-filter: blur(1.04vw);
   background: linear-gradient(141deg, rgba(40, 40, 40, 0.8) 0%, rgba(60, 60, 60, 0.6) 100%);
-  /* box-shadow: 0.104vw -0.104vw 1.04vw 0 rgba(255, 228, 228, 0.2); */
   color: var(--white);
   display: flex;
   flex-direction: column;

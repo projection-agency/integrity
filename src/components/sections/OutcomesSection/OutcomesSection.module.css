@@ -1,20 +1,11 @@
-/* :root {
-  --black: #181818;
-  --white: #fff;
-  --light-gray: #e4e4e4;
-  --yellow: #f5da0a;
-} */
-
 .section {
-  /* width: 107.083vw; 
-  height: 49.74vw;  */
   margin: 0 auto;
-  background: var(--white);
+  background: var(--light-gray);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  /* padding: 10.417vw 0; */
+  padding-bottom: 10.42vw;
 }
 
 .headWrapper {

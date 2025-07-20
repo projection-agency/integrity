@@ -52,7 +52,7 @@ type SectionUnique = {
 
 export default function SectionUnique({ block }: { block: SectionUnique }) {
   return (
-    <section style={{ marginTop: '200px', marginBottom: '200px' }}>
+    <section className={styles.section}>
       <div
         style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: 40 }}
       >

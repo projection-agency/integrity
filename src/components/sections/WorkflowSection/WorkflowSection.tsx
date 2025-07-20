@@ -11,6 +11,7 @@ import {
 } from '@/components/Icon/Icon'
 import TabSection from '@/components/ui/TabSection/TabSection'
 import MainTitle from '@/components/ui/MainTitle/MainTitle'
+import GridBackground from '@/components/GridBackground/GridBackground'
 
 const steps = [
   {
@@ -359,6 +360,7 @@ export default function WorkflowSection({
           )}
         </div>
       </div>
+      <GridBackground />
     </section>
   )
 }
