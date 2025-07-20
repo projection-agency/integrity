@@ -1,12 +1,11 @@
-import { getPayload } from 'payload'
-import config from '@/payload.config'
-
+import React from 'react'
+import { getBlogPageData } from '@/action/getBlogPageData'
 import { getCategories } from '@/action/getCategories'
 import { getPostsWithFilter } from '@/action/getPostsWithFilter'
 import BlogPosts from '@/components/sections/BlogSection/BlogSection'
 import s from './page.module.css'
-import FillForm from '@/components/FillForm/FillForm'
 import GridBackground from '@/components/GridBackground/GridBackground'
+import ExpertSection from '@/components/sections/ExpertSection/ExpertSection'
 
 export default async function BlogPage({
   searchParams,
@@ -16,30 +15,28 @@ export default async function BlogPage({
   params: Promise<{ locale: string }>
 }) {
   const [{ locale }, { category }] = await Promise.all([params, searchParams])
-  const payload = await getPayload({ config })
+  const { page } = await getBlogPageData(locale)
 
-  const { docs } = await payload.find({
-    collection: 'pages',
-    where: { slug: { equals: 'blog' } },
-    locale: locale as 'en',
-  })
   const categoryId = category || 'all'
 
-  const [categories, posts] = await Promise.all([getCategories(), getPostsWithFilter(categoryId)])
+  const [categories, filteredPosts] = await Promise.all([
+    getCategories(),
+    getPostsWithFilter(categoryId),
+  ])
 
   return (
     <div className={s.blog}>
       <div className={s.heroPage}>
         <div className={s.subtitle}>
-          <span>{docs[0].title}</span>
+          <span>{page?.title || 'Blog'}</span>
         </div>
-        <h1>{docs[0].description}</h1>
+        <h1>{page?.description || 'Latest Insights'}</h1>
         <GridBackground />
       </div>
-      <BlogPosts posts={posts} categories={categories} />
+      <BlogPosts posts={filteredPosts} categories={categories} />
 
       <div className={s.fillFormWrapper}>
-        <FillForm />
+        <ExpertSection />
       </div>
     </div>
   )

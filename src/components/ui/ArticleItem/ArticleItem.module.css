@@ -11,6 +11,11 @@
     object-fit: cover;
     border-radius: 1.66vw;
   }
+  .small{
+    .insightCardImage {
+      height: 20vw;
+    }
+  }
   .insightCardBadge {
     position: absolute;
     top: 1vw;

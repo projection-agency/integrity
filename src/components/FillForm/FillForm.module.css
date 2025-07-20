@@ -2,37 +2,14 @@
   background: var(--white);
   border-radius: 1.67vw;
   padding: 5.21vw;
-  width: 52.6vw;
-  height: 30.99vw;
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   gap: 1.25vw;
   align-items: center;
+  justify-content: center;
   position: relative;
-}
-
-.avatarWrapper {
-  position: relative;
-  display: inline-block;
-  width: 6.15vw;
-  height: 6.15vw;
-  margin-bottom: 1.25vw;
-}
-
-.avatar {
-  width: 6.15vw;
-  height: 6.15vw;
-  border-radius: 50%;
-  object-fit: cover;
-  display: block;
-}
-
-.chatIcon {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 2.08vw;
-  height: 2.08vw;
 }
 
 .title {
@@ -60,13 +37,13 @@
 }
 
 .inputGroup {
-  width: 42.19vw;
+  width: 100%;
 }
 
 .row {
   display: flex;
   gap: 1.04vw;
-  width: 42.19vw;
+  width: 100%;
 }
 
 .label {
@@ -85,7 +62,7 @@
   margin-top: 0.42vw;
   width: 100%;
   height: 3.13vw;
-  background: var(--white);
+  background: var(--Light-gray, #F9F9F9);
 }
 
 .phoneInput {
@@ -102,7 +79,7 @@
 }
 
 .submitBtn {
-  width: 42.19vw;
+  width: 100%; 
   height: 3.49vw;
   padding: 0.83vw 2.08vw;
   background: var(--black);
@@ -127,106 +104,6 @@
 .btnIcon {
   width: 1.25vw;
   height: 1.25vw;
-}
-
-.wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 2.08vw;
-}
-
-/* Додаю горизонтальний layout для експерта і форми */
-.rowLayout {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  gap: 2.08vw;
-  width: 100%;
-  justify-content: center;
-}
-
-.expertBlock {
-  background: linear-gradient(135deg, #ffe466, #ffa700);
-  border-radius: 1.67vw;
-  padding: 5.21vw;
-  width: 38.65vw;
-  height: 31.04vw;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  position: relative;
-}
-
-.expertAvatarWrapper {
-  position: relative;
-  width: 11.3vw;
-  height: 6.15vw;
-  /* margin-bottom: 1.25vw; */
-  width: 6.15vw;
-  height: 6.15vw;
-  border-radius: 100%;
-  border: 0.1vw solid #494545;
-  -webkit-backdrop-filter: blur(0.42vw);
-  backdrop-filter: blur(0.42vw);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1;
-  backdrop-filter: blur(3.2800562381744385px);
-  background: linear-gradient(149deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0) 100%);
-}
-
-.expertAvatar {
-  width: 6.15vw;
-  height: 6.15vw;
-  border-radius: 50%;
-  object-fit: cover;
-  position: absolute;
-  left: 5.16vw;
-  top: 0;
-}
-
-.expertChatIcon {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 6.15vw;
-  height: 6.15vw;
-  z-index: 1;
-}
-
-.expertTitle {
-  margin-top: 1.25vw;
-  margin-bottom: 1.25vw;
-  width: 23.07vw;
-  height: 10.1vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
-
-.expertTitleLine {
-  font-family: var(--third-family);
-  font-weight: 900;
-  font-size: 4.17vw;
-  text-transform: uppercase;
-  background: linear-gradient(145deg, #737373 0%, #000 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  line-height: 1;
-}
-
-.expertSubtitle {
-  font-family: var(--font-family);
-  font-weight: 700;
-  font-size: 0.83vw;
-  line-height: 140%;
-  letter-spacing: -0.02em;
-  color: var(--black-600);
-  width: 19.69vw;
-  margin-top: 0.83vw;
 }
 
 .phoneInputWrapper {
@@ -324,50 +201,4 @@
   font-size: 1.67vw;
   color: #181818;
   margin-left: 0.42vw;
-}
-
-.avatarIconsGroup {
-  position: relative;
-  width: 11.3vw;
-  height: 6.15vw;
-  display: flex;
-  align-items: center;
-}
-.expertChatIcon {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 6.15vw;
-  height: 6.15vw;
-  z-index: 1;
-  /* width: 2.08vw; */
-  height: 2.08vw;
-  background: none;
-  border-radius: 0;
-  box-shadow: none;
-  padding: 0;
-  position: static;
-  left: auto;
-  top: auto;
-  transform: none;
-}
-.expertAvatar {
-  position: absolute;
-  left: 5.16vw;
-  top: 0;
-  width: 6.15vw;
-  height: 6.15vw;
-  border-radius: 50%;
-  object-fit: cover;
-  z-index: 2;
-}
-.order {
-  font-family: var(--font-family);
-  font-weight: 800;
-  font-size: 16px;
-  color: var(--white);
-}
-.expertCard {
-  width: 28.23vw;
-  height: 20.63vw;
 }

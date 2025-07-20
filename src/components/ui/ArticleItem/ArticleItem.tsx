@@ -11,9 +11,21 @@ function formatDate(isoDate: string) {
   return `${day}.${month}.${year}`
 }
 
-export default function ArticleItem({ post, idx }: { post: any; idx: number }) {
+export default function ArticleItem({
+  post,
+  idx,
+  style,
+}: {
+  post: any
+  idx: number
+  style?: 'small'
+}) {
   return (
-    <Link href={`/blog/${post.slug}`} className={s.insightCard} key={idx}>
+    <Link
+      href={`/blog/${post.slug}`}
+      className={`${s.insightCard} ${style === 'small' ? s.small : ''}`}
+      key={idx}
+    >
       <Image
         className={s.insightCardImage}
         src={post.featuredImage.url}
