@@ -190,7 +190,7 @@
   margin: 0 !important;
 }
 
-.movingLine {
+/* .movingLine {
   position: absolute;
   top: 50%;
   left: 0;
@@ -202,4 +202,4 @@
   transition: transform 0.3s;
   z-index: 1;
   opacity: 1;
-}
+} */

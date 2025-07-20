@@ -37,14 +37,14 @@ export default function SliderNav({
               <span key={idx} className={s.sliderDot} onClick={() => onDotClick(idx)}></span>
             ),
           )}
-          <div
+          {/* <div
             className={s.movingLine}
             style={
               {
                 '--line-x': `calc(${activeIndex} * 2.2vw)`,
               } as React.CSSProperties
             }
-          />
+          /> */}
         </div>
       </div>
       <button className={s.arrowBtn} onClick={onNext} aria-label="Next slide">
