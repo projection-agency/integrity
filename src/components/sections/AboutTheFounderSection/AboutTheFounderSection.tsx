@@ -11,7 +11,7 @@ type AboutTheFounderSection = {
 
 const AboutTheFounderSection = ({ block }: { block: AboutTheFounderSection }) => {
   return (
-    <section className={s.section}>
+    <section className={s.section} id="about">
       <TabSection style="gray" text={block.subtitle} />
       <MainTitle title={block.title} />
       <div className={s.contentContainer}>
@@ -85,7 +85,6 @@ const AboutTheFounderSection = ({ block }: { block: AboutTheFounderSection }) =>
     </section>
   )
 }
-
 export default AboutTheFounderSection
 
 const spendBg = (

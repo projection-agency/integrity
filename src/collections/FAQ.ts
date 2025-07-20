@@ -3,11 +3,11 @@ import type { CollectionConfig } from 'payload'
 export const FAQ: CollectionConfig = {
   slug: 'faq',
   admin: {
-    useAsTitle: 'question',
+    useAsTitle: 'title',
   },
   fields: [
     {
-      name: 'question',
+      name: 'title',
       type: 'text',
       required: true,
       localized: true,
@@ -16,7 +16,7 @@ export const FAQ: CollectionConfig = {
       },
     },
     {
-      name: 'answer',
+      name: 'content',
       type: 'text',
       required: true,
       localized: true,

@@ -2,13 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 import s from './Header.module.css'
 import LocaleSwitcher from './LocaleSwitcher'
-
-// Додаємо тип для пункту меню
-export type MenuItem = {
-  label: string
-  link: string
-  id?: string
-}
+import NavList, { MenuItem } from './NavList'
 
 const phone = (
   <svg
@@ -50,15 +44,7 @@ export default function Header({
       <Link className={s.logoHeader} href="/">
         <div dangerouslySetInnerHTML={{ __html: logo || '' }} />
       </Link>
-      <nav className={s.navList}>
-        <ul>
-          {menu.map((item) => (
-            <li key={item.id || item.link}>
-              <a href={item.link}>{item.label}</a>
-            </li>
-          ))}
-        </ul>
-      </nav>
+      <NavList menu={menu} />
       <div className={s.left}>
         <LocaleSwitcher />
         <button className={s.btn}>

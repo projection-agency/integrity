@@ -52,6 +52,8 @@ body {
   color: #000;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* Додаємо плавний скрол для всього сайту */
+  scroll-behavior: smooth;
 }
 
 /* Images & media responsive by default */
@@ -102,4 +104,15 @@ q::before,
 q::after {
   content: '';
   content: none;
+}
+
+/* Налаштування для секцій з ID для кращого скролу */
+section[id],
+div[id] {
+  scroll-margin-top: 100px; /* Компенсуємо фіксований хедер */
+}
+
+/* Плавний скрол для всіх елементів */
+html {
+  scroll-behavior: smooth;
 }

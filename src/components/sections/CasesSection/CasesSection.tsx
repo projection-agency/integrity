@@ -6,7 +6,6 @@ import { useState, useEffect, useRef } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination } from 'swiper/modules'
 import CaseItem from '@/components/CaseItem/CaseItem'
-import { CasesBlock } from '@/blocks/CasesBlock'
 
 export interface CaseItemType {
   case_title: string
@@ -43,11 +42,11 @@ export default function CasesSection({ block }: { block: CasesBlockData }) {
   }, [block.case])
 
   return (
-    <div className={s.section}>
+    <div className={s.section} id="cases">
       <div className={s.headWrapper}>
-        <TabSection style="gray" text="Case studies" />
+        <TabSection style="gray" text={block.subtitle} />
         <div className={s.wrapHeading}>
-          <MainTitle title="Marketing [[in Action]]" />
+          <MainTitle title={block.title} />
           <div className={s.count}>
             <span>(07)</span>
           </div>
