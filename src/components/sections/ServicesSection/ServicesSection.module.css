@@ -4,31 +4,30 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: #F9F9F9;
+  background: #f9f9f9;
 }
 
 .headWrapper {
   width: 100%;
   max-width: 100vw;
-  margin: 0 auto clamp(24px, 4vw, 40px) auto;
+  margin: 0 auto clamp(1.25vw, 4vw, 2.08vw) auto;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-
 .wrapHeading {
   display: flex;
   align-items: flex-end;
-  gap: clamp(8px, 2vw, 16px);
-  margin-top: clamp(8px, 2vw, 16px);
+  gap: clamp(0.42vw, 2vw, 0.83vw);
+  margin-top: clamp(0.42vw, 2vw, 0.83vw);
 }
 
 .count {
-  font-size: clamp(16px, 2vw, 24px);
+  font-size: clamp(0.83vw, 2vw, 1.25vw);
   font-weight: 700;
   color: #ffe066;
-  margin-left: clamp(4px, 1vw, 8px);
+  margin-left: clamp(0.21vw, 1vw, 0.42vw);
 }
 .services {
   max-width: 100vw;
@@ -43,12 +42,12 @@
 
 .cardsRow {
   display: flex;
-  gap: clamp(8px, 2vw, 32px);
+  gap: clamp(0.42vw, 2vw, 1.66vw);
   justify-content: center;
-  margin-bottom: clamp(16px, 4vw, 40px);
+  margin-bottom: clamp(0.83vw, 4vw, 2.08vw);
 }
 
-.heroServices{
+.heroServices {
   width: 100%;
 }
 
@@ -83,7 +82,7 @@
   background-position: center;
   background-repeat: no-repeat;
 
-  svg{
+  svg {
     width: 2.7vw;
   }
 }
@@ -118,23 +117,23 @@
   gap: 1.66vw;
   align-self: stretch;
   border-radius: 0.83vw;
-  background: #FFF;
+  background: #fff;
   margin: 0 auto;
 }
 
 /* Додаю відступ для секції з формою */
 .fillFormSection {
-  margin-top: 12.8vw;
+  margin-top: 6.67vw;
   width: 100%;
   display: flex;
   justify-content: center;
 }
 
-.arrowContainer .arrowBtn{
-  width: 8.5vw;
-  height: 2.9vw;
-  border-radius: 0.83vw;
-  background: #F9F9F9;
+.arrowContainer .arrowBtn {
+  width: 8.55vw;
+  height: 3vw;
+  border-radius: 0.43vw;
+  background: #f9f9f9;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -142,8 +141,8 @@
 
 .sliderIndicators {
   position: relative;
-  width: 168px;
-  height: 6px;
+  width: 8.75vw;
+  height: 0.31vw;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -151,25 +150,25 @@
 
 .sliderActive {
   position: absolute;
-  left: 60px;
+  left: 3.13vw;
   top: 0;
   z-index: 2;
 }
 
 .circleSlider {
-  width: 120px;
-  height: 120px;
+  width: 6.25vw;
+  height: 6.25vw;
   background: #e4e4e4;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.07);
-  margin: 0 8px;
+  box-shadow: 0 0.1vw 0.83vw rgba(0, 0, 0, 0.07);
+  margin: 0 0.42vw;
 }
 
 .circleSlider img {
-  height: 16px;
+  height: 0.83vw;
 }
 
 .sliderDotsRow {
@@ -192,7 +191,7 @@
   width: 0.31vw;
   height: 0.31vw;
   z-index: 1;
-  background: #E4E4E4;
+  background: #e4e4e4;
   border-radius: 50%;
   margin: 0 !important;
 }
@@ -201,26 +200,22 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 40px;
+  margin-bottom: 2.08vw;
 }
 
 .sliderWindow {
-  /* width: 100%; */
-  width: 1860px;
-
+  width: 96.88vw;
   max-width: 100%;
-  margin: 0 auto 40px auto;
+  margin: 0 auto 2.08vw auto;
   overflow: visible;
 }
 
 .swiper-wrapper {
   display: flex;
-  gap: 8px;
+  gap: 0.42vw;
 }
 
 .swiper-slide {
-  /* width: 420px !important;
-  height: 470px !important; */
   transition:
     width 0.4s,
     height 0.4s,
@@ -230,19 +225,15 @@
 
 .swiper-slide-next,
 .swiper-slide-prev {
-  /* width: 520px !important;
-  height: 581px !important; */
   z-index: 2;
 }
 .swiper-slide-active {
-  /* width: 573px !important;
-  height: 652px !important; */
   z-index: 3;
 }
 .swiper-slide-next + .swiper-slide,
 .swiper-slide-prev + .swiper-slide {
   opacity: 0.3;
-  filter: blur(2px);
+  filter: blur(0.1vw);
   z-index: 1;
   transition:
     opacity 0.4s,
@@ -252,11 +243,11 @@
 .sliderTrack {
   display: flex;
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  gap: 32px;
+  gap: 1.66vw;
 }
 
 .sliderNavWrapper {
-  margin-top: 24px;
+  margin-top: 1.25vw;
 }
 
 /* Додаю стилі для затемнення крайніх карток */
@@ -264,7 +255,7 @@
   transform: scale(0.5);
   opacity: 0.7;
   z-index: 2;
-  filter: blur(2px);
+  filter: blur(0.1vw);
   transition:
     transform 0.4s,
     opacity 0.4s,
@@ -282,7 +273,7 @@
 }
 .sideSideSlide .serviceCard {
   opacity: 0.3;
-  filter: blur(2px);
+  filter: blur(0.1vw);
   transition:
     opacity 0.4s,
     filter 0.4s;
@@ -302,17 +293,17 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 12px;
-  margin-bottom: 32px;
+  gap: 0.63vw;
+  margin-bottom: 1.67vw;
   position: static;
 }
 .swiper-pagination-bullet {
-  width: 16px;
-  height: 16px;
+  width: 0.83vw;
+  height: 0.83vw;
   background: #e4e4e4;
   border-radius: 50%;
   opacity: 1;
-  margin: 0 6px !important;
+  margin: 0 0.31vw !important;
   transition:
     background 0.2s,
     width 0.2s,
@@ -320,16 +311,16 @@
     border-radius 0.2s;
 }
 .swiper-pagination-bullet-active {
-  width: 36px;
-  height: 6px;
+  width: 1.88vw;
+  height: 0.31vw;
   border-radius: 166px;
   background: #222;
 }
 
 .lastSlide .serviceCard {
   opacity: 0.3;
-  filter: blur(2px);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  filter: blur(0.1vw);
+  box-shadow: 0 0.42vw 1.67vw rgba(0, 0, 0, 0.15);
   transition:
     opacity 0.4s,
     filter 0.4s,
@@ -348,37 +339,33 @@
   .cardsRow {
     flex-direction: column;
     align-items: center;
-    gap: 16px;
+    gap: 0.83vw;
   }
   .serviceCard {
     width: 90vw;
-    max-width: 500px;
+    max-width: 26.04vw;
     height: auto;
   }
 }
 
- .wrapHeading{
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    gap: 0.63vw;
+.wrapHeading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 0.63vw;
 
-    .count{
-        color: #F5DA0A;
-        font-family: "Inter Tight";
-        font-size: 2.08333vw;
-        font-style: italic;
-        font-weight: 900;
-        line-height: 100%; 
-        text-transform: uppercase;
-        margin-bottom: 2.04vw;
-    }
+  .count {
+    color: #f5da0a;
+    font-family: 'Inter Tight';
+    font-size: 2.08333vw;
+    font-style: italic;
+    font-weight: 900;
+    line-height: 100%;
+    text-transform: uppercase;
+    margin-bottom: 2.04vw;
+  }
 }
 
-
-
-
-
-.services :global(.swiper-slide){
+.services :global(.swiper-slide) {
   height: auto !important;
 }
