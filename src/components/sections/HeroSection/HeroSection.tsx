@@ -20,7 +20,7 @@ export default function HeroSection({ block }: { block: HeroBlock }) {
 
   const parts = block.title?.split(/(\{icon\})/g) || []
   return (
-    <div className={s.section}>
+    <div className={s.section} id="main">
       <div className={s.heroWrap}>
         <div className={s.subtitle}>
           <span>{block.subtitle}</span>

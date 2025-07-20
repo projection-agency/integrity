@@ -31,7 +31,7 @@ export default async function LocaleLayout({
     notFound()
   }
 
-  const { main, headerMenu } = await getLayoutData()
+  const { main, headerMenu } = await getLayoutData(locale)
 
   return (
     <html lang={locale} className={interTight.className}>

@@ -39,7 +39,7 @@ export default function ServicesSection({ block }: { block: ServicesBlock }) {
   const services = block.service ?? []
 
   return (
-    <div className={s.section}>
+    <div className={s.section} id="services">
       <div className={s.contentContainer}>
         <div className={s.headWrapper}>
           <TabSection style="white" text={block.subtitle || ''} />

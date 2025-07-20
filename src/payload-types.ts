@@ -509,8 +509,8 @@ export interface Page {
  */
 export interface Faq {
   id: string;
-  question: string;
-  answer: string;
+  title: string;
+  content: string;
   updatedAt: string;
   createdAt: string;
 }
@@ -951,8 +951,8 @@ export interface PagesSelect<T extends boolean = true> {
  * via the `definition` "faq_select".
  */
 export interface FaqSelect<T extends boolean = true> {
-  question?: T;
-  answer?: T;
+  title?: T;
+  content?: T;
   updatedAt?: T;
   createdAt?: T;
 }
