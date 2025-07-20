@@ -38,6 +38,7 @@
           text-transform: uppercase;
           color: rgba(34, 34, 34, 1);
           text-align: left;
+          width: 70%;
         }
 
         button {

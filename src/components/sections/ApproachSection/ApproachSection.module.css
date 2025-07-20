@@ -111,12 +111,13 @@
           display: inline-flex;
           justify-content: center;
           align-items: center;
-          height: 3.33vw;
+          height: 2.92vw;
+          max-width: 2.92vw;
           transform: translateY(0.5vw);
 
-          img {
-            width: 3.33vw;
-            height: 3.33vw;
+          svg {
+            width: 2.92vw;
+            height: 2.92vw;
           }
         }
       }
@@ -138,7 +139,7 @@
         margin-left: auto;
         margin-right: auto;
 
-        font-size: 0.83v;
+        font-size: 0.83vw;
         font-style: normal;
         font-weight: 700;
         line-height: 1.4;

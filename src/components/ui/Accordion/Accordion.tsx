@@ -1,18 +1,19 @@
 'use client'
 
 import { Accordion, AccordionItem } from '@szhsin/react-accordion'
+import { RichText } from '@payloadcms/richtext-lexical/react'
 import s from './Accordion.module.css'
 
 export default function ClientAccordion({ items }: { items: any[] }) {
   return (
     <>
-      {items.map((faq) => (
-        <Accordion className={s.accordion} key={faq.id}>
+      {items.map((item) => (
+        <Accordion className={s.accordion} key={item.id}>
           <AccordionItem
             className={s.accordionItem}
             header={
               <div className={s.itemHeader}>
-                <p className={s.question}>{faq.question}</p>
+                <p className={s.question}>{item.title}</p>
                 <button>
                   <span>{accordionArrow}</span>
                 </button>
@@ -24,7 +25,11 @@ export default function ClientAccordion({ items }: { items: any[] }) {
             contentProps={{ className: s.itemContent }}
             panelProps={{ className: s.itemPanel }}
           >
-            <div dangerouslySetInnerHTML={{ __html: faq.answer }} />
+            {typeof item.content === 'object' && item.content ? (
+              <RichText data={item.content} />
+            ) : (
+              <div dangerouslySetInnerHTML={{ __html: item.content || '' }} />
+            )}
           </AccordionItem>
         </Accordion>
       ))}

@@ -83,7 +83,8 @@ export default function Footer() {
       <div className={s.topBlock}>
         <div className={s.slogan}>
           <p>
-            Smart digital <IconHero containerClass={s.logoContainer} iconClass={s.logo} /> marketing
+            Smart digital{' '}
+            <IconHero style="small" containerClass={s.logoContainer} iconClass={s.logo} /> marketing
             that drives growth
           </p>
         </div>

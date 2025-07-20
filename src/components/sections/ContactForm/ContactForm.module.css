@@ -3,13 +3,36 @@
   border-radius: 1.67vw;
   padding: 5.21vw;
   width: 100%;
-  height: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 1.25vw;
   align-items: center;
-  justify-content: center;
   position: relative;
+}
+
+.avatarWrapper {
+  position: relative;
+  display: inline-block;
+  width: 6.15vw;
+  height: 6.15vw;
+  margin-bottom: 1.25vw;
+}
+
+.avatar {
+  width: 6.15vw;
+  height: 6.15vw;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+
+.chatIcon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 2.08vw;
+  height: 2.08vw;
 }
 
 .title {
@@ -55,28 +78,14 @@
 }
 
 .input {
-  /* padding: 1.25vw;
+  padding: 1.25vw;
   border-radius: 0.83vw;
   border: 1px solid var(--black-100);
   font-size: 0.83vw;
   margin-top: 0.42vw;
   width: 100%;
   height: 3.13vw;
-  background: var(--light-gray); */
-  width: 100%;
-  margin-bottom: 1.04vw;
-  padding: 1.25vw;
-  border-radius: 0.83vw;
-  background-color: rgba(249, 249, 249, 1);
-  font-size: 0.73vw;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 1;
-
-/*   ------ main-----
-  background: var(--Light-gray, #F9F9F9);
-   ------ main----- */
-
+  background: var(--white);
 }
 
 .phoneInput {
@@ -93,7 +102,7 @@
 }
 
 .submitBtn {
-  width: 100%; 
+  width: 100%;
   height: 3.49vw;
   padding: 0.83vw 2.08vw;
   background: var(--black);
@@ -120,7 +129,6 @@
   height: 1.25vw;
 }
 
-
 .wrapper {
   display: flex;
   flex-direction: column;
@@ -130,24 +138,26 @@
 
 /* Додаю горизонтальний layout для експерта і форми */
 .rowLayout {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: minmax(1vw, 45.5vw) minmax(1vw, 1fr);
   align-items: flex-start;
-  gap: 0.42vw;
   width: 100%;
   justify-content: center;
+  padding-bottom: 5.18vw;
 }
 
 .expertBlock {
-  background: linear-gradient(135deg, #ffe466, #ffa700);
+  background: linear-gradient(139deg, rgba(255, 255, 255, 0.12) 10.53%, rgba(41, 41, 41, 0.2) 82.16%);
+  backdrop-filter: blur(2px);
   border-radius: 1.67vw;
-  padding: 5.21vw;
-  width: 38.65vw;
-  height: 31.04vw;
+  padding: 4.16vw;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  gap: 2.9vw;
   position: relative;
+  justify-content: space-between;
+  height: max-content;
 }
 
 .expertAvatarWrapper {
@@ -166,7 +176,7 @@
   justify-content: center;
   z-index: 1;
   backdrop-filter: blur(3.2800562381744385px);
-  background: linear-gradient(149deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0) 100%);
+  background: linear-gradient(169deg, rgba(255, 255, 255, 0.16) -6.56%, rgba(255, 255, 255, 0.00) 112.07%);
 }
 
 .expertAvatar {
@@ -186,39 +196,6 @@
   width: 6.15vw;
   height: 6.15vw;
   z-index: 1;
-}
-
-.expertTitle {
-  margin-top: 1.25vw;
-  margin-bottom: 1.25vw;
-  width: 23.07vw;
-  height: 10.1vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-}
-
-.expertTitleLine {
-  font-family: var(--third-family);
-  font-weight: 900;
-  font-size: 4.17vw;
-  text-transform: uppercase;
-  background: linear-gradient(145deg, #737373 0%, #000 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  line-height: 1;
-}
-
-.expertSubtitle {
-  font-family: var(--font-family);
-  font-weight: 700;
-  font-size: 0.83vw;
-  line-height: 140%;
-  letter-spacing: -0.02em;
-  color: var(--black-600);
-  width: 19.69vw;
-  margin-top: 0.83vw;
 }
 
 
@@ -319,7 +296,6 @@
   margin-left: 0.42vw;
 }
 
-
 .avatarIconsGroup {
   position: relative;
   width: 11.3vw;
@@ -361,41 +337,84 @@
   font-size: 16px;
   color: var(--white);
 }
-.expertCard {
-  width: 28.23vw;
-  height: 20.63vw;
-}
 
-.required {
-  width: max-content;
-  position: relative;
-  margin-bottom: 0.63vw;
-  font-size: 0.83vw;
-  font-style: italic;
-  font-weight: 800;
-  line-height: 1;
-  color: rgba(34, 34, 34, 1);
-}
 
-.required::after {
-  content: '*';
-  position: absolute;
-  top: 0;
-  right: -0.5vw;
-  color: rgba(255, 228, 20, 1);
-}
+.contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 2.9vw;
 
-.numberInput {
-  height: 2.5vw;
-}
-.form {
-  padding: 3.13vw;
-  width: 52.6vw;
-  background-color: #ffffff;
-  border-radius: 1.67vw;
+  .contactItems{
+    display: flex;
+    flex-direction: column;
+    gap: 2.08vw;
+  }
+  .contactItem {
+    display: flex;
+    span {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 1.67vw;
+      height: 1.67vw;
+      border-radius: 50%;
+      background-color: linear-gradient(
+        141deg,
+        rgba(255, 255, 255, 0.12) 8.87%,
+        rgba(41, 41, 41, 0.12) 93.36%
+      );
 
-  label {
-    position: relative;
+      svg {
+        width: 0.83vw;
+        height: 0.83vw;
+      }
+    }
+
+    .contactInfo {
+      p {
+        margin-bottom: 0.26vw;
+        font-size: 0.83vw;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 1.2;
+
+        color: rgba(181, 181, 181, 1);
+      }
+
+      a {
+        font-size: 1.25vw;
+        font-style: italic;
+        font-weight: 800;
+        line-height: 1.2;
+        text-transform: uppercase;
+        color: #ffffff;
+      }
+    }
+  }
+
+  .socialsList {
+    margin-top: auto;
+    display: flex;
+    gap: 0.83vw;
+
+    li {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 5.21vw;
+      height: 5.21vw;
+      border-radius: 1.3vw;
+      border: 0.05vw solid #fff;
+      background: linear-gradient(
+        141deg,
+        rgba(255, 255, 255, 0.12) 8.87%,
+        rgba(41, 41, 41, 0.12) 93.36%
+      );
+
+      svg {
+        width: 1.98vw;
+        height: 1.98vw;
+      }
+    }
   }
 }
-

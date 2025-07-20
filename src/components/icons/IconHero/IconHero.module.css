@@ -23,4 +23,10 @@
         backdrop-filter: blur(3px);
         margin-left: 4.8vw;
     }
+    
+}
+.small{
+    .icon{
+        margin-left: 3.9vw;
+    }
 }

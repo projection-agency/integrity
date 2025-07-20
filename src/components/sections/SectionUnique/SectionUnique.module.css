@@ -1,21 +1,18 @@
+.section {
+  padding: 10.41vw 0;
+}
+
 .sectionUnique {
   width: 100%;
-  max-width: 75vw;
+  max-width: 91.66vw;
   margin: 0 auto;
-  /* padding: 5.21vw 0 0 0; */
   display: flex;
   flex-direction: row;
   align-items: flex-start;
   justify-content: flex-start;
   background: var(--white);
-  /* gap: 6.77vw; */
   gap: 8.2vw;
   justify-content: center;
-  @media (max-width: 900px) {
-    flex-direction: column;
-    padding: 40px 0 0 0;
-    gap: 24px;
-  }
 }
 
 .sectionUniqueSide {
@@ -185,19 +182,10 @@
 
 .sectionUniqueGrid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  /* gap: 2.08vw;  */
+  grid-template-columns: repeat(3, minmax(10px, 1fr));
   gap: 0.4vw;
   width: 100%;
   max-width: 100%;
-  @media (max-width: 1200px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  @media (max-width: 900px) {
-    grid-template-columns: 1fr;
-    gap: 20px;
-    width: 100%;
-  }
 }
 .sectionUniqueCard {
   /* display: flex;
@@ -205,18 +193,28 @@
   align-items: flex-start;
   border-radius: 1.67vw; /* 32px/1920px */
   padding: 2.08vw; /* 40px/1920px */
+/* -------fix-section-elements------ */
   width: 20vw;
   height: 23.02vw;
   background: var(--light-gray);
   backdrop-filter: blur(0.42vw); /* 8px/1920px */
   transition: box-shadow 0.2s;
   box-shadow: 0 0.1vw 0.42vw rgba(34, 34, 34, 0.04); /* 2px 8px/1920px */
+  /* -------fix-section-elements------ */
   /* justify-content: space-evenly; */
   /* &:hover {
     box-shadow: 0 8px 32px rgba(34, 34, 34, 0.08);
     backdrop-filter: blur(8px);
     background: var(--light-gray);
   } */
+/* -----------main------------- */
+/*   height: 23.02vw; 
+  background: var(--light-gray);
+  backdrop-filter: blur(0.42vw);
+  transition: box-shadow 0.2s;
+  justify-content: space-evenly; */
+/* -----------main------------- */
+ 
   @media (max-width: 900px) {
     width: 100%;
     height: auto;

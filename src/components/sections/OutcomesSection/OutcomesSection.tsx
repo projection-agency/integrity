@@ -19,7 +19,7 @@ import {
   Group6Icon,
 } from '../../Icon/Icon'
 import SliderNav from './SliderNav'
-import FillForm from '@/components/FillForm/FillForm'
+import ExpertSection from '@/components/sections/ExpertSection/ExpertSection'
 import TabSection from '@/components/ui/TabSection/TabSection'
 import MainTitle from '@/components/ui/MainTitle/MainTitle'
 
@@ -186,7 +186,7 @@ export default function OutcomesSection({ block }: { block: any }) {
           onPrev={() => swiperRef.current?.slidePrev()}
           onNext={() => swiperRef.current?.slideNext()}
         /> */}
-        <FillForm />
+        <ExpertSection />
       </div>
     </section>
   )

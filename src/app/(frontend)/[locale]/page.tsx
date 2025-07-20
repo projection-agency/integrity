@@ -31,6 +31,7 @@ const BLOCK_COMPONENTS = {
   'expertise-block': IndustriesSection,
   'services-block': ServicesSection,
   'form-block': FormSection,
+  'workflow-block': WorkflowSection,
   'about-founder-block': AboutTheFounderSection,
   'our-team-block': ApproachSection,
   'reviews-block': ReviewsSection,
@@ -76,7 +77,6 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
 
         return <BlockComponent key={block.id || i} block={block} locale={locale} />
       })}
-      <WorkflowSection />
     </div>
   )
 }

@@ -13,7 +13,7 @@ import 'swiper/css/pagination'
 import 'swiper/css/navigation'
 import { EffectCoverflow, Pagination, Navigation } from 'swiper/modules'
 import { useRef, useState, useEffect } from 'react'
-import FillForm from '@/components/FillForm/FillForm'
+import ExpertSection from '@/components/sections/ExpertSection/ExpertSection'
 import { ServicesBlock } from '@/blocks/ServicesBlock'
 
 type ServicesBlock = {
@@ -152,7 +152,7 @@ export default function ServicesSection({ block }: { block: ServicesBlock }) {
           </div>
         </div>
         <div className={s.fillFormSection}>
-          <FillForm />
+          <ExpertSection />
         </div>
       </div>
     </div>

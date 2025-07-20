@@ -28,11 +28,13 @@
         display: inline-flex;
         transform: none;
         width: max-content;
+        height: 3.75vw;
         background-color: rgba(34, 34, 34, 1);
+        transform: translateY(0.2vw);
 
         .logo {
-          width: 4.17vw;
-          height: 4.17vw;
+          width: 3.125vw;
+          height: 3.125vw;
           fill: rgba(255, 228, 20, 1);
           background-color: rgba(34, 34, 34, 1);
         }

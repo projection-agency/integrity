@@ -454,6 +454,42 @@ export interface Page {
             blockName?: string | null;
             blockType: 'order-call-extend-block';
           }
+        | {
+            enabled?: boolean | null;
+            subtitle: string;
+            title: string;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'hero-contacts';
+          }
+        | {
+            enabled?: boolean | null;
+            data?: string | null;
+            items?:
+              | {
+                  title: string;
+                  content: {
+                    root: {
+                      type: string;
+                      children: {
+                        type: string;
+                        version: number;
+                        [k: string]: unknown;
+                      }[];
+                      direction: ('ltr' | 'rtl') | null;
+                      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                      indent: number;
+                      version: number;
+                    };
+                    [k: string]: unknown;
+                  };
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'accordion-block';
+          }
       )[]
     | null;
   meta?: {
@@ -872,6 +908,30 @@ export interface PagesSelect<T extends boolean = true> {
           | T
           | {
               enabled?: T;
+              id?: T;
+              blockName?: T;
+            };
+        'hero-contacts'?:
+          | T
+          | {
+              enabled?: T;
+              subtitle?: T;
+              title?: T;
+              id?: T;
+              blockName?: T;
+            };
+        'accordion-block'?:
+          | T
+          | {
+              enabled?: T;
+              data?: T;
+              items?:
+                | T
+                | {
+                    title?: T;
+                    content?: T;
+                    id?: T;
+                  };
               id?: T;
               blockName?: T;
             };
