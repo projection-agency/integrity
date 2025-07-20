@@ -8,7 +8,16 @@ import 'swiper/css/effect-coverflow'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
 import { EffectCoverflow, Pagination, Navigation } from 'swiper/modules'
-import { GlobeIcon, ChartIcon, AnalyticsIcon, GroupIcon } from '../../Icon/Icon'
+import {
+  GlobeIcon,
+  ChartIcon,
+  AnalyticsIcon,
+  GroupIcon,
+  Globe2Icon,
+  Chart2Icon,
+  Analytics2Icon,
+  Group6Icon,
+} from '../../Icon/Icon'
 import SliderNav from './SliderNav'
 import FillForm from '@/components/FillForm/FillForm'
 import TabSection from '@/components/ui/TabSection/TabSection'
@@ -17,22 +26,22 @@ import MainTitle from '@/components/ui/MainTitle/MainTitle'
 const outcomes = [
   {
     number: '01',
-    icon: <GlobeIcon />,
+    icon: <Globe2Icon />,
     title: 'MORE CLARITY METRICS DECISIONS',
   },
   {
     number: '02',
-    icon: <ChartIcon />,
+    icon: <Chart2Icon />,
     title: 'STRUCTURE THAT REDUCES WASTE AND GUESSWORK',
   },
   {
     number: '03',
-    icon: <AnalyticsIcon />,
+    icon: <Analytics2Icon />,
     title: 'SMARTER CAMPAIGNS ALIGNED WITH REAL BUSINESS GOALS',
   },
   {
     number: '04',
-    icon: <GroupIcon />,
+    icon: <Group6Icon />,
     title: 'BETTER ROI THROUGH CONTINUOUS TESTING',
   },
   {
@@ -127,10 +136,19 @@ export default function OutcomesSection({ block }: { block: any }) {
                 style={{ width: '29.999vw', height: '26.719vw', marginRight: '2vw' }}
               >
                 <div className={s.card}>
-                  <div className={s.cardNumber}>{item.number}</div>
-                  <div className={s.cardIcon}>{item.icon}</div>
+                  <div className={s.cardNumberBlock}>
+                    <div className={s.cardNumber}>{item.number}</div>
+                    <div className={s.cardBlock}>
+                      <div className={s.cardIconcBlock}>
+                        <div className={s.cardIcon}>{item.icon}</div>
+                      </div>
+                    </div>
+                  </div>
+
                   <div className={s.cardTextBlock}>
-                    <div className={s.cardTitle}>{item.title}</div>
+                    <div className={s.cardTitle}>
+                      <p className={s.cardTitleText}>{item.title}</p>
+                    </div>
                   </div>
                 </div>
               </SwiperSlide>
@@ -138,8 +156,11 @@ export default function OutcomesSection({ block }: { block: any }) {
           </Swiper>
         </div>
         <SliderNav
+          activeIndex={swiperIndex}
+          dots={outcomes.length}
           onPrev={() => swiperRef.current?.slidePrev()}
           onNext={() => swiperRef.current?.slideNext()}
+          onDotClick={(idx) => swiperRef.current?.slideToLoop(idx)}
         />
         {/* <div className={s.sliderDotsRow}>
           {outcomes.map((_, idx) =>

@@ -19,27 +19,32 @@ const cards = [
     description: 'Every action supports the strategy and drives measurable progress',
   },
   {
-    icon: <ChartIcon className={styles.cardIcon} />,
+    // icon: <ChartIcon className={styles.cardIcon} />,
+    icon: <GlobeIcon className={styles.cardIcon} />,
     title: 'DATA-FIRST APPROACH',
     description: 'Decisions are based on numbers, not gut feeling',
   },
   {
-    icon: <DocumentIcon className={styles.cardIcon} />,
+    // icon: <DocumentIcon className={styles.cardIcon} />,
+    icon: <ChartIcon className={styles.cardIcon} />,
     title: 'BUILT-IN CLARITY',
     description: 'Every step is structured and transparent',
   },
   {
-    icon: <GlobeIcon className={styles.cardIcon} />,
+    // icon: <GlobeIcon className={styles.cardIcon} />,
+    icon: <ChartBarIcon className={styles.cardIcon} />,
     title: 'TRUE PARTNERSHIP',
     description: 'We don’t take on projects unless we believe we can create real value',
   },
   {
-    icon: <AnalyticsIcon className={styles.cardIcon} />,
+    icon: <DocumentIcon className={styles.cardIcon} />,
+    // icon: <AnalyticsIcon className={styles.cardIcon} />,
     title: 'EXPERIENCE IN TIER-1 MARKETS',
     description: 'Years of hands-on work across leading global markets',
   },
   {
-    icon: <ChartBarIcon className={styles.cardIcon} />,
+    // icon: <ChartBarIcon className={styles.cardIcon} />,
+    icon: <AnalyticsIcon className={styles.cardIcon} />,
     title: 'LONG-TERM MINDSET',
     description: 'No short bursts. We create systems designed to grow, scale, and last',
   },
@@ -83,8 +88,10 @@ export default function SectionUnique({ block }: { block: SectionUnique }) {
             {cards.map((card, idx) => (
               <div className={styles.sectionUniqueCard} key={idx}>
                 <div className={styles.cardIcon}>{card.icon}</div>
-                <div className={styles.cardTitle}>{card.title}</div>
-                <div className={styles.cardDescription}>{card.description}</div>
+                <div className={styles.cardBlok}>
+                  <div className={styles.cardTitle}>{card.title}</div>
+                  <div className={styles.cardDescription}>{card.description}</div>
+                </div>
               </div>
             ))}
           </div>

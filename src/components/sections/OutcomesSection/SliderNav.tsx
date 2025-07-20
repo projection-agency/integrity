@@ -3,11 +3,17 @@ import s from './SliderNav.module.css'
 import Image from 'next/image'
 
 export default function SliderNav({
+  activeIndex,
+  dots,
   onPrev,
   onNext,
+  onDotClick,
 }: {
-  onPrev?: () => void
-  onNext?: () => void
+  activeIndex: number
+  dots: number
+  onPrev: () => void
+  onNext: () => void
+  onDotClick: (idx: number) => void
 }) {
   return (
     <div className={s.navContainer}>
@@ -22,6 +28,25 @@ export default function SliderNav({
           />
         </span>
       </button>
+      <div className={s.dotsBlock}>
+        <div className={s.sliderDotsRow} style={{ position: 'relative' }}>
+          {[...Array(dots)].map((_, idx) =>
+            idx === activeIndex ? (
+              <span key={idx} className={s.sliderActiveDot} onClick={() => onDotClick(idx)}></span>
+            ) : (
+              <span key={idx} className={s.sliderDot} onClick={() => onDotClick(idx)}></span>
+            ),
+          )}
+          <div
+            className={s.movingLine}
+            style={
+              {
+                '--line-x': `calc(${activeIndex} * 2.2vw)`,
+              } as React.CSSProperties
+            }
+          />
+        </div>
+      </div>
       <button className={s.arrowBtn} onClick={onNext} aria-label="Next slide">
         <span className={s.iconRight}>
           <Image
