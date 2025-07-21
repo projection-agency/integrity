@@ -27,6 +27,7 @@ import { MetaDescriptionComponent as MetaDescriptionComponent_a8a977ebc872c5d5ea
 import { MetaImageComponent as MetaImageComponent_a8a977ebc872c5d5ea7ee689724c0860 } from '@payloadcms/plugin-seo/client'
 import { PreviewComponent as PreviewComponent_a8a977ebc872c5d5ea7ee689724c0860 } from '@payloadcms/plugin-seo/client'
 import { default as default_d0cdd935fc8ea4c80bd248e90894c594 } from '@/plugin/sl_StyledText/components/StyledTextComponent'
+import { default as default_a9d0cda3fd10d39c5b3430942a98853c } from '@/plugin/sl_PreviewSvg/PreviewField'
 
 export const importMap = {
   "@payloadcms/richtext-lexical/rsc#RscEntryLexicalCell": RscEntryLexicalCell_44fe37237e0ebf4470c9990d8cb7b07e,
@@ -57,5 +58,6 @@ export const importMap = {
   "@payloadcms/plugin-seo/client#MetaDescriptionComponent": MetaDescriptionComponent_a8a977ebc872c5d5ea7ee689724c0860,
   "@payloadcms/plugin-seo/client#MetaImageComponent": MetaImageComponent_a8a977ebc872c5d5ea7ee689724c0860,
   "@payloadcms/plugin-seo/client#PreviewComponent": PreviewComponent_a8a977ebc872c5d5ea7ee689724c0860,
-  "@/plugin/sl_StyledText/components/StyledTextComponent#default": default_d0cdd935fc8ea4c80bd248e90894c594
+  "@/plugin/sl_StyledText/components/StyledTextComponent#default": default_d0cdd935fc8ea4c80bd248e90894c594,
+  "@/plugin/sl_PreviewSvg/PreviewField#default": default_a9d0cda3fd10d39c5b3430942a98853c
 }

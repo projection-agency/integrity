@@ -1,5 +1,6 @@
 import type { Block } from 'payload'
 import { StyledText } from '@/plugin/sl_StyledText'
+import { PreviewSvg } from '@/plugin/sl_PreviewSvg'
 
 export const TariffsBlock: Block = {
   slug: 'tariffs-block',
@@ -91,7 +92,55 @@ export const TariffsBlock: Block = {
             },
           ],
         },
+        {
+          name: 'whats_included',
+          type: 'array',
+          required: true,
+          label: {
+            en: 'What`s included:',
+          },
+          fields: [
+            {
+              name: 'wi_points',
+              type: 'text',
+              required: true,
+              label: {
+                en: 'What`s included points',
+              },
+            },
+          ],
+        },
+        {
+          name: 'channels',
+          type: 'array',
+          // required: true,
+          label: {
+            en: 'Channels:',
+          },
+          fields: [
+            {
+              name: 'c_points',
+              type: 'text',
+              label: {
+                en: 'Channels points',
+              },
+            },
+            {
+              type: 'text',
+              name:'c_icon',
+              label: {
+                en: 'Channels icon',
+              },
+              admin:{
+                components: {
+                  Field: PreviewSvg,
+                }
+              }
+            }
+          ],
+        },
       ],
     },
   ],
 }
+//Test

@@ -425,6 +425,17 @@ export interface Page {
                     points: string;
                     id?: string | null;
                   }[];
+                  whats_included: {
+                    wi_points: string;
+                    id?: string | null;
+                  }[];
+                  channels?:
+                    | {
+                        c_points?: string | null;
+                        c_icon?: string | null;
+                        id?: string | null;
+                      }[]
+                    | null;
                   id?: string | null;
                 }[]
               | null;
@@ -879,6 +890,19 @@ export interface PagesSelect<T extends boolean = true> {
                       | T
                       | {
                           points?: T;
+                          id?: T;
+                        };
+                    whats_included?:
+                      | T
+                      | {
+                          wi_points?: T;
+                          id?: T;
+                        };
+                    channels?:
+                      | T
+                      | {
+                          c_points?: T;
+                          c_icon?: T;
                           id?: T;
                         };
                     id?: T;
