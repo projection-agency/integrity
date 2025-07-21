@@ -53,6 +53,7 @@
       margin: 1.25vw 0 1vw 0;
       align-items: center;
     }
+
     .insightCardMetaItem {
       display: flex;
       align-items: center;
@@ -76,7 +77,6 @@
     width: 75vw;
     margin-left: auto;
     margin-right: auto;
-    padding-bottom: 10.42vw;
 
     .excerptTitle {
       margin-bottom: 1.67vw;
@@ -115,8 +115,53 @@
 
       .articleNav {
         width: 20.63vw;
+        padding: 1.67vw;
+        height: max-content;
         background-color: rgba(249, 249, 249, 1);
         border-radius: 1.25vw;
+
+        h3 {
+          display: flex;
+          align-items: center;
+          gap: 0.21vw;
+          margin-bottom: 1.46vw;
+          font-size: 1.67vw;
+          font-style: normal;
+          font-weight: 900;
+          line-height: 1;
+          text-transform: uppercase;
+
+          color: rgba(34, 34, 34, 1);
+
+          svg {
+            width: 1.46vw;
+            height: 1.46vw;
+          }
+        }
+
+        nav {
+          ul {
+            display: flex;
+            flex-direction: column;
+            gap: 0.83vw;
+
+            li {
+              padding: 0.31vw 0.83vw;
+              border-radius: 0.42vw;
+
+              a {
+                font-family: 'Inter Tight';
+                font-size: 0.94vw;
+                font-style: italic;
+                font-weight: 700;
+                line-height: 1.5;
+                letter-spacing: -0.396px;
+
+                color: rgba(34, 34, 34, 1);
+              }
+            }
+          }
+        }
       }
 
       .articleWrapper {
@@ -263,5 +308,11 @@
         }
       }
     }
+  }
+
+  .expertSectionCont {
+    padding-top: 5.21vw;
+    padding-bottom: 5.21vw;
+    background-color: rgba(249, 249, 249, 1);
   }
 }
