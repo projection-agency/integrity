@@ -1,0 +1,29 @@
+.similarArticlesCont {
+  padding-top: 10.42vw;
+  padding-bottom: 10.42vw;
+
+  .topBlock {
+    margin-bottom: 4.17vw;
+    h2 {
+      text-align: center;
+
+      font-size: 4.17vw;
+
+      font-style: italic;
+      font-weight: 900;
+      line-height: 1.1;
+      text-transform: uppercase;
+      color: rgba(34, 34, 34, 1);
+
+      span {
+        font-style: normal;
+        color: rgba(181, 181, 181, 1);
+      }
+    }
+  }
+
+  .articlesList {
+    display: flex;
+    gap: 0.83vw;
+  }
+}

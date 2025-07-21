@@ -169,18 +169,6 @@ export default function NavList({ menu }: { menu: MenuItem[] }) {
     }
   }, [pathname]) // Додаємо pathname як залежність
 
-  // Додаємо console.log для дебагу
-  console.log('Current pathname:', pathname)
-  console.log('Current section:', currentSection)
-  console.log(
-    'Menu items:',
-    menu.map((item) => ({
-      link: item.link,
-      normalizedLink: normalizeLink(item.link),
-      isCurrent: isCurrentPage(item.link),
-    })),
-  )
-
   return (
     <nav className={s.navList}>
       <ul>

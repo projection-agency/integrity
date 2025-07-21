@@ -98,7 +98,6 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 1.25vw;
   position: relative;
   width: 10.83vw;
   height: 2.71vw;
@@ -151,6 +150,10 @@
 }
 
 .iconWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 6.17vw;
 }
 
 .cardTitle {
