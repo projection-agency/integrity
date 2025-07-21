@@ -31,7 +31,7 @@
             background: rgba(76, 76, 76, 0.40);
             backdrop-filter: blur(2px);
 
-            li{
+            li a{
                 display: flex;
                 width: 6.8vw;
                 padding: 0.8vw 0.9vw;
@@ -46,6 +46,16 @@
                 font-style: normal;
                 font-weight: 700;
                 line-height: 100%; /* 0.72917rem */
+                transition-duration: 0.3s;
+                border-radius: 0.6vw;
+                cursor: pointer;
+            }
+            li a:hover{
+                background: var(--Black, #222);
+            }
+            li.current a{
+                background: var(--White, #FFF);
+                color: var(--Black, #222);
             }
         }
         
@@ -71,6 +81,10 @@
             font-weight: 700;
             line-height: normal;
             width: max-content;
+
+            svg{
+                width: 1.04vw;
+            }
         }
     }
     
@@ -105,6 +119,10 @@
         border-radius: 0.41667rem;
         background: var(--White, #FFF);
         color: #222;
+
+        img{
+            width: 1.14vw;
+        }
     }
     .lang{
         display: flex;

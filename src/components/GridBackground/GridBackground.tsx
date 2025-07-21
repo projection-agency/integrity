@@ -1,3 +1,4 @@
+'use client'
 import { useEffect, useRef } from 'react'
 
 const GridBackground = () => {
@@ -9,8 +10,11 @@ const GridBackground = () => {
     const ctx = canvas.getContext('2d')
     if (!ctx) return
 
-    let width = window.innerWidth
-    let height = window.innerHeight
+    const parentElement = canvas.parentElement
+    if (!parentElement) return
+
+    let width = parentElement.offsetWidth
+    let height = parentElement.offsetHeight
     canvas.width = width
     canvas.height = height
 
@@ -18,15 +22,18 @@ const GridBackground = () => {
     const cursor = { x: width / 2, y: height / 2 }
 
     const handleResize = () => {
-      width = window.innerWidth
-      height = window.innerHeight
-      canvas.width = width
-      canvas.height = height
+      if (parentElement) {
+        width = parentElement.offsetWidth
+        height = parentElement.offsetHeight
+        canvas.width = width
+        canvas.height = height
+      }
     }
 
     const handleMouseMove = (e: MouseEvent) => {
-      cursor.x = e.clientX
-      cursor.y = e.clientY
+      const rect = canvas.getBoundingClientRect()
+      cursor.x = e.clientX - rect.left
+      cursor.y = e.clientY - rect.top
     }
 
     window.addEventListener('resize', handleResize)
@@ -112,12 +119,13 @@ const GridBackground = () => {
     <canvas
       ref={canvasRef}
       style={{
-        position: 'fixed',
+        position: 'absolute',
         top: 0,
         left: 0,
         width: '100%',
         height: '100%',
         pointerEvents: 'none',
+        zIndex: 1,
       }}
     />
   )

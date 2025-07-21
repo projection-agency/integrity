@@ -1,0 +1,22 @@
+/* Глобальні стилі для фонів body */
+
+/* Фон для головної сторінки */
+body.homeBackground {
+
+}
+
+/* Фон для сторінки контактів */
+body.contactsBackground {
+  background: var(--Black, #222);
+}
+
+/* Фон для сторінки блогу */
+body.blogBackground {
+}
+
+/* Фон для окремих постів блогу */
+body.blogPostBackground {
+}
+body.privacyBackground{
+  background: var(--Light-gray, #F9F9F9);
+}

@@ -196,6 +196,22 @@ export interface Post {
   id: string;
   title?: string | null;
   categories?: (string | Category)[] | null;
+  excerptTitle?: string | null;
+  excerpt?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
   featuredImage?: (string | null) | Media;
   content?: {
     root: {
@@ -449,6 +465,42 @@ export interface Page {
             blockName?: string | null;
             blockType: 'order-call-extend-block';
           }
+        | {
+            enabled?: boolean | null;
+            subtitle: string;
+            title: string;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'hero-contacts';
+          }
+        | {
+            enabled?: boolean | null;
+            data?: string | null;
+            items?:
+              | {
+                  title: string;
+                  content: {
+                    root: {
+                      type: string;
+                      children: {
+                        type: string;
+                        version: number;
+                        [k: string]: unknown;
+                      }[];
+                      direction: ('ltr' | 'rtl') | null;
+                      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                      indent: number;
+                      version: number;
+                    };
+                    [k: string]: unknown;
+                  };
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'accordion-block';
+          }
       )[]
     | null;
   meta?: {
@@ -468,8 +520,8 @@ export interface Page {
  */
 export interface Faq {
   id: string;
-  question: string;
-  answer: string;
+  title: string;
+  content: string;
   updatedAt: string;
   createdAt: string;
 }
@@ -628,6 +680,8 @@ export interface MediaSelect<T extends boolean = true> {
 export interface PostsSelect<T extends boolean = true> {
   title?: T;
   categories?: T;
+  excerptTitle?: T;
+  excerpt?: T;
   featuredImage?: T;
   content?: T;
   readingTime?: T;
@@ -881,6 +935,30 @@ export interface PagesSelect<T extends boolean = true> {
               id?: T;
               blockName?: T;
             };
+        'hero-contacts'?:
+          | T
+          | {
+              enabled?: T;
+              subtitle?: T;
+              title?: T;
+              id?: T;
+              blockName?: T;
+            };
+        'accordion-block'?:
+          | T
+          | {
+              enabled?: T;
+              data?: T;
+              items?:
+                | T
+                | {
+                    title?: T;
+                    content?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
       };
   meta?:
     | T
@@ -897,8 +975,8 @@ export interface PagesSelect<T extends boolean = true> {
  * via the `definition` "faq_select".
  */
 export interface FaqSelect<T extends boolean = true> {
-  question?: T;
-  answer?: T;
+  title?: T;
+  content?: T;
   updatedAt?: T;
   createdAt?: T;
 }

@@ -22,12 +22,12 @@ const industries = [
   },
   {
     cases: 5,
-    icon: <Group3Icon />,
+    icon: <Group4Icon />,
     title: 'BUSINESS SERVICES',
   },
   {
     cases: 14,
-    icon: <Group4Icon />,
+    icon: <Group3Icon />,
     title: 'ECOMMERCE & DTC BRANDS',
   },
 ]

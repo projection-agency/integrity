@@ -20,20 +20,21 @@
       .imagesCont {
         display: flex;
         margin-bottom: 1.67vw;
-        .icon {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          width: 6.15vw;
-          height: 6.15vw;
-          border-radius: 50%;
-          border: 0.5vw solid rgba(255, 255, 34, 0.13);
 
+        .icon {
+          width: 6.15vw; /* 118px/1920px */
+          height: 6.15vw;
+          border-radius: 100%;
+          border: 0.1vw solid #d9d9d9; /* 2px/1920px */
+          backdrop-filter: blur(0.42vw); /* 8px/1920px */
           background: linear-gradient(
-            169deg,
-            rgba(255, 255, 255, 0.16) -6.56%,
-            rgba(255, 255, 255, 0) 112.07%
+            149deg,
+            rgba(255, 255, 255, 0.5) 0%,
+            rgba(255, 255, 255, 0) 100%
           );
+          display: flex;
+          align-items: center;
+          justify-content: center;
           backdrop-filter: blur(1.6400281190872192px);
         }
 

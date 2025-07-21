@@ -1,0 +1,415 @@
+.workflow-section {
+  width: 100vw;
+  height: 137.76vw;
+  background: var(--black);
+  /* display: flex; */
+  justify-content: center;
+  padding-top: 10.42vw;
+  padding-bottom: 10.42vw;
+  margin: 0 auto;
+  position: relative;
+  overflow: auto;
+}
+
+.workflow-grid {
+  display: grid;
+  grid-template-columns: 37.3vw 3.9vw 37.3vw;
+  grid-template-rows: repeat(3, 24.2vw);
+  gap: 3.125vw 5.2vw;
+  justify-content: center;
+  align-items: start;
+  position: relative;
+  z-index: 9;
+}
+
+.workflow-left {
+  display: flex;
+  flex-direction: column;
+  gap: 8.125vw;
+  grid-column: 1;
+  grid-row: 1 / span 3;
+}
+
+.workflow-right {
+  display: flex;
+  flex-direction: column;
+  gap: 8.125vw;
+  grid-column: 3;
+  grid-row: 1 / span 3;
+}
+
+.ghost-block {
+  width: 37.3vw;
+  height: 9vw;
+  visibility: hidden;
+}
+
+.step-card {
+  width: 37.3vw;
+  height: auto;
+  padding: 3.125vw;
+  border-radius: 1.67vw;
+  backdrop-filter: blur(1.04vw);
+  background: linear-gradient(141deg, rgba(40, 40, 40, 0.8) 0%, rgba(60, 60, 60, 0.6) 100%);
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: relative;
+  border: 0.05vw solid #fff;
+}
+
+.step-badge {
+  border: 0.052vw solid var(--white);
+  border-radius: 0.83vw;
+  padding: 0.625vw 1.25vw;
+  width: fit-content;
+  font-family: var(--third-family);
+  font-weight: 700;
+  font-size: 0.94vw;
+  line-height: 1.32vw;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--white);
+  margin-bottom: 1.25vw;
+}
+
+.step-header-row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.step-title {
+  font-family: var(--font-family);
+  font-style: italic;
+  font-weight: 900;
+  font-size: 1.67vw;
+  line-height: 100%;
+  text-transform: uppercase;
+  color: var(--white);
+  margin: 0 0 1vw 0;
+}
+
+.step-icon {
+  width: 6.88vw;
+  height: 6.88vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.step-subtitle {
+  font-size: 0.94vw;
+  font-weight: 400;
+  color: var(--white);
+  opacity: 0.7;
+  margin-bottom: 1vw;
+  width: 80%;
+}
+
+.step-list {
+  margin: 0;
+  padding-left: 0;
+  font-size: 0.94vw;
+  line-height: 1.32vw;
+  color: var(--white);
+  opacity: 0.9;
+  width: 100%;
+  list-style: none;
+}
+
+.step-list-item {
+  display: flex;
+  align-items: center;
+  /* gap: 1vw; */
+  margin-bottom: 0.7vw;
+}
+
+.step-list-icon {
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+  /* min-width: 0.83vw;
+  min-height: 0.83vw; */
+  width: 0.83vw;
+  height: 0.83vw;
+  border-radius: 10.42vw;
+  border: 0.5px solid var(--white);
+  margin-right: 0.6vw;
+  padding: 0.14vw;
+}
+
+.blok-list-icon {
+  /* width: 1.2vw;
+  height: 1.2vw;
+  min-width: 1.2vw;
+  min-height: 1.2vw;
+  display: flex;
+  align-items: center;
+  justify-content: center; */
+}
+
+.step-list-text {
+  display: block;
+}
+
+.step-list li {
+  margin-bottom: 0.7vw;
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 0.83vw;
+  line-height: 120%;
+  color: var(--light-garay-2);
+}
+
+.step-list-main {
+  color: #fff;
+  font-weight: 700;
+  font-family: var(--font-family);
+  margin-right: 0.3vw;
+}
+
+.step-list-desc {
+  color: #888;
+  font-weight: 400;
+  font-family: var(--font-family);
+  margin-right: 0.3vw;
+}
+
+.workflow-line-wrap {
+  grid-column: 2;
+  grid-row: 1 / span 3;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* width: 2010px; */
+  /* height: 0px; */
+  /* transform: rotate(-90deg); */
+  /* position: relative; */
+}
+
+.workflow-line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  width: 0.1vw;
+  height: 100%;
+  z-index: 1;
+  background: linear-gradient(
+    180deg,
+    #222222 0%,
+    #ffffff 7%,
+    #222222 13%,
+    #ffffff 20%,
+    #222222 30%,
+    #ffffff 37%,
+    #222222 45%,
+    #ffffff 52%,
+    #222222 62%,
+    #222222 80%,
+    #222222 100%
+  );
+  opacity: 1;
+}
+
+/* .workflow-line {
+  width: 0.26vw; 
+   5px 
+   margin: 0 auto;
+   height: 78vw; 
+   background: var(--white);
+   position: absolute;
+   left: 50%;
+   top: 0;
+   transform: translateX(-50%);
+   z-index: 0;
+ } */
+
+.workflow-steps {
+  position: absolute;
+  /* top: 0;
+     left: 50%;
+     transform: translateX(-50%); */
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* gap: 13vw;
+     z-index: 1; */
+
+  gap: 13vw;
+  position: relative;
+  z-index: 2;
+}
+
+.workflow-steps > :first-child {
+  margin-top: 10vw;
+}
+
+/* .step-indicator {
+   width: 3.75vw;
+   height: 3.75vw;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   border-radius: 0.63vw; 
+   backdrop-filter: blur(0.42vw); 
+   background: linear-gradient(149deg, rgba(40, 40, 40, 0.8) 0%, rgba(60, 60, 60, 0.6) 100%);
+   box-shadow: 0.1vw -0.1vw 1vw 0 rgba(255, 228, 228, 0.2);
+   font-family: var(--font-family);
+   font-size: 1.25vw;
+   font-weight: 700;
+   line-height: 120%;
+   text-align: center;
+   color: var(--yellow);
+   position: relative;
+   z-index: 2;
+ } */
+
+/* .step-marker {
+   border-radius: 12px;
+   padding: 12px;
+   width: 72px;
+   height: 72px;
+   backdrop-filter: blur(8px);
+   box-shadow: 2px -2px 20px 0 rgba(255, 228, 20, 0.15);
+   background: linear-gradient(149deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.3) 100%);
+ } */
+
+.step-marker {
+  width: 3.75vw;
+  height: 3.75vw;
+  padding: 0.625vw;
+  border-radius: 0.625vw;
+  backdrop-filter: blur(8px);
+  /* box-shadow: 2px -2px 20px 0 rgba(255, 228, 20, 0.15); */
+  /* background: linear-gradient(149deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.3) 100%); */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0.08vw solid #a0a0a0c7;
+  background: var(--black);
+  backdrop-filter: blur(8px);
+  box-shadow: 2px -2px 20px 0 rgba(255, 228, 20, 0.15);
+}
+
+.step-indicator {
+  width: 2.5vw;
+  height: 2.5vw;
+  border-radius: 0.625vw;
+  padding: 0.83vw 0.625vw;
+  backdrop-filter: blur(0.42vw);
+  background: linear-gradient(149deg, rgba(40, 40, 40, 0.8) 0%, rgba(60, 60, 60, 0.6) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0.08vw solid #a0a0a0c7;
+}
+
+.step-marker-number {
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 1.25vw;
+  line-height: 120%;
+  text-align: center;
+  color: var(--yellow);
+}
+
+.step-top-row {
+  width: 31.04vw;
+  height: 6.88vw;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.step-content-block {
+  width: 31.04vw;
+  /* height: 10.42vw;  */
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.step-icon-wrapper {
+  position: relative;
+  width: 6.88vw;
+  height: 6.88vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.step-icon-blur {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 7vw;
+  height: 7vw;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 228, 20, 0.35) 0%,
+    rgba(255, 228, 20, 0.08) 80%,
+    transparent 100%
+  );
+  filter: blur(1.5vw);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.step-icon-svg {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 6.88vw;
+  height: 6.88vw;
+}
+
+/* .step-card--shadow {
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.15),
+    0 16px 48px rgba(0, 0, 0, 0.12);
+  filter: none;
+  opacity: 1;
+} */
+.step-card--shadow {
+  backdrop-filter: blur(20px);
+  background: linear-gradient(141deg, rgba(255, 255, 255, 0.1) 0%, rgba(41, 41, 41, 0.1) 100%);
+  opacity: 0.4;
+}
+
+.workflowMainTitle {
+  font-size: 4vw;
+  font-weight: 900;
+  color: #b5b5b5;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  margin: 0;
+}
+.workflowMainTitle span {
+  color: #fff;
+  font-style: italic;
+  font-weight: 900;
+}
+
+.workflow-header {
+  margin-bottom: 6vw;
+}
+
+.workflowTabSection {
+  background: rgba(255, 255, 255, 0.1) !important;
+  color: #fff !important;
+}

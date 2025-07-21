@@ -47,26 +47,30 @@ export default function LatestInsightsSection({ block }: { block: LatestInsights
           <div className={styles.insightCard} key={idx}>
             <img className={styles.insightCardImage} src={post.image} alt={post.title} />
             <div className={styles.insightCardBadge}>{post.badge}</div>
-            <div className={styles.insightCardMeta}>
-              <div className={styles.insightCardMetaItem}>
-                <img
-                  src="/images/icons/revised-card.svg"
-                  alt="revised card"
-                  style={{ width: '1vw', height: '1vw', marginRight: '0.3vw' }}
-                />
-                {post.reading}
+
+            <div className={styles.insightCardBlok}>
+              <div className={styles.insightCardMeta}>
+                <div className={styles.insightCardMetaItem}>
+                  <img
+                    src="/images/icons/revised-card.svg"
+                    alt="revised card"
+                    style={{ width: '1vw', height: '1vw', marginRight: '0.3vw' }}
+                  />
+                  {post.reading}
+                </div>
+                <div className={styles.insightCardMetaItem}>
+                  <img
+                    src="/images/icons/calendar.svg"
+                    alt="calendar"
+                    style={{ width: '1vw', height: '1vw', marginRight: '0.3vw' }}
+                  />
+                  {post.date}
+                </div>
               </div>
-              <div className={styles.insightCardMetaItem}>
-                <img
-                  src="/images/icons/calendar.svg"
-                  alt="calendar"
-                  style={{ width: '1vw', height: '1vw', marginRight: '0.3vw' }}
-                />
-                {post.date}
-              </div>
+              <div className={styles.insightCardTitle}>{post.title}</div>
+              <div className={styles.insightCardExcerpt}>{post.excerpt}</div>
             </div>
-            <div className={styles.insightCardTitle}>{post.title}</div>
-            <div className={styles.insightCardExcerpt}>{post.excerpt}</div>
+
             <button className={styles.insightCardBtn}>
               <img
                 src="/images/icons/revised-card2.svg"

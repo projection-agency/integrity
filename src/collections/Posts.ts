@@ -20,6 +20,16 @@ export const Posts: CollectionConfig = {
       localized: true,
     },
     {
+      name: 'excerptTitle',
+      type: 'text',
+      localized: true,
+    },
+    {
+      name: 'excerpt',
+      type: 'richText',
+      localized: true,
+    },
+    {
       name: 'featuredImage',
       type: 'upload',
       relationTo: 'media',

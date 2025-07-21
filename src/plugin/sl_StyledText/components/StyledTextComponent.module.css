@@ -5,3 +5,7 @@
     border-radius: 10px;
     overflow: hidden;
 }
+.st_container_title{
+    padding: 1vh 2vw;
+    font-size: 1.5vw;
+}

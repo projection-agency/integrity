@@ -5,9 +5,10 @@ import { useEffect, useRef } from 'react'
 type PreviewAreaProps = {
   content: string
   onChange: (content: any) => void
+  id: string
 }
 
-export default function PreviewArea({ content, onChange }: PreviewAreaProps) {
+export default function PreviewArea({ content, onChange, id}: PreviewAreaProps) {
   const editableRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -18,7 +19,7 @@ export default function PreviewArea({ content, onChange }: PreviewAreaProps) {
   }, [content])
 
   return (
-    <div className={styles.preview_container} id="preview_container">
+    <div className={styles.preview_container} id={id}>
       <div
         ref={editableRef}
         contentEditable

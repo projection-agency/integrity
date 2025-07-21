@@ -14,6 +14,7 @@ import AboutTheFounderSection from '@/components/sections/AboutTheFounderSection
 import ApproachSection from '@/components/sections/ApproachSection/ApproachSection'
 import ReviewsSection from '@/components/sections/ReviewsSection/ReviewsSection'
 import TariffsSection from '@/components/sections/TariffsSection/TariffsSection'
+import WorkflowSection from '@/components/sections/WorkflowSection/WorkflowSection'
 
 import FaqSection from '@/components/sections/FaqSection/FaqSection'
 import FormSection from '@/components/sections/FormSection/FormSection'
@@ -30,6 +31,7 @@ const BLOCK_COMPONENTS = {
   'expertise-block': IndustriesSection,
   'services-block': ServicesSection,
   'form-block': FormSection,
+  'workflow-block': WorkflowSection,
   'about-founder-block': AboutTheFounderSection,
   'our-team-block': ApproachSection,
   'reviews-block': ReviewsSection,
@@ -60,15 +62,15 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
         if (block.enabled === false) return null
         const BlockComponent = BLOCK_COMPONENTS[
           block.blockType as keyof typeof BLOCK_COMPONENTS
-        ] as any
+        ] as unknown as React.ComponentType<{ block: unknown; locale: string }>
         if (!BlockComponent) return null
 
         if (block.blockType === 'faq-block') {
           // Кастимо до типу, який приймає faqs
           const FaqBlockComponent = BlockComponent as React.ComponentType<{
-            block: any
+            block: unknown
             locale: string
-            faqs: any
+            faqs: unknown
           }>
           return <FaqBlockComponent key={block.id || i} block={block} locale={locale} faqs={faqs} />
         }

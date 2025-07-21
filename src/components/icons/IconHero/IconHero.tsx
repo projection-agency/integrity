@@ -3,12 +3,16 @@ import s from '../IconHero/IconHero.module.css'
 export default function IconHero({
   containerClass,
   iconClass,
+  style,
 }: {
   containerClass?: string
   iconClass?: string
+  style?: string
 }) {
   return (
-    <span className={`${s.iconHero} ${containerClass ? containerClass : ''}`}>
+    <span
+      className={`${s.iconHero} ${containerClass ? containerClass : ''} ${style ? s[style] : ''}`}
+    >
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="48"

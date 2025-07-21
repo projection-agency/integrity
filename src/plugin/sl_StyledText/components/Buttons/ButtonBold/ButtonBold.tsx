@@ -3,13 +3,18 @@ import styles from './ButtonBold.module.css'
 type ButtonBoldProps = {
   content: string
   onChange: (newContent: string) => void
+  ids : {
+    id_st_container: string
+    id_preview_container: string
+    id_fulltext_container: string
+  }
 }
 
-export default function ButtonBold({ content, onChange }: ButtonBoldProps) {
+export default function ButtonBold({ content, onChange, ids }: ButtonBoldProps) {
   const handleGetSelection = () => {
     const selection = window.getSelection()
-    const previewContainer = document.getElementById('preview_container')
-    const fullTextContainer = document.getElementById('fulltext_container')
+    const previewContainer = document.getElementById(ids.id_preview_container)
+    const fullTextContainer = document.getElementById(ids.id_fulltext_container)
 
     if (!selection || selection.rangeCount === 0) return
 

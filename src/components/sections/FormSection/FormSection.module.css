@@ -1,7 +1,10 @@
 .section {
   display: flex;
   gap: 0.42vw;
-  padding: 2.92vw 4.17vw;
+  padding-top: 5.21vw;
+  padding-left: 4.17vw;
+  padding-right: 4.17vw;
+  padding-bottom: 13.33vw;
   background-color: rgba(249, 249, 249, 1);
 
   .leftBlock {
@@ -53,10 +56,10 @@
 
       h1 {
         margin-bottom: 0.83vw;
-        font-size: 4.17vw;
+        font-size: 4.1vw;
         font-style: normal;
         font-weight: 900;
-        line-height: normal;
+        line-height: 100%;
         text-transform: uppercase;
         background: var(
           --Black-gradient,

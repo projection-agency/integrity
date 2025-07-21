@@ -1,6 +1,6 @@
 .section {
   width: 100%;
-  padding: 4.17vw 0;
+  padding-bottom: 10.42vw;
   background: var(--white);
 }
 
@@ -69,6 +69,7 @@
   padding: 1.67vw 0;
   width: 15vw;
   height: 26.67vw;
+  justify-content: space-between;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -117,8 +118,6 @@
   align-items: flex-start;
   justify-content: flex-end;
   padding-top: 0;
-  padding-right: 1.25vw;
-  height: 0.05vw;
 }
 
 .closeBtn {
@@ -148,16 +147,10 @@
   justify-content: center;
   width: 1.04vw;
   height: 1.04vw;
-  transform: rotate(-180deg);
+  /* transform: rotate(-180deg); */
 }
 
 .iconWrap {
-  margin: 1.67vw 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 4.17vw;
-  height: 4.17vw;
 }
 
 .cardTitle {
@@ -168,23 +161,23 @@
   text-transform: uppercase;
   color: var(--black);
   text-align: center;
-  margin-top: auto;
+  /* margin-top: auto; */
 }
-.wrapHeading{
+.wrapHeading {
   display: flex;
   align-items: flex-end;
   justify-content: center;
   gap: 0.63vw;
 
-  .count{
-      color: #F5DA0A;
-      font-family: "Inter Tight";
-      font-size: 2.08333vw;
-      font-style: italic;
-      font-weight: 900;
-      line-height: 100%; /* 2.08333rem */
-      text-transform: uppercase;
-      margin-bottom: 2vw;
+  .count {
+    color: #f5da0a;
+    font-family: 'Inter Tight';
+    font-size: 2.08333vw;
+    font-style: italic;
+    font-weight: 900;
+    line-height: 100%; /* 2.08333rem */
+    text-transform: uppercase;
+    margin-bottom: 2vw;
   }
 }
 

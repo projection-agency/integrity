@@ -1,0 +1,102 @@
+.insightCard {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+  }
+  .insightCardImage {
+    width: 100%;
+    height: 23.9vw;
+    object-fit: cover;
+    border-radius: 1.66vw;
+  }
+  .small{
+    .insightCardImage {
+      height: 20vw;
+    }
+  }
+  .insightCardBadge {
+    position: absolute;
+    top: 1vw;
+    left: 1vw;
+    font-family: var(--third-family);
+    font-weight: 700;
+    font-size: 0.73vw;
+    text-transform: uppercase;
+    background: var(--light-gray);
+    border-radius: 2vw;
+    padding: 0.42vw 1.25vw;
+    padding-top: 0.5vw;
+    color: var(--black);
+  }
+  .insightCardMeta {
+    display: flex;
+    gap: 0.5vw;
+    margin: 1.25vw 0 1vw 0;
+    align-items: center;
+  }
+  .insightCardMetaItem {
+    display: flex;
+    align-items: center;
+    border: 0.026vw solid var(--Light-garay-2, #B5B5B5);
+    border-radius: 2vw;
+    padding: 0.42vw 0.63vw;
+    font-family: var(--third-family);
+    font-weight: 600;
+    font-size: 0.83vw;
+    line-height: 120%;
+    color: #686868;
+    gap: 0.4vw;
+
+    img{
+        width: 0.625vw;
+    }
+  }
+  .insightCardTitle {
+    font-family: var(--font-family);
+    font-weight: 900;
+    font-size: 1.67vw;
+    line-height: 100%;
+    text-transform: uppercase;
+    font-style: italic;
+    color: var(--black);
+    margin-bottom: 0.83vw;
+  }
+  .insightCardExcerpt {
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 0.83vw;
+    line-height: 140%;
+    letter-spacing: -0.02em;
+    color: var(--gray);
+    margin-bottom: 1.25vw;
+  }
+  .insightCardBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.83vw;
+    gap: 0.41vw;
+    border-radius: 0.62vw;
+    background: var(--Light-gray, #F9F9F9);
+    box-sizing: border-box;
+    cursor: pointer;
+    margin-top: auto;
+    transition: box-shadow 0.2s;
+    width: max-content;
+  }
+  .insightCardBtn svg {
+    width: 1vw;
+    height: 1vw;
+  }
+  .readMoreText {
+    font-family: var(--font-family);
+    font-weight: 800;
+    font-size: 0.833vw;
+    line-height: 140%;
+    letter-spacing: -0.02em;
+    color: var(--black);
+    margin-top: 0.1vw;
+  }
+  

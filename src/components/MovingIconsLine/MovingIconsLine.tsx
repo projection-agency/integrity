@@ -5,95 +5,6 @@ import styles from './MovingIconsLine.module.css'
 
 const icons = ['meta', 'adwords', 'linkedin', 'tiktok']
 
-const MovingIconsLine = ({ className }: { className?: string }) => {
-  const pathRef = useRef<SVGPathElement | null>(null)
-  const iconRefs = useRef<HTMLDivElement[]>([])
-
-  const iconMap: Record<string, JSX.Element> = {
-    tiktok,
-    adwords,
-    meta,
-    linkedin,
-  }
-
-  useEffect(() => {
-    if (!pathRef.current) return
-    const path = pathRef.current
-    const pathLength = path.getTotalLength()
-
-    const iconCount = icons.length
-    const offsets = Array.from({ length: iconCount }, (_, i) => (i * pathLength) / iconCount)
-    const speed = 4 // px per frame
-    let frameId: number
-
-    const animate = () => {
-      iconRefs.current.forEach((icon, i) => {
-        offsets[i] = (offsets[i] + speed) % pathLength
-        const point = path.getPointAtLength(offsets[i])
-        const nextPoint = path.getPointAtLength((offsets[i] + 1) % pathLength)
-
-        const angle = Math.atan2(nextPoint.y - point.y, nextPoint.x - point.x)
-
-        icon.style.transform = `translate(${point.x}px, ${point.y}px) rotate(${angle}rad)`
-      })
-      frameId = requestAnimationFrame(animate)
-    }
-
-    animate()
-    return () => cancelAnimationFrame(frameId)
-  }, [])
-
-  return (
-    <div className={`${styles.wrapper} ${className ? className : ''}`}>
-      <svg
-        className={styles.svg}
-        xmlns="http://www.w3.org/2000/svg"
-        width="100%"
-        height="auto"
-        viewBox="0 0 1920 400"
-        fill="none"
-      >
-        <path
-          ref={pathRef}
-          opacity="0.4"
-          d="M1.29717 130.614C1.29717 130.614 69.5354 -10.3938 293.297 1.30623C517.059 13.0062 692.5 327.991 997 341.988C1301.5 355.986 1500 125.037 1660 111.037C1820 97.0372 1865 168.037 1865 168.037"
-          stroke="url(#paint0_linear_3035_8938)"
-        />
-        <defs>
-          <linearGradient
-            id="paint0_linear_3035_8938"
-            x1="43"
-            y1="0.995615"
-            x2="1917"
-            y2="183.472"
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop offset="0.015518" stopOpacity="0.2" />
-            <stop offset="0.0965764" stopColor="#E4D7F9" />
-            <stop offset="0.404553" stopColor="#D6CAEA" stopOpacity="0.95157" />
-            <stop offset="0.769516" stopColor="#FFF6AE" />
-            <stop offset="0.964975" stopOpacity="0.2" />
-          </linearGradient>
-        </defs>
-      </svg>
-
-      {icons.map((src, i) => (
-        <div
-          key={i}
-          className={styles.icon}
-          ref={(el) => {
-            if (el) iconRefs.current[i] = el
-          }}
-        >
-          {iconMap[src]}
-        </div>
-      ))}
-    </div>
-  )
-}
-
-export default MovingIconsLine
-
 const adwords = (
   <svg width="24" height="22" viewBox="0 0 24 22" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M0.558278 15.7107C0.238478 16.2676 0.0504879 16.8909 0.00884366 17.5325C-0.0328006 18.1741 0.0730166 18.8166 0.318113 19.4106C0.56321 20.0045 0.941019 20.5338 1.42233 20.9577C1.90364 21.3815 2.47555 21.6885 3.09384 21.8549C3.71213 22.0213 4.36024 22.0426 4.98804 21.9172C5.61585 21.7918 6.20654 21.5231 6.71443 21.1318C7.22233 20.7405 7.63382 20.2371 7.91709 19.6606C8.20036 19.0841 8.34782 18.4498 8.34807 17.8069C8.34843 16.8837 8.04539 15.9862 7.48598 15.2536C6.92657 14.5211 6.14207 13.9945 5.25424 13.7556C4.3664 13.5167 3.42488 13.5788 2.57578 13.9323C1.72668 14.2858 1.01749 14.9109 0.558278 15.7107Z" />
@@ -128,3 +39,98 @@ const tiktok = (
     <path d="M21.8571 6.07674C21.8366 6.07674 19.7631 6.03488 17.9965 4.7093C16.455 3.55814 15.923 1.05349 15.8412 0.125582V0H12.0897V16.5558C12.0897 18.5442 10.5073 20.1628 8.5634 20.1628C6.61948 20.1628 5.03707 18.5442 5.03707 16.5558C5.03707 14.5674 6.61948 12.9488 8.5634 12.9488H9.75022V9.11163H8.5634C4.55279 9.11163 1.28564 12.4535 1.28564 16.5558C1.28564 20.6581 4.55279 24 8.5634 24C12.574 24 15.8412 20.6581 15.8412 16.5558V7.84884C18.5626 9.85116 21.5092 9.91395 21.8503 9.91395V6.07674H21.8571Z" />
   </svg>
 )
+
+const iconMap: Record<string, JSX.Element> = {
+  tiktok,
+  adwords,
+  meta,
+  linkedin,
+}
+
+const MovingIconsLine = ({ className }: { className?: string }) => {
+  const pathRef = useRef<SVGPathElement | null>(null)
+  const iconRefs = useRef<(HTMLDivElement | null)[]>([])
+
+  useEffect(() => {
+    const path = pathRef.current
+    if (!path) return
+
+    const pathLength = path.getTotalLength()
+    const offsets = [0, 0.25, 0.5, 0.75].map((p) => p * pathLength)
+    const speed = 3
+    let frameId: number
+
+    const animate = () => {
+      const bbox = path.getBoundingClientRect()
+      const scaleX = bbox.width / 1866
+      const scaleY = bbox.height / 344
+
+      iconRefs.current.forEach((icon, i) => {
+        if (!icon) return
+
+        offsets[i] = (offsets[i] + speed) % pathLength
+        const point = path.getPointAtLength(offsets[i])
+        const nextPoint = path.getPointAtLength((offsets[i] + 1) % pathLength)
+        const angle = Math.atan2(nextPoint.y - point.y, nextPoint.x - point.x)
+
+        const x = point.x * scaleX
+        const y = point.y * scaleY
+
+        icon.style.transform = `
+          translate(${x}px, ${y}px)
+          translate(-50%, -50%)
+          rotate(${angle}rad)
+        `
+      })
+
+      frameId = requestAnimationFrame(animate)
+    }
+
+    animate()
+    return () => cancelAnimationFrame(frameId)
+  }, [])
+
+  return (
+    <div className={`${styles.wrapper} ${className}`}>
+      <svg className={styles.svg} viewBox="0 0 1866 344" preserveAspectRatio="xMidYMid meet">
+        <path
+          ref={pathRef}
+          d="M1.29717 130.614C1.29717 130.614 69.5354 -10.3938 293.297 1.30623C517.059 13.0062 692.5 327.991 997 341.988C1301.5 355.986 1500 125.037 1660 111.037C1820 97.0372 1865 168.037 1865 168.037"
+          stroke="url(#paint0_linear)"
+          fill="none"
+          opacity="0.4"
+        />
+        <defs>
+          <linearGradient
+            id="paint0_linear"
+            x1="43"
+            y1="0.995615"
+            x2="1917"
+            y2="183.472"
+            gradientUnits="userSpaceOnUse"
+          >
+            <stop offset="0.015518" stopOpacity="0.2" />
+            <stop offset="0.0965764" stopColor="#E4D7F9" />
+            <stop offset="0.404553" stopColor="#D6CAEA" stopOpacity="0.95157" />
+            <stop offset="0.769516" stopColor="#FFF6AE" />
+            <stop offset="0.964975" stopOpacity="0.2" />
+          </linearGradient>
+        </defs>
+      </svg>
+
+      {icons.map((icon, i) => (
+        <div
+          key={i}
+          ref={(el) => {
+            iconRefs.current[i] = el
+          }}
+          className={styles.icon}
+        >
+          {iconMap[icon]}
+        </div>
+      ))}
+    </div>
+  )
+}
+
+export default MovingIconsLine
