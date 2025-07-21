@@ -21,9 +21,10 @@ export default function BlogPosts({
     <div className={s.blogSection}>
       <FilterBlog categories={categories} />
       <div className={s.items}>
-        {posts.map((post, index) => (
-          <ArticleItem key={post.id} post={post} idx={index} />
-        ))}
+        {posts.map((post, index) => {
+          console.log(post)
+          return <ArticleItem key={post.id} post={post} idx={index} />
+        })}
       </div>
     </div>
   )
