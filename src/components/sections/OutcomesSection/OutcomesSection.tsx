@@ -7,7 +7,7 @@ import 'swiper/css'
 import 'swiper/css/effect-coverflow'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
-import { EffectCoverflow, Pagination, Navigation } from 'swiper/modules'
+import { Pagination, Navigation } from 'swiper/modules'
 import {
   GlobeIcon,
   ChartIcon,
@@ -81,13 +81,14 @@ type OutcomesSection = {
   title: string
 }
 
-export default function OutcomesSection({ block }: { block: any }) {
+export default function OutcomesSection({ block }: { block: OutcomesSection }) {
   const swiperRef = useRef<any>(null)
   const [swiperIndex, setSwiperIndex] = useState(0)
   const [mounted, setMounted] = useState(false)
   useEffect(() => {
     setMounted(true)
   }, [])
+
   if (!mounted) return null
 
   return (
@@ -102,39 +103,19 @@ export default function OutcomesSection({ block }: { block: any }) {
       <div className={s.outcomes}>
         <div className={s.sliderWindow}>
           <Swiper
-            effect="coverflow"
-            grabCursor={true}
-            centeredSlides={true}
             slidesPerView="auto"
-            loop={true}
+            centeredSlides
+            loop={outcomes.length >= 6}
+            speed={600}
             spaceBetween={8}
-            coverflowEffect={{
-              rotate: 1,
-              stretch: 0,
-              depth: 100,
-              //   modifier: 0.8,
-              //   scale: 0.6,
-              modifier: 2,
-              scale: 0.9,
-              slideShadows: false,
-            }}
-            pagination={false}
-            navigation={{
-              nextEl: '.navSwiperNext',
-              prevEl: '.navSwiperPrev',
-            }}
-            observer={true}
-            observeParents={true}
-            modules={[EffectCoverflow, Pagination, Navigation]}
-            className={s.swiperCustom}
+            navigation={{ nextEl: '.navSwiperNext', prevEl: '.navSwiperPrev' }}
+            modules={[Pagination, Navigation]}
+            className={s.swiperCustomOutcome}
             onSwiper={(swiper) => (swiperRef.current = swiper)}
             onSlideChange={(swiper) => setSwiperIndex(swiper.realIndex)}
           >
             {outcomes.map((item, idx) => (
-              <SwiperSlide
-                key={idx}
-                style={{ width: '29.999vw', height: '26.719vw', marginRight: '2vw' }}
-              >
+              <SwiperSlide key={idx}>
                 <div className={s.card}>
                   <div className={s.cardNumberBlock}>
                     <div className={s.cardNumber}>{item.number}</div>
@@ -162,30 +143,6 @@ export default function OutcomesSection({ block }: { block: any }) {
           onNext={() => swiperRef.current?.slideNext()}
           onDotClick={(idx) => swiperRef.current?.slideToLoop(idx)}
         />
-        {/* <div className={s.sliderDotsRow}>
-          {outcomes.map((_, idx) =>
-            idx === swiperIndex ? (
-              <span
-                key={idx}
-                className={s.sliderActiveDot}
-                onClick={() => swiperRef.current?.slideToLoop(idx)}
-                style={{ cursor: 'pointer' }}
-              ></span>
-            ) : (
-              <span
-                key={idx}
-                className={s.sliderDot}
-                onClick={() => swiperRef.current?.slideToLoop(idx)}
-                style={{ cursor: 'pointer' }}
-              ></span>
-            ),
-          )}
-        </div> */}
-        {/* Додаю SliderNav */}
-        {/* <SliderNav
-          onPrev={() => swiperRef.current?.slidePrev()}
-          onNext={() => swiperRef.current?.slideNext()}
-        /> */}
         <ExpertSection />
       </div>
     </section>

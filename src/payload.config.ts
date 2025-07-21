@@ -21,6 +21,7 @@ import { OrderCall } from '@/endpoints/OrderCall'
 import Applications from '@/collections/Applications'
 import applicationCategory from '@/collections/categories/applicationCategory'
 import { OrderCallFull } from '@/endpoints/OrderCallFull'
+import { s3Storage } from '@payloadcms/storage-s3'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -76,6 +77,24 @@ export default buildConfig({
       generateURL: ({ doc, collectionSlug }) =>
         `https://integrity.com/${collectionSlug}/${doc.slug}`,
       tabbedUI: true,
+    }),
+    s3Storage({
+      bucket: process.env.S3_BUCKET_NAME!,
+      config: {
+        credentials: {
+          accessKeyId: process.env.S3_ACCESS_KEY_ID!,
+          secretAccessKey: process.env.S3_SECRET_ACCESS_KEY!,
+        },
+        region: process.env.AWS_REGION!,
+        forcePathStyle: true,
+        endpoint: `https://${process.env.S3_BUCKET_NAME}.s3.${process.env.AWS_REGION}.amazonaws.com`,
+      },
+      collections: {
+        media: {
+          prefix: 'media',
+        },
+      },
+      disableLocalStorage: true,
     }),
   ],
   endpoints: [OrderCall, OrderCallFull],

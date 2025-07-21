@@ -63,6 +63,7 @@
   text-align: left;
   background: #fff;
   height: 100%;
+  transition: all 0.3s ease;
 }
 
 .serviceIconWrapper {
@@ -204,128 +205,12 @@
 }
 
 .sliderWindow {
-  width: 96.88vw;
+  width:  100%;
   max-width: 100%;
   margin: 0 auto 2.08vw auto;
   overflow: visible;
 }
 
-.swiper-wrapper {
-  display: flex;
-  gap: 0.42vw;
-}
-
-.swiper-slide {
-  transition:
-    width 0.4s,
-    height 0.4s,
-    transform 0.4s;
-  z-index: 1;
-}
-
-.swiper-slide-next,
-.swiper-slide-prev {
-  z-index: 2;
-}
-.swiper-slide-active {
-  z-index: 3;
-}
-.swiper-slide-next + .swiper-slide,
-.swiper-slide-prev + .swiper-slide {
-  opacity: 0.3;
-  filter: blur(0.1vw);
-  z-index: 1;
-  transition:
-    opacity 0.4s,
-    filter 0.4s;
-}
-
-.sliderTrack {
-  display: flex;
-  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  gap: 1.66vw;
-}
-
-.sliderNavWrapper {
-  margin-top: 1.25vw;
-}
-
-/* Додаю стилі для затемнення крайніх карток */
-.sideSlide .serviceCard {
-  transform: scale(0.5);
-  opacity: 0.7;
-  z-index: 2;
-  filter: blur(0.1vw);
-  transition:
-    transform 0.4s,
-    opacity 0.4s,
-    filter 0.4s;
-}
-.centerSlide .serviceCard {
-  transform: scale(1);
-  opacity: 1;
-  z-index: 3;
-  filter: none;
-  transition:
-    transform 0.4s,
-    opacity 0.4s,
-    filter 0.4s;
-}
-.sideSideSlide .serviceCard {
-  opacity: 0.3;
-  filter: blur(0.1vw);
-  transition:
-    opacity 0.4s,
-    filter 0.4s;
-}
-.hiddenSlide {
-  display: none !important;
-}
-/* Видаляю стилі Swiper-класів для крайніх */
-.swiper-slide-prev .serviceCard,
-.swiper-slide-next .serviceCard {
-  opacity: 1;
-  filter: none;
-  clip-path: none;
-}
-
-.swiper-pagination {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 0.63vw;
-  margin-bottom: 1.67vw;
-  position: static;
-}
-.swiper-pagination-bullet {
-  width: 0.83vw;
-  height: 0.83vw;
-  background: #e4e4e4;
-  border-radius: 50%;
-  opacity: 1;
-  margin: 0 0.31vw !important;
-  transition:
-    background 0.2s,
-    width 0.2s,
-    height 0.2s,
-    border-radius 0.2s;
-}
-.swiper-pagination-bullet-active {
-  width: 1.88vw;
-  height: 0.31vw;
-  border-radius: 166px;
-  background: #222;
-}
-
-.lastSlide .serviceCard {
-  opacity: 0.3;
-  filter: blur(0.1vw);
-  box-shadow: 0 0.42vw 1.67vw rgba(0, 0, 0, 0.15);
-  transition:
-    opacity 0.4s,
-    filter 0.4s,
-    box-shadow 0.4s;
-}
 
 .serviceTextBlock {
   margin: 0 auto;
@@ -333,19 +218,6 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
-}
-
-@media (max-width: 1200px) {
-  .cardsRow {
-    flex-direction: column;
-    align-items: center;
-    gap: 0.83vw;
-  }
-  .serviceCard {
-    width: 90vw;
-    max-width: 26.04vw;
-    height: auto;
-  }
 }
 
 .wrapHeading {
@@ -368,4 +240,31 @@
 
 .services :global(.swiper-slide) {
   height: auto !important;
+}
+
+
+
+
+
+
+.swiperCustom :global(.swiper-slide) {
+  opacity: 0.5;
+  transition: all 0.3s ease;
+  padding: 1.27vw 0;
+  width: 27vw !important;
+}
+
+.swiperCustom :global(.swiper-slide-active) {
+  opacity: 1;
+  padding: 0vw;
+  width: 29.8vw !important;
+}
+.swiperCustom :global(.swiper-slide-active) .serviceCard {
+  opacity: 1;
+  padding: 3.125vw;
+}
+
+.swiperCustom :global(.swiper-slide-prev),
+.swiperCustom :global(.swiper-slide-next) {
+  opacity: 1;
 }
