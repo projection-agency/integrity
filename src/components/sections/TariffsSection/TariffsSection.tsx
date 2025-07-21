@@ -46,13 +46,22 @@ const tariffs = [
     ],
   },
 ]
+type tariffItem = {
+  desciption: string
+  id: string
+  name_tariff: string
+  result: { points: string; id: string }[]
+  title: string
+}
 
 type TariffsSection = {
   subtitle: string
   title: string
+  tariff: tariffItem[]
 }
 
-export default function TariffsSection({ block }: { block: TariffsSection }) {
+export default async function TariffsSection({ block }: { block: TariffsSection }) {
+  console.log(block)
   return (
     <section className={s.section}>
       <div className={s.topBlock}>
@@ -60,19 +69,19 @@ export default function TariffsSection({ block }: { block: TariffsSection }) {
         <MainTitle title={block.title} />
       </div>
       <div className={s.tariffsList}>
-        {tariffs.map((item, idx) => {
+        {block.tariff.map((item, idx) => {
           return (
             <div key={idx} className={`${s.tariffPlan} ${idx === 2 ? s.white : ''}`}>
-              <p className={s.title}>{item.title}</p>
+              <p className={s.title}>{item.name_tariff}</p>
               <span className={s.line}></span>
 
-              <h3 className={s.slogan}>{item.slogan}</h3>
-              <p className={s.descr}>{item.descr}</p>
+              <h3 className={s.slogan}>{item.title}</h3>
+              <p className={s.descr}>{item.desciption}</p>
               <div className={s.services}>
                 <h4>{result}Result:</h4>
                 <ul className={s.servicesList}>
-                  {item.services.map((item, idx) => {
-                    return <li key={idx}>{item}</li>
+                  {item.result.map((item, idx) => {
+                    return <li key={idx}>{item.points}</li>
                   })}
                 </ul>
               </div>

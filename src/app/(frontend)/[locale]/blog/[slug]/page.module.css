@@ -114,6 +114,8 @@
       gap: 3.33vw;
 
       .articleNav {
+        position: sticky;
+        top: 10vw;
         width: 20.63vw;
         padding: 1.67vw;
         height: max-content;

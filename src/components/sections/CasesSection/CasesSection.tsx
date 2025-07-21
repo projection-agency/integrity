@@ -37,7 +37,6 @@ export default function CasesSection({ block }: { block: CasesBlockData }) {
   const [activeSlide, setActiveSlide] = useState<number | null>(null)
 
   useEffect(() => {
-    console.log(block.case)
     setCaseData(block.case)
   }, [block.case])
 
