@@ -232,6 +232,7 @@
 }
 
 .tariffPlan.back {
+  height: 100%;
   .services {
     background-color: transparent;
 
