@@ -6,6 +6,21 @@ import BlogPosts from '@/components/sections/BlogSection/BlogSection'
 import s from './page.module.css'
 import GridBackground from '@/components/GridBackground/GridBackground'
 import ExpertSection from '@/components/sections/ExpertSection/ExpertSection'
+import { getSinglePage } from '@/action/getPage'
+import { Metadata } from 'next'
+
+export async function generateMetadata(): Promise<Metadata> {
+  const page = await getSinglePage('blog')
+
+  return {
+    title: page?.meta?.title || 'Blog',
+    description: page?.meta?.description || '',
+    openGraph: {
+      title: page?.meta?.title || 'Blog',
+      description: page?.meta?.description || '',
+    },
+  }
+}
 
 export default async function BlogPage({
   searchParams,

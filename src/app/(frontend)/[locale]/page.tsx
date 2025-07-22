@@ -22,6 +22,21 @@ import FormSection from '@/components/sections/FormSection/FormSection'
 import LatestInsightsSection from '@/components/sections/LatestInsightsSection/LatestInsightsSection'
 import OutcomesSection from '@/components/sections/OutcomesSection/OutcomesSection'
 import { addFaqs } from '@/action/addFaqs'
+import { getSinglePage } from '@/action/getPage'
+import { Metadata } from 'next'
+
+export async function generateMetadata(): Promise<Metadata> {
+  const page = await getSinglePage('main')
+
+  return {
+    title: page?.meta?.title || 'Home',
+    description: page?.meta?.description || '',
+    openGraph: {
+      title: page?.meta?.title || 'Home',
+      description: page?.meta?.description || '',
+    },
+  }
+}
 
 const BLOCK_COMPONENTS = {
   'hero-block': HeroSection,

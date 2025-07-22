@@ -5,8 +5,25 @@ import s from './page.module.css'
 import GridBackground from '@/components/GridBackground/GridBackground'
 import MainTitle from '@/components/ui/MainTitle/MainTitle'
 import { getContactsData } from '@/action/getContactsData'
+import { getSinglePage } from '@/action/getPage'
+import { Metadata } from 'next'
+
+export async function generateMetadata(): Promise<Metadata> {
+  const page = await getSinglePage('contacts')
+
+  return {
+    title: page?.meta?.title || 'Contacts',
+    description: page?.meta?.description || '',
+    openGraph: {
+      title: page?.meta?.title || 'Contacts',
+      description: page?.meta?.description || '',
+    },
+  }
+}
 
 export default async function ContactsPage() {
+  const page = await getSinglePage('contacts')
+
   const { heroBlock } = await getContactsData()
 
   return (
