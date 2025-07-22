@@ -85,7 +85,7 @@
   padding: 3.125vw;
   position: relative;
   overflow: hidden;
-  justify-content: space-around;
+  justify-content: space-between;
   transition: all 0.3s ease;
 }
 
@@ -101,11 +101,9 @@
 }
 
 .cardIcon {
-
   display: flex;
   justify-content: center;
 }
-
 
 .sliderDotsRow {
   display: flex;
@@ -169,7 +167,6 @@
   background: var(--light-garay-2);
 }
 
-
 .miniCard {
   border-radius: 1.667vw;
   padding: 2.083vw;
@@ -186,7 +183,6 @@
   justify-content: center;
   transition: all 0.3s ease;
 }
-
 
 .headlineContainer {
   width: 66.667vw;
@@ -321,41 +317,43 @@
   transition: all 0.3s ease;
 }
 
-
-
 .swiperCustomOutcome {
   overflow: visible;
 }
 .swiperCustomOutcome :global(.swiper-wrapper) {
   align-items: center;
+  height: 26.7vw;
 }
 .swiperCustomOutcome .card {
-  transition-duration: 0.3s;
-}
-.swiperCustomOutcome :global(.swiper-slide) {
-  transition-duration: 0.3s;
+  transition: all 0.4s;
 }
 .swiperCustomOutcome :global(.swiper-slide) {
   width: 20vw;
-  height: 15vw;
   opacity: 0.5;
-  transition-duration: 0.3s;
+  padding: 5.85vw 0;
+  height: 100%;
 }
-
+.swiperCustomOutcome :global(.swiper-slide) .card {
+  padding: 2.083vw;
+  transition: all 0.4s;
+}
+.swiperCustomOutcome :global(.swiper-slide-active) .card {
+  padding: 3.125vw;
+}
 .swiperCustomOutcome :global(.swiper-slide-active) {
   width: 30vw;
   opacity: 1;
-  height: 26.7vw;
+  padding: 0;
 }
 
 /* Уникни змін padding */
-.swiperCustomOutcome .cardTitleText {
-  transition-duration: 0.3s;
-  transform: scale(0.5) translate(-50%, 50%);
+.swiperCustomOutcome .cardTextBlock {
+  transition: all 0.4s;
+  transform: scale(0.5) translate(-50%, -50%);
   width: 24vw;
 }
 
-.swiperCustomOutcome :global(.swiper-slide-active) .cardTitleText {
+.swiperCustomOutcome :global(.swiper-slide-active) .cardTextBlock {
   transform: scale(1);
 }
 

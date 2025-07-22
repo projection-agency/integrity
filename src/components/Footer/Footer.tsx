@@ -2,15 +2,6 @@ import s from './Footer.module.css'
 import IconHero from '../icons/IconHero/IconHero'
 import Link from 'next/link'
 import { JSX } from 'react'
-const navLinks = [
-  { linkTo: 'Main Screen', href: 'mainScreen' },
-  { linkTo: 'Case studies', href: 'caseStudies' },
-  { linkTo: 'Services', href: 'services' },
-  { linkTo: 'About us', href: 'aboutUs' },
-  { linkTo: 'Blog', href: 'blog' },
-  { linkTo: 'FAQ', href: 'faq' },
-  { linkTo: 'Contacts', href: 'contacts' },
-]
 
 const whatsapp = (
   <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 38 38" fill="none">
@@ -69,6 +60,12 @@ const youtube = (
   </svg>
 )
 
+export type MenuItem = {
+  label: string
+  link: string
+  id?: string
+}
+
 const iconMap: Record<string, JSX.Element> = {
   whatsapp,
   linkedin,
@@ -77,7 +74,7 @@ const iconMap: Record<string, JSX.Element> = {
 }
 
 const socials = ['whatsapp', 'linkedin', 'x', 'youtube']
-export default function Footer() {
+export default function Footer({ menu }: { menu: MenuItem[] }) {
   return (
     <footer className={s.footer}>
       <div className={s.topBlock}>
@@ -91,12 +88,10 @@ export default function Footer() {
         <div className={s.rightBlock}>
           <nav className={s.footerNav}>
             <ul>
-              {navLinks.map((item, idx) => {
+              {menu.map((item, idx) => {
                 return (
                   <li key={idx}>
-                    <Link href={`${item.linkTo === 'Blog' ? `/${item.href}` : `#${item.href}`}`}>
-                      {item.linkTo}
-                    </Link>
+                    <Link href={`${item.link}`}>{item.label}</Link>
                   </li>
                 )
               })}
@@ -131,11 +126,14 @@ export default function Footer() {
         {integrity}
         <div className={s.privacyCont}>
           <p>© 2025 integrity. All rights reserved</p>
-          <Link href={'#'}>Privacy Policy</Link>
-          <Link href={'#'}>Terms of use</Link>
-          <Link href={'#'}>Legal notice</Link>
+          <Link href={'/privacy'}>Privacy Policy</Link>
+          <Link href={'/terms'}>Terms of use</Link>
+          <Link href={'/legal-notice'}>Legal notice</Link>
           <div className={s.developers}>
-            <p>Website Development </p> <Link href={'#'}>BeforeAfter</Link>
+            <p>Website Development </p>{' '}
+            <Link href={'https://www.instagram.com/before_after.agency/'} target="_blank">
+              BeforeAfter
+            </Link>
           </div>
         </div>
       </div>

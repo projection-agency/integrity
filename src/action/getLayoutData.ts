@@ -15,8 +15,16 @@ export async function getLayoutData(locale: string) {
       }))
     : []
 
+  const footerMenu = Array.isArray(menuGlobal?.['footer-menu'])
+    ? menuGlobal['footer-menu'].map(({ id, ...rest }) => ({
+        ...rest,
+        id: typeof id === 'string' ? id : undefined,
+      }))
+    : []
+
   return {
     main,
     headerMenu,
+    footerMenu,
   }
 }

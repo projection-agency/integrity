@@ -31,7 +31,7 @@ export default async function LocaleLayout({
     notFound()
   }
 
-  const { main, headerMenu } = await getLayoutData(locale)
+  const { main, headerMenu, footerMenu } = await getLayoutData(locale)
 
   return (
     <html lang={locale} className={interTight.className}>
@@ -40,7 +40,7 @@ export default async function LocaleLayout({
         <NextIntlClientProvider>
           <Header menu={headerMenu} logo={main.logo || ''} buttonText={main.button || ''} />
           <main>{children}</main>
-          <Footer />
+          <Footer menu={footerMenu} />
         </NextIntlClientProvider>
       </body>
     </html>
