@@ -5,6 +5,21 @@ import s from './page.module.css'
 import Image from 'next/image'
 import GridBackground from '@/components/GridBackground/GridBackground'
 import { formatDate } from '@/utils/date'
+import { getSinglePage } from '@/action/getPage'
+import { Metadata } from 'next'
+
+export async function generateMetadata(): Promise<Metadata> {
+  const page = await getSinglePage('privacy')
+
+  return {
+    title: page?.meta?.title || 'Privacy',
+    description: page?.meta?.description || '',
+    openGraph: {
+      title: page?.meta?.title || 'Privacy',
+      description: page?.meta?.description || '',
+    },
+  }
+}
 
 export default async function PrivacyPage({ params }: { params: Promise<{ locale: string }> }) {
   const { data, accordionBlock } = await getPolicyData({ params })

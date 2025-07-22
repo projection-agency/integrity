@@ -5,6 +5,21 @@ import Image from 'next/image'
 import GridBackground from '@/components/GridBackground/GridBackground'
 import { getLegalNoticeData } from '@/action/getLegalNoticeData'
 import { formatDate } from '@/utils/date'
+import { getSinglePage } from '@/action/getPage'
+import { Metadata } from 'next'
+
+export async function generateMetadata(): Promise<Metadata> {
+  const page = await getSinglePage('legal-notice')
+
+  return {
+    title: page?.meta?.title || 'Legal Notice',
+    description: page?.meta?.description || '',
+    openGraph: {
+      title: page?.meta?.title || 'Legal Notice',
+      description: page?.meta?.description || '',
+    },
+  }
+}
 
 export default async function LegalNoticePage({ params }: { params: Promise<{ locale: string }> }) {
   const { data, accordionBlock } = await getLegalNoticeData({ params })

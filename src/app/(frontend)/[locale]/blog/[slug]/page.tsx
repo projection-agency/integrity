@@ -11,6 +11,30 @@ import { injectHeadingIds } from '@/components/RichTextComponent/injectHeadingId
 import ArticleNavItem from '@/components/ArticleNavItem/ArticleNavItem'
 import SimilarArticlesSection from '@/components/sections/SimilarArticlesSection/SimilarArticlesSection'
 import ExpertSection from '@/components/sections/ExpertSection/ExpertSection'
+import { Metadata } from 'next'
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string; slug: string }>
+}): Promise<Metadata> {
+  const { slug, locale } = await params
+  const pagePost = await getPostsWithSlug(slug, locale)
+
+  if (!pagePost || !pagePost[0]) {
+    return notFound()
+  }
+
+  return {
+    title: pagePost[0]?.meta?.title || 'Blog',
+    description: pagePost[0]?.meta?.description || '',
+    openGraph: {
+      title: pagePost[0]?.meta?.title || 'Blog',
+      description: pagePost[0]?.meta?.description || '',
+    },
+  }
+}
+
 const copyLink = (
   <svg xmlns="http://www.w3.org/2000/svg" width="19" height="18" viewBox="0 0 19 18" fill="none">
     <mask id="mask0_3145_4695" maskUnits="userSpaceOnUse" x="0" y="0" width="19" height="18">

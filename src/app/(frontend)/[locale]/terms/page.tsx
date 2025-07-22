@@ -5,6 +5,21 @@ import s from './page.module.css'
 import Image from 'next/image'
 import GridBackground from '@/components/GridBackground/GridBackground'
 import { formatDate } from '@/utils/date'
+import { getSinglePage } from '@/action/getPage'
+import { Metadata } from 'next'
+
+export async function generateMetadata(): Promise<Metadata> {
+  const page = await getSinglePage('terms')
+
+  return {
+    title: page?.meta?.title || 'Terms',
+    description: page?.meta?.description || '',
+    openGraph: {
+      title: page?.meta?.title || 'Terms',
+      description: page?.meta?.description || '',
+    },
+  }
+}
 
 export default async function TermsPage({ params }: { params: Promise<{ locale: string }> }) {
   const { data, accordionBlock } = await getTermsData({ params })
@@ -22,7 +37,7 @@ export default async function TermsPage({ params }: { params: Promise<{ locale: 
         </div>
         <GridBackground />
       </div>
-      
+
       <div className={s.containerPage}>
         <p className={s.description}>{data?.description}</p>
         <div className={s.listAccordion}>

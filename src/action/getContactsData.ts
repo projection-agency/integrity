@@ -1,9 +1,7 @@
-import { getPayload } from 'payload'
-import config from '@/payload.config'
+import { getPayloadInstance } from '@/utils/payload'
 
 export async function getContactsData() {
-  const payloadConfig = await config
-  const payload = await getPayload({ config: payloadConfig })
+  const payload = await getPayloadInstance()
 
   const { docs } = await payload.find({
     collection: 'pages',
