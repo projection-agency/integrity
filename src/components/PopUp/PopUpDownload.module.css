@@ -1,0 +1,129 @@
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.popup {
+  border-radius: 1.67vw;
+  background: var(--white);
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  width: 39vw;
+  flex-direction: column;
+  padding: 5.21vw;
+  /* width: 742px; */
+  height: 32.97vw;
+  gap: 2.08vw;
+  justify-content: center;
+  align-items: center;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 1.04vw;
+  right: 1.04vw;
+  width: 3.33vw;
+  height: 3.33vw;
+  padding: 0.94vw;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.thanksWrap {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.calcIcon {
+  width: 5vw;
+  height: 5vw;
+  display: block;
+}
+
+.thanksTextPop {
+  font-family: var(--second-family);
+  font-style: italic;
+  font-weight: 900;
+  font-size: 2.5vw;
+  line-height: 120%;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--black);
+}
+
+.actionBtn {
+  width: 28.23vw;
+  height: 3.23vw;
+  padding: 1.09vw 2.08vw;
+  border-radius: 0.63vw;
+  background: var(--black);
+  color: var(--white);
+  border: none;
+  cursor: pointer;
+
+  font-family: var(--font-family);
+  font-size: 0.83vw;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.52vw;
+}
+
+.thanksBlock {
+  width: 100%;
+  height: auto;
+}
+
+.iconWrap {
+  width: 1.04vw;
+  height: 1.04vw;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+}
+.actionBtn svg {
+  width: 1.04vw;
+  height: 1.04vw;
+  display: block;
+  fill: currentColor;
+  stroke: currentColor;
+}
+
+.actionBtn .iconWrap {
+  flex: 0 0 auto;
+}
+.actionBtn svg,
+.actionBtn svg * {
+  width: 1.04vw;
+  height: 1.04vw;
+  fill: currentColor !important;
+  stroke: currentColor !important;
+}
+
+.actionBtn svg path,
+.actionBtn svg rect,
+.actionBtn svg circle,
+.actionBtn svg polygon,
+.actionBtn svg line,
+.actionBtn svg polyline {
+  fill: currentColor !important;
+  stroke: currentColor !important;
+}

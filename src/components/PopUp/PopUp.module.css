@@ -1,0 +1,250 @@
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.popup {
+  width: auto;
+  height: auto;
+  padding: 5.21vw;
+  border-radius: 1.67vw;
+  background: var(--white);
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.7vw;
+  width: 100%;
+  align-items: center;
+}
+
+.titleRow {
+  display: flex;
+  justify-content: center;
+  gap: 0.42vw;
+  align-items: baseline;
+  align-items: center;
+}
+
+.headerText {
+  font-family: var(--second-family);
+  font-style: italic;
+  font-weight: 900;
+  font-size: 2.5vw;
+  line-height: 100%;
+  text-transform: uppercase;
+  color: var(--black);
+  text-align: center;
+  display: block;
+}
+
+.calcIconTitle {
+  width: 3.13vw;
+
+  height: 3.13vw;
+  flex: 0 0 auto;
+
+  margin-top: 0.22vw;
+}
+
+.formGroup {
+  margin: 0;
+  width: 100%;
+  max-width: 28.23vw;
+  display: flex;
+  flex-direction: column;
+  gap: 0.42vw;
+}
+
+.label {
+  display: block;
+  font-family: var(--second-family);
+  font-size: 0.73vw;
+  font-weight: 600;
+  color: var(--black);
+}
+
+.input {
+  width: 100%;
+  height: 3.33vw;
+  padding: 0.89vw 1.25vw;
+  background: var(--light-gray);
+  border-radius: 0.63vw;
+  border: none;
+  font-family: var(--second-family);
+  font-size: 0.73vw;
+  font-weight: 600;
+  line-height: 100%;
+  color: var(--black);
+  box-sizing: border-box;
+}
+
+.input::placeholder {
+  color: #a8a8a8;
+}
+
+.actionBtn {
+  width: 100%;
+  max-width: 28.23vw;
+  height: 3.23vw;
+  padding: 1.09vw 2.08vw;
+  background: var(--black);
+  color: var(--white);
+  border-radius: 0.63vw;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-family);
+  font-size: 0.83vw;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.52vw;
+  margin: 0;
+}
+
+.thanksWrap {
+  width: 100%;
+  max-width: 28.23vw;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.08vw;
+  margin: 0 auto 2.5vw;
+}
+
+.thanksIcon {
+  width: 3.13vw;
+  height: 3.13vw;
+  display: block;
+}
+
+.thanksText {
+  font-family: var(--second-family);
+  font-style: italic;
+  font-weight: 900;
+  font-size: 2.5vw;
+  line-height: 100%;
+  text-transform: uppercase;
+  color: var(--black);
+  white-space: pre-line;
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+.headerTextBusiness {
+  font-family: var(--second-family);
+  font-style: italic;
+  font-weight: 900;
+  font-size: 2.5vw;
+  line-height: 100%;
+  text-transform: uppercase;
+  color: var(--black);
+  text-align: center;
+  display: block;
+}
+
+.formGroupBlock {
+  width: 28.23vw;
+  /* height: 10.63vw; */
+  height: auto;
+
+  display: flex;
+  gap: 1.04vw;
+  flex-direction: column;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 1.04vw;
+  right: 1.04vw;
+  width: 3.33vw;
+  height: 3.33vw;
+  padding: 0.94vw;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.actionBtn svg path,
+.actionBtn svg rect,
+.actionBtn svg circle,
+.actionBtn svg polygon,
+.actionBtn svg line,
+.actionBtn svg polyline {
+  fill: currentColor !important;
+  stroke: currentColor !important;
+}
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.required {
+  width: max-content;
+  position: relative;
+  margin-bottom: 0.63vw;
+  font-size: 0.83vw;
+  font-style: italic;
+  font-weight: 800;
+  line-height: 1;
+  color: rgba(34, 34, 34, 1);
+}
+
+.required::after {
+  content: '*';
+  position: absolute;
+  top: 0;
+  right: -0.5vw;
+  color: rgba(255, 228, 20, 1);
+}
+
+/* ==== FORMIK VALIDATION STYLES ==== */
+.errorMessage {
+  color: #ff3b30;
+  font-size: 0.63vw;
+  line-height: 1.2;
+  margin-top: 0.26vw;
+  font-family: var(--second-family);
+  font-weight: 600;
+}
+
+.inputError {
+  border: 0.1vw solid #ff3b30 !important;
+  background: rgba(255, 59, 48, 0.06);
+}
+
+.labelError {
+  color: #ff3b30 !important;
+}
