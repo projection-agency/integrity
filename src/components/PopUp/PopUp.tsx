@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react'
 import { Formik, Form, Field } from 'formik'
 import { object, string } from 'yup'
 import styles from './PopUp.module.css'
-import { CalcIcon, ClosedIcon, DownloadIcon, SendIcon } from './Icon'
+import { CalcIcon, ClosedIcon, SendIcon } from './Icon'
 import PopUpDownload from './PopUpDownload'
 
 type PopUpProps = {
@@ -16,34 +16,39 @@ type PopUpProps = {
 export default function PopUp({ isOpen, onClose, onDownload }: PopUpProps) {
   const [sent, setSent] = useState(false)
 
-  useEffect(() => {
-    const scrollY = window.scrollY
-    const body = document.body
+  // lock/unlock body scroll depending on isOpen
+  // useEffect(() => {
+  //   if (!isOpen) return
 
-    const prevOverflow = body.style.overflow
-    const prevTouchAction = body.style.touchAction
-    const prevPosition = body.style.position
-    const prevTop = body.style.top
-    const prevLeft = body.style.left
-    const prevRight = body.style.right
+  //   const body = document.body
+  //   const scrollY = window.scrollY
 
-    body.style.overflow = 'hidden'
-    body.style.touchAction = 'none'
-    body.style.position = 'fixed'
-    body.style.top = `-${scrollY}px`
-    body.style.left = '0'
-    body.style.right = '0'
+  //   const prev = {
+  //     overflow: body.style.overflow,
+  //     touchAction: body.style.touchAction,
+  //     position: body.style.position,
+  //     top: body.style.top,
+  //     left: body.style.left,
+  //     right: body.style.right,
+  //   }
 
-    return () => {
-      body.style.overflow = prevOverflow
-      body.style.touchAction = prevTouchAction
-      body.style.position = prevPosition
-      body.style.top = prevTop
-      body.style.left = prevLeft
-      body.style.right = prevRight
-      window.scrollTo(0, scrollY)
-    }
-  }, [])
+  //   body.style.overflow = 'hidden'
+  //   body.style.touchAction = 'none'
+  //   body.style.position = 'fixed'
+  //   body.style.top = `-${scrollY}px`
+  //   body.style.left = '0'
+  //   body.style.right = '0'
+
+  //   return () => {
+  //     body.style.overflow = prev.overflow
+  //     body.style.touchAction = prev.touchAction
+  //     body.style.position = prev.position
+  //     body.style.top = prev.top
+  //     body.style.left = prev.left
+  //     body.style.right = prev.right
+  //     window.scrollTo(0, scrollY)
+  //   }
+  // }, [isOpen])
 
   if (!isOpen) return null
 
