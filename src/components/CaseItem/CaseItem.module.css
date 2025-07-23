@@ -176,9 +176,9 @@
   }
 
   .results {
-    
     width: 28.28vw;
     border-radius: 1.67vw;
     background: var(--Gradient-yellow, linear-gradient(94deg, #ffe414 0.19%, #ffae00 100.19%));
+    overflow: hidden;
   }
 }
