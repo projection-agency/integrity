@@ -7,7 +7,6 @@ import IconHero from '../../icons/IconHero/IconHero'
 import GridBackground from '../../GridBackground/GridBackground'
 import Image from 'next/image'
 import PopUp from '../../PopUp/PopUp'
-import PopUpDownload from '../../PopUp/PopUpDownload'
 
 type HeroBlock = {
   title?: string
@@ -120,11 +119,6 @@ export default function HeroSection({ block }: { block: HeroBlock }) {
         </div>
       </div>
       <PopUp isOpen={isOpen} onClose={handleClosePopUp} onDownload={handleDownload} />
-      <PopUpDownload
-        isOpen={isDownloadOpen}
-        onClose={closeDownload}
-        onDownload={handleDownload}
-      />
       <GridBackground />
     </div>
   )

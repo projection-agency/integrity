@@ -15,6 +15,13 @@ type PopUpProps = {
 
 export default function PopUp({ isOpen, onClose, onDownload }: PopUpProps) {
   const [sent, setSent] = useState(false)
+  const [resetKey, setResetKey] = useState(0)
+
+  const handleClose = () => {
+    setSent(false)
+    setResetKey((k) => k + 1)
+    onClose()
+  }
 
   // lock/unlock body scroll depending on isOpen
   // useEffect(() => {
@@ -62,14 +69,15 @@ export default function PopUp({ isOpen, onClose, onDownload }: PopUpProps) {
   }
 
   return (
-    <div className={styles.backdrop} onClick={onClose}>
+    <div className={styles.backdrop} onClick={handleClose}>
       <div className={styles.popup} onClick={(e) => e.stopPropagation()}>
-        <button className={styles.closeBtn} onClick={onClose} aria-label="close">
+        <button className={styles.closeBtn} onClick={handleClose} aria-label="close">
           <ClosedIcon />
         </button>
 
         {/* ================== FORM STATE ================== */}
         <Formik
+          key={resetKey}
           initialValues={initialValues}
           validationSchema={validationSchema}
           onSubmit={onSubmit}
@@ -150,7 +158,11 @@ export default function PopUp({ isOpen, onClose, onDownload }: PopUpProps) {
 
         {/* ================== THANK-YOU STATE ================== */}
         {sent && (
-          <PopUpDownload isOpen={true} onClose={onClose} onDownload={onDownload ?? (() => {})} />
+          <PopUpDownload
+            isOpen={true}
+            onClose={handleClose}
+            onDownload={onDownload ?? (() => {})}
+          />
         )}
       </div>
     </div>
