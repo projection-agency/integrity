@@ -317,4 +317,9 @@
     padding-bottom: 5.21vw;
     background-color: rgba(249, 249, 249, 1);
   }
+
+  .similarArticlesCont {
+    width: 91.66vw;
+    margin: 0 auto;
+  }
 }

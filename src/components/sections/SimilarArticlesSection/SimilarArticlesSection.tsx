@@ -19,8 +19,8 @@ const SimilarArticlesSection = async () => {
         </h2>
       </div>
       <div className={s.articlesList}>
-        {filteredPosts.slice(1, 3).map((post, index) => (
-          <ArticleItem key={post.id} post={post} idx={index} />
+        {filteredPosts.slice(0, 3).map((post, index) => (
+          <ArticleItem key={post.id} post={post} idx={index} style="small" />
         ))}
       </div>
     </div>

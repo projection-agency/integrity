@@ -28,7 +28,7 @@ export default function ArticleItem({
     >
       <Image
         className={s.insightCardImage}
-        src={post.featuredImage.url}
+        src={post.featuredImage?.url || '/images/blog/blog-placeholder.png'}
         alt={post.title}
         width={400}
         height={300}

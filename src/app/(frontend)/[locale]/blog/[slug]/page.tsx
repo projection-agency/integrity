@@ -252,6 +252,8 @@ export default async function BlogPostPage({
             </nav>
           </div>
         </div>
+      </div>
+      <div className={s.similarArticlesCont}>
         <SimilarArticlesSection />
       </div>
       <div className={s.expertSectionCont}>
