@@ -5,11 +5,16 @@
     font-size: 4.16vw;
     font-style: normal;
     font-weight: 900;
-    line-height: 110%; /* 4.58333rem */
+    line-height: 1.1; /* 4.58333rem */
     text-transform: uppercase;
 
     span{
         color: #222;
         font-style: italic;
+    }
+}
+@media screen and (max-width:1024px) {
+    .mainTitle{
+        font-size: 8.53vw;
     }
 }

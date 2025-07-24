@@ -42,6 +42,7 @@ const AboutTheFounderSection = ({ block }: { block: AboutTheFounderSection }) =>
               <p className={s.subtitle}>Top Rated on Upwork with long-term clients</p>
             </div>
           </div>
+
           <div className={s.spend}>
             {spendBg}
             <div className={s.arrowContainer}>
@@ -53,9 +54,10 @@ const AboutTheFounderSection = ({ block }: { block: AboutTheFounderSection }) =>
             </div>
           </div>
         </div>
+
         <div className={s.content}>
           <h3>
-            “ For me, marketing{' '}
+            “ For me, marketing
             <span className={s.computer}>
               <Image src={'/images/icons/computer.svg'} width={64} height={64} alt="icon" />
             </span>{' '}
@@ -88,46 +90,23 @@ const AboutTheFounderSection = ({ block }: { block: AboutTheFounderSection }) =>
 export default AboutTheFounderSection
 
 const spendBg = (
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="12 4 325 160" fill="none">
-    <g>
-      <path
-        d="M305 4C322.673 4 337 18.3269 337 36V100.122C337 117.795 322.673 132.122 305 132.122H200.361C196.744 133.615 190.903 136.839 185.828 143.355C177.789 153.678 173.828 164 173.828 164C173.828 164 167.828 151.613 161.828 143.355C157.658 137.617 150.591 133.873 146.667 132.122H44C26.3269 132.122 12 117.795 12 100.122V36C12 18.3269 26.3269 4 44 4H305Z"
-        fill="url(#paint0_linear_3035_9086)"
-      />
-    </g>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 325 160"
+    preserveAspectRatio="none"
+    fill="none"
+  >
+    <path
+      d="M293 0C310.673 0 325 14.3269 325 32V96.122C325 113.795 310.673 128.122 293 128.122H188.361C184.744 129.615 178.903 132.839 173.828 139.355C165.789 149.678 161.828 160 161.828 160C161.828 160 155.828 147.613 149.828 139.355C145.658 133.617 138.591 129.873 134.667 128.122H32C14.3269 128.122 0 113.795 0 96.122V32C0 14.3269 14.3269 0 32 0H293Z"
+      fill="url(#paint0_linear_3035_9086)"
+    />
     <defs>
-      <filter
-        id="filter0_d_3035_9086"
-        x="0"
-        y="0"
-        filterUnits="userSpaceOnUse"
-        colorInterpolationFilters="sRGB"
-      >
-        <feFlood floodOpacity="0" result="BackgroundImageFix" />
-        <feColorMatrix
-          in="SourceAlpha"
-          type="matrix"
-          values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-          result="hardAlpha"
-        />
-        <feOffset dx="-4" dy="4" />
-        <feGaussianBlur stdDeviation="4" />
-        <feComposite in2="hardAlpha" operator="out" />
-        <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" />
-        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_3035_9086" />
-        <feBlend
-          mode="normal"
-          in="SourceGraphic"
-          in2="effect1_dropShadow_3035_9086"
-          result="shape"
-        />
-      </filter>
       <linearGradient
         id="paint0_linear_3035_9086"
-        x1="21.6517"
-        y1="-29.2268"
-        x2="407.417"
-        y2="99.5851"
+        x1="0"
+        y1="0"
+        x2="400"
+        y2="160"
         gradientUnits="userSpaceOnUse"
       >
         <stop stopColor="#737373" />
