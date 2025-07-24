@@ -7,9 +7,10 @@ import s from './Accordion.module.css'
 export default function ClientAccordion({ items }: { items: any[] }) {
   return (
     <>
-      {items.map((item) => (
-        <Accordion className={s.accordion} key={item.id}>
+      <Accordion className={s.accordion}>
+        {items.map((item, idx) => (
           <AccordionItem
+            key={idx}
             className={s.accordionItem}
             header={
               <div className={s.itemHeader}>
@@ -31,8 +32,8 @@ export default function ClientAccordion({ items }: { items: any[] }) {
               <div dangerouslySetInnerHTML={{ __html: item.content || '' }} />
             )}
           </AccordionItem>
-        </Accordion>
-      ))}
+        ))}
+      </Accordion>
     </>
   )
 }

@@ -386,9 +386,13 @@
           font-size: 6.1vw;
           line-height: 1.2;
 
+          span {
+            display: block;
+          }
+
           .computer {
             width: 8.53vw;
-            height: 8.53vw;
+            height: 2.53vw;
             transform: translateY(1.5vw);
 
             img {
