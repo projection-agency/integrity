@@ -9,7 +9,7 @@
     .topBlock {
       margin-bottom: 4.2vw;
 
-      .upperDescr {
+      /* .upperDescr {
         margin-right: auto;
         margin-left: auto;
         margin-bottom: 2.1vw;
@@ -26,7 +26,7 @@
         text-transform: uppercase;
         color: #ffffff;
       }
-
+ */
       h2 {
         color: #ffffff;
 
@@ -139,6 +139,7 @@
         margin-left: auto;
         margin-right: auto;
 
+        font-family: 'Mont';
         font-size: 0.83vw;
         font-style: normal;
         font-weight: 700;
@@ -237,6 +238,135 @@
 
       .advantageItem:nth-child(even) {
         transform: translateY(50%);
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .section {
+    padding-top: 21.33vw;
+    padding-bottom: 21.33vw;
+
+    .container {
+      .topBlock {
+        margin-bottom: 8.53vw;
+      }
+
+      .sloganCont {
+        width: 91.47vw;
+        padding: 7.47vw;
+        margin-bottom: 36vw;
+        border-radius: 8.53vw;
+        border-width: 0.27vw;
+
+        .images {
+          margin-bottom: 6.4vw;
+          .imageContainer {
+            width: 17.07vw;
+            height: 17.07vw;
+          }
+
+          .decision {
+            left: 5.78vw;
+            svg {
+              width: 10.67vw;
+              height: 10.67vw;
+            }
+          }
+
+          .logo {
+            svg {
+              width: 10.67vw;
+              height: 10.67vw;
+            }
+          }
+
+          img {
+            left: -5.78vw;
+            width: 17.07vw;
+            height: 17.07vw;
+          }
+        }
+
+        h3 {
+          width: auto;
+          margin-bottom: 4.27vw;
+          font-size: 6.4vw;
+
+          .computer {
+            max-width: 8.53vw;
+            width: 8.53vw;
+            height: 8.53vw;
+
+            svg {
+              width: 8.53vw;
+              height: 8.53vw;
+            }
+          }
+        }
+
+        .subtitle {
+          font-size: 4.8vw;
+          margin-bottom: 6.4vw;
+        }
+
+        .approach {
+          width: auto;
+          font-size: 3.73vw;
+          letter-spacing: -0.28px;
+
+          .paragraph {
+            margin-bottom: 7.47vw;
+          }
+        }
+      }
+
+      .iconsLineCont {
+        bottom: 327.4vw;
+      }
+
+      .advantages {
+        padding-left: 4.27vw;
+        padding-right: 4.27vw;
+        flex-direction: column;
+        gap: 5.33vw;
+
+        .advantageItem {
+          width: 76.53vw;
+          height: 76.53vw;
+          padding: 7.47vw;
+          border-radius: 6.4vw;
+
+          .upperDescr {
+            gap: 2.13vw;
+            padding: 2.13vw 3.2vw;
+            border-radius: 2.13vw;
+
+            svg {
+              width: 4.27vw;
+              height: 4.27vw;
+            }
+
+            p {
+              font-size: 3.73vw;
+            }
+          }
+
+          h3 {
+            margin-bottom: 4.27vw;
+            font-size: 6.4vw;
+          }
+
+          p {
+            font-size: 3.73vw;
+          }
+        }
+
+        .advantageItem:nth-child(even) {
+          margin-left: auto;
+          transform: none;
+        }
       }
     }
   }
