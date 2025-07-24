@@ -31,15 +31,6 @@ export default function ReviewsSection({ block }: { block: ReviewsSection }) {
     }
   }, [])
 
-  const slidesCount = 4
-  const slideWidth = windowWidth * 0.4875
-
-  const calcSlidesOffset = () => {
-    const totalSlidesWidth = slidesCount * slideWidth + (slidesCount - 1) * 20
-    const visibleArea = windowWidth
-    const offsetNeeded = totalSlidesWidth > visibleArea
-    return offsetNeeded ? 0.7 * slideWidth : 0
-  }
   return (
     <section className={s.section}>
       <div className={s.topBlock}>
@@ -62,9 +53,10 @@ export default function ReviewsSection({ block }: { block: ReviewsSection }) {
           <Swiper
             modules={[Navigation, Pagination]}
             className={s.swiper}
-            slidesPerView="auto"
-            centeredSlides={false}
-            spaceBetween={20}
+            breakpoints={{
+              0: { spaceBetween: 8, centeredSlides: false, slidesPerView: 'auto' },
+              1025: { spaceBetween: 20, centeredSlides: false, slidesPerView: 'auto' },
+            }}
             pagination={{
               el: `.${s.paginationCont}`,
               bulletClass: s.paginationBullet,

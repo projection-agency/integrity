@@ -36,11 +36,11 @@ const TariffItem = ({ item, index }: { item: tariffItem; index: number }) => {
           <p className={s.descr} dangerouslySetInnerHTML={{ __html: item.description }}></p>
           <div className={s.services}>
             <h4>{whatsIncluded} What`s included:</h4>
-            {/* <ul className={s.servicesList}>
-              {item.whats_included.map((item, idx) => {
-                return <li key={idx}>{item.points}</li>
+            <ul className={s.servicesList}>
+              {item.whats_included.map((item: { wi_points: string; id: string }, idx) => {
+                return <li key={idx}>{item.wi_points}</li>
               })}
-            </ul> */}
+            </ul>
           </div>
           <button className={s.orderBtn}>{order}Order</button>
           <button
