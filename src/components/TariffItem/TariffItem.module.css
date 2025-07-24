@@ -256,3 +256,103 @@
     }
   }
 }
+
+@media screen and (max-width: 1024px) {
+  .card {
+    width: 100%;
+
+    .tariffPlan {
+      width: 100%;
+      padding: 7.47vw;
+      border-width: 0.27vw;
+      border-radius: 8.53vw;
+
+      .title {
+        width: 28.8vw;
+        padding: 2.13vw 0;
+        margin-bottom: 6.4vw;
+        border-radius: 3.2vw;
+
+        font-size: 3.2vw;
+        text-align: center;
+      }
+
+      .line {
+        top: 12vw;
+        left: 11.07vw;
+        width: 69.33vw;
+        height: 0.27vw;
+      }
+
+      .slogan {
+        width: 69vw;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 3.2vw;
+
+        font-size: 8.53vw;
+      }
+
+      .descr {
+        width: auto;
+        margin-bottom: 6.4vw;
+
+        font-size: 3.73vw;
+        letter-spacing: -0.28px;
+      }
+
+      .services {
+        padding: 5.33vw;
+        border-radius: 6.4vw;
+
+        h4 {
+          padding: 2.13vw 3.2vw;
+          margin-bottom: 3.2vw;
+          gap: 1.6vw;
+          border-radius: 3.2vw;
+
+          font-size: 3.73vw;
+          letter-spacing: -0.28px;
+
+          svg {
+            width: 5.33vw;
+            height: 5.33vw;
+          }
+        }
+
+        .servicesList {
+          gap: 2.13vw;
+          padding-left: 4vw;
+
+          li {
+            font-size: 3.73vw;
+          }
+        }
+      }
+
+      .orderBtn {
+        height: 14.93vw;
+        padding: 4.8vw 0;
+        margin-bottom: 6.4vw;
+        border-radius: 4.27vw;
+        gap: 2.67vw;
+
+        font-size: 3.73vw;
+
+        svg {
+          width: 5.33vw;
+          height: 5.33vw;
+        }
+      }
+
+      .moreDetails {
+        gap: 2.13vw;
+        font-size: 3.73vw;
+      }
+    }
+
+    .tariffPlan.back {
+      overflow-y: scroll;
+    }
+  }
+}

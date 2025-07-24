@@ -12,14 +12,13 @@
   border-radius: 2.08333rem;
 }
 
-
 .tabSection span {
   text-align: center;
   font-family: 'Inter Tight';
   font-size: 0.7vw;
   font-style: normal;
   font-weight: 700;
-  line-height: 140%;
+  line-height: 1.4;
   letter-spacing: 0.09vw;
   text-transform: uppercase;
 }
@@ -35,4 +34,16 @@
 .tabSection.white {
   color: #222;
   background-color: #fff;
+}
+
+@media screen and (max-width: 1024px) {
+  .tabSection {
+    margin-bottom: 6.4vw;
+    padding: 2.13vw 6.4vw;
+
+    span {
+      font-size: 3.2vw;
+      letter-spacing: 0.42vw;
+    }
+  }
 }

@@ -1,6 +1,7 @@
 import s from './ApproachSection.module.css'
 import MainTitle from '@/components/ui/MainTitle/MainTitle'
 import Image from 'next/image'
+import TabSection from '@/components/ui/TabSection/TabSection'
 import MovingIconsLine from '@/components/MovingIconsLine/MovingIconsLine'
 import { JSX } from 'react'
 
@@ -48,7 +49,7 @@ export default function ApproachSection({ block }: { block: ApproachSection }) {
     <section className={s.section}>
       <div className={s.container}>
         <div className={s.topBlock}>
-          <p className={s.upperDescr}>{block.subtitle}</p>
+          <TabSection style="dark" text={block.subtitle} />
           <MainTitle title={block.title} />
         </div>
 
