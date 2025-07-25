@@ -15,5 +15,14 @@
     margin-left: auto;
     margin-right: auto;
   }
+}
 
+@media screen and (max-width: 1024px) {
+  .section {
+    padding-top: 21.33vw;
+    padding-bottom: 21.33vw;
+    .accordionCont {
+      width: 91.47vw;
+    }
+  }
 }

@@ -1,3 +1,5 @@
+'use client'
+import { useEffect, useState } from 'react'
 import MainTitle from '@/components/ui/MainTitle/MainTitle'
 import TabSection from '@/components/ui/TabSection/TabSection'
 import s from './AboutTheFounderSection.module.css'
@@ -10,6 +12,11 @@ type AboutTheFounderSection = {
 }
 
 const AboutTheFounderSection = ({ block }: { block: AboutTheFounderSection }) => {
+  const [width, setWidth] = useState(window.innerWidth)
+
+  useEffect(() => {
+    setWidth(window.innerWidth)
+  }, [])
   return (
     <section className={s.section} id="about">
       <TabSection style="gray" text={block.subtitle} />
@@ -56,18 +63,40 @@ const AboutTheFounderSection = ({ block }: { block: AboutTheFounderSection }) =>
         </div>
 
         <div className={s.content}>
-          <h3>
-            “ For me, marketing
-            <span className={s.computer}>
-              <Image src={'/images/icons/computer.svg'} width={64} height={64} alt="icon" />
-            </span>{' '}
-            only made sense once I stopped seeing it as campaigns <br /> and started building it
-            like{' '}
-            <span className={s.stonks}>
-              <Image src={'/images/icons/stonks.svg'} width={64} height={64} alt="icon" />
-            </span>{' '}
-            a business system “
-          </h3>
+          {width <= 1024 ? (
+            <h3>
+              <span> “ For me, marketing</span>
+              <span>
+                {' '}
+                <span className={s.computer}>
+                  <Image src={'/images/icons/computer.svg'} width={64} height={64} alt="icon" />
+                </span>{' '}
+                only made sense
+              </span>{' '}
+              <span>once I stopped seeing</span> <span>it as campaigns and</span>
+              <span>started building it </span>
+              <span>
+                like{' '}
+                <span className={s.stonks}>
+                  <Image src={'/images/icons/stonks.svg'} width={64} height={64} alt="icon" />
+                </span>{' '}
+                a business system “
+              </span>
+            </h3>
+          ) : (
+            <h3>
+              “ For me, marketing
+              <span className={s.computer}>
+                <Image src={'/images/icons/computer.svg'} width={64} height={64} alt="icon" />
+              </span>{' '}
+              only made sense once I stopped seeing it as campaigns <br /> and started building it
+              like{' '}
+              <span className={s.stonks}>
+                <Image src={'/images/icons/stonks.svg'} width={64} height={64} alt="icon" />
+              </span>{' '}
+              a business system “
+            </h3>
+          )}
           <p className={s.founder}>Founder, CEO of the Company</p>
           <p className={s.name}>Pushenko Eugen</p>
           <article className={s.about}>
