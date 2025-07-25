@@ -63,3 +63,19 @@
   padding-left: 12px;
   color: #333;
 }
+
+@media screen and (max-width: 1024px) {
+  .control {
+    height: 12.8vw;
+    border-radius: 3.2vw;
+    padding: 4.53vw;
+
+    font-size: 3.73vw;
+    font-weight: 600;
+  }
+
+  .placeholder {
+    font-size: 3.73vw;
+    font-weight: 600;
+  }
+}

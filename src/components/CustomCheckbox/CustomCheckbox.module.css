@@ -12,7 +12,7 @@
   font-style: normal;
   font-weight: 600;
   line-height: 100%;
-  color: rgba(34, 34, 34, 1);
+  color: rgba(181, 181, 181, 1);
 
   svg.icon {
     display: block;
@@ -29,4 +29,21 @@
 .active {
   border: 0.05vw solid rgba(34, 34, 34, 1);
   padding: 1.05vw 1.2vw;
+}
+
+@media screen and (max-width: 1024px) {
+  .checkboxLabel {
+    width: max-content;
+    height: 12.27vw;
+    padding: 3.47vw 5.33vw;
+    gap: 2.13vw;
+    border-radius: 3.2vw;
+
+    font-size: 3.73vw;
+
+    svg.icon {
+      width: 5.33vw;
+      height: 5.33vw;
+    }
+  }
 }

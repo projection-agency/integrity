@@ -4,7 +4,7 @@ import s from './FormSection.module.css'
 import NumberInput from '@/components/NumberInput/NumberInput'
 import CountrySelector from '@/components/CountryInput/CountryInput'
 import CustomCheckbox from '@/components/CustomCheckbox/CustomCheckbox'
-import { object, string, number, date, InferType } from 'yup'
+import { object, string } from 'yup'
 import Image from 'next/image'
 
 const industries = [
@@ -72,7 +72,11 @@ export default function FormSection() {
           </p>
         </div>
       </div>
+
       <div className={s.formCont}>
+        <h3>
+          Fill <span>{report}</span> <br /> out the form
+        </h3>
         <Formik
           initialValues={initialValues}
           onSubmit={(values) => console.log(values)}
@@ -205,11 +209,13 @@ export default function FormSection() {
                     />
                   </label>
                 </div>
+
                 <div className={s.inputLine}>
                   <label htmlFor="forMessage">
                     <p>Message</p>
                     <Field
-                      type="textarea"
+                      as="textarea"
+                      type="text"
                       name="message"
                       id="forMessage"
                       className={`${s.input} ${s.messageInput}`}
@@ -228,6 +234,7 @@ export default function FormSection() {
     </section>
   )
 }
+
 const chat = (
   <svg xmlns="http://www.w3.org/2000/svg" width="32" height="33" viewBox="0 0 32 33" fill="none">
     <g clip-path="url(#clip0_678_3415)">
@@ -268,5 +275,107 @@ const submitIcon = (
       d="M14.6495 8.63922C14.6495 9.15298 14.2331 9.56945 13.7193 9.56945C13.2055 9.56945 12.7891 9.15298 12.7891 8.63922C12.7891 8.12547 13.2055 7.70898 13.7193 7.70898C14.2331 7.70898 14.6495 8.12547 14.6495 8.63922Z"
       fill="white"
     />
+  </svg>
+)
+
+const report = (
+  <svg xmlns="http://www.w3.org/2000/svg" width="41" height="40" viewBox="0 0 41 40" fill="none">
+    <path
+      d="M27.9743 28.6646C27.8471 28.7888 27.7199 28.913 27.5928 28.9752L23.0141 30.9627C22.8233 31.0248 22.6961 31.087 22.5054 31.087C22.4418 31.087 22.4418 31.087 22.3782 31.087C21.933 31.087 21.5515 31.087 21.1063 31.087C18.1175 31.087 15.1923 31.087 12.2034 31.087C10.9952 31.087 10.9952 29.2236 12.2034 29.2236H13.4753H21.4243L22.7597 24.8137C22.8233 24.6273 22.8869 24.5031 23.0141 24.3789L28.7374 18.1056L30.6452 15.9938V13.7578C30.6452 13.6957 30.6452 13.6335 30.6452 13.5714H28.7374H23.7136C22.569 13.5714 21.6787 12.6398 21.6787 11.5839V6.86335V5H7.11602C5.39903 5 4 6.36646 4 8.04348V31.9565C4 33.6335 5.39903 35 7.11602 35H27.4656C29.1826 35 30.5816 33.6335 30.5816 31.9565V25.8075L28.6738 27.9193L27.9743 28.6646ZM21.4879 24.7516C21.1063 24.7516 20.7248 24.7516 20.3432 24.7516C17.6088 24.7516 14.9379 24.7516 12.2034 24.7516C10.9952 24.7516 10.9952 22.8882 12.2034 22.8882H13.3481H21.4879C22.6961 22.8882 22.6961 24.7516 21.4879 24.7516ZM22.3782 17.236C23.5864 17.236 23.5864 19.0994 22.3782 19.0994C21.933 19.0994 21.5515 19.0994 21.1063 19.0994C18.1175 19.0994 15.1923 19.0994 12.2034 19.0994C10.9952 19.0994 10.9952 17.236 12.2034 17.236H13.4753H22.3782Z"
+      fill="url(#paint0_linear_3388_1549)"
+    />
+    <path
+      d="M23.5234 11.5838C23.5234 11.6459 23.587 11.7081 23.6506 11.7081H27.0846H29.7555C29.7555 11.6459 29.6919 11.6459 29.6919 11.5838L23.8414 5.86954C23.7778 5.80743 23.6506 5.68321 23.5234 5.62109V8.22979V11.5838Z"
+      fill="url(#paint1_linear_3388_1549)"
+    />
+    <path
+      d="M33.2266 15.873L33.8991 15.1267L36.0004 16.9332L35.3279 17.6796L33.2266 15.873Z"
+      fill="url(#paint2_linear_3388_1549)"
+    />
+    <path
+      d="M24.9844 24.9382L27.1465 26.8015L34.0781 19.0997L31.9795 17.2363L24.9844 24.9382Z"
+      fill="url(#paint3_linear_3388_1549)"
+    />
+    <path
+      d="M23.5234 28.6653L25.4948 27.8579L24.1594 26.6777L23.5234 28.6653Z"
+      fill="url(#paint4_linear_3388_1549)"
+    />
+    <defs>
+      <linearGradient
+        id="paint0_linear_3388_1549"
+        x1="4.7913"
+        y1="-1.23003"
+        x2="39.2109"
+        y2="3.7954"
+        gradientUnits="userSpaceOnUse"
+      >
+        <stop stop-color="#737373" />
+        <stop offset="0.255809" stop-color="#222222" />
+        <stop offset="0.429644" stop-color="#737373" />
+        <stop offset="0.523944" stop-color="#222222" />
+        <stop offset="0.784245" stop-color="#222222" />
+        <stop offset="1" stop-color="#737373" />
+      </linearGradient>
+      <linearGradient
+        id="paint1_linear_3388_1549"
+        x1="23.7085"
+        y1="4.35703"
+        x2="31.7041"
+        y2="5.70273"
+        gradientUnits="userSpaceOnUse"
+      >
+        <stop stop-color="#737373" />
+        <stop offset="0.255809" stop-color="#222222" />
+        <stop offset="0.429644" stop-color="#737373" />
+        <stop offset="0.523944" stop-color="#222222" />
+        <stop offset="0.784245" stop-color="#222222" />
+        <stop offset="1" stop-color="#737373" />
+      </linearGradient>
+      <linearGradient
+        id="paint2_linear_3388_1549"
+        x1="32.8102"
+        y1="15.4757"
+        x2="33.732"
+        y2="14.5245"
+        gradientUnits="userSpaceOnUse"
+      >
+        <stop stop-color="#737373" />
+        <stop offset="0.255809" stop-color="#222222" />
+        <stop offset="0.429644" stop-color="#737373" />
+        <stop offset="0.523944" stop-color="#222222" />
+        <stop offset="0.784245" stop-color="#222222" />
+        <stop offset="1" stop-color="#737373" />
+      </linearGradient>
+      <linearGradient
+        id="paint3_linear_3388_1549"
+        x1="25.2544"
+        y1="15.2499"
+        x2="36.9658"
+        y2="17.0803"
+        gradientUnits="userSpaceOnUse"
+      >
+        <stop stop-color="#737373" />
+        <stop offset="0.255809" stop-color="#222222" />
+        <stop offset="0.429644" stop-color="#737373" />
+        <stop offset="0.523944" stop-color="#222222" />
+        <stop offset="0.784245" stop-color="#222222" />
+        <stop offset="1" stop-color="#737373" />
+      </linearGradient>
+      <linearGradient
+        id="paint4_linear_3388_1549"
+        x1="23.582"
+        y1="26.265"
+        x2="26.1155"
+        y2="26.6781"
+        gradientUnits="userSpaceOnUse"
+      >
+        <stop stop-color="#737373" />
+        <stop offset="0.255809" stop-color="#222222" />
+        <stop offset="0.429644" stop-color="#737373" />
+        <stop offset="0.523944" stop-color="#222222" />
+        <stop offset="0.784245" stop-color="#222222" />
+        <stop offset="1" stop-color="#737373" />
+      </linearGradient>
+    </defs>
   </svg>
 )
