@@ -225,3 +225,159 @@
     }
   }
 }
+
+@media screen and (max-width: 1024px) {
+  .section {
+    padding-top: 10.67vw;
+    padding-bottom: 21.33vw;
+    flex-direction: column;
+    gap: 2.13vw;
+
+    .leftBlock {
+      width: 91.47vw;
+      padding: 10.67vw;
+      border-radius: 8.53vw;
+
+      .content {
+        padding: 0;
+        .imagesCont {
+          margin-bottom: 6.4vw;
+
+          div {
+            width: 17.07vw;
+            height: 17.07vw;
+
+            svg {
+              width: 4.53vw;
+              height: 4.53vw;
+            }
+          }
+
+          img {
+            width: 17.07vw;
+            height: 17.07vw;
+          }
+        }
+
+        h1 {
+          margin-bottom: 4.27vw;
+          font-size: 8.53vw;
+        }
+
+        p {
+          width: auto;
+          font-size: 3.73vw;
+        }
+      }
+    }
+
+    .formCont {
+      width: 91.47vw;
+      padding: 7.47vw;
+      border-radius: 8.53vw;
+      background-color: #fff;
+
+      h3 {
+        margin-bottom: 6.4vw;
+
+        font-size: 8.53vw;
+        font-style: italic;
+        font-weight: 900;
+        line-height: 1;
+        text-transform: uppercase;
+        text-align: center;
+
+        span {
+          height: 8vw;
+          display: inline-block;
+          svg {
+            width: 10.67vw;
+            height: 10.67vw;
+          }
+        }
+      }
+
+      .form {
+        width: 100%;
+
+        .inputLine {
+          flex-direction: column;
+
+          label {
+            margin-bottom: 4.27vw;
+
+            p {
+              margin-bottom: 3.2vw;
+              font-size: 3.2vw;
+            }
+
+            .input {
+              padding: 4.53vw 6.4vw;
+              border-radius: 3.2vw;
+
+              font-size: 3.73vw;
+            }
+
+            .messageInput {
+              height: 37.33vw;
+              margin-bottom: 6.4vw;
+              padding: 5.33vw 6.4vw;
+            }
+          }
+
+          .required::after {
+            right: -1.5vw;
+          }
+        }
+
+        .errorMessage {
+          bottom: -3vw;
+          font-size: 4.27vw;
+        }
+
+        .checkboxLineCont {
+          margin-bottom: 4.27vw;
+
+          .errorMessage {
+            font-size: 4.27vw;
+            bottom: -4vw;
+          }
+
+          p {
+            margin-bottom: 3.2vw;
+            font-size: 3.2vw;
+          }
+
+          .required::after {
+            right: -1.5vw;
+          }
+
+          .checkboxLine {
+            flex-direction: row;
+            gap: 2.13vw;
+            overflow-y: scroll;
+          }
+
+          .stagesLine {
+            flex-direction: row;
+            gap: 2.13vw;
+            overflow-y: scroll;
+          }
+        }
+
+        .submitBtn {
+          height: 12.8vw;
+          gap: 3.2vw;
+          border-radius: 3.2vw;
+
+          font-size: 3.73vw;
+
+          svg {
+            width: 5.33vw;
+            height: 5.33vw;
+          }
+        }
+      }
+    }
+  }
+}
