@@ -64,13 +64,14 @@
         }
       }
 
-      .contatcs {
+      .contacts {
         display: flex;
         flex-direction: column;
         height: 16.46vw;
 
         .contactItem {
           display: flex;
+          flex-wrap: wrap;
           span {
             display: flex;
             justify-content: center;
@@ -78,7 +79,7 @@
             width: 1.67vw;
             height: 1.67vw;
             border-radius: 50%;
-            background-color: linear-gradient(
+            background-image: linear-gradient(
               141deg,
               rgba(255, 255, 255, 0.12) 8.87%,
               rgba(41, 41, 41, 0.12) 93.36%
@@ -89,17 +90,18 @@
               height: 0.83vw;
             }
           }
+          p {
+            margin-bottom: 0.26vw;
+            font-size: 0.83vw;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 1.2;
+
+            color: rgba(181, 181, 181, 1);
+          }
 
           .contactInfo {
-            p {
-              margin-bottom: 0.26vw;
-              font-size: 0.83vw;
-              font-style: normal;
-              font-weight: 600;
-              line-height: 1.2;
-
-              color: rgba(181, 181, 181, 1);
-            }
+            flex-grow: 1;
 
             a {
               font-size: 1.25vw;
@@ -181,6 +183,117 @@
       .developers {
         display: flex;
         gap: 0.3vw;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .footer {
+    padding: 8.53vw 8.53vw 11.2vw 8.53vw;
+    border-top-left-radius: 8.53vw;
+    border-top-right-radius: 8.53vw;
+
+    .topBlock {
+      flex-direction: column;
+
+      .slogan {
+        width: auto;
+        margin-bottom: 5.87vw;
+        font-size: 10.13vw;
+      }
+
+      .rightBlock {
+        flex-direction: column;
+        margin-bottom: 8.53vw;
+
+        .footerNav {
+          margin-bottom: 8.53vw;
+
+          ul {
+            gap: 4.27vw;
+            li {
+              a {
+                font-size: 4.27vw;
+              }
+            }
+          }
+        }
+
+        .contacts {
+          height: auto;
+
+          .contactItem {
+            column-gap: 2.13vw;
+            row-gap: 3.2vw;
+
+            span {
+              width: 6.4vw;
+              height: 6.4vw;
+
+              svg {
+                width: 3.2vw;
+                height: 3.2vw;
+              }
+            }
+
+            p {
+              height: 6.4vw;
+              padding-top: 1vw;
+              font-size: 3.2vw;
+            }
+
+            .contactInfo {
+              width: 100%;
+
+              a {
+                font-size: 4.27vw;
+              }
+            }
+          }
+
+          .phone {
+            margin-bottom: 6.4vw;
+          }
+
+          .email {
+            margin-bottom: 10.67vw;
+          }
+
+          .socialsList {
+            gap: 2vw;
+            li {
+              width: 19.2vw;
+              height: 19.2vw;
+              border-radius: 4.8vw;
+
+              svg {
+                width: 7.47vw;
+                height: 7.47vw;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .bottomBlock {
+      display: flex;
+      flex-direction: column-reverse;
+
+      svg {
+        width: 82.93vw;
+      }
+
+      .privacyCont {
+        flex-direction: column;
+        gap: 5.33vw;
+        margin-bottom: 8.53vw;
+
+        p,
+        a {
+          font-size: 3.2vw;
+        }
       }
     }
   }

@@ -97,18 +97,16 @@ export default function Footer({ menu }: { menu: MenuItem[] }) {
               })}
             </ul>
           </nav>
-          <div className={s.contatcs}>
+          <div className={s.contacts}>
             <div className={`${s.contactItem} ${s.phone}`}>
-              <span>{iconPhone}</span>
+              <span>{iconPhone}</span> <p>Phone:</p>
               <div className={s.contactInfo}>
-                <p>Phone:</p>
                 <Link href={'tel:+380639304403'}>+38 (063) 930 44 03</Link>
               </div>
             </div>
             <div className={`${s.contactItem} ${s.email}`}>
-              <span>{iconMail}</span>
+              <span>{iconMail}</span> <p>E-mail:</p>
               <div className={s.contactInfo}>
-                <p>E-mail:</p>
                 <Link href={'mailto:info@integritymarketingsystem.com'}>
                   info@integritymarketingsystem.com
                 </Link>
@@ -122,6 +120,7 @@ export default function Footer({ menu }: { menu: MenuItem[] }) {
           </div>
         </div>
       </div>
+
       <div className={s.bottomBlock}>
         {integrity}
         <div className={s.privacyCont}>
