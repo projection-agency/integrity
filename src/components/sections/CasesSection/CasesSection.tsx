@@ -34,10 +34,18 @@ export interface CasesBlockData {
 export default function CasesSection({ block }: { block: CasesBlockData }) {
   const swiperRef = useRef<any>(null)
   const [caseData, setCaseData] = useState<CaseItemType[]>([])
-  const [activeSlide, setActiveSlide] = useState<number | null>(null)
+  const [activeSlide, setActiveSlide] = useState<number>(0)
+  const [windowWidth, setWndowWidth] = useState<number>(window.innerWidth)
+
+  const inlineStyle = {
+    transform: `translateX(${activeSlide * -100}%)`,
+  }
 
   useEffect(() => {
     setCaseData(block.case)
+    console.log(swiperRef.current)
+
+    setWndowWidth(window.innerWidth)
   }, [block.case])
 
   return (
@@ -64,23 +72,43 @@ export default function CasesSection({ block }: { block: CasesBlockData }) {
               )
             })}
           </div>
-          <ul className={s.swiperShort}>
-            {caseData.map((item, idx) => {
-              return (
-                <li
-                  key={idx}
-                  className={`${s.swiperShortItem} ${activeSlide === idx ? s.swiperShortActive : ''}`}
-                  onClick={() => {
-                    setActiveSlide(idx)
-                    swiperRef.current?.slideTo(idx)
-                  }}
-                >
-                  <p>Case {idx + 1}</p>
-                  <h3>{item.case_title}</h3>
-                </li>
-              )
-            })}
-          </ul>
+          {windowWidth <= 1024 ? (
+            <ul className={s.swiperShort} style={inlineStyle}>
+              {caseData.map((item, idx) => {
+                return (
+                  <li
+                    key={idx}
+                    className={`${s.swiperShortItem} ${activeSlide === idx ? s.swiperShortActive : ''}`}
+                    onClick={() => {
+                      setActiveSlide(idx)
+                      swiperRef.current?.slideTo(idx)
+                    }}
+                  >
+                    <p>Case {idx + 1}</p>
+                    <h3>{item.case_title}</h3>
+                  </li>
+                )
+              })}
+            </ul>
+          ) : (
+            <ul className={s.swiperShort}>
+              {caseData.map((item, idx) => {
+                return (
+                  <li
+                    key={idx}
+                    className={`${s.swiperShortItem} ${activeSlide === idx ? s.swiperShortActive : ''}`}
+                    onClick={() => {
+                      setActiveSlide(idx)
+                      swiperRef.current?.slideTo(idx)
+                    }}
+                  >
+                    <p>Case {idx + 1}</p>
+                    <h3>{item.case_title}</h3>
+                  </li>
+                )
+              })}
+            </ul>
+          )}
         </div>
         <div className={s.swiperContainer}>
           <Swiper
@@ -113,7 +141,7 @@ export default function CasesSection({ block }: { block: CasesBlockData }) {
             })}
           </Swiper>
           <div className={s.controlsCont}>
-            <p>Switch to the next case</p>
+            {window.innerWidth <= 1024 ? <p>Next case</p> : <p>Switch to the next case</p>}
             <div className={s.controls}>
               <button className={`${s.navigationBtn} ${s.navigationPrev}`}>{navArrow}</button>
               <div className={s.pagination}></div>
