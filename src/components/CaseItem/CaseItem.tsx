@@ -1,64 +1,86 @@
+'use client'
 import s from './CaseItem.module.css'
 import Image from 'next/image'
+import { useState } from 'react'
 import { CaseItemType } from '../sections/CasesSection/CasesSection'
 export default function CaseItem({ item }: { item: CaseItemType }) {
+  const [isExpanded, setIsExpanded] = useState(false)
+
+  const handleClick = () => {
+    if (window.innerWidth <= 1024) {
+      setIsExpanded(!isExpanded)
+    }
+  }
   return (
-    <div className={s.item}>
-      <div className={s.clientInfo}>
-        <h3 className={s.caseTitle}>{item.case_title}</h3>
-        <ul className={s.infoList}>
-          <li>
-            <div className={s.topBlock}>
-              <span>{location}</span>
-              <p>Location:</p>
-            </div>
-            <p>{item.case_location}</p>
-          </li>
-          <li>
-            <div className={s.topBlock}>
-              <span>{client}</span>
-              <p>Client:</p>
-            </div>
-            <p dangerouslySetInnerHTML={{ __html: item.case_client_website }}></p>
-          </li>
-          <li>
-            <div className={s.topBlock}>
-              <span>{goal}</span>
-              <p>Goal:</p>
-            </div>
-            <p dangerouslySetInnerHTML={{ __html: item.case_goal }}></p>
-          </li>
-        </ul>
-        <div className={s.doneWork}>
-          <div className={s.topBlock}>
-            <div className={s.blockTitle}>
-              {whatWeDid} <p>What we did:</p>
-            </div>
-            <div className={s.duration}>
-              {clock} <p>{item.case_time}</p>
-            </div>
+    <>
+      <div className={`${s.item} ${isExpanded ? s.expanded : ''}`}>
+        <div className={s.clientInfo}>
+          <div className={s.clientInfoMobContainer}>
+            <h3 className={s.caseTitle}>{item.case_title}</h3>
+            <ul className={s.infoList}>
+              <li>
+                <div className={s.topBlock}>
+                  <span>{location}</span>
+                  <p>Location:</p>
+                </div>
+                <p>{item.case_location}</p>
+              </li>
+              <li>
+                <div className={s.topBlock}>
+                  <span>{client}</span>
+                  <p>Client:</p>
+                </div>
+                <p dangerouslySetInnerHTML={{ __html: item.case_client_website }}></p>
+              </li>
+              <li>
+                <div className={s.topBlock}>
+                  <span>{goal}</span>
+                  <p>Goal:</p>
+                </div>
+                <p dangerouslySetInnerHTML={{ __html: item.case_goal }}></p>
+              </li>
+            </ul>
           </div>
-          <ul className={s.doneWorkList}>
-            {item.case_wwd.map((item) => {
-              return (
-                <li key={item.id}>
-                  <p dangerouslySetInnerHTML={{ __html: item.point }}></p>{' '}
-                </li>
-              )
-            })}
-          </ul>
-          <button>{chat} I want too</button>
+          <div className={s.doneWork}>
+            <div className={s.topBlock}>
+              <div className={s.blockTitle}>
+                {whatWeDid} <p>What we did:</p>
+              </div>
+              <div className={s.duration}>
+                {clock} <p>{item.case_time}</p>
+              </div>
+            </div>
+            <ul className={s.doneWorkList}>
+              {item.case_wwd.map((item) => {
+                return (
+                  <li key={item.id}>
+                    <p dangerouslySetInnerHTML={{ __html: item.point }}></p>{' '}
+                  </li>
+                )
+              })}
+            </ul>
+            <button>{chat} I want too</button>
+          </div>
         </div>
+
+        <div className={s.results}>
+          <Image
+            src={`${item.case_image?.url ? item.case_image?.url : ''}`}
+            width={543}
+            height={628}
+            alt="result"
+          />
+        </div>
+        <div className={s.bgCont}></div>
       </div>
-      <div className={s.results}>
-        <Image
-          src={`${item.case_image?.url ? item.case_image?.url : ''}`}
-          width={543}
-          height={628}
-          alt="result"
-        />
-      </div>
-    </div>
+      {window.innerWidth <= 1024 ? (
+        <button className={`${s.expandBtn} ${isExpanded ? s.isExpanded : ""}`} onClick={handleClick}>
+          {isExpanded ? 'Show less' : 'Show more'} {btnArrow}
+        </button>
+      ) : (
+        ''
+      )}
+    </>
   )
 }
 
@@ -151,6 +173,18 @@ const chat = (
     <path
       d="M14.6495 8.13922C14.6495 8.65298 14.2331 9.06945 13.7193 9.06945C13.2055 9.06945 12.7891 8.65298 12.7891 8.13922C12.7891 7.62547 13.2055 7.20898 13.7193 7.20898C14.2331 7.20898 14.6495 7.62547 14.6495 8.13922Z"
       fill="#222222"
+    />
+  </svg>
+)
+
+const btnArrow = (
+  <svg xmlns="http://www.w3.org/2000/svg" width="19" height="16" viewBox="0 0 19 16" fill="none">
+    <path
+      d="M1.5 11.7637L9.5 3.76367L17.5 11.7637"
+      stroke="#686868"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
     />
   </svg>
 )

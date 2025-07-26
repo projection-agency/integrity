@@ -145,10 +145,6 @@
 
           color: #ffffff;
         }
-
-        li:marker {
-          color: #ffffff;
-        }
       }
 
       button {
@@ -180,5 +176,175 @@
     border-radius: 1.67vw;
     background: var(--Gradient-yellow, linear-gradient(94deg, #ffe414 0.19%, #ffae00 100.19%));
     overflow: hidden;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .item {
+    position: relative;
+    transition: height 300ms ease-in-out;
+    height: 131.73vw;
+    margin-bottom: 3.73vw;
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+    overflow: hidden;
+
+    .clientInfo {
+      width: 100%;
+      background-color: transparent;
+
+      .clientInfoMobContainer {
+        height: max-content;
+        margin-bottom: 2.13vw;
+        padding: 7.47vw;
+        border-radius: 8.53vw;
+        background-color: rgba(249, 249, 249, 1);
+
+        .caseTitle {
+          margin-bottom: 6.4vw;
+          font-size: 6.4vw;
+        }
+
+        .infoList {
+          flex-direction: column;
+          gap: 4.27vw;
+
+          li {
+            width: auto;
+            background-color: transparent;
+
+            .topBlock {
+              margin-bottom: 2.13vw;
+              gap: 1.6vw;
+
+              span {
+                width: 5.33vw;
+                height: 5.33vw;
+
+                svg {
+                  width: 2.67vw;
+                  height: 2.67vw;
+                }
+              }
+
+              p {
+                font-size: 3.73vw;
+              }
+            }
+
+            p {
+              font-size: 3.73vw;
+            }
+          }
+        }
+      }
+
+      .doneWork {
+        padding: 5.33vw;
+        border-radius: 8.53vw;
+
+        .topBlock {
+          flex-direction: column;
+          gap: 4.27vw;
+          margin-bottom: 5.33vw;
+
+          .blockTitle {
+            width: max-content;
+            padding: 2.67vw 3.2vw;
+            border-radius: 3.2vw;
+
+            svg {
+              width: 5.33vw;
+              height: 5.33vw;
+            }
+
+            p {
+              font-size: 3.73vw;
+            }
+          }
+          .duration {
+            padding-left: 2.13vw;
+            gap: 2.13vw;
+
+            svg {
+              width: 4.27vw;
+              height: 4.27vw;
+            }
+
+            p {
+              font-size: 3.2vw;
+            }
+          }
+        }
+
+        .doneWorkList {
+          margin-bottom: 6.4vw;
+          padding-left: 5vw;
+          li {
+            font-size: 3.73vw;
+          }
+        }
+
+        button {
+          height: 13.87vw;
+          border-radius: 4.27vw;
+          gap: 3.2vw;
+
+          font-size: 3.73vw;
+
+          svg {
+            width: 5.33vw;
+            height: 5.33vw;
+          }
+        }
+      }
+    }
+
+    .results {
+      flex-shrink: 0;
+      width: 100%;
+      height: 110.93vw;
+      border-radius: 5.33vw;
+    }
+
+    .bgCont {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      z-index: 10;
+      width: 100%;
+      height: 35vw;
+      background: linear-gradient(0deg, #fff 0%, rgba(255, 255, 255, 0) 100%);
+    }
+  }
+
+  .item.expanded {
+    height: auto;
+  }
+
+  .expandBtn {
+    width: 100%;
+    margin-bottom: 6.4vw;
+    display: flex;
+    justify-content: center;
+    gap: 2.13vw;
+
+    font-size: 3.73vw;
+    font-style: normal;
+    font-weight: 800;
+    line-height: 1.4;
+    letter-spacing: -0.28px;
+    color: rgba(104, 104, 104, 1);
+
+    svg {
+      transition: transform 300ms ease-in-out;
+      transform: rotateZ(180deg);
+    }
+  }
+
+  .expandBtn.isExpanded {
+    svg {
+      transform: rotateZ(0deg);
+    }
   }
 }
