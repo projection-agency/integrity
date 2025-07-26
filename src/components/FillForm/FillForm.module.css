@@ -50,7 +50,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.83vw;
+  /* gap: 0.83vw; */
 }
 
 .titleIcon {
@@ -78,14 +78,6 @@
 }
 
 .input {
-  /* padding: 1.25vw;
-  border-radius: 0.83vw;
-  border: 1px solid var(--black-100);
-  font-size: 0.83vw;
-  margin-top: 0.42vw;
-  width: 100%;
-  height: 3.13vw;
-  background: var(--light-gray); */
   width: 100%;
   margin-bottom: 1.04vw;
   padding: 1.25vw;
@@ -411,5 +403,107 @@
 
   label {
     position: relative;
+  }
+}
+.fillBlock {
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 1024px) {
+  .form {
+    border-radius: 8.53vw;
+    padding: 7.47vw;
+    width: 91.47vw;
+    height: 127.73vw;
+    gap: 8vw;
+  }
+
+  .fillBlock {
+    width: auto;
+    height: auto;
+    display: flex;
+    align-items: center;
+  }
+  .title {
+    width: 62.93vw;
+    height: 17.87vw;
+    display: flex;
+    flex-direction: column;
+  }
+  .inputGroupBlock {
+    width: 76.533vw;
+    height: 69.333vw;
+    display: flex;
+    flex-direction: column;
+  }
+  .row {
+    display: flex;
+    gap: 1.04vw;
+    width: 42.19vw;
+    flex-direction: column;
+  }
+  .text {
+    font-family: var(--second-family);
+    font-style: italic;
+    font-weight: 900;
+    font-size: 8.533vw;
+    line-height: 100%;
+    text-transform: uppercase;
+    color: var(--black);
+  }
+  .titleIcon {
+    width: 10.8vw;
+    height: 10.5vw;
+    display: inline-block;
+  }
+  .required {
+    font-family: var(--second-family);
+    font-style: italic;
+    font-weight: 800;
+    font-size: 3.2vw;
+    line-height: 100%;
+    color: var(--black);
+    margin-bottom: 5.63vw;
+  }
+  .required::after {
+    content: '*';
+    position: absolute;
+    top: 0;
+    right: -2.5vw;
+
+    color: rgba(255, 228, 20, 1);
+  }
+  .input {
+    border-radius: 3.2vw;
+    padding: 4.533vw 6.4vw;
+    width: 76.533vw;
+    height: 12.8vw;
+    background: var(--light-gray);
+    font-family: var(--second-family);
+    font-weight: 600;
+    font-size: 3.733vw;
+    line-height: 100%;
+    color: #a8a8a8;
+  }
+
+  .submitBtn {
+    border-radius: 3.2vw;
+    padding: 3.733vw 10.667vw;
+    width: 76.533vw;
+    height: 12.8vw;
+    gap: 2.63vw;
+  }
+  .order {
+    font-family: var(--font-family);
+    font-weight: 800;
+    font-size: 3.733vw;
+    line-height: 140%;
+    letter-spacing: -0.02em;
+    color: var(--white);
+  }
+  .btnIcon {
+    width: 5.25vw;
+    height: 5.25vw;
   }
 }

@@ -1,159 +1,216 @@
+.avatarWrapper {
+  position: relative;
+  display: inline-block;
+  width: 6.15vw;
+  height: 6.15vw;
+  margin-bottom: 1.25vw;
+}
 
-  .avatarWrapper {
-    position: relative;
-    display: inline-block;
-    width: 6.15vw;
-    height: 6.15vw;
-    margin-bottom: 1.25vw;
-  }
-  
-  .avatar {
-    width: 6.15vw;
-    height: 6.15vw;
-    border-radius: 50%;
-    object-fit: cover;
-    display: block;
-  }
-  
-  .chatIcon {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 2.08vw;
-    height: 2.08vw;
-  }
-  
-  
-  .wrapper {
-    width: 91.66vw;
-    margin: 0 auto;
-  }
-  
-  /* Додаю горизонтальний layout для експерта і форми */
-  .rowLayout {
-    display: grid;
-    grid-template-columns: minmax(1vw, 38.64vw) minmax(1vw, 1fr);
-    align-items: flex-start;
-    gap: 0.41vw;
-    width: 100%;
-    justify-content: center;
-  }
-  
+.avatar {
+  width: 6.15vw;
+  height: 6.15vw;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+
+.chatIcon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 2.08vw;
+  height: 2.08vw;
+}
+
+.wrapper {
+  width: 91.66vw;
+  margin: 0 auto;
+}
+
+/* Додаю горизонтальний layout для експерта і форми */
+.rowLayout {
+  display: grid;
+  grid-template-columns: minmax(1vw, 38.64vw) minmax(1vw, 1fr);
+  align-items: flex-start;
+  gap: 0.41vw;
+  width: 100%;
+  justify-content: center;
+}
+
+.expertBlock {
+  background: linear-gradient(135deg, #ffe466, #ffa700);
+  border-radius: 1.67vw;
+  padding: 5.21vw;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  position: relative;
+}
+
+.expertAvatarWrapper {
+  position: relative;
+  width: 11.3vw;
+  height: 6.15vw;
+  /* margin-bottom: 1.25vw; */
+  width: 6.15vw;
+  height: 6.15vw;
+  border-radius: 100%;
+  border: 0.1vw solid #494545;
+  -webkit-backdrop-filter: blur(0.42vw);
+  backdrop-filter: blur(0.42vw);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  backdrop-filter: blur(3.2800562381744385px);
+  background: linear-gradient(149deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.expertAvatar {
+  width: 6.15vw;
+  height: 6.15vw;
+  border-radius: 50%;
+  object-fit: cover;
+  position: absolute;
+  left: 5.16vw;
+  top: 0;
+}
+
+.expertChatIcon {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 6.15vw;
+  height: 6.15vw;
+  z-index: 1;
+}
+
+.expertTitle {
+  margin-top: 1.25vw;
+  margin-bottom: 1.25vw;
+  width: 23.07vw;
+  height: 10.1vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.expertTitleLine {
+  font-family: var(--third-family);
+  font-weight: 900;
+  font-size: 4.17vw;
+  text-transform: uppercase;
+  background: linear-gradient(145deg, #737373 0%, #000 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1;
+}
+
+.expertSubtitle {
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 0.83vw;
+  line-height: 140%;
+  letter-spacing: -0.02em;
+  color: var(--black-600);
+  width: 19.69vw;
+  margin-top: 0.83vw;
+}
+
+.expertChatIcon {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 6.15vw;
+  height: 6.15vw;
+  z-index: 1;
+  /* width: 2.08vw; */
+  height: 2.08vw;
+  background: none;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0;
+  position: static;
+  left: auto;
+  top: auto;
+  transform: none;
+}
+.expertAvatar {
+  position: absolute;
+  left: 5.16vw;
+  top: 0;
+  width: 6.15vw;
+  height: 6.15vw;
+  border-radius: 50%;
+  object-fit: cover;
+  z-index: 2;
+}
+.order {
+  font-family: var(--font-family);
+  font-weight: 800;
+  font-size: 4.267vw;
+  color: var(--white);
+}
+
+@media (max-width: 1024px) {
   .expertBlock {
-    background: linear-gradient(135deg, #ffe466, #ffa700);
-    border-radius: 1.67vw;
-    padding: 5.21vw;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    position: relative;
+    width: 91.5vw;
+    padding: 10.66vw;
+    border-radius: 8.53vw;
+    background: linear-gradient(135deg, #ffe46d 0%, #ffb347 100%);
   }
-  
+
   .expertAvatarWrapper {
-    position: relative;
-    width: 11.3vw;
-    height: 6.15vw;
-    /* margin-bottom: 1.25vw; */
-    width: 6.15vw;
-    height: 6.15vw;
-    border-radius: 100%;
-    border: 0.1vw solid #494545;
-    -webkit-backdrop-filter: blur(0.42vw);
-    backdrop-filter: blur(0.42vw);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1;
-    backdrop-filter: blur(3.2800562381744385px);
-    background: linear-gradient(149deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0) 100%);
+    width: 17.06vw;
+    height: 17.06vw;
+    border-radius: 106.667vw;
   }
-  
-  .expertAvatar {
-    width: 6.15vw;
-    height: 6.15vw;
-    border-radius: 50%;
-    object-fit: cover;
-    position: absolute;
-    left: 5.16vw;
-    top: 0;
-  }
-  
+
   .expertChatIcon {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 6.15vw;
-    height: 6.15vw;
-    z-index: 1;
+    padding: 6.4vw;
+    width: 17.067vw;
+    height: 17.067vw;
   }
-  
+
+  .expertAvatar {
+    width: 17.06vw;
+    height: 17.06vw;
+    left: 14.13vw;
+    top: 0;
+  }
+
   .expertTitle {
-    margin-top: 1.25vw;
-    margin-bottom: 1.25vw;
-    width: 23.07vw;
-    height: 10.1vw;
+    margin-top: 4.26vw;
+    margin-bottom: 4.26vw;
+    width: auto;
+    height: auto;
+  }
+
+  .expertTitleLine {
+    font-size: 8.53vw;
+    line-height: 110%;
+  }
+
+  .expertTitleLine span {
+    font-style: italic;
+  }
+
+  .expertSubtitle {
+    font-size: 3.73vw;
+    line-height: 140%;
+    font-weight: 700;
+    color: var(--black-600);
+    width: auto;
+    margin-top: 4.26vw;
+  }
+  .rowLayout {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    align-items: center;
+    gap: 5.33vw;
   }
-  
-  .expertTitleLine {
-    font-family: var(--third-family);
-    font-weight: 900;
-    font-size: 4.17vw;
-    text-transform: uppercase;
-    background: linear-gradient(145deg, #737373 0%, #000 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    line-height: 1;
-  }
-  
-  .expertSubtitle {
-    font-family: var(--font-family);
-    font-weight: 700;
-    font-size: 0.83vw;
-    line-height: 140%;
-    letter-spacing: -0.02em;
-    color: var(--black-600);
-    width: 19.69vw;
-    margin-top: 0.83vw;
-  }
-  
-  .expertChatIcon {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 6.15vw;
-    height: 6.15vw;
-    z-index: 1;
-    /* width: 2.08vw; */
-    height: 2.08vw;
-    background: none;
-    border-radius: 0;
-    box-shadow: none;
-    padding: 0;
-    position: static;
-    left: auto;
-    top: auto;
-    transform: none;
-  }
-  .expertAvatar {
-    position: absolute;
-    left: 5.16vw;
-    top: 0;
-    width: 6.15vw;
-    height: 6.15vw;
-    border-radius: 50%;
-    object-fit: cover;
-    z-index: 2;
-  }
-  .order {
-    font-family: var(--font-family);
-    font-weight: 800;
-    font-size: 16px;
-    color: var(--white);
-  }
+}
