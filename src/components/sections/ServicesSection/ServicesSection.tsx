@@ -52,10 +52,11 @@ export default function ServicesSection({ block }: { block: ServicesBlock }) {
           <Swiper
             grabCursor={true}
             centeredSlides={true}
-            slidesPerView={3.6}
+            slidesPerView={1.2}
             loop={services.length >= 6}
             speed={600}
-            spaceBetween={8}
+            spaceBetween={145}
+            // spaceBetween={8}
             pagination={false}
             navigation={{
               nextEl: '.navSwiperNext',
@@ -67,21 +68,45 @@ export default function ServicesSection({ block }: { block: ServicesBlock }) {
             className={s.swiperCustom}
             onSwiper={(swiper) => (swiperRef.current = swiper)}
             onSlideChange={(swiper) => setSwiperIndex(swiper.realIndex)}
+            breakpoints={{
+              1204: {
+                slidesPerView: 3.6,
+                spaceBetween: 16,
+                centeredSlides: true,
+              },
+              720: {
+                slidesPerView: 1.2,
+                spaceBetween: 245,
+                centeredSlides: true,
+              },
+            }}
           >
             {services.map((service, idx) => (
               <SwiperSlide key={service?.service_title || idx}>
                 <div className={s.serviceCard}>
                   <div className={s.heroServices}>
                     <div className={s.serviceIconWrapper}>
-                      <div
+                      {/* <div
                         className={s.iconService}
                         dangerouslySetInnerHTML={{ __html: service?.service_icon || '' }}
-                      />
+                      /> */}
+                      <div className={s.cardBlock}>
+                        <div className={s.cardIconcBlock}>
+                          <div
+                            className={s.iconService}
+                            dangerouslySetInnerHTML={{ __html: service?.service_icon || '' }}
+                          />
+                        </div>
+                      </div>
                     </div>
-                    <div className={s.serviceTitle}>{service?.service_title || ''}</div>
-                  </div>
-                  <div className={s.serviceTextBlock}>
-                    <div className={s.serviceDescription}>{service?.service_description || ''}</div>
+                    <span className={s.titleDescriptionBlock}>
+                      <div className={s.serviceTitle}>{service?.service_title || ''}</div>
+                      <div className={s.serviceTextBlock}>
+                        <div className={s.serviceDescription}>
+                          {service?.service_description || ''}
+                        </div>
+                      </div>
+                    </span>
                   </div>
                 </div>
               </SwiperSlide>
