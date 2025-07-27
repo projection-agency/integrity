@@ -114,8 +114,8 @@
   color: var(--gray);
   gap: 0.3vw;
   border: 0.5px solid var(--light-garay-2);
-  border-radius: 40px;
-  padding: 8px 16px;
+  border-radius: 10.67vw;
+  padding: 2.13vw 4.27vw;
 }
 .insightCardTitle {
   font-family: var(--font-family);
@@ -203,4 +203,75 @@
 .insightCardBlok {
   width: 100%;
   height: auto;
+}
+/* .latestInsightsSection {
+  padding: 0 4vw;
+  margin: 0 auto;
+} */
+
+.latestInsightsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.swiper {
+  width: 91.6vw;
+  padding-bottom: 1rem;
+}
+
+@media (max-width: 1024px) {
+  .insightCardImage {
+    width: 87.2vw;
+    height: 64vw;
+    background: var(--light-gray);
+  }
+  .swiper {
+    display: none;
+  }
+  .latestInsightsCards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  .insightCard {
+    .latestInsightsSection {
+      padding: 21.33vw 0vw;
+      width: 100vw;
+      height: 244.53vw;
+    }
+  }
+  .latestInsightsCta {
+    width: 91.47vw;
+    height: 14.93vw;
+    border-radius: 4.27vw;
+    padding: 4.8vw 10.67vw;
+    width: 91.47vw;
+    height: 14.93vw;
+    background: linear-gradient(135deg, #ffe414 0%, #ffae00 100%);
+    font-family: var(--font-family);
+    font-weight: 800;
+    font-size: 3.73vw;
+    line-height: 140%;
+    letter-spacing: -0.02em;
+    color: var(--black);
+    gap: 2.67vw;
+  }
+  .latestInsightsCta svg {
+    width: 5.33vw;
+    height: 5.33vw;
+  }
+  .latestText {
+    font-family: var(--font-family);
+    font-weight: 800;
+    font-size: 3.73vw;
+    line-height: 140%;
+    letter-spacing: -0.02em;
+    color: var(--black);
+  }
+}
+
+.latestInsightsCta {
+  margin-top: 1.5rem;
 }
