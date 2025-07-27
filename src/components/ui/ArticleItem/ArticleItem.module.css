@@ -1,102 +1,204 @@
 .insightCard {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
-    position: relative;
-  }
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+.insightCardImage {
+  width: 100%;
+  height: 23.9vw;
+  object-fit: cover;
+  border-radius: 1.66vw;
+}
+.small {
   .insightCardImage {
-    width: 100%;
-    height: 23.9vw;
-    object-fit: cover;
-    border-radius: 1.66vw;
+    height: 20vw;
   }
-  .small{
+}
+.insightCardBadge {
+  position: absolute;
+  top: 1vw;
+  left: 1vw;
+  font-family: var(--third-family);
+  font-weight: 700;
+  font-size: 0.73vw;
+  text-transform: uppercase;
+  background: var(--light-gray);
+  border-radius: 2vw;
+  padding: 0.42vw 1.25vw;
+  padding-top: 0.5vw;
+  color: var(--black);
+}
+.insightCardMeta {
+  display: flex;
+  gap: 0.5vw;
+  margin: 1.25vw 0 1vw 0;
+  align-items: center;
+}
+.insightCardMetaItem {
+  display: flex;
+  align-items: center;
+  border: 0.026vw solid var(--Light-garay-2, #b5b5b5);
+  border-radius: 2vw;
+  padding: 0.42vw 0.63vw;
+  font-family: var(--third-family);
+  font-weight: 600;
+  font-size: 0.83vw;
+  line-height: 120%;
+  color: #686868;
+  gap: 0.4vw;
+
+  img {
+    width: 0.625vw;
+  }
+}
+.insightCardTitle {
+  font-family: var(--font-family);
+  font-weight: 900;
+  font-size: 1.67vw;
+  line-height: 100%;
+  text-transform: uppercase;
+  font-style: italic;
+  color: var(--black);
+  margin-bottom: 0.83vw;
+}
+.insightCardExcerpt {
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 0.83vw;
+  line-height: 140%;
+  letter-spacing: -0.02em;
+  color: var(--gray);
+  margin-bottom: 1.25vw;
+}
+.insightCardBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.83vw;
+  gap: 0.41vw;
+  border-radius: 0.62vw;
+  background: var(--Light-gray, #f9f9f9);
+  box-sizing: border-box;
+  cursor: pointer;
+  margin-top: auto;
+  transition: box-shadow 0.2s;
+  width: max-content;
+}
+.insightCardBtn svg {
+  width: 1vw;
+  height: 1vw;
+}
+.readMoreText {
+  font-family: var(--font-family);
+  font-weight: 800;
+  font-size: 0.833vw;
+  line-height: 140%;
+  letter-spacing: -0.02em;
+  color: var(--black);
+  margin-top: 0.1vw;
+}
+
+@media (max-width: 1024px) {
+  .insightCardImage {
+    /* border-radius: 24px; */
+    width: 87.2vw;
+    height: 64vw;
+    background: var(--light-gray);
+  }
+  .small {
     .insightCardImage {
-      height: 20vw;
+      height: 64vw;
     }
   }
   .insightCardBadge {
-    position: absolute;
-    top: 1vw;
-    left: 1vw;
-    font-family: var(--third-family);
-    font-weight: 700;
-    font-size: 0.73vw;
-    text-transform: uppercase;
+    border-radius: 10.67vw;
+    padding: 2.13vw 6.4vw;
+    width: 23.47vw;
+    height: 8.8vw;
     background: var(--light-gray);
-    border-radius: 2vw;
-    padding: 0.42vw 1.25vw;
-    padding-top: 0.5vw;
+  }
+  .insightCardText {
+    font-family: var(--second-family);
+    font-weight: 700;
+    font-size: 3.2vw;
+    line-height: 140%;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--black);
+  }
+  .insightCardMeta {
+    width: 87.2vw;
+    height: 6.93vw;
+  }
+  .insightCardMetaItem {
+    border: 0.5px solid var(--light-garay-2);
+    border-radius: 10.67vw;
+    padding: 1.6vw 3.2vw;
+    /* width: 139px; */
+    width: auto;
+    height: 6.93vw;
+    font-family: var(--second-family);
+    font-weight: 600;
+    font-size: 3.2vw;
+    line-height: 120%;
+    color: var(--gray);
+
+    img {
+      width: 3vw;
+    }
+  }
+  .insightCardTitle {
+    font-family: var(--second-family);
+    font-style: italic;
+    font-weight: 900;
+    font-size: 6.4vw;
+    line-height: 100%;
+    text-transform: uppercase;
+    color: var(--black);
+    /* margin-bottom: 0.83vw; */
+
+    margin-bottom: 1.83vw;
+  }
+  .insightCardExcerpt {
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 3.73vw;
+    line-height: 140%;
+    letter-spacing: -0.02em;
+    color: var(--gray);
+    margin-bottom: 6.83vw;
+  }
+  .insightCardBtn {
+    border-radius: 3.2vw;
+    padding: 3.47vw 4.27vw;
+    width: 36vw;
+    gap: 2.13vw;
+    height: 12.27vw;
+    background: var(--light-gray);
+    img {
+      width: 5.87vw;
+    }
+  }
+  .readMoreText {
+    font-family: var(--font-family);
+    font-weight: 800;
+    font-size: 3.73vw;
+    line-height: 140%;
+    letter-spacing: -0.02em;
     color: var(--black);
   }
   .insightCardMeta {
     display: flex;
     gap: 0.5vw;
-    margin: 1.25vw 0 1vw 0;
+    margin: 4vw 0 4vw 0;
     align-items: center;
   }
-  .insightCardMetaItem {
+  .insightCardMetaBlock {
     display: flex;
-    align-items: center;
-    border: 0.026vw solid var(--Light-garay-2, #B5B5B5);
-    border-radius: 2vw;
-    padding: 0.42vw 0.63vw;
-    font-family: var(--third-family);
-    font-weight: 600;
-    font-size: 0.83vw;
-    line-height: 120%;
-    color: #686868;
-    gap: 0.4vw;
-
-    img{
-        width: 0.625vw;
-    }
+    width: 87.2vw;
+    height: 48.27vw;
   }
-  .insightCardTitle {
-    font-family: var(--font-family);
-    font-weight: 900;
-    font-size: 1.67vw;
-    line-height: 100%;
-    text-transform: uppercase;
-    font-style: italic;
-    color: var(--black);
-    margin-bottom: 0.83vw;
-  }
-  .insightCardExcerpt {
-    font-family: var(--font-family);
-    font-weight: 700;
-    font-size: 0.83vw;
-    line-height: 140%;
-    letter-spacing: -0.02em;
-    color: var(--gray);
-    margin-bottom: 1.25vw;
-  }
-  .insightCardBtn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.83vw;
-    gap: 0.41vw;
-    border-radius: 0.62vw;
-    background: var(--Light-gray, #F9F9F9);
-    box-sizing: border-box;
-    cursor: pointer;
-    margin-top: auto;
-    transition: box-shadow 0.2s;
-    width: max-content;
-  }
-  .insightCardBtn svg {
-    width: 1vw;
-    height: 1vw;
-  }
-  .readMoreText {
-    font-family: var(--font-family);
-    font-weight: 800;
-    font-size: 0.833vw;
-    line-height: 140%;
-    letter-spacing: -0.02em;
-    color: var(--black);
-    margin-top: 0.1vw;
-  }
-  
+}
