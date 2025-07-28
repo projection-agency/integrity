@@ -7,6 +7,8 @@ import IconHero from '../../icons/IconHero/IconHero'
 import GridBackground from '../../GridBackground/GridBackground'
 import Image from 'next/image'
 import PopUp from '../../PopUp/PopUp'
+import TabSection from '@/components/ui/TabSection/TabSection'
+import MainTitle from '@/components/ui/MainTitle/MainTitle'
 
 type HeroBlock = {
   title?: string
