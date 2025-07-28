@@ -22,7 +22,6 @@ export default function BlogPosts({
       <FilterBlog categories={categories} />
       <div className={s.items}>
         {posts.map((post, index) => {
-          console.log(post)
           return <ArticleItem key={post.id} post={post} idx={index} />
         })}
       </div>

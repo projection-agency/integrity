@@ -56,3 +56,27 @@
     }
   }
 }
+
+@media screen and (max-width: 1024px) {
+  .blog {
+    .heroPage {
+      padding-top: 29.87vw;
+      padding-bottom: 10.67vw;
+      margin-bottom: 10.67vw;
+
+      .subtitle {
+        margin-bottom: 6.4vw;
+        padding: 2.13vw 6.4vw;
+        border-radius: 10.67vw;
+        span {
+          font-size: 3.2vw;
+        }
+      }
+
+      h1 {
+        max-width: 60vw;
+        font-size: 11.2vw;
+      }
+    }
+  }
+}
