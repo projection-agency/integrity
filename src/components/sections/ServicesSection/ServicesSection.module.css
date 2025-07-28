@@ -307,7 +307,7 @@
   .serviceCard {
     border-radius: 7.55vw;
     padding: 7.55vw;
-    width: 76vw;
+    width: 80vw;
     height: 95.4vw;
     backdrop-filter: blur(6px);
     background: var(--white);
