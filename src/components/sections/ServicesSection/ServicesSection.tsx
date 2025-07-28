@@ -55,8 +55,8 @@ export default function ServicesSection({ block }: { block: ServicesBlock }) {
             slidesPerView={1.2}
             loop={services.length >= 6}
             speed={600}
-            spaceBetween={145}
-            // spaceBetween={8}
+            // spaceBetween={145}
+            spaceBetween={8}
             pagination={false}
             navigation={{
               nextEl: '.navSwiperNext',
