@@ -33,7 +33,10 @@ export default function ArticleItem({
         width={400}
         height={300}
       />
-      <div className={s.insightCardBadge}>News</div>
+      <div className={s.insightCardBadge}>
+        <span className={s.insightCardText}>News</span>
+      </div>
+      {/* <div className={s.insightCardMetaBlock}> */}
       <div className={s.insightCardMeta}>
         <div className={s.insightCardMetaItem}>
           <Image src="/images/icons/revised-card.svg" alt="revised card" width={16} height={16} />
@@ -46,6 +49,8 @@ export default function ArticleItem({
       </div>
       <div className={s.insightCardTitle}>{post.title}</div>
       <div className={s.insightCardExcerpt}>{post.title}</div>
+      {/* </div> */}
+
       <button className={s.insightCardBtn}>
         <Image
           src="/images/icons/revised-card2.svg"

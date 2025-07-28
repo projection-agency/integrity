@@ -18,8 +18,7 @@ import WorkflowSection from '@/components/sections/WorkflowSection/WorkflowSecti
 
 import FaqSection from '@/components/sections/FaqSection/FaqSection'
 import FormSection from '@/components/sections/FormSection/FormSection'
-
-import LatestInsightsSection from '@/components/sections/LatestInsightsSection/LatestInsightsSection'
+import LatestInsightsSection from '@/components/sections/LatestInsightsSection'
 import OutcomesSection from '@/components/sections/OutcomesSection/OutcomesSection'
 import { addFaqs } from '@/action/addFaqs'
 import { getSinglePage } from '@/action/getPage'

@@ -151,9 +151,9 @@
   text-align: center;
 }
 
-.hidden {
+/* .hidden {
   display: none;
-}
+} */
 
 .headerTextBusiness {
   font-family: var(--second-family);
