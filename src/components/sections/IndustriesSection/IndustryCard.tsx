@@ -5,11 +5,13 @@ export const IndustryCard = ({
   cases,
   icon,
   title,
+  text,
   active = false,
 }: {
   cases: number
   icon: React.ReactNode
   title: string
+  text: string
   active?: boolean
 }) => (
   <div className={`${styles.card} ${active ? styles.active : ''}`}>
@@ -25,5 +27,6 @@ export const IndustryCard = ({
     </div>
     <div className={styles.iconWrap}>{icon}</div>
     <div className={styles.cardTitle}>{title}</div>
+    <div className={styles.cardText}>{text}</div>
   </div>
 )
