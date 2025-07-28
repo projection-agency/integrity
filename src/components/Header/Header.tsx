@@ -1,8 +1,11 @@
+'use client'
 import React from 'react'
+import { useState } from 'react'
 import Link from 'next/link'
 import s from './Header.module.css'
 import LocaleSwitcher from './LocaleSwitcher'
 import NavList, { MenuItem } from './NavList'
+import MobileMenu from '../MobileMenu/MobileMenu'
 
 const phone = (
   <svg
@@ -39,21 +42,29 @@ export default function Header({
   logo?: string
   buttonText?: string
 }) {
+  const [menuIsOpen, setMenuIsOpen] = useState(false)
+
+  const handleClose = () => {
+    setMenuIsOpen(false)
+  }
   return (
-    <header className={s.header}>
-      <Link className={s.logoHeader} href="/">
-        <div dangerouslySetInnerHTML={{ __html: logo || '' }} />
-      </Link>
-      <NavList menu={menu} />
-      <div className={s.left}>
-        <LocaleSwitcher />
-        <button className={s.btn}>
-          {phone}
-          {buttonText}
-        </button>
-      </div>
-      <button>{burger}</button>
-    </header>
+    <>
+      <header className={s.header}>
+        <Link className={s.logoHeader} href="/">
+          <div dangerouslySetInnerHTML={{ __html: logo || '' }} />
+        </Link>
+        <NavList menu={menu} />
+        <div className={s.left}>
+          <LocaleSwitcher />
+          <button className={s.btn}>
+            {phone}
+            {buttonText}
+          </button>
+        </div>
+        <button onClick={() => setMenuIsOpen(true)}>{burger}</button>
+      </header>
+      <MobileMenu menuIsOpen={menuIsOpen} handleClose={handleClose} />
+    </>
   )
 }
 
