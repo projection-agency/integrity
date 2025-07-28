@@ -1,135 +1,174 @@
-.header{
-    max-width: 91.6vw;
-    width: 100%;
+.header {
+  max-width: 91.6vw;
+  width: 100%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  position: fixed;
+  top: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 999;
+
+  .logoHeader {
+    height: 4.46vw;
+    padding: 0.625vw;
+  }
+
+  nav {
+    width: max-content;
     margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    align-items: center;
-    position: fixed;
-    top: 0px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 999;
 
+    ul {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.4vw;
+      align-items: center;
+      border-radius: 0.6vw;
+      background: rgba(76, 76, 76, 0.4);
+      backdrop-filter: blur(2px);
 
-    .logoHeader{
-        height: 4.46vw;
-        padding: 0.625vw;
-    }
-
-    nav{
-        width: max-content;
-        margin: 0 auto;
-
-        ul{
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0.4vw;
-            align-items: center;
-            border-radius: 0.6vw;
-            background: rgba(76, 76, 76, 0.40);
-            backdrop-filter: blur(2px);
-
-            li a{
-                display: flex;
-                width: 6.8vw;
-                padding: 0.8vw 0.9vw;
-                justify-content: center;
-                align-items: center;
-                gap: 0.5vw;
-                width: 6.8vw;
-                color: var(--Light-gray, #F9F9F9);
-                text-align: center;
-                font-family: Mont;
-                font-size: 0.72vw;
-                font-style: normal;
-                font-weight: 700;
-                line-height: 100%; /* 0.72917rem */
-                transition-duration: 0.3s;
-                border-radius: 0.6vw;
-                cursor: pointer;
-            }
-            li a:hover{
-                background: var(--Black, #222);
-            }
-            li.current a{
-                background: var(--White, #FFF);
-                color: var(--Black, #222);
-            }
-        }
-        
-    }
-    .left{
-        margin-left: auto;
+      li a {
         display: flex;
-        gap: 0.42vw;
-        
-        .btn{
-            display: flex;
-            padding: 1.09vw 2.08vw;
-            justify-content: center;
-            align-items: center;
-            gap: 0.6vw;
-            border-radius: 0.6vw;
-            background: var(--White, #FFF);
-            color: var(--Black, #222);
-            text-align: center;
-            font-family: Mont;
-            font-size: 0.83vw;
-            font-style: normal;
-            font-weight: 700;
-            line-height: normal;
-            width: max-content;
-
-            svg{
-                width: 1.04vw;
-            }
-        }
+        width: 6.8vw;
+        padding: 0.8vw 0.9vw;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5vw;
+        width: 6.8vw;
+        color: var(--Light-gray, #f9f9f9);
+        text-align: center;
+        font-family: Mont;
+        font-size: 0.72vw;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 100%; /* 0.72917rem */
+        transition-duration: 0.3s;
+        border-radius: 0.6vw;
+        cursor: pointer;
+      }
+      li a:hover {
+        background: var(--Black, #222);
+      }
+      li.current a {
+        background: var(--White, #fff);
+        color: var(--Black, #222);
+      }
     }
-    
+  }
+  .left {
+    margin-left: auto;
+    display: flex;
+    gap: 0.42vw;
+
+    .btn {
+      display: flex;
+      padding: 1.09vw 2.08vw;
+      justify-content: center;
+      align-items: center;
+      gap: 0.6vw;
+      border-radius: 0.6vw;
+      background: var(--White, #fff);
+      color: var(--Black, #222);
+      text-align: center;
+      font-family: Mont;
+      font-size: 0.83vw;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      width: max-content;
+
+      svg {
+        width: 1.04vw;
+      }
+    }
+  }
+
+  button {
+    display: none;
+  }
 }
 
+.localeWrap {
+  display: flex;
+  padding: 0.41667vw;
+  align-items: center;
+  gap: 0.20833vw;
+  border-radius: 0.625vw;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(6px);
+  color: var(--Light-garay-2, #b5b5b5);
+  text-align: center;
+  font-family: Mont;
+  font-size: 0.72917vw;
+  font-style: normal;
+  font-weight: 800;
+  line-height: 100%; /* 0.72917rem */
 
-
-
-
-.localeWrap{
+  .currentLang {
     display: flex;
-    padding: 0.41667vw;
+    padding: 0.78125vw 0.625vw;
+    justify-content: center;
     align-items: center;
-    gap: 0.20833vw;
-    border-radius: 0.625vw;
-    background: rgba(255, 255, 255, 0.10);
-    backdrop-filter: blur(6px);
-    color: var(--Light-garay-2, #B5B5B5);
-    text-align: center;
-    font-family: Mont;
-    font-size: 0.72917vw;
-    font-style: normal;
-    font-weight: 800;
-    line-height: 100%; /* 0.72917rem */
+    gap: 0.41667vw;
+    border-radius: 0.41667rem;
+    background: var(--White, #fff);
+    color: #222;
 
-    .currentLang{
-        display: flex;
-        padding: 0.78125vw 0.625vw;
-        justify-content: center;
-        align-items: center;
-        gap: 0.41667vw;
-        border-radius: 0.41667rem;
-        background: var(--White, #FFF);
-        color: #222;
+    img {
+      width: 1.14vw;
+    }
+  }
+  .lang {
+    display: flex;
+    padding: 0.78125vw 0.625vw;
+    justify-content: center;
+    align-items: center;
+    gap: 0.41667vw;
+    cursor: pointer;
+  }
+}
 
-        img{
-            width: 1.14vw;
+@media screen and (max-width: 1024px) {
+  .header {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 6.4vw;
+    padding-bottom: 6.4vw;
+
+    .logoHeader {
+      width: 25.33vw;
+      height: 10.67vw;
+
+      div {
+        svg {
+          width: 25.33vw;
+          height: 10.67vw;
         }
+      }
     }
-    .lang{
-        display: flex;
-        padding: 0.78125vw 0.625vw;
-        justify-content: center;
-        align-items: center;
-        gap: 0.41667vw;
-        cursor: pointer;
+
+    nav {
+      display: none;
     }
+    .left {
+      display: none;
+    }
+    button {
+      width: 10.67vw;
+      height: 10.67vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 2.13vw;
+      background-color: rgba(76, 76, 76, 0.4);
+
+      svg {
+        width: 5.33vw;
+        height: 3.73vw;
+      }
+    }
+  }
 }
