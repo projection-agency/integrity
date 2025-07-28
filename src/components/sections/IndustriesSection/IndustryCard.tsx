@@ -6,15 +6,18 @@ export const IndustryCard = ({
   icon,
   title,
   text,
+  image,
   active = false,
 }: {
   cases: number
   icon: React.ReactNode
   title: string
   text: string
+  image: string
   active?: boolean
 }) => (
   <div className={`${styles.card} ${active ? styles.active : ''}`}>
+    <div className={styles.bgImage} style={{ backgroundImage: `url(${image})` }}></div>
     <div className={styles.cardTop}>
       <span className={styles.cases}>{cases} CASES</span>
       <div className={styles.closeBtnWrapper}>

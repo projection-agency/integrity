@@ -105,6 +105,7 @@
   position: relative;
   width: 10.83vw;
   height: 2.71vw;
+  position: relative;
 }
 
 .cases {
@@ -159,6 +160,13 @@
   justify-content: center;
   width: 6.17vw;
 }
+.bgImage {
+  display: none;
+}
+
+.backgroundImage {
+  display: none;
+}
 
 .cardTitle {
   font-family: var(--font-family);
@@ -169,6 +177,7 @@
   color: var(--black);
   text-align: center;
   /* margin-top: auto; */
+  position: relative;
 }
 .wrapHeading {
   display: flex;
@@ -203,6 +212,9 @@
 
     padding-bottom: 1rem;
   }
+  .card {
+    border: none;
+  }
 
   /* ------- */
 
@@ -222,6 +234,7 @@
     justify-content: center;
     width: 15.14vw;
     height: 15.14vw;
+    position: relative;
   }
   /* .swiper {
     width: 91.6vw;
@@ -263,7 +276,7 @@
     line-height: 140%;
     letter-spacing: 0.13em;
     text-transform: uppercase;
-    /* color: var(--white); */
+    color: var(--white);
   }
   .cardTitle {
     font-family: var(--second-family);
@@ -272,8 +285,9 @@
     font-size: 6.49vw;
     line-height: 100%;
     text-transform: uppercase;
-    /* color: var(--white); */
+    color: var(--white);
     text-align: left;
+    position: relative;
   }
   .cardText {
     font-family: var(--font-family);
@@ -283,6 +297,34 @@
     letter-spacing: -0.02em;
     color: var(--light-garay-2);
     display: block;
+    position: relative;
+  }
+
+  .card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 24px;
+    background-image: url('/images/Industries1.png');
+  }
+
+  .bgImage {
+    display: block;
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+    transition: 0.3s;
+    filter: grayscale(100%);
+  }
+  .content {
+    position: relative;
+
+    padding: 24px;
+    color: white;
+  }
+  .industry1 {
+    background-image: url('/images/Industries1.png');
   }
 }
 @media (max-width: 767px) {
