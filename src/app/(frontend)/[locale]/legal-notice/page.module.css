@@ -108,3 +108,58 @@
     gap: 0.625vw;
   }
 }
+
+@media screen and (max-width: 1024px) {
+  .page {
+    .heroPage {
+      padding-top: 29.87vw;
+      padding-bottom: 10.67vw;
+      margin-bottom: 8.53vw;
+
+      h1 {
+        margin-bottom: 6.4vw;
+
+        font-size: 11.2vw;
+      }
+
+      .insightCardMeta {
+        gap: 3.2vw;
+        span {
+          font-size: 3.73vw;
+        }
+
+        .insightCardMetaItem {
+          padding: 1.67vw 3.2vw;
+          border-radius: 10.67vw;
+          gap: 2.13vw;
+
+          img {
+            width: 3.2vw;
+            height: 3.2vw;
+          }
+
+          span {
+            font-size: 3.73vw;
+          }
+        }
+      }
+    }
+
+    .containerPage {
+      .description {
+        margin-bottom: 6.4vw;
+        font-size: 3.73vw;
+      }
+
+      .listAccordion {
+        margin-bottom: 6.4vw;
+      }
+
+      .description {
+        margin-bottom: 21.33vw;
+        padding-bottom: 0;
+        font-size: 3.73vw;
+      }
+    }
+  }
+}

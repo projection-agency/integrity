@@ -79,8 +79,12 @@
 
 @media screen and (max-width: 1024px) {
   .accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 2.13vw;
     .accordionItem {
       padding: 7.47vw;
+      border-radius: 6.4vw;
 
       .itemHeader {
         .question {

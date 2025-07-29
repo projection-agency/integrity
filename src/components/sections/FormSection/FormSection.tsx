@@ -74,9 +74,13 @@ export default function FormSection() {
       </div>
 
       <div className={s.formCont}>
-        <h3>
-          Fill <span>{report}</span> <br /> out the form
-        </h3>
+        {window.innerWidth <= 1024 ? (
+          <h3>
+            Fill <span>{report}</span> <br /> out the form
+          </h3>
+        ) : (
+          ''
+        )}
         <Formik
           initialValues={initialValues}
           onSubmit={(values) => console.log(values)}
