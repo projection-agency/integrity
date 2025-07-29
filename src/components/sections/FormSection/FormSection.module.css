@@ -209,7 +209,8 @@
         justify-content: center;
         align-items: center;
         border-radius: 0.83vw;
-        background-color: rgba(34, 34, 34, 1);
+        transition: background-image 300ms ease-in-out;
+        background: linear-gradient(94deg, rgba(34, 34, 34, 1) 0%, rgba(34, 34, 34, 1) 100%);
 
         font-size: 0.83vw;
         font-style: normal;
@@ -221,6 +222,10 @@
           width: 1.04vw;
           height: 1.04vw;
         }
+      }
+
+      .submitBtn:hover {
+        background: linear-gradient(94deg, #ffe414 0.19%, #ffae00 100.19%);
       }
     }
   }
