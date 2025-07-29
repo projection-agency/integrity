@@ -73,7 +73,7 @@ const FillForm = () => {
                 </label>
               </div>
               <div className={styles.row}>
-                <label className={styles.label} style={{ width: 395 }}>
+                <label className={styles.label}>
                   <p className={styles.required}>Email</p>
                   <input
                     className={styles.input}
@@ -82,7 +82,7 @@ const FillForm = () => {
                     required
                   />
                 </label>
-                <label className={styles.label} style={{ width: 395 }}>
+                <label className={styles.label}>
                   <p className={styles.required}>Number</p>
                   <NumberInput
                     name="number"

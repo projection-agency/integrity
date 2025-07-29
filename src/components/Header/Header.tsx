@@ -63,7 +63,7 @@ export default function Header({
         </div>
         <button onClick={() => setMenuIsOpen(true)}>{burger}</button>
       </header>
-      <MobileMenu menuIsOpen={menuIsOpen} handleClose={handleClose} />
+      <MobileMenu menuIsOpen={menuIsOpen} handleClose={handleClose} menu={menu} />
     </>
   )
 }
