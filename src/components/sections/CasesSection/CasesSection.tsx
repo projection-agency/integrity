@@ -36,6 +36,13 @@ export default function CasesSection({ block }: { block: CasesBlockData }) {
   const [caseData, setCaseData] = useState<CaseItemType[]>([])
   const [activeSlide, setActiveSlide] = useState<number>(0)
   const [windowWidth, setWndowWidth] = useState<number>(window.innerWidth)
+  const [isExpanded, setIsExpanded] = useState(false)
+
+  const handleClick = () => {
+    if (window.innerWidth <= 1024) {
+      setIsExpanded(!isExpanded)
+    }
+  }
 
   const inlineStyle = {
     transform: `translateX(${activeSlide * -100}%)`,
@@ -55,7 +62,7 @@ export default function CasesSection({ block }: { block: CasesBlockData }) {
         <div className={s.wrapHeading}>
           <MainTitle title={block.title} />
           <div className={s.count}>
-            <span>(07)</span>
+            <span>(05)</span>
           </div>
         </div>
       </div>
@@ -112,6 +119,7 @@ export default function CasesSection({ block }: { block: CasesBlockData }) {
         </div>
         <div className={s.swiperContainer}>
           <Swiper
+            className={s.swiper}
             modules={[Navigation, Pagination]}
             pagination={{
               el: `.${s.pagination}`,
@@ -135,11 +143,21 @@ export default function CasesSection({ block }: { block: CasesBlockData }) {
             {caseData.map((item, idx) => {
               return (
                 <SwiperSlide key={idx}>
-                  <CaseItem item={item} />
+                  <CaseItem item={item} isExpanded={isExpanded} />
                 </SwiperSlide>
               )
             })}
           </Swiper>
+          {window.innerWidth <= 1024 ? (
+            <button
+              className={`${s.expandBtn} ${isExpanded ? s.isExpanded : ''}`}
+              onClick={handleClick}
+            >
+              {isExpanded ? 'Show less' : 'Show more'} {btnArrow}
+            </button>
+          ) : (
+            ''
+          )}
           <div className={s.controlsCont}>
             {window.innerWidth <= 1024 ? <p>Next case</p> : <p>Switch to the next case</p>}
             <div className={s.controls}>
@@ -163,9 +181,18 @@ const navArrow = (
     fill="none"
     className={s.navArrow}
   >
+    <path d="M19 7C19.5523 7 20 7.44772 20 8C20 8.55228 19.5523 9 19 9V7ZM0.292892 8.70711C-0.0976315 8.31658 -0.0976315 7.68342 0.292892 7.29289L6.65685 0.928932C7.04738 0.538408 7.68054 0.538408 8.07107 0.928932C8.46159 1.31946 8.46159 1.95262 8.07107 2.34315L2.41421 8L8.07107 13.6569C8.46159 14.0474 8.46159 14.6805 8.07107 15.0711C7.68054 15.4616 7.04738 15.4616 6.65685 15.0711L0.292892 8.70711ZM19 8V9H1V8V7H19V8Z" />
+  </svg>
+)
+
+const btnArrow = (
+  <svg xmlns="http://www.w3.org/2000/svg" width="19" height="16" viewBox="0 0 19 16" fill="none">
     <path
-      d="M19 7C19.5523 7 20 7.44772 20 8C20 8.55228 19.5523 9 19 9V7ZM0.292892 8.70711C-0.0976315 8.31658 -0.0976315 7.68342 0.292892 7.29289L6.65685 0.928932C7.04738 0.538408 7.68054 0.538408 8.07107 0.928932C8.46159 1.31946 8.46159 1.95262 8.07107 2.34315L2.41421 8L8.07107 13.6569C8.46159 14.0474 8.46159 14.6805 8.07107 15.0711C7.68054 15.4616 7.04738 15.4616 6.65685 15.0711L0.292892 8.70711ZM19 8V9H1V8V7H19V8Z"
-      fill="#222222"
+      d="M1.5 11.7637L9.5 3.76367L17.5 11.7637"
+      stroke="#686868"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
     />
   </svg>
 )

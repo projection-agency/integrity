@@ -18,7 +18,7 @@
       position: relative;
       z-index: -20;
       padding: 2.08vw;
-      border: 0.05vw solid rgba(41, 41, 41, 0.6);
+      border: 0.05vw solid rgba(41, 41, 41, 0.3);
       background-color: rgba(249, 249, 249, 1);
       border-radius: 1.67vw;
 
@@ -117,6 +117,7 @@
         padding: 0.42vw;
         border-radius: 1.67vw;
         background-color: rgba(249, 249, 249, 1);
+        box-shadow: -4px 4px 8px 0 rgba(0, 0, 0, 0.15);
 
         .item {
           flex-grow: 1;

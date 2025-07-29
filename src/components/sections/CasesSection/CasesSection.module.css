@@ -1,5 +1,5 @@
 .section {
-  padding: 10.42vw 0;
+  padding-bottom: 10.42vw;
   overflow-x: hidden;
 
   .headWrapper {
@@ -107,11 +107,27 @@
             color: rgba(34, 34, 34, 1);
           }
         }
+
+        .swiperShortItem:hover {
+          p {
+            color: rgba(34, 34, 34, 1);
+          }
+        }
+
+        .swiperShortActive:hover {
+          p {
+            color: #ffffff;
+          }
+        }
       }
     }
 
     .swiperContainer {
       width: 70.36vw;
+
+      .swiper {
+        margin-bottom: 0.42vw;
+      }
 
       .controlsCont {
         width: 100%;
@@ -168,7 +184,20 @@
             justify-content: center;
             align-items: center;
             border-radius: 0.83vw;
+            transition: all 300ms ease-in-out;
             background-color: #ffffff;
+
+            svg {
+              fill: rgba(34, 34, 34, 1);
+            }
+          }
+
+          .navigationBtn:hover {
+            background-color: rgba(34, 34, 34, 1);
+
+            svg {
+              fill: #ffffff;
+            }
           }
 
           .navigationPrev {
@@ -180,6 +209,15 @@
 
           .disabled {
             .navArrow {
+              fill-opacity: 0.6;
+            }
+          }
+
+          .disabled:hover {
+            background-color: #ffffff;
+
+            .navArrow {
+              fill: rgba(34, 34, 34, 1);
               fill-opacity: 0.6;
             }
           }
@@ -264,6 +302,32 @@
 
       .swiperContainer {
         width: 91.47vw;
+
+        .expandBtn {
+          width: 100%;
+          margin-bottom: 6.4vw;
+          display: flex;
+          justify-content: center;
+          gap: 2.13vw;
+
+          font-size: 3.73vw;
+          font-style: normal;
+          font-weight: 800;
+          line-height: 1.4;
+          letter-spacing: -0.28px;
+          color: rgba(104, 104, 104, 1);
+
+          svg {
+            transition: transform 300ms ease-in-out;
+            transform: rotateZ(180deg);
+          }
+        }
+
+        .expandBtn.isExpanded {
+          svg {
+            transform: rotateZ(0deg);
+          }
+        }
 
         .controlsCont {
           padding: 2.13vw 5.33vw;

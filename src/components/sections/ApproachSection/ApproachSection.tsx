@@ -4,6 +4,7 @@ import Image from 'next/image'
 import TabSection from '@/components/ui/TabSection/TabSection'
 import MovingIconsLine from '@/components/MovingIconsLine/MovingIconsLine'
 import { JSX } from 'react'
+import GridBackground from '@/components/GridBackground/GridBackground'
 
 const advantages = [
   {
@@ -99,6 +100,7 @@ export default function ApproachSection({ block }: { block: ApproachSection }) {
           })}
         </ul>
       </div>
+      <GridBackground />
     </section>
   )
 }
