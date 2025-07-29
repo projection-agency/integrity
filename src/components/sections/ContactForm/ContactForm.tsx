@@ -98,13 +98,13 @@ const ContactForm = () => {
             <div className={styles.contactItems}>
               <div className={`${styles.contactItem} ${styles.phone}`}>
                 <div className={styles.contactInfo}>
-                  <p>Phone:</p>
+                  <p><span>{phone}</span> Phone:</p>
                   <Link href={'tel:+380639304403'}>+38 (063) 930 44 03</Link>
                 </div>
               </div>
               <div className={`${styles.contactItem} ${styles.email}`}>
                 <div className={styles.contactInfo}>
-                  <p>E-mail:</p>
+                  <p><span>{email}</span> E-mail:</p>
                   <Link href={'mailto:info@integritymarketingsystem.com'}>
                     info@integritymarketingsystem.com
                   </Link>
@@ -118,7 +118,6 @@ const ContactForm = () => {
             </ul>
           </div>
         </div>
-        {/* FillForm */}
         <FillForm />
       </div>
     </div>
@@ -126,3 +125,30 @@ const ContactForm = () => {
 }
 
 export default ContactForm
+
+const phone = (
+  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+    <g clip-path="url(#clip0_1252_9198)">
+      <path
+        d="M5.76137 7.38022C4.73239 6.53412 4.04533 5.49006 3.68412 4.89599L3.41468 4.38804C3.50889 4.28696 4.22732 3.51766 4.53865 3.10026C4.9299 2.57612 4.36265 2.10275 4.36265 2.10275C4.36265 2.10275 2.76653 0.506406 2.40277 0.189753C2.03901 -0.127343 1.62028 0.0487725 1.62028 0.0487725C0.855748 0.54276 0.0631744 0.972242 0.0156266 3.03774C0.0138533 4.97158 1.48185 6.96615 3.06933 8.51029C4.65935 10.2541 6.84245 12.002 8.95306 12C11.0183 11.9529 11.4477 11.1604 11.9417 10.3959C11.9417 10.3959 12.1179 9.97751 11.8012 9.61342C11.4842 9.24944 9.88761 7.65299 9.88761 7.65299C9.88761 7.65299 9.41457 7.08563 8.89033 7.4772C8.49964 7.76925 7.79806 8.41885 7.62904 8.57634C7.62937 8.5769 6.45575 7.95124 5.76137 7.38022Z"
+        fill="white"
+      />
+    </g>
+    <defs>
+      <clipPath id="clip0_1252_9198">
+        <rect width="12" height="12" fill="white" />
+      </clipPath>
+    </defs>
+  </svg>
+)
+
+const email = (
+  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+    <path
+      fill-rule="evenodd"
+      clip-rule="evenodd"
+      d="M0.963767 1.92085L4.5702 5.52885C5.35678 6.31391 6.64255 6.31459 7.42977 5.52885L11.0362 1.92085C11.0725 1.88453 11.0672 1.82472 11.0251 1.79534C10.6573 1.5388 10.2097 1.38672 9.72762 1.38672H2.27238C1.79026 1.38672 1.34271 1.53883 0.974874 1.79534C0.93274 1.82472 0.927447 1.88453 0.963767 1.92085ZM0 3.65907C0 3.27997 0.0939936 2.92177 0.259558 2.60694C0.285449 2.55769 0.351075 2.54773 0.390419 2.58707L3.9512 6.14785C5.07878 7.27708 6.92054 7.27773 8.0488 6.14785L11.6096 2.58707C11.6489 2.54773 11.7146 2.55769 11.7404 2.60694C11.906 2.92177 12 3.27999 12 3.65907V8.40274C12 9.65667 10.98 10.6751 9.72762 10.6751H2.27238C1.02003 10.6751 0 9.65667 0 8.40274V3.65907Z"
+      fill="white"
+    />
+  </svg>
+)

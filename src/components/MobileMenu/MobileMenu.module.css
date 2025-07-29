@@ -34,6 +34,7 @@
         justify-content: center;
         align-items: center;
         border-radius: 2.13vw;
+        fill: #ffffff;
 
         background-color: rgba(76, 76, 76, 0.4);
 
@@ -54,7 +55,6 @@
         position: relative;
         display: flex;
         padding: 1.07vw;
-        margin-bottom: 6.4vw;
         border-radius: 2.13vw;
         background-color: rgba(255, 255, 255, 0.1);
 
@@ -75,7 +75,6 @@
           display: flex;
           gap: 1.07vw;
           align-items: center;
-          padding: 2.13vw 1.6vw;
           color: rgba(181, 181, 181, 1);
 
           svg {

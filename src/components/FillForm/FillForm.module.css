@@ -443,6 +443,9 @@
     width: 42.19vw;
     flex-direction: column;
   }
+  .label {
+    width: 76.533vw;
+  }
   .text {
     font-family: var(--second-family);
     font-style: italic;

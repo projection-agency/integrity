@@ -1,9 +1,18 @@
 'use client'
-import { useState } from 'react'
 import s from './MobileMenu.module.css'
 import Link from 'next/link'
-const MobileMenu = ({ menuIsOpen, handleClose }:{menuIsOpen:boolean,handleClose:any}) => {
-  const [active, setActive] = useState<'EN' | 'UA'>('EN')
+import { MenuItem } from '../Header/NavList'
+import NavList from '../Header/NavList'
+import LocaleSwitcher from '../Header/LocaleSwitcher'
+const MobileMenu = ({
+  menuIsOpen,
+  handleClose,
+  menu,
+}: {
+  menuIsOpen: boolean
+  handleClose: any
+  menu: MenuItem[]
+}) => {
   return (
     <div className={`${s.menuOverlay} ${menuIsOpen ? s.isOpen : ''}`}>
       <div className={s.contentContainer}>
@@ -12,54 +21,8 @@ const MobileMenu = ({ menuIsOpen, handleClose }:{menuIsOpen:boolean,handleClose:
           <button onClick={() => handleClose()}>{closeIcon}</button>
         </header>
         <div className={s.content}>
-          <div className={s.langToggler}>
-            <div
-              className={s.background}
-              style={{
-                left: active === 'EN' ? '1.04vw' : '11.8vw',
-              }}
-            ></div>
-            <p
-              className={`${s.lang} ${active === 'EN' ? s.active : ''}`}
-              onClick={() => {
-                setActive('EN')
-              }}
-            >
-              {british}
-              EN
-            </p>
-            <p
-              className={`${s.lang} ${active === 'EN' ? '' : s.active}`}
-              onClick={() => {
-                setActive('UA')
-              }}
-            >
-              {british}
-              UA
-            </p>
-          </div>
-          <nav>
-            <ul>
-              <li>
-                <Link href={'#'}>Main</Link>
-              </li>
-              <li>
-                <Link href={'#'}>About us</Link>
-              </li>
-              <li>
-                <Link href={'#'}>Services</Link>
-              </li>
-              <li>
-                <Link href={'#'}>Cases</Link>
-              </li>
-              <li>
-                <Link href={'#'}>Blog</Link>
-              </li>
-              <li>
-                <Link href={'#'}>Contacts</Link>
-              </li>
-            </ul>
-          </nav>
+          <LocaleSwitcher />
+          <NavList menu={menu} />
           <button>{iconPhone}Order a call</button>
         </div>
       </div>

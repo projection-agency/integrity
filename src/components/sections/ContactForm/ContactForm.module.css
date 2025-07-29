@@ -147,7 +147,11 @@
 }
 
 .expertBlock {
-  background: linear-gradient(139deg, rgba(255, 255, 255, 0.12) 10.53%, rgba(41, 41, 41, 0.2) 82.16%);
+  background: linear-gradient(
+    139deg,
+    rgba(255, 255, 255, 0.12) 10.53%,
+    rgba(41, 41, 41, 0.2) 82.16%
+  );
   backdrop-filter: blur(2px);
   border-radius: 1.67vw;
   padding: 4.16vw;
@@ -176,7 +180,11 @@
   justify-content: center;
   z-index: 1;
   backdrop-filter: blur(3.2800562381744385px);
-  background: linear-gradient(169deg, rgba(255, 255, 255, 0.16) -6.56%, rgba(255, 255, 255, 0.00) 112.07%);
+  background: linear-gradient(
+    169deg,
+    rgba(255, 255, 255, 0.16) -6.56%,
+    rgba(255, 255, 255, 0) 112.07%
+  );
 }
 
 .expertAvatar {
@@ -197,7 +205,6 @@
   height: 6.15vw;
   z-index: 1;
 }
-
 
 .phoneInputWrapper {
   width: 20.57vw;
@@ -304,9 +311,6 @@
   align-items: center;
 }
 .expertChatIcon {
-  position: absolute;
-  left: 0;
-  top: 0;
   width: 6.15vw;
   height: 6.15vw;
   z-index: 1;
@@ -338,13 +342,12 @@
   color: var(--white);
 }
 
-
 .contacts {
   display: flex;
   flex-direction: column;
   gap: 2.9vw;
 
-  .contactItems{
+  .contactItems {
     display: flex;
     flex-direction: column;
     gap: 2.08vw;
@@ -414,6 +417,90 @@
       svg {
         width: 1.98vw;
         height: 1.98vw;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .wrapper {
+    .rowLayout {
+      display: flex;
+      flex-direction: column;
+      gap: 2.13vw;
+
+      .expertBlock {
+        width: 100%;
+        padding: 7.47vw;
+        border-radius: 8.53vw;
+
+        .expertCard {
+          margin-bottom: 6.4vw;
+
+          .expertAvatarWrapper {
+            width: 17.07vw;
+            height: 17.07vw;
+
+            .expertChatIcon {
+              padding: 6.4vw;
+              width: 4.53vw;
+              height: 4.53vw;
+            }
+
+            .expertAvatar {
+              width: 17.07vw;
+              height: 17.07vw;
+              left: 10.67vw;
+            }
+          }
+        }
+
+        .contacts {
+          .contactItems {
+            .contactItem {
+              p {
+                display: flex;
+                align-items: center;
+                gap: 2.13vw;
+                margin-bottom: 3.2vw;
+                font-size: 3.2vw;
+
+                span {
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  width: 6.4vw;
+                  height: 6.4vw;
+                  border-radius: 50%;
+                  background-image: linear-gradient(141deg, rgba(255, 255, 255, 0.12) 8.87%, rgba(41, 41, 41, 0.12) 93.36%);
+
+                  svg {
+                    width: 3.2vw;
+                    height: 3.2vw;
+                  }
+                }
+              }
+
+              a {
+                font-size: 3.5vw;
+              }
+            }
+          }
+
+          .socialsList {
+            gap: 2.13vw;
+            li {
+              width: 12.8vw;
+              height: 12.8vw;
+              border-radius: 2.13vw;
+
+              svg {
+                width: 4.8vw;
+                height: 4.8vw;
+              }
+            }
+          }
+        }
       }
     }
   }

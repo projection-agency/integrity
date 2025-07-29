@@ -171,4 +171,33 @@
       }
     }
   }
+
+  .localeWrap {
+    width: max-content;
+    padding: 1.07vw;
+    border-radius: 2.13vw;
+            margin-bottom: 6.4vw;
+
+
+    .currentLang {
+      justify-content: space-between;
+      width: 12.8vw;
+      height: 7.47vw;
+      padding: 2.13vw 1.6vw;
+
+
+      .localeName {
+        font-size: 2.67vw;
+      }
+
+      img {
+        width: 4.27vw;
+      }
+    }
+
+    .lang {
+      padding: 2.13vw 1.6vw;
+      font-size: 2.67vw;
+    }
+  }
 }
