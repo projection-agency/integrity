@@ -1,3 +1,4 @@
+'use client'
 import React from 'react'
 import styles from './WorkflowSection.module.css'
 import {
@@ -12,6 +13,7 @@ import {
 import TabSection from '@/components/ui/TabSection/TabSection'
 import MainTitle from '@/components/ui/MainTitle/MainTitle'
 import GridBackground from '@/components/GridBackground/GridBackground'
+import useIsMobile from '../LatestInsightsSection/useIsMobile'
 
 const steps = [
   {
@@ -213,6 +215,7 @@ export default function WorkflowSection({
 }: {
   block?: { enabled?: boolean; title?: string; subtitle?: string; tabStyle?: string }
 }) {
+  const isMobile = useIsMobile()
   const safeBlock = {
     enabled: true,
     subtitle: 'WORKFLOW',
@@ -222,6 +225,17 @@ export default function WorkflowSection({
   }
 
   if (!safeBlock.enabled) return null
+
+  const left = stepsWithSpaces
+  const right = rightStepsDataWithSpaces
+  const mobileSteps = [
+    left.find((s) => s.step === 1)!,
+    right.find((s) => s.step === 2)!,
+    left.find((s) => s.step === 3)!,
+    right.find((s) => s.step === 4)!,
+    left.find((s) => s.step === 5)!,
+    right.find((s) => s.step === 6)!,
+  ]
 
   return (
     <section className={styles['workflow-section']}>
@@ -235,92 +249,36 @@ export default function WorkflowSection({
         <MainTitle title={safeBlock.title} />
       </div>
       <div className={styles['workflow-section-overlay']} />
-      <div className={styles['workflow-grid']}>
-        {/* Ліва колонка */}
-        <div className={styles['workflow-left']}>
-          {stepsWithSpaces.slice(0, 3).map((step, i) => (
-            <div
-              className={styles['step-card'] + (i >= 1 ? ' ' + styles['step-card--shadow'] : '')}
-              key={step.step}
-            >
-              <div className={styles['step-top-row']}>
-                <div className={styles['step-badge']}>STEP {step.step}</div>
-                <div className={styles['step-icon-wrapper']}>
-                  {step.step === 1 ? (
-                    <>
-                      <span className={styles['step-icon-blur']} />
-                      <span className={styles['step-icon-svg']}>
-                        <IconAnalytics />
-                      </span>
-                    </>
-                  ) : (
-                    <span className={styles['step-icon-svg']}>{step.icon}</span>
-                  )}
-                </div>
-              </div>
-              <div className={styles['step-content-block']}>
-                <h3 className={styles['step-title']}>{step.title}</h3>
-                <ul className={styles['step-list']}>
-                  {step.list.map((parts, idx) => (
-                    <li className={styles['step-list-item']} key={idx}>
-                      {/* <div className={styles['blok-list-icon']}> */}
-                      <span className={styles['step-list-icon']}>
-                        <IconDot />
-                      </span>
-                      {/* </div> */}
-                      <span className={styles['step-list-text-wrap']}>
-                        {parts.map((part, i) => (
-                          <span
-                            key={i}
-                            className={
-                              part.type === 'main'
-                                ? styles['step-list-main']
-                                : styles['step-list-desc']
-                            }
-                          >
-                            {part.text}
-                          </span>
-                        ))}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          ))}
-        </div>
-        {/* Центральна колонка */}
-        <div className={styles['workflow-line-wrap']}>
-          <div className={styles['workflow-line']} />
-          <div className={styles['workflow-steps']}>
-            {[1, 2, 3, 4, 5, 6].map((n, i) => (
-              <div
-                className={
-                  styles['step-marker'] + (i >= 1 ? ' ' + styles['step-card--shadow'] : '')
-                }
-                key={n}
-              >
+
+      {isMobile ? (
+        <div className={styles['workflow-mobile-list']}>
+          {mobileSteps.map((step) => (
+            <div className={styles['step-wrapper']} key={step.step}>
+              {/* Маркер зверху */}
+              <div className={styles['step-marker']}>
                 <div className={styles['step-indicator']}>
                   <span className={styles['step-marker-number']}>
-                    {n.toString().padStart(2, '0')}
+                    {step.step.toString().padStart(2, '0')}
                   </span>
                 </div>
               </div>
-            ))}
-          </div>
-        </div>
-        {/* Права колонка */}
-        <div className={styles['workflow-right']}>
-          {rightSteps.map((step, i) =>
-            step ? (
-              <div
-                className={styles['step-card'] + (i >= 2 ? ' ' + styles['step-card--shadow'] : '')}
-                key={step.step}
-              >
+
+              {/* Картка кроку */}
+              <div className={styles['step-card']}>
                 <div className={styles['step-top-row']}>
                   <div className={styles['step-badge']}>STEP {step.step}</div>
+                  {/* <div className={styles['step-icon-wrapper']}>{step.icon}</div> */}
                   <div className={styles['step-icon-wrapper']}>
-                    <span className={styles['step-icon-svg']}>{step.icon}</span>
+                    {step.step === 1 ? (
+                      <>
+                        <span className={styles['step-icon-blur']} />
+                        <span className={styles['step-icon-svg']}>
+                          <IconAnalytics />
+                        </span>
+                      </>
+                    ) : (
+                      <span className={styles['step-icon-svg']}>{step.icon}</span>
+                    )}
                   </div>
                 </div>
                 <div className={styles['step-content-block']}>
@@ -328,9 +286,14 @@ export default function WorkflowSection({
                   <ul className={styles['step-list']}>
                     {step.list.map((parts, idx) => (
                       <li className={styles['step-list-item']} key={idx}>
-                        <span className={styles['step-list-icon']}>
+                        <div className={styles['step-list-block']}>
+                          <span className={styles['step-list-icon']}>
+                            <IconDot />
+                          </span>
+                        </div>
+                        {/* <span className={styles['step-list-icon']}>
                           <IconDot />
-                        </span>
+                        </span> */}
                         <span className={styles['step-list-text-wrap']}>
                           {parts.map((part, i) => (
                             <span
@@ -350,16 +313,140 @@ export default function WorkflowSection({
                   </ul>
                 </div>
               </div>
-            ) : (
-              <div
-                className={styles['ghost-block']}
-                key={`ghost-${i}`}
-                style={{ visibility: 'hidden' }}
-              ></div>
-            ),
-          )}
+            </div>
+          ))}
         </div>
-      </div>
+      ) : (
+        <div className={styles['workflow-grid']}>
+          {/* Ліва колонка */}
+          <div className={styles['workflow-left']}>
+            {stepsWithSpaces.slice(0, 3).map((step, i) => (
+              <div
+                className={styles['step-card'] + (i >= 1 ? ' ' + styles['step-card--shadow'] : '')}
+                key={step.step}
+              >
+                <div className={styles['step-top-row']}>
+                  <div className={styles['step-badge']}>STEP {step.step}</div>
+                  <div className={styles['step-icon-wrapper']}>
+                    {step.step === 1 ? (
+                      <>
+                        <span className={styles['step-icon-blur']} />
+                        <span className={styles['step-icon-svg']}>
+                          <IconAnalytics />
+                        </span>
+                      </>
+                    ) : (
+                      <span className={styles['step-icon-svg']}>{step.icon}</span>
+                    )}
+                  </div>
+                </div>
+                <div className={styles['step-content-block']}>
+                  <h3 className={styles['step-title']}>{step.title}</h3>
+                  <ul className={styles['step-list']}>
+                    {step.list.map((parts, idx) => (
+                      <li className={styles['step-list-item']} key={idx}>
+                        {/* <div className={styles['blok-list-icon']}> */}
+                        <span className={styles['step-list-icon']}>
+                          <IconDot />
+                        </span>
+                        {/* </div> */}
+                        <span className={styles['step-list-text-wrap']}>
+                          {parts.map((part, i) => (
+                            <span
+                              key={i}
+                              className={
+                                part.type === 'main'
+                                  ? styles['step-list-main']
+                                  : styles['step-list-desc']
+                              }
+                            >
+                              {part.text}
+                            </span>
+                          ))}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            ))}
+          </div>
+          {/* Центральна колонка */}
+          <div className={styles['workflow-line-wrap']}>
+            <div className={styles['workflow-line']} />
+            <div className={styles['workflow-steps']}>
+              {[1, 2, 3, 4, 5, 6].map((n, i) => (
+                <div
+                  className={
+                    styles['step-marker'] + (i >= 1 ? ' ' + styles['step-card--shadow'] : '')
+                  }
+                  key={n}
+                >
+                  <div className={styles['step-indicator']}>
+                    <span className={styles['step-marker-number']}>
+                      {n.toString().padStart(2, '0')}
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          {/* Права колонка */}
+          <div className={styles['workflow-right']}>
+            {rightSteps.map((step, i) =>
+              step ? (
+                <div
+                  className={
+                    styles['step-card'] + (i >= 2 ? ' ' + styles['step-card--shadow'] : '')
+                  }
+                  key={step.step}
+                >
+                  <div className={styles['step-top-row']}>
+                    <div className={styles['step-badge']}>STEP {step.step}</div>
+                    <div className={styles['step-icon-wrapper']}>
+                      <span className={styles['step-icon-svg']}>{step.icon}</span>
+                    </div>
+                  </div>
+
+                  <div className={styles['step-content-block']}>
+                    <h3 className={styles['step-title']}>{step.title}</h3>
+                    <ul className={styles['step-list']}>
+                      {step.list.map((parts, idx) => (
+                        <li className={styles['step-list-item']} key={idx}>
+                          <span className={styles['step-list-icon']}>
+                            <IconDot />
+                          </span>
+                          <span className={styles['step-list-text-wrap']}>
+                            {parts.map((part, i) => (
+                              <span
+                                key={i}
+                                className={
+                                  part.type === 'main'
+                                    ? styles['step-list-main']
+                                    : styles['step-list-desc']
+                                }
+                              >
+                                {part.text}
+                              </span>
+                            ))}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              ) : (
+                <div
+                  className={styles['ghost-block']}
+                  key={`ghost-${i}`}
+                  style={{ visibility: 'hidden' }}
+                ></div>
+              ),
+            )}
+          </div>
+        </div>
+      )}
+
       <GridBackground />
     </section>
   )
