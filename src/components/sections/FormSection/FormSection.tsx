@@ -115,7 +115,7 @@ export default function FormSection() {
                     </ErrorMessage>
                   </label>
                   <label htmlFor="forNumber">
-                    <p className={s.required}>Number</p>
+                    <p className={s.required}>Phone Number</p>
                     <NumberInput
                       name="number"
                       id="forNumber"

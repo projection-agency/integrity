@@ -57,8 +57,12 @@
               font-weight: 700;
               line-height: 1.4; /* 28px */
               letter-spacing: -0.4px;
-
+              transition: color 300ms ease-in-out;
               color: #ffffff;
+            }
+
+            a:hover {
+              color: rgba(181, 181, 181, 1);
             }
           }
         }
