@@ -415,8 +415,12 @@
     border-radius: 8.53vw;
     padding: 7.47vw;
     width: 91.47vw;
-    height: 127.73vw;
+    height: max-content;
     gap: 8vw;
+  }
+
+  .rowLayout{
+    padding-bottom: 21.33vw;
   }
 
   .fillBlock {
