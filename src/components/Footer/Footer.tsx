@@ -2,6 +2,7 @@ import s from './Footer.module.css'
 import IconHero from '../icons/IconHero/IconHero'
 import Link from 'next/link'
 import { JSX } from 'react'
+import GridBackground from '@/components/GridBackground/GridBackground'
 
 const whatsapp = (
   <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 38 38" fill="none">
@@ -136,6 +137,7 @@ export default function Footer({ menu }: { menu: MenuItem[] }) {
           </div>
         </div>
       </div>
+      <GridBackground />
     </footer>
   )
 }

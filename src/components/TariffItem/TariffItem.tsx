@@ -7,7 +7,7 @@ const TariffItem = ({ item, index }: { item: tariffItem; index: number }) => {
   const [flipped, setFlipped] = useState(false)
 
   return (
-    <div className={`${s.cardContainer}`} onClick={() => setFlipped(!flipped)}>
+    <div className={`${s.cardContainer}`}>
       <div className={`${s.card} ${flipped ? s.flipped : ''}`}>
         <div className={`${s.tariffPlan} ${index === 2 ? s.white : ''} ${s.front}`}>
           <p className={s.title}>{item.name_tariff}</p>
@@ -23,9 +23,11 @@ const TariffItem = ({ item, index }: { item: tariffItem; index: number }) => {
               })}
             </ul>
           </div>
-          <button className={s.orderBtn}>{order}Order</button>
-          <button className={s.moreDetails} onClick={() => setFlipped(true)}>
-            More details {moreDetails}
+          <button className={s.orderBtn}>
+            <span>{order}Order</span>
+          </button>
+          <button className={s.moreDetails} onClick={() => setFlipped(!flipped)}>
+            <span> More details {moreDetails}</span>
           </button>
         </div>
 
@@ -42,15 +44,11 @@ const TariffItem = ({ item, index }: { item: tariffItem; index: number }) => {
               })}
             </ul>
           </div>
-          <button className={s.orderBtn}>{order}Order</button>
-          <button
-            onClick={(e) => {
-              e.stopPropagation()
-              setFlipped(false)
-            }}
-            className={s.moreDetails}
-          >
-            {iconBack} Back
+          <button className={s.orderBtn}>
+            <span>{order}Order</span>
+          </button>
+          <button onClick={() => setFlipped(!flipped)} className={s.moreDetails}>
+            <span>{iconBack} Back</span>
           </button>
         </div>
       </div>
@@ -80,12 +78,9 @@ const order = (
 )
 
 const moreDetails = (
-  <svg xmlns="http://www.w3.org/2000/svg" width="9" height="20" viewBox="0 0 9 20" fill="none">
+  <svg xmlns="http://www.w3.org/2000/svg" width="9" height="20" viewBox="0 0 9 20">
     <g clipPath="url(#clip0_3087_527)">
-      <path
-        d="M7.49999 9.97262C7.50065 10.0859 7.47859 10.1981 7.43507 10.303C7.39155 10.4078 7.32742 10.5032 7.24637 10.5836L1.99906 15.7469C1.83438 15.909 1.61102 16 1.37813 16C1.14523 16 0.921879 15.909 0.757198 15.7469C0.592517 15.5849 0.5 15.3651 0.5 15.1359C0.5 14.9068 0.592517 14.687 0.757198 14.5249L5.39232 9.97262L0.765944 5.4203C0.622669 5.25568 0.547802 5.04392 0.556304 4.82734C0.564805 4.61076 0.65605 4.40531 0.811803 4.25205C0.967555 4.09879 1.17634 4.00901 1.39645 4.00064C1.61655 3.99228 1.83176 4.06594 1.99906 4.20693L7.24637 9.37023C7.40793 9.53052 7.49902 9.74686 7.49999 9.97262Z"
-        fill="#B5B5B5"
-      />
+      <path d="M7.49999 9.97262C7.50065 10.0859 7.47859 10.1981 7.43507 10.303C7.39155 10.4078 7.32742 10.5032 7.24637 10.5836L1.99906 15.7469C1.83438 15.909 1.61102 16 1.37813 16C1.14523 16 0.921879 15.909 0.757198 15.7469C0.592517 15.5849 0.5 15.3651 0.5 15.1359C0.5 14.9068 0.592517 14.687 0.757198 14.5249L5.39232 9.97262L0.765944 5.4203C0.622669 5.25568 0.547802 5.04392 0.556304 4.82734C0.564805 4.61076 0.65605 4.40531 0.811803 4.25205C0.967555 4.09879 1.17634 4.00901 1.39645 4.00064C1.61655 3.99228 1.83176 4.06594 1.99906 4.20693L7.24637 9.37023C7.40793 9.53052 7.49902 9.74686 7.49999 9.97262Z" />
     </g>
     <defs>
       <clipPath id="clip0_3087_527">
@@ -96,11 +91,8 @@ const moreDetails = (
 )
 
 const iconBack = (
-  <svg xmlns="http://www.w3.org/2000/svg" width="7" height="12" viewBox="0 0 7 12" fill="none">
-    <path
-      d="M1.4782e-05 5.97262C-0.000650406 6.08587 0.02141 6.19814 0.0649319 6.30299C0.108453 6.40784 0.17258 6.5032 0.253634 6.58361L5.50094 11.7469C5.66562 11.909 5.88898 12 6.12187 12C6.35477 12 6.57812 11.909 6.7428 11.7469C6.90748 11.5849 7 11.3651 7 11.1359C7 10.9068 6.90748 10.687 6.7428 10.5249L2.10768 5.97262L6.73406 1.4203C6.87733 1.25568 6.9522 1.04392 6.9437 0.827337C6.93519 0.610757 6.84395 0.405309 6.6882 0.252049C6.53244 0.0987902 6.32366 0.00900745 6.10355 0.000642776C5.88345 -0.00772285 5.66824 0.0659437 5.50094 0.206925L0.253634 5.37023C0.0920663 5.53052 0.000980854 5.74686 1.4782e-05 5.97262Z"
-      fill="#B5B5B5"
-    />
+  <svg xmlns="http://www.w3.org/2000/svg" width="7" height="12" viewBox="0 0 7 12">
+    <path d="M1.4782e-05 5.97262C-0.000650406 6.08587 0.02141 6.19814 0.0649319 6.30299C0.108453 6.40784 0.17258 6.5032 0.253634 6.58361L5.50094 11.7469C5.66562 11.909 5.88898 12 6.12187 12C6.35477 12 6.57812 11.909 6.7428 11.7469C6.90748 11.5849 7 11.3651 7 11.1359C7 10.9068 6.90748 10.687 6.7428 10.5249L2.10768 5.97262L6.73406 1.4203C6.87733 1.25568 6.9522 1.04392 6.9437 0.827337C6.93519 0.610757 6.84395 0.405309 6.6882 0.252049C6.53244 0.0987902 6.32366 0.00900745 6.10355 0.000642776C5.88345 -0.00772285 5.66824 0.0659437 5.50094 0.206925L0.253634 5.37023C0.0920663 5.53052 0.000980854 5.74686 1.4782e-05 5.97262Z" />
   </svg>
 )
 
