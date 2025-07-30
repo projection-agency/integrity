@@ -77,6 +77,9 @@
         .contactItem {
           display: flex;
           flex-wrap: wrap;
+          align-items: center;
+          column-gap: 0.63vw;
+
           span {
             display: flex;
             justify-content: center;
@@ -95,6 +98,7 @@
               height: 0.83vw;
             }
           }
+
           p {
             margin-bottom: 0.26vw;
             font-size: 0.83vw;
@@ -106,9 +110,12 @@
           }
 
           .contactInfo {
+            width: 100%;
             flex-grow: 1;
 
             a {
+              position: relative;
+              left: 2.29vw;
               font-size: 1.25vw;
               font-style: italic;
               font-weight: 800;
@@ -262,6 +269,7 @@
               width: 100%;
 
               a {
+                left: 0;
                 font-size: 4.27vw;
               }
             }

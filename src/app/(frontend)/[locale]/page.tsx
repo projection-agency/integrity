@@ -15,7 +15,6 @@ import ApproachSection from '@/components/sections/ApproachSection/ApproachSecti
 import ReviewsSection from '@/components/sections/ReviewsSection/ReviewsSection'
 import TariffsSection from '@/components/sections/TariffsSection/TariffsSection'
 import WorkflowSection from '@/components/sections/WorkflowSection/WorkflowSection'
-
 import FaqSection from '@/components/sections/FaqSection/FaqSection'
 import FormSection from '@/components/sections/FormSection/FormSection'
 import LatestInsightsSection from '@/components/sections/LatestInsightsSection'
