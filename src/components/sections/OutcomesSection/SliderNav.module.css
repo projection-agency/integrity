@@ -8,7 +8,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  /* box-shadow: 0 0.208vw 0.833vw 0 rgba(0, 0, 0, 0.1); */
   gap: 0.417vw;
 }
 
@@ -16,30 +15,36 @@
   width: 9.7vw;
   height: 2.917vw;
   border-radius: 0.833vw;
-  background: var(--light-gray);
+  fill: var(--light-gray);
   display: flex;
   align-items: center;
   justify-content: center;
   border: none;
   cursor: pointer;
-  /* box-shadow: 0 0.208vw 0.833vw 0 rgba(0, 0, 0, 0.1); */
   transition: box-shadow 0.2s;
 }
 .arrowBtn:active,
 .arrowBtn:focus {
-  /* box-shadow: 0 0.417vw 1.667vw rgba(0, 0, 0, 0.12); */
 }
 
 .iconLeft {
   display: flex;
   align-items: center;
   justify-content: center;
-  transform: rotate(180deg);
+  img {
+    transform: rotate(180deg);
+    width: 1.042vw;
+    height: 0.833vw;
+  }
 }
 .iconRight {
   display: flex;
   align-items: center;
   justify-content: center;
+  img {
+    width: 1.042vw;
+    height: 0.833vw;
+  }
 }
 
 .arrowBtn svg {
@@ -52,7 +57,7 @@
 .sliderWindow {
   width: 100%;
   max-width: 100vw;
-  margin: 0 auto 40px auto;
+  margin: 0 auto 10.67vw auto;
   overflow: visible;
 }
 
@@ -149,7 +154,6 @@
   justify-content: center;
   flex: 1;
   position: relative;
-  min-width: 180px;
 }
 
 .sliderDotsRow {
@@ -176,7 +180,7 @@
 .sliderActiveDot {
   width: 1.875vw;
   height: 0.31vw;
-  border-radius: 166px;
+  border-radius: 44.27vw;
   background: #222;
   display: inline-block;
 }
@@ -190,16 +194,87 @@
   margin: 0 !important;
 }
 
-/* .movingLine {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  height: 0.4vw;
-  width: 1.875vw;
-  background: #222;
-  border-radius: 0.2vw;
-  transform: translateY(-50%) translateX(var(--line-x, 0));
-  transition: transform 0.3s;
-  z-index: 1;
-  opacity: 1;
-} */
+@media (max-width: 1024px) {
+  .sliderDot {
+    width: 1.6vw;
+    height: 1.6vw;
+    z-index: 1;
+    background: #e4e4e4;
+    border-radius: 50%;
+    margin: 0 !important;
+  }
+  .navContainer {
+    display: flex;
+    padding: 0.41vw;
+    align-items: center;
+    justify-content: center;
+    width: max-content;
+    gap: 6.4vw;
+    align-self: stretch;
+    border-radius: 0.83vw;
+    /* background: var(--light-gray); */
+    margin: 0 auto;
+    width: 91.467vw;
+    height: 14.4vw;
+    padding: 2.13vw;
+    border-radius: 4.27vw;
+    margin-bottom: 21.33vw;
+  }
+  .sliderDotsRow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4.3vw;
+    position: static;
+  }
+  .sliderActiveDot {
+    width: 9.6vw;
+    height: 1.61vw;
+    border-radius: 44.267vw;
+    background: #222;
+    display: inline-block;
+  }
+  .arrowBtn {
+    width: 23vw;
+    height: 10.5vw;
+    border-radius: 3.2vw;
+    background: var(--light-gray);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    transition: box-shadow 0.2s;
+  }
+  .iconLeft {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(180deg);
+    border-radius: 1.07vw;
+    stroke-width: 0.53vw;
+    stroke: var(--black-600);
+
+    img {
+      transform: rotate(180deg);
+      width: 5.6vw;
+      height: 4.27vw;
+    }
+  }
+
+  .iconRight {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img {
+      width: 5.6vw;
+      height: 4.27vw;
+    }
+  }
+  .arrowBtn svg {
+    width: 5.6vw;
+    height: 4.27vw;
+    stroke: var(--black);
+    stroke-width: 0.104vw;
+  }
+}

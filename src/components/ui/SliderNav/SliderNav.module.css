@@ -218,6 +218,7 @@
     height: 14.4vw;
     padding: 2.13vw;
     border-radius: 4.27vw;
+    /* margin-bottom: 80px; */
   }
   .sliderDotsRow {
     display: flex;
