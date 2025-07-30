@@ -1,4 +1,5 @@
 .similarArticlesCont {
+  overflow: hidden;
   padding-top: 10.42vw;
   padding-bottom: 10.42vw;
 

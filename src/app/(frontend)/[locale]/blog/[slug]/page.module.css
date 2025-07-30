@@ -328,7 +328,7 @@
   .blog {
     .heroPage {
       padding-top: 29.87vw;
-      margin-bottom: 6.4vw;
+      margin-bottom: 10.67vw;
 
       .subtitle {
         margin-bottom: 6.4vw;
@@ -340,6 +340,8 @@
       }
 
       h1 {
+        max-width: none;
+        width: 91vw;
         margin-bottom: 6.4vw;
         font-size: 8.53vw;
       }
@@ -389,6 +391,12 @@
 
           .articleContent {
             width: 100%;
+
+            img {
+              width: 100%;
+              height: 64vw;
+              border-radius: 6.4vw;
+            }
 
             h2 {
               margin-bottom: 6.4vw;
@@ -465,6 +473,7 @@
         }
 
         .articleNav {
+          top: 25vw;
           width: 100%;
           padding: 6.4vw;
           border-radius: 6.4vw;
