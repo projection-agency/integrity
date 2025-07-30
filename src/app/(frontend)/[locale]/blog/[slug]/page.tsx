@@ -9,9 +9,10 @@ import Link from 'next/link'
 import RichTextRenderer from '@/components/RichTextComponent/RichTextComponent'
 import { injectHeadingIds } from '@/components/RichTextComponent/injectHeadingIds'
 import ArticleNavItem from '@/components/ArticleNavItem/ArticleNavItem'
-import SimilarArticlesSection from '@/components/sections/SimilarArticlesSection/SimilarArticlesSection'
+import SimilarArticlesSectionServer from '@/components/sections/SimilarArticlesSection'
 import ExpertSection from '@/components/sections/ExpertSection/ExpertSection'
 import { Metadata } from 'next'
+import { getPostsWithFilter } from '@/action/getPostsWithFilter'
 
 export async function generateMetadata({
   params,
@@ -168,8 +169,8 @@ export default async function BlogPostPage({
 }) {
   const { locale, slug } = await params
   const post = await getPostsWithSlug(slug, locale)
-  const paramsOptions = await params
-  console.log(paramsOptions)
+
+  const fetched = await getPostsWithFilter('all')
 
   if (!post) {
     return notFound()
@@ -253,8 +254,9 @@ export default async function BlogPostPage({
           </div>
         </div>
       </div>
+
       <div className={s.similarArticlesCont}>
-        <SimilarArticlesSection />
+        <SimilarArticlesSectionServer />
       </div>
       <div className={s.expertSectionCont}>
         <ExpertSection />
