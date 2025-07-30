@@ -11,7 +11,6 @@ export default function ArticleNavItem({ item }: { item: { id: string; text: str
       setCurrentHash(window.location.hash)
     }
 
-    console.log(window.location.hash === `#${item.id}`)
     window.addEventListener('hashchange', handleHashChange)
 
     return () => {
@@ -20,7 +19,23 @@ export default function ArticleNavItem({ item }: { item: { id: string; text: str
   }, [])
   return (
     <li className={`${s.item} ${currentHash === `#${item.id}` ? s.active : ''}`}>
-      <a href={`#${item.id}`}>{item.text}</a>
+      <a
+        href={`#${item.id}`}
+        onClick={(e) => {
+          const element = document.getElementById(item.id)
+          const yOffset = window.innerWidth * 0.7
+          console.log(yOffset)
+          if (element) {
+            const y = element?.getBoundingClientRect().top + window.scrollY - yOffset
+            window.scrollTo({
+              top: y,
+              behavior: 'smooth',
+            })
+          }
+        }}
+      >
+        {item.text}
+      </a>
     </li>
   )
 }

@@ -492,6 +492,7 @@
             ul {
               gap: 2.13vw;
               li {
+                border-radius: 2.13vw;
                 a {
                   font-size: 4.27vw;
                 }
