@@ -326,6 +326,24 @@
   .industry1 {
     background-image: url('/images/Industries1.png');
   }
+
+  .wrapHeading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 0.63vw;
+
+    .count {
+      color: #f5da0a;
+      font-family: 'Inter Tight';
+      font-size: 5.33vw;
+      font-style: italic;
+      font-weight: 900;
+      line-height: 100%; /* 2.08333rem */
+      text-transform: uppercase;
+      margin-bottom: 2vw;
+    }
+  }
 }
 @media (max-width: 767px) {
   .grid {

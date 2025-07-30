@@ -15,7 +15,7 @@
 .workflow-grid {
   display: grid;
   grid-template-columns: 37.3vw 3.9vw 37.3vw;
-  grid-template-rows: repeat(3, 24.2vw);
+  /* grid-template-rows: repeat(3, 24.2vw); */
   gap: 3.125vw 5.2vw;
   justify-content: center;
   align-items: start;

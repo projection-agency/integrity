@@ -17,7 +17,8 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import type { Swiper as SwiperType } from 'swiper'
 import 'swiper/css'
 import useIsMobile from '../LatestInsightsSection/useIsMobile'
-import SliderNav from './SliderNav'
+import SliderNav from '@/components/ui/SliderNav/SliderNav'
+// import SliderNav from './SliderNav'
 
 const cards = [
   {
@@ -97,8 +98,8 @@ export default function SectionUnique({ block }: { block: SectionUniqueBlock }) 
   const swiperRef = useRef<SwiperType | null>(null)
 
   const cardPairsMobile = []
-  for (let i = 0; i < cardsMobile.length; i += 2) {
-    cardPairsMobile.push(cardsMobile.slice(i, i + 2))
+  for (let i = 0; i < cardsMobile.length; i += 1) {
+    cardPairsMobile.push(cardsMobile.slice(i, i + 1))
   }
 
   useEffect(() => {
