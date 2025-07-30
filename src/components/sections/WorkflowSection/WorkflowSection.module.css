@@ -633,6 +633,10 @@
     width: 19.2vw;
     height: 19.2vw;
   }
+
+  .workflow-section {
+    padding: 21.33vw 0 21.33vw 0;
+  }
   .step-list-icon {
     display: flex;
     justify-content: center;

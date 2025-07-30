@@ -254,7 +254,7 @@
     align-items: flex-start;
     justify-content: flex-start;
     background: var(--white);
-    gap: 8.2vw;
+    gap: 10.2vw;
     justify-content: center;
     margin-top: 6.25vw;
   }
@@ -352,6 +352,9 @@
     line-height: 100%;
     text-transform: uppercase;
     color: var(--black);
+  }
+  .section {
+    padding: 21vw 0;
   }
   .uniqueCard {
     width: 100%;

@@ -386,5 +386,8 @@
       right: 18vw;
       font-size: 5.33vw;
     }
+    .section {
+      padding: 21.33vw 0 21.33vw 0;
+    }
   }
 }
