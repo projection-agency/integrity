@@ -168,6 +168,8 @@
   .section {
     padding-top: 29.87vw;
     padding-bottom: 56.27vw;
+    border-bottom-left-radius: 10.67vw;
+    border-bottom-right-radius: 10.67vw;
     height: auto;
 
     .heroWrap {

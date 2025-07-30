@@ -225,6 +225,7 @@
     overflow: hidden;
 
     .clientInfo {
+      padding: 0;
       width: 100%;
       background-color: transparent;
 
@@ -323,13 +324,15 @@
         button {
           height: 13.87vw;
           border-radius: 4.27vw;
-          gap: 3.2vw;
 
-          font-size: 3.73vw;
+          span {
+            gap: 3.2vw;
+            font-size: 3.73vw;
 
-          svg {
-            width: 5.33vw;
-            height: 5.33vw;
+            svg {
+              width: 5.33vw;
+              height: 5.33vw;
+            }
           }
         }
       }

@@ -386,10 +386,13 @@
 
         button {
           height: 12.8vw;
-          gap: 2.13vw;
           border-width: 0.27vw;
           border-radius: 4.27vw;
-          font-size: 3.73vw;
+
+          span {
+            gap: 2.13vw;
+            font-size: 3.73vw;
+          }
         }
       }
 
