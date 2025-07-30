@@ -28,6 +28,9 @@
   font-weight: 700;
   color: #ffe066;
   margin-left: clamp(0.21vw, 1vw, 0.42vw);
+  position: absolute;
+  right: 22vw;
+  font-size: 5.33vw;
 }
 .services {
   max-width: 100vw;
@@ -240,7 +243,10 @@
     font-weight: 900;
     line-height: 100%;
     text-transform: uppercase;
-    margin-bottom: 2.04vw;
+    margin-bottom: 6.5vw;
+    position: absolute;
+    right: 35vw;
+    font-size: 2.08vw;
   }
 }
 
@@ -274,6 +280,28 @@
   .swiperCustom :global(.swiper-slide) {
     width: auto !important;
     padding: 0 !important;
+  }
+
+  .wrapHeading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 0.63vw;
+
+    .count {
+      color: #f5da0a;
+      font-family: 'Inter Tight';
+      font-size: 2.08333vw;
+      font-style: italic;
+      font-weight: 900;
+      line-height: 100%;
+      text-transform: uppercase;
+      margin-bottom: 6.5vw;
+      /* position: absolute; */
+      /* right: 35vw;
+    font-size: 5.33vw; */
+      font-size: 2.08vw;
+    }
   }
 
   .swiperCustom :global(.swiper-slide-active) {

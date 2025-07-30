@@ -41,7 +41,8 @@ import {
   Group4WhiteIcon,
 } from '@/components/Icon/Icon'
 import { IndustryCard } from './IndustryCard'
-import SliderNav from '../SectionUnique/SliderNav'
+import SliderNav from '@/components/ui/SliderNav/SliderNav'
+// import SliderNav from '../SectionUnique/SliderNav'
 
 const industries = [
   {
@@ -133,13 +134,13 @@ export default function IndustriesSection({ block }: { block: IndustriesBlock })
   const swiperRef = useRef<SwiperType | null>(null)
 
   const pairs: (typeof industries)[] = []
-  for (let i = 0; i < industries.length; i += 2) {
-    pairs.push(industries.slice(i, i + 2))
+  for (let i = 0; i < industries.length; i += 1) {
+    pairs.push(industries.slice(i, i + 1))
   }
 
   const pairsMobile: (typeof industriesMobile)[] = []
-  for (let i = 0; i < industriesMobile.length; i += 2) {
-    pairsMobile.push(industriesMobile.slice(i, i + 2))
+  for (let i = 0; i < industriesMobile.length; i += 1) {
+    pairsMobile.push(industriesMobile.slice(i, i + 1))
   }
 
   useEffect(() => {

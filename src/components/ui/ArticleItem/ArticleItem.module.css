@@ -174,7 +174,7 @@
   .insightCardBtn {
     border-radius: 3.2vw;
     padding: 3.47vw 4.27vw;
-    width: 36vw;
+    /* width: auto; */
     gap: 2.13vw;
     height: 12.27vw;
     background: var(--light-gray);

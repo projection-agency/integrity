@@ -213,7 +213,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1rem;
+  margin-bottom: 3vw;
 }
 
 .swiper {
@@ -228,7 +228,7 @@
     background: var(--light-gray);
   }
   .swiper {
-    display: none;
+    /* display: none; */
   }
   .latestInsightsCards {
     display: grid;
