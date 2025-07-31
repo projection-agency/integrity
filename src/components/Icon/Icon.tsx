@@ -1188,11 +1188,10 @@ export const Group6Icon = ({ className = '' }: { className?: string }) => (
 )
 
 export const NumberIcon = ({ className = '' }: { className?: string }) => (
-  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
     <g clip-path="url(#clip0_3395_1179)">
       <path
         d="M7.45864 2.11351C7.1493 1.34013 6.40028 0.833008 5.56735 0.833008H2.76571C1.69993 0.833008 0.835938 1.69681 0.835938 2.76262C0.835938 11.822 8.18006 19.1663 17.2392 19.1663C18.305 19.1663 19.1688 18.3023 19.1688 17.2364L19.1693 14.4343C19.1693 13.6013 18.6623 12.8524 17.8889 12.5431L15.2037 11.4693C14.5091 11.1915 13.7181 11.3165 13.1433 11.7955L12.4503 12.3735C11.641 13.048 10.4501 12.9944 9.70517 12.2494L7.75376 10.2961C7.0088 9.55115 6.95375 8.36123 7.62821 7.55186L8.20608 6.85887C8.68506 6.28408 8.81123 5.4929 8.53336 4.7982L7.45864 2.11351Z"
-        stroke="white"
         stroke-width="1.66667"
         stroke-linecap="round"
         stroke-linejoin="round"
@@ -1200,7 +1199,7 @@ export const NumberIcon = ({ className = '' }: { className?: string }) => (
     </g>
     <defs>
       <clipPath id="clip0_3395_1179">
-        <rect width="20" height="20" fill="white" />
+        <rect width="20" height="20" />
       </clipPath>
     </defs>
   </svg>

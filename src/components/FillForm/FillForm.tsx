@@ -94,15 +94,10 @@ const FillForm = () => {
             </div>
 
             <button type="submit" className={styles.submitBtn}>
-              {/* <Image
-                src="/images/icons/message.svg"
-                alt="Chat"
-                className={styles.btnIcon}
-                width={24}
-                height={24}
-              /> */}
-              <NumberIcon className={styles.btnIcon} />
-              <p className={styles.order}>Order a call</p>
+              <span>
+                <NumberIcon className={styles.btnIcon} />
+                <p className={styles.order}>Order a call</p>
+              </span>
             </button>
           </Form>
         </Formik>
