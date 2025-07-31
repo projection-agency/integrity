@@ -1,6 +1,7 @@
 .workflow-section {
   width: 100vw;
-  height: 137.76vw;
+  /* height: 137.76vw; */
+  height: 100%;
   background: var(--black);
   /* display: flex; */
   justify-content: center;
@@ -14,7 +15,7 @@
 .workflow-grid {
   display: grid;
   grid-template-columns: 37.3vw 3.9vw 37.3vw;
-  grid-template-rows: repeat(3, 24.2vw);
+  /* grid-template-rows: repeat(3, 24.2vw); */
   gap: 3.125vw 5.2vw;
   justify-content: center;
   align-items: start;
@@ -412,4 +413,241 @@
 .workflowTabSection {
   background: rgba(255, 255, 255, 0.1) !important;
   color: #fff !important;
+}
+
+@media (max-width: 1024px) {
+  .workflow-mobile-list {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .step-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Маркер */
+  /* .step-marker {
+    width: 48px;
+    height: 48px;
+    background: #1a1a1a;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+    margin-bottom: 1.3rem;
+  } */
+  .step-marker {
+    border-radius: 2.4vw;
+    padding: 2.13vw;
+    width: 12.8vw;
+    height: 12.8vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0.08vw solid #a0a0a0c7;
+    background: var(--black);
+    backdrop-filter: blur(2.13vw);
+    box-shadow: 2px -2px 20px 0 rgba(255, 228, 20, 0.15);
+    margin-bottom: 1.3rem;
+  }
+  .step-indicator {
+    border-radius: 2.4vw;
+    padding: 2.67vw 2.13vw;
+    width: 8.53vw;
+    height: 8.53vw;
+    backdrop-filter: blur(0.42vw);
+    background: linear-gradient(149deg, rgba(40, 40, 40, 0.8) 0%, rgba(60, 60, 60, 0.6) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0.08vw solid #a0a0a0c7;
+  }
+
+  .step-marker-number {
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 4.27vw;
+    line-height: 120%;
+    text-align: center;
+    color: var(--yellow);
+  }
+
+  /* Картка кроку */
+  .step-card {
+    /* width: 90vw;
+    max-width: 375px;
+    background: #1a1a1a;
+    color: #fff;
+    padding: 2rem;
+    border-radius: 1rem; */
+    /* ваші інші стилі… */
+    border-radius: 6.4vw;
+    padding: 7.47vw;
+    width: 91.47vw;
+    height: auto;
+    display: flex;
+    /* flex-direction: column;
+    justify-content: space-between; */
+    position: relative;
+    border: 0.05vw solid #fff;
+
+    gap: 10.67vw;
+  }
+
+  .step-badge {
+    border: 0.27vw solid var(--white);
+    border-radius: 3.2vw;
+    padding: 2.13vw 4.27vw;
+    width: auto;
+    height: 8.8vw;
+    font-family: var(--third-family);
+    font-weight: 700;
+    font-size: 3.2vw;
+    line-height: 140%;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--white);
+  }
+
+  .step-title {
+    font-family: var(--second-family);
+    font-style: italic;
+    font-weight: 900;
+    font-size: 6.4vw;
+    line-height: 100%;
+    text-transform: uppercase;
+    color: var(--white);
+    margin: 0 0 5.41vw 0;
+  }
+  .step-top-row {
+    width: 76.27vw;
+    height: 19.2vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .step-content-block {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  .step-list {
+    margin: 0;
+    padding-left: 0;
+    font-size: 0.94vw;
+    line-height: 1.32vw;
+    color: var(--white);
+    opacity: 0.9;
+    width: 100%;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 2.16vw;
+  }
+  .step-list-main {
+    color: #fff;
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 3.73vw;
+    line-height: 140%;
+    letter-spacing: -0.02em;
+  }
+  .step-list-desc {
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 3.73vw;
+    line-height: 140%;
+    letter-spacing: -0.02em;
+    color: var(--light-garay-2);
+  }
+  .step-list-block {
+    padding: 1.07vw 0vw;
+
+    width: auto;
+
+    height: 5.33vw;
+    display: flex;
+    align-items: center;
+  }
+  .step-list-item {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 2.16vw;
+    margin-bottom: 0.7vw;
+  }
+  .step-list-icon {
+    display: flex;
+    justify-content: center;
+    width: 3.24vw;
+    height: 3.24vw;
+    border-radius: 10.42vw;
+    border: 0.13vw solid var(--white);
+    padding: 0.14vw;
+  }
+
+  .step-icon-wrapper {
+    position: relative;
+    width: 19.46vw;
+    height: 19.46vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .step-icon-blur {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 19.2vw;
+    height: 19.2vw;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: radial-gradient(
+      ellipse at center,
+      rgba(255, 228, 20, 0.35) 0%,
+      rgba(255, 228, 20, 0.08) 80%,
+      transparent 100%
+    );
+    filter: blur(1.5vw);
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .step-icon-svg {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 19.2vw;
+    height: 19.2vw;
+  }
+
+  .workflow-section {
+    padding: 21.33vw 0 21.33vw 0;
+  }
+  .step-list-icon {
+    display: flex;
+    justify-content: center;
+    width: 3.24vw;
+    height: 3.24vw;
+    border-radius: 10.42vw;
+    border: 0.13vw solid var(--white);
+    padding: 0.14vw;
+    image {
+      width: 2.13vw;
+      height: 2.13vw;
+    }
+  }
 }

@@ -10,7 +10,7 @@
 .headWrapper {
   width: 100%;
   max-width: 100vw;
-  margin: 0 auto clamp(1.25vw, 4vw, 2.08vw) auto;
+  margin: 5.21vw;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -28,6 +28,9 @@
   font-weight: 700;
   color: #ffe066;
   margin-left: clamp(0.21vw, 1vw, 0.42vw);
+  position: absolute;
+  right: 22vw;
+  font-size: 5.33vw;
 }
 .services {
   max-width: 100vw;
@@ -240,7 +243,10 @@
     font-weight: 900;
     line-height: 100%;
     text-transform: uppercase;
-    margin-bottom: 2.04vw;
+    margin-bottom: 6.5vw;
+    position: absolute;
+    right: 35vw;
+    font-size: 2.08vw;
   }
 }
 
@@ -276,14 +282,37 @@
     padding: 0 !important;
   }
 
+  .wrapHeading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 0.63vw;
+
+    .count {
+      color: #f5da0a;
+      font-family: 'Inter Tight';
+      font-size: 2.08333vw;
+      font-style: italic;
+      font-weight: 900;
+      line-height: 100%;
+      text-transform: uppercase;
+      /* margin-bottom: 6.5vw; */
+      margin-bottom: 2.7vw;
+      position: absolute;
+      right: 80px;
+      /* font-size: 2.08vw; */
+      font-size: 5.33vw;
+    }
+  }
+
   .swiperCustom :global(.swiper-slide-active) {
     width: auto !important;
     padding: 0 !important;
   }
   .arrowContainer {
-    width: 8.55vw;
-    height: 3vw;
-    border-radius: 0.43vw;
+    width: 23.73vw;
+    height: 10.13vw;
+    border-radius: 3.2vw;
     background: #f9f9f9;
     display: flex;
     align-items: center;
@@ -322,6 +351,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
+    gap: 5.33vw;
   }
   .serviceTitle {
     font-family: var(--second-family);
@@ -388,6 +418,16 @@
       display: flex;
       align-items: center;
     }
+  }
+  .fillFormSection {
+    margin-top: 18.75vw;
+  }
+  .section {
+    padding: 21.33vw 0 21.33vw 0;
+  }
+
+  .headWrapper {
+    margin: 9.38vw;
   }
   .swiperCustom :global(.swiper-slide-active) .serviceCard {
     opacity: 1;

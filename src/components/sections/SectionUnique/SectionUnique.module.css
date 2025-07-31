@@ -13,6 +13,7 @@
   background: var(--white);
   gap: 8.2vw;
   justify-content: center;
+  margin-top: 6.25vw;
 }
 
 .sectionUniqueSide {
@@ -213,7 +214,7 @@
   }
   .sectionUniqueSide {
     border-radius: 6.4vw;
-    padding: 10.67vw;
+    padding: 7.67vw;
     width: 91.47vw;
     height: 93.07vw;
     background: var(--light-gray);
@@ -253,8 +254,9 @@
     align-items: flex-start;
     justify-content: flex-start;
     background: var(--white);
-    gap: 8.2vw;
+    gap: 10.2vw;
     justify-content: center;
+    margin-top: 6.25vw;
   }
   .sideAvatarBlock {
     width: 31.2vw;
@@ -350,6 +352,9 @@
     line-height: 100%;
     text-transform: uppercase;
     color: var(--black);
+  }
+  .section {
+    padding: 21vw 0;
   }
   .uniqueCard {
     width: 100%;

@@ -4,7 +4,7 @@
   height: 3.75vw;
   border-radius: 0.833vw;
   padding: 0.417vw;
-  background: var(--white);
+  background: var(--light-gray);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -15,7 +15,7 @@
   width: 9.7vw;
   height: 2.917vw;
   border-radius: 0.833vw;
-  fill: var(--light-gray);
+  background: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -212,13 +212,13 @@
     gap: 6.4vw;
     align-self: stretch;
     border-radius: 0.83vw;
-    /* background: var(--light-gray); */
+    background: var(--light-gray);
     margin: 0 auto;
     width: 91.467vw;
     height: 14.4vw;
     padding: 2.13vw;
     border-radius: 4.27vw;
-    margin-bottom: 21.33vw;
+    /* margin-bottom: 80px; */
   }
   .sliderDotsRow {
     display: flex;
@@ -237,8 +237,9 @@
   .arrowBtn {
     width: 23vw;
     height: 10.5vw;
+
     border-radius: 3.2vw;
-    background: var(--light-gray);
+    fill: var(--white);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -272,8 +273,8 @@
     }
   }
   .arrowBtn svg {
-    width: 5.6vw;
-    height: 4.27vw;
+    width: 1.042vw;
+    height: 0.833vw;
     stroke: var(--black);
     stroke-width: 0.104vw;
   }
