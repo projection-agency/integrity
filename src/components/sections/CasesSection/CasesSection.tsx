@@ -132,7 +132,6 @@ export default function CasesSection({ block }: { block: CasesBlockData }) {
               disabledClass: s.disabled,
             }}
             onSlideChange={(swiper) => {
-              console.log(swiper.activeIndex)
               setActiveSlide(swiper.activeIndex)
             }}
             onSwiper={(swiper) => {

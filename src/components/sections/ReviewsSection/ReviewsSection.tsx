@@ -12,6 +12,16 @@ import 'swiper/css'
 type ReviewsSection = {
   subtitle: string
   title: string
+  review: []
+}
+
+type Review = {
+  client_image: { url: string }
+  client_name: string
+  location: string
+  rating: string
+  quote: string
+  review_content: string
 }
 
 export default function ReviewsSection({ block }: { block: ReviewsSection }) {
@@ -57,6 +67,7 @@ export default function ReviewsSection({ block }: { block: ReviewsSection }) {
           <Swiper
             modules={[Navigation, Pagination]}
             className={s.swiper}
+            loop={true}
             breakpoints={{
               0: { spaceBetween: 8, centeredSlides: false, slidesPerView: 'auto' },
               1025: { spaceBetween: 20, centeredSlides: false, slidesPerView: 'auto' },
@@ -71,129 +82,39 @@ export default function ReviewsSection({ block }: { block: ReviewsSection }) {
               prevEl: `.${s.navigationPrev}`,
               disabledClass: s.disabled,
             }}
-            onSwiper={(swiper) => console.log(swiper)}
-            onSlideChange={(swiper) => console.log(swiper)}
           >
-            <SwiperSlide className={s.swiperSlide}>
-              <div className={s.swiperItem}>
-                <div className={s.reviewerBlock}>
-                  <Image src={'/images/boss.jpg'} width={204} height={204} alt="reviewer avatar" />
-                  <h3>client name</h3>
-                  <div className={s.locationBlock}>
-                    <div className={s.icon}>{marker}</div>
-                    <div className={s.location}>
-                      <p className={s.blockTitle}>Location:</p>
-                      <p className={s.country}>USA</p>
+            {block.review.map((item: Review, idx) => {
+              return (
+                <SwiperSlide key={idx} className={s.swiperSlide}>
+                  <div className={s.swiperItem}>
+                    <div className={s.reviewerBlock}>
+                      <Image
+                        src={`${item.client_image.url}`}
+                        width={204}
+                        height={204}
+                        alt="reviewer avatar"
+                      />
+                      <h3>{item.client_name}</h3>
+                      <div className={s.locationBlock}>
+                        <div className={s.icon}>{marker}</div>
+                        <div className={s.location}>
+                          <p className={s.blockTitle}>Location:</p>
+                          <p className={s.country}>{item.location}</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className={s.reviewBlock}>
+                      <div dangerouslySetInnerHTML={{ __html: item.rating }}></div>
+                      <h4>{item.quote}</h4>
+                      <p
+                        className={s.message}
+                        dangerouslySetInnerHTML={{ __html: item.review_content }}
+                      ></p>
                     </div>
                   </div>
-                </div>
-                <div className={s.reviewBlock}>
-                  <div>
-                    <p>5</p> {star} {upwork}
-                  </div>
-                  <h4>
-                    “ Lorem ipsum viverra eu ut lectus euismod mauris vulputate iaculis diam nunc. “
-                  </h4>
-                  <p className={s.message}>
-                    Lorem ipsum egestas sed habitant leo consequat a auctor mauris purus ut lectus
-                    amet nisi tincidunt at tellus eleifend consectetur interdum convallis vitae
-                    feugiat sit ac eget purus senectus facilisi odio quis aliquam mauris at leo
-                    nulla blandit iaculis nisl interdum rutrum ut suspendisse ut consectetur et
-                    lectus tortor vitae diam ut a amet velit consequat.
-                  </p>
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide className={s.swiperSlide}>
-              <div className={s.swiperItem}>
-                <div className={s.reviewerBlock}>
-                  <Image src={'/images/boss.jpg'} width={204} height={204} alt="reviewer avatar" />
-                  <h3>client name</h3>
-                  <div className={s.locationBlock}>
-                    <div className={s.icon}>{marker}</div>
-                    <div className={s.location}>
-                      <p className={s.blockTitle}>Location:</p>
-                      <p className={s.country}>USA</p>
-                    </div>
-                  </div>
-                </div>
-                <div className={s.reviewBlock}>
-                  <div>
-                    <p>5</p> {star} {upwork}
-                  </div>
-                  <h4>
-                    “ Lorem ipsum viverra eu ut lectus euismod mauris vulputate iaculis diam nunc. “
-                  </h4>
-                  <p className={s.message}>
-                    Lorem ipsum egestas sed habitant leo consequat a auctor mauris purus ut lectus
-                    amet nisi tincidunt at tellus eleifend consectetur interdum convallis vitae
-                    feugiat sit ac eget purus senectus facilisi odio quis aliquam mauris at leo
-                    nulla blandit iaculis nisl interdum rutrum ut suspendisse ut consectetur et
-                    lectus tortor vitae diam ut a amet velit consequat.
-                  </p>
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide className={s.swiperSlide}>
-              <div className={s.swiperItem}>
-                <div className={s.reviewerBlock}>
-                  <Image src={'/images/boss.jpg'} width={204} height={204} alt="reviewer avatar" />
-                  <h3>client name</h3>
-                  <div className={s.locationBlock}>
-                    <div className={s.icon}>{marker}</div>
-                    <div className={s.location}>
-                      <p className={s.blockTitle}>Location:</p>
-                      <p className={s.country}>USA</p>
-                    </div>
-                  </div>
-                </div>
-                <div className={s.reviewBlock}>
-                  <div>
-                    <p>5</p> {star} {upwork}
-                  </div>
-                  <h4>
-                    “ Lorem ipsum viverra eu ut lectus euismod mauris vulputate iaculis diam nunc. “
-                  </h4>
-                  <p className={s.message}>
-                    Lorem ipsum egestas sed habitant leo consequat a auctor mauris purus ut lectus
-                    amet nisi tincidunt at tellus eleifend consectetur interdum convallis vitae
-                    feugiat sit ac eget purus senectus facilisi odio quis aliquam mauris at leo
-                    nulla blandit iaculis nisl interdum rutrum ut suspendisse ut consectetur et
-                    lectus tortor vitae diam ut a amet velit consequat.
-                  </p>
-                </div>
-              </div>
-            </SwiperSlide>
-            <SwiperSlide className={s.swiperSlide}>
-              <div className={s.swiperItem}>
-                <div className={s.reviewerBlock}>
-                  <Image src={'/images/boss.jpg'} width={204} height={204} alt="reviewer avatar" />
-                  <h3>client name</h3>
-                  <div className={s.locationBlock}>
-                    <div className={s.icon}>{marker}</div>
-                    <div className={s.location}>
-                      <p className={s.blockTitle}>Location:</p>
-                      <p className={s.country}>USA</p>
-                    </div>
-                  </div>
-                </div>
-                <div className={s.reviewBlock}>
-                  <div>
-                    <p>5</p> {star} {upwork}
-                  </div>
-                  <h4>
-                    “ Lorem ipsum viverra eu ut lectus euismod mauris vulputate iaculis diam nunc. “
-                  </h4>
-                  <p className={s.message}>
-                    Lorem ipsum egestas sed habitant leo consequat a auctor mauris purus ut lectus
-                    amet nisi tincidunt at tellus eleifend consectetur interdum convallis vitae
-                    feugiat sit ac eget purus senectus facilisi odio quis aliquam mauris at leo
-                    nulla blandit iaculis nisl interdum rutrum ut suspendisse ut consectetur et
-                    lectus tortor vitae diam ut a amet velit consequat.
-                  </p>
-                </div>
-              </div>
-            </SwiperSlide>
+                </SwiperSlide>
+              )
+            })}
           </Swiper>
           <div className={s.controls}>
             <button className={`${s.navigationBtn} ${s.navigationPrev}`}>{navArrow}</button>

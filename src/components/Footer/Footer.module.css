@@ -142,6 +142,7 @@
             width: 5.21vw;
             height: 5.21vw;
             border-radius: 1.3vw;
+            transition: border-color 300ms ease-in-out;
             border: 0.05vw solid #fff;
             background: linear-gradient(
               141deg,
@@ -152,6 +153,15 @@
             svg {
               width: 1.98vw;
               height: 1.98vw;
+              transition: fill 300ms ease-in-out;
+              fill: #f9f9f9;
+            }
+          }
+
+          li:hover {
+            border-color: rgba(255, 228, 20, 1);
+            svg {
+              fill: rgba(255, 228, 20, 1);
             }
           }
         }
