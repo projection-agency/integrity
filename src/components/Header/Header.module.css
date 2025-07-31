@@ -64,29 +64,54 @@
     gap: 0.42vw;
 
     .btn {
-      display: flex;
+      position: relative;
+      overflow: hidden;
       padding: 1.09vw 2.08vw;
-      justify-content: center;
-      align-items: center;
-      gap: 0.6vw;
       border-radius: 0.6vw;
       background: var(--White, #fff);
       color: var(--Black, #222);
       text-align: center;
-      font-family: "Mont";
-      font-size: 0.83vw;
-      font-style: normal;
-      font-weight: 700;
-      line-height: normal;
       width: max-content;
 
-      svg {
-        width: 1.04vw;
+      span {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.6vw;
+
+        font-family: 'Mont';
+        font-size: 0.83vw;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+
+        svg {
+          width: 1.04vw;
+        }
       }
+    }
+
+    .btn::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      transition: opacity 300ms ease-in-out;
+      opacity: 0;
+      background: linear-gradient(94deg, #ffe414 0.19%, #ffae00 100.19%);
+    }
+
+    .btn:hover::after {
+      opacity: 1;
     }
   }
 
-  button {
+  button.mobMenuBtn{
     display: none;
   }
 }
@@ -101,7 +126,7 @@
   backdrop-filter: blur(6px);
   color: var(--Light-garay-2, #b5b5b5);
   text-align: center;
-  font-family: "Mont";
+  font-family: 'Mont';
   font-size: 0.72917vw;
   font-style: normal;
   font-weight: 800;
@@ -156,7 +181,7 @@
     .left {
       display: none;
     }
-    button {
+    button.mobMenuBtn {
       width: 10.67vw;
       height: 10.67vw;
       display: flex;

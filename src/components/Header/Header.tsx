@@ -57,11 +57,15 @@ export default function Header({
         <div className={s.left}>
           <LocaleSwitcher />
           <button className={s.btn}>
-            {phone}
-            {buttonText}
+            <span>
+              {phone}
+              {buttonText}
+            </span>
           </button>
         </div>
-        <button onClick={() => setMenuIsOpen(true)}>{burger}</button>
+        <button className={s.mobMenuBtn} onClick={() => setMenuIsOpen(true)}>
+          {burger}
+        </button>
       </header>
       <MobileMenu menuIsOpen={menuIsOpen} handleClose={handleClose} menu={menu} />
     </>

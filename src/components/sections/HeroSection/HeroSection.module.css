@@ -101,24 +101,91 @@
     }
 
     .firstButton {
-      display: flex;
+      position: relative;
+      overflow: hidden;
       padding: 1.25vw 2vw;
-      justify-content: center;
-      align-items: center;
-      gap: 0.41vw;
       border-radius: 0.83vw;
+      transition: border-color 300ms ease-in-out;
       border: 0.05vw solid var(--White, #fff);
-      color: var(--White, #fff);
+
+      span {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.41vw;
+        transition: color 300ms ease-in-out;
+        color: var(--White, #fff);
+
+        svg {
+          transition: fill 300ms ease-in-out;
+          fill: #ffffff;
+        }
+      }
     }
+
+    .firstButton:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      transition: opacity 300ms ease-in-out;
+      opacity: 0;
+      background: linear-gradient(94deg, #ffe414 0.19%, #ffae00 100.19%);
+    }
+
+    .firstButton:hover {
+      border-color: transparent;
+      span {
+        color: #222222;
+
+        svg {
+          fill: #222222;
+        }
+      }
+    }
+
+    .firstButton:hover::after {
+      opacity: 1;
+    }
+
     .lastButton {
-      display: flex;
+      position: relative;
+      overflow: hidden;
       padding: 1.25vw 2vw;
-      justify-content: center;
-      align-items: center;
-      gap: 0.41vw;
       border-radius: 0.83vw;
-      background: var(--Gradient-yellow, linear-gradient(94deg, #ffe414 0.19%, #ffae00 100.19%));
-      color: var(--Black, #222);
+      background: #ffffff;
+
+      span {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.41vw;
+        color: var(--Black, #222);
+      }
+    }
+
+    .lastButton::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(94deg, #ffe414 0.19%, #ffae00 100.19%);
+      transition: opacity 300ms ease-in-out;
+      opacity: 1;
+    }
+
+    .lastButton:hover:after {
+      opacity: 0;
     }
   }
 }
