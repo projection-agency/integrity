@@ -42,12 +42,21 @@ export const ReviewsBlock: Block = {
       },
       fields:[
         {
-          name: 'rating',
-          type: 'textarea',
-          localized: true,
+          name: 'stars',
+          type: 'number',
           label: {
-            en: 'Rating',
+            en: 'Number of Stars',
           },
+          min: 1,
+          max: 5,
+        },
+        {
+          name: 'siteLogo',
+          type: 'upload',
+          label: {
+            en: 'Site Logo',
+          },
+          relationTo: 'media', // або інша колекція, де зберігаються зображення
         },
         {
           name: 'client_name',

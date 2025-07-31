@@ -426,7 +426,8 @@ export interface Page {
             title: string;
             review?:
               | {
-                  rating?: string | null;
+                  stars?: number | null;
+                  siteLogo?: (string | null) | Media;
                   client_name?: string | null;
                   location?: string | null;
                   client_image?: (string | null) | Media;
@@ -925,7 +926,8 @@ export interface PagesSelect<T extends boolean = true> {
               review?:
                 | T
                 | {
-                    rating?: T;
+                    stars?: T;
+                    siteLogo?: T;
                     client_name?: T;
                     location?: T;
                     client_image?: T;
