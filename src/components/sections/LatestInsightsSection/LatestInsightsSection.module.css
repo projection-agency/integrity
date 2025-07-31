@@ -213,7 +213,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1rem;
+  margin-bottom: 3vw;
 }
 
 .swiper {
@@ -222,13 +222,16 @@
 }
 
 @media (max-width: 1024px) {
+  .latestInsightsSection {
+    padding: 21vw 4vw 21vw;
+  }
   .insightCardImage {
     width: 87.2vw;
     height: 64vw;
     background: var(--light-gray);
   }
   .swiper {
-    display: none;
+    /* display: none; */
   }
   .latestInsightsCards {
     display: grid;
@@ -241,6 +244,18 @@
       width: 100vw;
       height: 244.53vw;
     }
+  }
+  .insightCard {
+    width: 30vw;
+    min-width: 30vw;
+    height: 33vw;
+    background: #fff;
+    border-radius: 0.63vw;
+    box-shadow: 0 0.1vw 0.5vw rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
   }
   .latestInsightsCta {
     width: 91.47vw;

@@ -75,6 +75,7 @@
   font-weight: 700;
   font-size: 0.83vw;
   margin-bottom: 0.42vw;
+  width: 100%;
 }
 
 .input {
@@ -466,9 +467,9 @@
     gap: 8vw;
   }
 
-  .rowLayout {
+  /* .rowLayout {
     padding-bottom: 21.33vw;
-  }
+  } */
 
   .fillBlock {
     width: auto;

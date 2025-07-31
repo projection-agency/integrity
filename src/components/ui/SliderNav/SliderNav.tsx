@@ -19,7 +19,12 @@ export default function SliderNav({
     <div className={s.navContainer}>
       <button className={s.arrowBtn} onClick={onPrev} aria-label="Previous slide">
         <span className={s.iconLeft}>
-          <Image src="/images/icons/arrow-1.svg" alt="prev" width={20} height={16} />
+          <Image
+            src="/images/icons/arrow-1.svg"
+            alt="prev"
+            width={20}
+            height={16}
+          />
         </span>
       </button>
       <div className={s.dotsBlock}>
@@ -35,7 +40,12 @@ export default function SliderNav({
       </div>
       <button className={s.arrowBtn} onClick={onNext} aria-label="Next slide">
         <span className={s.iconRight}>
-          <Image src="/images/icons/arrow-2.svg" alt="next" width={20} height={16} />
+          <Image
+            src="/images/icons/arrow-2.svg"
+            alt="next"
+            width={20}
+            height={16}
+          />
         </span>
       </button>
     </div>
