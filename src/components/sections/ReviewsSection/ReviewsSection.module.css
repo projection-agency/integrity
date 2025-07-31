@@ -199,6 +199,7 @@
                 margin-bottom: 2.5vw;
                 display: flex;
                 align-items: center;
+                gap: 0.52vw;
                 border-radius: 0.63vw;
                 background: linear-gradient(
                   99deg,
@@ -209,15 +210,15 @@
                   #222 88.48%,
                   #737373 112.92%
                 );
+                font-size: 1.25vw;
+                font-style: italic;
+                font-weight: 700;
+                line-height: 1;
+                text-transform: uppercase;
+                color: #ffffff;
 
-                p {
+                /* p {
                   margin-right: 0.42vw;
-                  font-size: 1.25vw;
-                  font-style: italic;
-                  font-weight: 700;
-                  line-height: 1;
-                  text-transform: uppercase;
-                  color: #ffffff;
                 }
 
                 .star {
@@ -228,7 +229,7 @@
 
                 .upwork {
                   width: 4.69vw;
-                }
+                } */
               }
 
               h4 {
