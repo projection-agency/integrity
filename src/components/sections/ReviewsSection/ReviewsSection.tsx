@@ -15,6 +15,15 @@ type ReviewsSection = {
   review: []
 }
 
+type Review = {
+  client_image: { url: string }
+  client_name: string
+  location: string
+  rating: string
+  quote: string
+  review_content: string
+}
+
 export default function ReviewsSection({ block }: { block: ReviewsSection }) {
   const [windowWidth, setWindowWidth] = useState<number>(
     typeof window !== 'undefined' ? window.innerWidth : 0,
@@ -74,8 +83,7 @@ export default function ReviewsSection({ block }: { block: ReviewsSection }) {
               disabledClass: s.disabled,
             }}
           >
-            {block.review.map((item, idx) => {
-              console.log(item.client_image)
+            {block.review.map((item: Review, idx) => {
               return (
                 <SwiperSlide key={idx} className={s.swiperSlide}>
                   <div className={s.swiperItem}>
