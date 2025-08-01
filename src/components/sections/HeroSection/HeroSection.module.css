@@ -74,7 +74,6 @@
   p {
     color: var(--Light-garay-2, #b5b5b5);
     text-align: center;
-    font-family: Mont;
     font-size: 1.04vw;
     font-style: normal;
     font-weight: 700;
@@ -90,11 +89,6 @@
     display: flex;
     align-items: center;
     gap: 0.83vw;
-    font-family: Mont;
-    font-size: 0.83vw;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 100%;
 
     svg {
       width: 1.04vw;
@@ -117,6 +111,10 @@
         gap: 0.41vw;
         transition: color 300ms ease-in-out;
         color: var(--White, #fff);
+        font-size: 0.83vw;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 100%;
 
         svg {
           transition: fill 300ms ease-in-out;
@@ -168,6 +166,10 @@
         align-items: center;
         gap: 0.41vw;
         color: var(--Black, #222);
+        font-size: 0.83vw;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 100%;
       }
     }
 
