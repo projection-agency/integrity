@@ -93,6 +93,9 @@ importers:
       '@types/aos':
         specifier: ^3.0.7
         version: 3.0.7
+      '@types/busboy':
+        specifier: ^1.5.4
+        version: 1.5.4
       '@types/express':
         specifier: ^5.0.3
         version: 5.0.3

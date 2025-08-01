@@ -226,18 +226,6 @@ export default function WorkflowSection({
     ...block,
   }
 
-  if (!safeBlock.enabled) return null
-
-  const left = stepsWithSpaces
-  const right = rightStepsDataWithSpaces
-  const mobileSteps = [
-    left.find((s) => s.step === 1)!,
-    right.find((s) => s.step === 2)!,
-    left.find((s) => s.step === 3)!,
-    right.find((s) => s.step === 4)!,
-    left.find((s) => s.step === 5)!,
-    right.find((s) => s.step === 6)!,
-  ]
   const lineRef = useRef(null)
   const isInView = useInView(lineRef, { once: false, amount: 0.3 })
   const sectionRef = useRef(null)
@@ -251,6 +239,19 @@ export default function WorkflowSection({
     stiffness: 80,
     damping: 40,
   })
+
+  if (!safeBlock.enabled) return null
+
+  const left = stepsWithSpaces
+  const right = rightStepsDataWithSpaces
+  const mobileSteps = [
+    left.find((s) => s.step === 1)!,
+    right.find((s) => s.step === 2)!,
+    left.find((s) => s.step === 3)!,
+    right.find((s) => s.step === 4)!,
+    left.find((s) => s.step === 5)!,
+    right.find((s) => s.step === 6)!,
+  ]
 
   return (
     <section ref={sectionRef} className={styles['workflow-section']}>
