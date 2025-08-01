@@ -1,8 +1,37 @@
 /* Глобальні стилі для фонів body */
 
+@font-face {
+  font-family: 'Mont';
+  src:
+    url('/public/fonts/Mont-Bold.woff2') format('woff2'),
+    url('/public/fonts/Mont-Bold.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Mont';
+  src:
+    url('/public/fonts/Mont-Regular.woff2') format('woff2'),
+    url('/public/fonts/Mont-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Mont';
+  src:
+    url('/public/fonts/Mont-SemiBold.woff2') format('woff2'),
+    url('/public/fonts/Mont-SemiBold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* Фон для головної сторінки */
 body.homeBackground {
-
 }
 
 /* Фон для сторінки контактів */
@@ -17,6 +46,6 @@ body.blogBackground {
 /* Фон для окремих постів блогу */
 body.blogPostBackground {
 }
-body.privacyBackground{
-  background: var(--Light-gray, #F9F9F9);
+body.privacyBackground {
+  background: var(--Light-gray, #f9f9f9);
 }

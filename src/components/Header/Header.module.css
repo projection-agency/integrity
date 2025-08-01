@@ -40,7 +40,6 @@
         width: 6.8vw;
         color: var(--Light-gray, #f9f9f9);
         text-align: center;
-        font-family: 'Mont';
         font-size: 0.72vw;
         font-style: normal;
         font-weight: 700;
@@ -81,7 +80,6 @@
         align-items: center;
         gap: 0.6vw;
 
-        font-family: 'Mont';
         font-size: 0.83vw;
         font-style: normal;
         font-weight: 700;
@@ -126,7 +124,6 @@
   backdrop-filter: blur(6px);
   color: var(--Light-garay-2, #b5b5b5);
   text-align: center;
-  font-family: 'Mont';
   font-size: 0.72917vw;
   font-style: normal;
   font-weight: 800;
