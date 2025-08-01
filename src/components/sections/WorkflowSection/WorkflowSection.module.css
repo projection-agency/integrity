@@ -1,21 +1,18 @@
 .workflow-section {
   width: 100vw;
-  /* height: 137.76vw; */
   height: 100%;
   background: var(--black);
-  /* display: flex; */
   justify-content: center;
   padding-top: 10.42vw;
   padding-bottom: 10.42vw;
   margin: 0 auto;
   position: relative;
-  overflow: auto;
+  overflow-x: hidden;
 }
 
 .workflow-grid {
   display: grid;
   grid-template-columns: 37.3vw 3.9vw 37.3vw;
-  /* grid-template-rows: repeat(3, 24.2vw); */
   gap: 3.125vw 5.2vw;
   justify-content: center;
   align-items: start;
@@ -42,7 +39,6 @@
 .ghost-block {
   width: 37.3vw;
   height: 9vw;
-  visibility: hidden;
 }
 
 .step-card {
@@ -126,16 +122,14 @@
 .step-list-item {
   display: flex;
   align-items: center;
-  /* gap: 1vw; */
   margin-bottom: 0.7vw;
 }
 
 .step-list-icon {
   display: flex;
-  /* align-items: center; */
+
   justify-content: center;
-  /* min-width: 0.83vw;
-  min-height: 0.83vw; */
+
   width: 0.83vw;
   height: 0.83vw;
   border-radius: 10.42vw;
@@ -145,13 +139,6 @@
 }
 
 .blok-list-icon {
-  /* width: 1.2vw;
-  height: 1.2vw;
-  min-width: 1.2vw;
-  min-height: 1.2vw;
-  display: flex;
-  align-items: center;
-  justify-content: center; */
 }
 
 .step-list-text {
@@ -183,66 +170,59 @@
 
 .workflow-line-wrap {
   grid-column: 2;
-  grid-row: 1 / span 3;
+  grid-row: 1 / span 5;
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* width: 2010px; */
-  /* height: 0px; */
-  /* transform: rotate(-90deg); */
-  /* position: relative; */
 }
-
 .workflow-line {
   position: absolute;
   left: 50%;
-  top: 0;
+  top: 15px;
   transform: translateX(-50%);
-  width: 0.1vw;
+  width: 2px;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   z-index: 1;
-  background: linear-gradient(
+}
+
+.workflow-line-segment {
+  width: 100%;
+  height: 16.66%;
+  /* background: linear-gradient(
     180deg,
     #222222 0%,
-    #ffffff 7%,
-    #222222 13%,
-    #ffffff 20%,
-    #222222 30%,
-    #ffffff 37%,
-    #222222 45%,
-    #ffffff 52%,
-    #222222 62%,
-    #222222 80%,
+    #ffffff 35%,
+    #ffffff 65%,
+    #3a3a3a 90%,
     #222222 100%
-  );
+  ); */
+  transform-origin: top;
   opacity: 1;
 }
 
-/* .workflow-line {
-  width: 0.26vw; 
-   5px 
-   margin: 0 auto;
-   height: 78vw; 
-   background: var(--white);
-   position: absolute;
-   left: 50%;
-   top: 0;
-   transform: translateX(-50%);
-   z-index: 0;
- } */
+.workflow-line {
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    #222222 0%,
+    #ffffff 35%,
+    #ffffff 65%,
+    #5c5858 90%,
+    #5f5d5d 100%
+  );
+  transform-origin: top;
+}
 
 .workflow-steps {
   position: absolute;
-  /* top: 0;
-     left: 50%;
-     transform: translateX(-50%); */
 
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* gap: 13vw;
-     z-index: 1; */
 
   gap: 13vw;
   position: relative;
@@ -250,38 +230,8 @@
 }
 
 .workflow-steps > :first-child {
-  margin-top: 10vw;
+  margin-top: 9vw;
 }
-
-/* .step-indicator {
-   width: 3.75vw;
-   height: 3.75vw;
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   border-radius: 0.63vw; 
-   backdrop-filter: blur(0.42vw); 
-   background: linear-gradient(149deg, rgba(40, 40, 40, 0.8) 0%, rgba(60, 60, 60, 0.6) 100%);
-   box-shadow: 0.1vw -0.1vw 1vw 0 rgba(255, 228, 228, 0.2);
-   font-family: var(--font-family);
-   font-size: 1.25vw;
-   font-weight: 700;
-   line-height: 120%;
-   text-align: center;
-   color: var(--yellow);
-   position: relative;
-   z-index: 2;
- } */
-
-/* .step-marker {
-   border-radius: 12px;
-   padding: 12px;
-   width: 72px;
-   height: 72px;
-   backdrop-filter: blur(8px);
-   box-shadow: 2px -2px 20px 0 rgba(255, 228, 20, 0.15);
-   background: linear-gradient(149deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.3) 100%);
- } */
 
 .step-marker {
   width: 3.75vw;
@@ -289,8 +239,7 @@
   padding: 0.625vw;
   border-radius: 0.625vw;
   backdrop-filter: blur(8px);
-  /* box-shadow: 2px -2px 20px 0 rgba(255, 228, 20, 0.15); */
-  /* background: linear-gradient(149deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.3) 100%); */
+
   display: flex;
   align-items: center;
   justify-content: center;
@@ -334,7 +283,6 @@
 
 .step-content-block {
   width: 31.04vw;
-  /* height: 10.42vw;  */
   height: auto;
   display: flex;
   flex-direction: column;
@@ -379,13 +327,6 @@
   height: 6.88vw;
 }
 
-/* .step-card--shadow {
-  box-shadow:
-    0 8px 32px rgba(0, 0, 0, 0.15),
-    0 16px 48px rgba(0, 0, 0, 0.12);
-  filter: none;
-  opacity: 1;
-} */
 .step-card--shadow {
   backdrop-filter: blur(20px);
   background: linear-gradient(141deg, rgba(255, 255, 255, 0.1) 0%, rgba(41, 41, 41, 0.1) 100%);
@@ -422,24 +363,44 @@
     gap: 3rem;
   }
 
+  .workflow-mobile-line {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 0.1vw;
+    height: 100%;
+    background: linear-gradient(
+      180deg,
+      #222222 0%,
+      #ffffff 35%,
+      #ffffff 65%,
+      #5c5858 90%,
+      #5f5d5d 100%
+    );
+    transform-origin: top;
+    z-index: 1;
+  }
+  .step-wrapper {
+    position: relative;
+    z-index: 2;
+  }
+
+  .step-marker {
+    position: relative;
+    z-index: 2;
+  }
+
+  .step-card {
+    position: relative;
+    z-index: 2;
+  }
+
   .step-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
 
-  /* Маркер */
-  /* .step-marker {
-    width: 48px;
-    height: 48px;
-    background: #1a1a1a;
-    border-radius: 0.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
-    margin-bottom: 1.3rem;
-  } */
   .step-marker {
     border-radius: 2.4vw;
     padding: 2.13vw;
@@ -476,22 +437,13 @@
     color: var(--yellow);
   }
 
-  /* Картка кроку */
   .step-card {
-    /* width: 90vw;
-    max-width: 375px;
-    background: #1a1a1a;
-    color: #fff;
-    padding: 2rem;
-    border-radius: 1rem; */
-    /* ваші інші стилі… */
     border-radius: 6.4vw;
     padding: 7.47vw;
     width: 91.47vw;
     height: auto;
     display: flex;
-    /* flex-direction: column;
-    justify-content: space-between; */
+
     position: relative;
     border: 0.05vw solid #fff;
 
@@ -650,4 +602,40 @@
       height: 2.13vw;
     }
   }
+
+  /* -----------------не видаляти стилф для лінія для мобілки -------------- */
+  /* .workflow-mobile-line {
+    position: absolute;
+    left: 20px; 
+    top: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(to bottom, #ffffff, #3d3d3d);
+    z-index: 0;
+    transform-origin: top;
+  } */
+
+  /* .workflow-mobile-wrapper {
+  position: relative;
+  padding-left: 40px; 
+} */
+}
+
+.workflow-step-marker {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 3.75vw;
+  height: 3.75vw;
+
+  border-radius: 0.63vw;
+  padding: 0.63vw;
+  border: 0.05vw solid rgba(255, 255, 255, 0.3);
+  background: #111;
+  box-shadow: 0 0 10px 2px #f6e14d44;
+}
+
+.workflow-step-number {
+  color: #f6e14d;
+  font-weight: bold;
 }
