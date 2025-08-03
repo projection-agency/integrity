@@ -2,6 +2,7 @@
   width: 100%;
   padding-bottom: 10.42vw;
   background: var(--white);
+  overflow-x: hidden;
 }
 
 .header {
@@ -80,8 +81,29 @@
   box-sizing: border-box;
   padding: 2.1vw;
   border: 1px dashed var(--gray);
+  position: relative;
+  overflow: hidden;
 }
-/* --- */
+/* .swiper,
+.slidePair {
+  display: none;
+} */
+
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--bg-url) center/cover no-repeat;
+  opacity: 0;
+  transition: opacity 0.3s ease-out;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.card > * {
+  position: relative;
+  z-index: 1;
+}
 .cardText {
   display: none;
 }
@@ -153,6 +175,10 @@
   height: 1.04vw;
   /* transform: rotate(-180deg); */
 }
+.cardTitleBlock {
+  width: 10.83vw;
+  height: auto;
+}
 
 .iconWrap {
   display: flex;
@@ -160,12 +186,174 @@
   justify-content: center;
   width: 6.17vw;
 }
-.bgImage {
+
+.grid {
+  display: flex; /* або grid, як вам потрібно */
+}
+.swiper,
+.slidePair {
   display: none;
 }
 
+@media (min-width: 1020px) {
+  .iconWrap > * {
+    width: 100%;
+    height: 100%;
+  }
+  .iconWrap svg {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .card:hover {
+    flex: 0 0 27.33vw;
+
+    transform: scale(1.03);
+    z-index: 2;
+    display: flex;
+    align-items: flex-start;
+    padding: 3.13vw;
+  }
+  .card:hover::before {
+    opacity: 1;
+  }
+  .bgImage {
+    display: block;
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    transition: background-image 0.3s;
+    z-index: 0;
+  }
+
+  .content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+  }
+  .card {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .bgImage {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+  }
+  .cardTop {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: relative;
+    width: 10.83vw;
+    height: 2.71vw;
+    position: relative;
+  }
+  .grid {
+    display: flex;
+    gap: 0.84vw;
+    justify-content: center;
+    align-items: stretch;
+    padding: 0 4.17vw;
+    overflow-x: visible;
+  }
+
+  .card {
+    flex: 0 0 15vw;
+    height: 26.67vw;
+    position: relative;
+    overflow: hidden;
+    border: 1px dashed var(--gray);
+    border-radius: 1.25vw;
+    padding: 2.1vw;
+    box-sizing: border-box;
+
+    transition:
+      flex-basis 0.3s ease-out,
+      transform 0.3s ease-out;
+    transform-origin: center center;
+  }
+
+  .card:hover .cardTop {
+    width: 424px;
+    height: 52px;
+  }
+  .card:hover .cases {
+    font-family: var(--third-family);
+    font-weight: 700;
+    font-size: 0.73vw;
+    line-height: 140%;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--white);
+  }
+  .card:hover .cardTitle {
+    font-family: var(--second-family);
+    font-style: italic;
+    font-weight: 900;
+    font-size: 2.5vw;
+    line-height: 100%;
+    text-transform: uppercase;
+    color: var(--white);
+    text-align: left;
+  }
+
+  .card:hover .cardTitleBlock {
+    display: flex;
+    gap: 0.52vw;
+    flex-direction: column;
+    width: 22.08vw;
+    height: auto;
+  }
+
+  .card:hover .closeBtn {
+    display: none;
+  }
+  .card:hover .cardText {
+    display: block;
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 0.83vw;
+    line-height: 140%;
+    color: var(--light-garay-2);
+  }
+  .card:hover .iconWrap {
+    width: 4.48vw;
+    height: 4.48vw;
+  }
+  /* .swiper,
+  .slidePair {
+    display: none;
+  } */
+}
+.bgImage {
+  /* display: none; */
+}
+
 .backgroundImage {
-  display: none;
+  /* display: none; */
 }
 
 .cardTitle {
@@ -176,7 +364,6 @@
   text-transform: uppercase;
   color: var(--black);
   text-align: center;
-  /* margin-top: auto; */
   position: relative;
 }
 .wrapHeading {
@@ -191,7 +378,7 @@
     font-size: 2.08333vw;
     font-style: italic;
     font-weight: 900;
-    line-height: 100%; /* 2.08333rem */
+    line-height: 100%;
     text-transform: uppercase;
     margin-bottom: 2vw;
   }
@@ -202,11 +389,11 @@
   height: 222px; */
 }
 
-@media (max-width: 768px) {
-  .swiper,
+@media (max-width: 1020px) {
+  /* .swiper,
   .slidePair {
     display: none;
-  }
+  } */
   .swiper {
     width: 91.6vw;
 
@@ -248,6 +435,7 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    display: block;
   }
   .card {
     border-radius: 6.49vw;
@@ -344,9 +532,25 @@
       margin-bottom: 2vw;
     }
   }
+  .bgImage {
+    opacity: 1 !important;
+  }
+  .cardTitleBlock {
+    display: flex;
+    /* gap: 5.33vw; */
+    flex-direction: column;
+    width: 59.73vw;
+    height: auto;
+    height: 42.93vw;
+    justify-content: space-around;
+  }
 }
-@media (max-width: 767px) {
+@media (max-width: 1020px) {
   .grid {
     display: none;
+  }
+  .swiper,
+  .slidePair {
+    display: block;
   }
 }
