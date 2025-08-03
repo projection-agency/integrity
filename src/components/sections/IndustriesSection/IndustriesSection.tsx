@@ -42,12 +42,12 @@ import {
 } from '@/components/Icon/Icon'
 import { IndustryCard } from './IndustryCard'
 import SliderNav from '@/components/ui/SliderNav/SliderNav'
-// import SliderNav from '../SectionUnique/SliderNav'
 
 const industries = [
   {
     cases: 7,
     icon: <RoketIcon />,
+    iconWhite: <RoketWhiteIcon />,
     title: 'SAAS & INNOVATION STARTUPS',
     active: true,
     image: '/images/Industries1.png',
@@ -56,6 +56,7 @@ const industries = [
   {
     cases: 9,
     icon: <GroupIcon />,
+    iconWhite: <Group1WhiteIcon />,
     title: 'MOBILE APPS & DIGITAL PRODUCTS',
     image: '/images/Industries2.png',
     text: 'Audience-first strategies, designed to grow subscribers and optimise engagement',
@@ -63,6 +64,7 @@ const industries = [
   {
     cases: 12,
     icon: <Group2Icon />,
+    iconWhite: <Group2WhiteIcon />,
     title: 'B2B SERVICES & MARKETING TECH',
     image: '/images/Industries3.png',
     text: 'Local and regional campaigns designed to connect businesses with real clients',
@@ -70,6 +72,7 @@ const industries = [
   {
     cases: 5,
     icon: <Group4Icon />,
+    iconWhite: <Group3WhiteIcon />,
     title: 'BUSINESS SERVICES',
     image: '/images/Industries4.png',
     text: 'Lead systems for service-based businesses to capture demand and drive consistent conversions',
@@ -77,6 +80,7 @@ const industries = [
   {
     cases: 14,
     icon: <Group3Icon />,
+    iconWhite: <Group4WhiteIcon />,
     title: 'ECOMMERCE & DTC BRANDS',
     image: '/images/Industries5.png',
     text: 'Ads and content designed to move product and build loyalty',
@@ -133,21 +137,35 @@ export default function IndustriesSection({ block }: { block: IndustriesBlock })
   const [activeIndex, setActiveIndex] = useState(0)
   const swiperRef = useRef<SwiperType | null>(null)
 
-  const pairs: (typeof industries)[] = []
-  for (let i = 0; i < industries.length; i += 1) {
-    pairs.push(industries.slice(i, i + 1))
-  }
+  const slides = industries.map((item, idx) => (
+    <IndustryCard
+      key={idx}
+      cases={item.cases}
+      icon={item.icon}
+      iconWhite={item.iconWhite}
+      title={item.title}
+      text={item.text}
+      image={item.image}
+      active={item.active}
+    />
+  ))
 
-  const pairsMobile: (typeof industriesMobile)[] = []
-  for (let i = 0; i < industriesMobile.length; i += 1) {
-    pairsMobile.push(industriesMobile.slice(i, i + 1))
-  }
+  const slidesMobile = industriesMobile.map((item, idx) => (
+    <IndustryCard
+      key={idx}
+      cases={item.cases}
+      icon={item.icon}
+      title={item.title}
+      text={item.text}
+      image={item.image}
+      active={item.active}
+    />
+  ))
 
   useEffect(() => {
     setActiveIndex(0)
     swiperRef.current?.slideTo(0)
   }, [block])
-
   return (
     <section className={styles.section}>
       <header className={styles.header}>
@@ -163,42 +181,26 @@ export default function IndustriesSection({ block }: { block: IndustriesBlock })
           <Swiper
             slidesPerView={1.2}
             spaceBetween={8}
-            className={styles.swiper}
             onSwiper={(sw) => (swiperRef.current = sw)}
             onSlideChange={(sw) => setActiveIndex(sw.activeIndex)}
+            className={styles.swiper}
           >
-            {pairsMobile.map((pair, idx) => (
-              <SwiperSlide key={idx}>
-                <div className={styles.slidePair}>
-                  {pair.map((item, i) => (
-                    <IndustryCard
-                      key={i}
-                      cases={item.cases}
-                      icon={item.icon}
-                      title={item.title}
-                      image={item.image}
-                      text={item.text}
-                      active={item.active}
-                    />
-                  ))}
-                </div>
+            {slidesMobile.map((card, i) => (
+              <SwiperSlide key={i}>
+                <div className={styles.slidePair}>{card}</div>
               </SwiperSlide>
             ))}
           </Swiper>
           <SliderNav
             activeIndex={activeIndex}
-            dots={pairsMobile.length}
+            dots={slidesMobile.length}
             onPrev={() => swiperRef.current?.slidePrev()}
             onNext={() => swiperRef.current?.slideNext()}
-            onDotClick={(idx) => swiperRef.current?.slideTo(idx)}
+            onDotClick={(i) => swiperRef.current?.slideTo(i)}
           />
         </>
       ) : (
-        <div className={styles.grid}>
-          {industries.map((item, idx) => (
-            <IndustryCard key={idx} {...item} />
-          ))}
-        </div>
+        <div className={styles.grid}>{slides}</div>
       )}
     </section>
   )
