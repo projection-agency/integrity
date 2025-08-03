@@ -52,12 +52,12 @@ export default function WorkflowMarker({ index, total, scrollYProgress }: Props)
   const markerRef = useRef(null)
 
   const stepSize = 1 / total
-  const shift = 0.1
+  const shift = 0.02
 
   const start = index * stepSize + shift
   const end = (index + 1) * stepSize + shift
 
-  const y = useTransform(scrollYProgress, [start, end], ['0px', '180px'])
+  const y = useTransform(scrollYProgress, [start, end], ['0px', '210px'])
   const smoothY = useSpring(y, {
     stiffness: 80,
     damping: 40,
@@ -70,8 +70,8 @@ export default function WorkflowMarker({ index, total, scrollYProgress }: Props)
     [0.5, 1, 1, 0.5],
   )
   const smoothOpacity = useSpring(opacity, {
-    stiffness: 100,
-    damping: 25,
+    stiffness: 80,
+    damping: 40,
   })
 
   return (
@@ -79,6 +79,7 @@ export default function WorkflowMarker({ index, total, scrollYProgress }: Props)
       ref={markerRef}
       className={styles['workflow-step-marker']}
       style={{ y: smoothY, opacity: smoothOpacity }}
+      //   style={{ scaleY: useSpring(scrollYProgress, { stiffness: 80, damping: 40 }) }}
     >
       <div className={styles['step-indicator']}>
         <span className={styles['workflow-step-number']}>
