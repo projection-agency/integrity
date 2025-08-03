@@ -15,6 +15,7 @@ import { EffectCoverflow, Pagination, Navigation } from 'swiper/modules'
 import { useRef, useState, useEffect } from 'react'
 import ExpertSection from '@/components/sections/ExpertSection/ExpertSection'
 import { ServicesBlock } from '@/blocks/ServicesBlock'
+import SliderNav from '@/components/ui/SliderNav/SliderNav'
 
 type ServicesBlock = {
   title?: string
@@ -69,15 +70,15 @@ export default function ServicesSection({ block }: { block: ServicesBlock }) {
             onSwiper={(swiper) => (swiperRef.current = swiper)}
             onSlideChange={(swiper) => setSwiperIndex(swiper.realIndex)}
             breakpoints={{
-              1204: {
+              1024: {
                 slidesPerView: 3.6,
                 spaceBetween: 16,
                 centeredSlides: true,
               },
-              720: {
+              320: {
                 slidesPerView: 1.2,
-                spaceBetween: 245,
-                centeredSlides: true,
+                spaceBetween: 8,
+                centeredSlides: false,
               },
             }}
           >
@@ -112,12 +113,6 @@ export default function ServicesSection({ block }: { block: ServicesBlock }) {
               </SwiperSlide>
             ))}
           </Swiper>
-
-          <div className={s.navSwiper}>
-            <div className={s.sliderOverlayLeft}></div>
-            <div className="swiper-pagination"></div>
-            <div className={s.sliderOverlayRight}></div>
-          </div>
         </div>
 
         <div className={s.sliderNavWrapper}>

@@ -33,6 +33,7 @@
     "formik": "^2.4.6",
     "framer-motion": "^12.23.12",
     "graphql": "^16.8.1",
+    "html-react-parser": "^5.2.6",
     "next-intl": "^4.3.3",
     "payload": "^3.48.0",
     "react-phone-input-2": "^2.15.1",

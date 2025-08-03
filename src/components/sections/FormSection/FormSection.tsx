@@ -1,5 +1,6 @@
 'use client'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
+import { useState, useEffect } from 'react'
 import s from './FormSection.module.css'
 import NumberInput from '@/components/NumberInput/NumberInput'
 import CountrySelector from '@/components/CountryInput/CountryInput'
@@ -54,6 +55,22 @@ export interface FormValues {
 }
 const stages = [{ name: 'Seed' }, { name: 'Series A or higher' }, { name: 'Enterprise' }]
 export default function FormSection() {
+  const [windowWidth, setWindowWidth] = useState(0)
+
+  useEffect(() => {
+    // Встановлюємо ширину вікна тільки на клієнті
+    if (typeof window !== 'undefined') {
+      setWindowWidth(window.innerWidth)
+
+      const handleResize = () => {
+        setWindowWidth(window.innerWidth)
+      }
+
+      window.addEventListener('resize', handleResize)
+      return () => window.removeEventListener('resize', handleResize)
+    }
+  }, [])
+
   return (
     <section className={s.section}>
       <div className={s.leftBlock}>
@@ -74,7 +91,7 @@ export default function FormSection() {
       </div>
 
       <div className={s.formCont}>
-        {window.innerWidth <= 1024 ? (
+        {windowWidth <= 1024 ? (
           <h3>
             Fill <span>{report}</span> <br /> out the form
           </h3>

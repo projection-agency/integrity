@@ -5,15 +5,23 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   align-items: center;
-  position: fixed;
-  top: 0px;
+  position: absolute;
+  top: 1.04vw;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 999;
+  z-index: 9999;
+  background: var(--Black, #222);
+  border-radius: 1.2vw;
+  padding: 0 0.625vw;
 
   .logoHeader {
     height: 4.46vw;
-    padding: 0.625vw;
+    padding: 0.625vw 0;
+    box-sizing: border-box;
+
+    svg {
+      max-height: 3.2vw;
+    }
   }
 
   nav {
@@ -82,7 +90,7 @@
 
         font-size: 0.83vw;
         font-style: normal;
-        font-weight: 700;
+        font-weight: 600;
         line-height: normal;
 
         svg {
@@ -109,7 +117,7 @@
     }
   }
 
-  button.mobMenuBtn{
+  button.mobMenuBtn {
     display: none;
   }
 }

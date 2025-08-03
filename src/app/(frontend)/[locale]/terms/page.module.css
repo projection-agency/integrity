@@ -23,6 +23,8 @@
       border-radius: 2.08vw;
       background: rgba(255, 255, 255, 0.1);
       margin-bottom: 0.4vw;
+      z-index: 99;
+      position: relative;
 
       span {
         text-align: center;
@@ -50,6 +52,8 @@
       color: var(--white);
       max-width: 48.2vw;
       margin: 0 auto;
+      z-index: 99;
+      position: relative;
     }
     .insightCardMeta {
       display: flex;

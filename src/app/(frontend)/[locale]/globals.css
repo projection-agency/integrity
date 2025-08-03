@@ -1,6 +1,5 @@
 /* Глобальні стилі для фонів body */
 
-
 /* Фон для головної сторінки */
 body.homeBackground {
 }
@@ -19,4 +18,23 @@ body.blogPostBackground {
 }
 body.privacyBackground {
   background: var(--Light-gray, #f9f9f9);
+}
+
+/* Стилі для анімацій переходів */
+body {
+  transition: background-color 0.3s ease;
+}
+
+/* Забезпечуємо, що хедер залишається поверх анімацій */
+header,
+.header {
+  position: relative;
+  z-index: 10000;
+}
+
+/* Забезпечуємо, що футер залишається поверх анімацій */
+footer,
+.footer {
+  position: relative;
+  z-index: 10000;
 }

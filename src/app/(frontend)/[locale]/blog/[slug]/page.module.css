@@ -18,6 +18,8 @@
       border-radius: 2.08vw;
       background: rgba(255, 255, 255, 0.1);
       margin-bottom: 0.4vw;
+      z-index: 99;
+      position: relative;
 
       span {
         text-align: center;
@@ -45,6 +47,8 @@
       color: var(--white);
       max-width: 60.8vw;
       margin: 0 auto;
+      z-index: 99;
+      position: relative;
     }
 
     .insightCardMeta {
@@ -52,6 +56,8 @@
       gap: 0.5vw;
       margin: 1.25vw 0 1vw 0;
       align-items: center;
+      z-index: 99;
+      position: relative;
     }
 
     .insightCardMetaItem {
@@ -105,6 +111,7 @@
     .featuredImage {
       width: 100%;
       height: 43.33vw;
+      object-fit: cover;
       border-radius: 1.67vw;
     }
 
@@ -166,10 +173,10 @@
               }
             }
 
-            li:hover{
+            li:hover {
               background-color: #fff;
 
-              a{
+              a {
                 color: rgba(34, 34, 34, 1);
               }
             }
@@ -267,7 +274,9 @@
             align-items: center;
             gap: 0.63vw;
             padding: 0.42vw;
-            transition: background-color 300ms ease-in-out, border-color 300ms ease-in-out;
+            transition:
+              background-color 300ms ease-in-out,
+              border-color 300ms ease-in-out;
             border: 0.05vw solid transparent;
             background-color: rgba(249, 249, 249, 1);
             border-radius: 0.83vw;
@@ -293,7 +302,7 @@
             }
           }
 
-          a:hover{
+          a:hover {
             background-color: transparent;
             border-color: #222;
           }
@@ -326,7 +335,6 @@
                   height: 0.94vw;
                   transition: fill 300ms ease-in-out;
                   fill: #222222;
-
                 }
               }
             }
@@ -337,7 +345,6 @@
 
                 svg {
                   fill: rgba(255, 228, 20, 1);
-
                 }
               }
             }

@@ -5,6 +5,7 @@ import TabSection from '@/components/ui/TabSection/TabSection'
 import s from './AboutTheFounderSection.module.css'
 import Image from 'next/image'
 import IconHero from '@/components/icons/IconHero/IconHero'
+import { motion } from 'framer-motion'
 
 type AboutTheFounderSection = {
   subtitle: string
@@ -12,10 +13,20 @@ type AboutTheFounderSection = {
 }
 
 const AboutTheFounderSection = ({ block }: { block: AboutTheFounderSection }) => {
-  const [width, setWidth] = useState(window.innerWidth)
+  const [width, setWidth] = useState(0)
 
   useEffect(() => {
-    setWidth(window.innerWidth)
+    // Встановлюємо ширину вікна тільки на клієнті
+    if (typeof window !== 'undefined') {
+      setWidth(window.innerWidth)
+
+      const handleResize = () => {
+        setWidth(window.innerWidth)
+      }
+
+      window.addEventListener('resize', handleResize)
+      return () => window.removeEventListener('resize', handleResize)
+    }
   }, [])
   return (
     <section className={s.section} id="about">
@@ -31,7 +42,13 @@ const AboutTheFounderSection = ({ block }: { block: AboutTheFounderSection }) =>
             alt="founder"
           />
           <IconHero containerClass={s.logoContainer} iconClass={s.logo} />
-          <div className={s.experience}>
+          <motion.div
+            initial={{ opacity: 0, y: 100, x: -50, rotate: 10 }}
+            whileInView={{ opacity: 1, y: 0, x: 0, rotate: 0 }}
+            transition={{ duration: 0.5, ease: 'easeOut', delay: 0.1 }}
+            viewport={{ once: false, amount: 0.2 }}
+            className={s.experience}
+          >
             <div className={s.item}>
               <span>
                 <Image src={'/images/icons/star.svg'} width={24} height={24} alt="icon" />
@@ -48,9 +65,15 @@ const AboutTheFounderSection = ({ block }: { block: AboutTheFounderSection }) =>
               <h3>100% job success</h3>
               <p className={s.subtitle}>Top Rated on Upwork with long-term clients</p>
             </div>
-          </div>
+          </motion.div>
 
-          <div className={s.spend}>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.5, y: 50, x: 50, rotate: 10 }}
+            whileInView={{ opacity: 1, scale: 1, y: 0, x: 0, rotate: 0 }}
+            transition={{ duration: 0.5, ease: 'easeOut' }}
+            viewport={{ once: false, amount: 0.2 }}
+            className={s.spend}
+          >
             {spendBg}
             <div className={s.arrowContainer}>
               <Image src={'/images/icons/arrow-up.svg'} width={40} height={40} alt="arrow" />
@@ -59,7 +82,7 @@ const AboutTheFounderSection = ({ block }: { block: AboutTheFounderSection }) =>
               <h3>$10M+</h3>
               <p className={s.subtitle}>In ad spend managment</p>
             </div>
-          </div>
+          </motion.div>
         </div>
 
         <div className={s.content}>

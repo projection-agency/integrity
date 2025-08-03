@@ -18,6 +18,8 @@ import type { Swiper as SwiperType } from 'swiper'
 import 'swiper/css'
 import useIsMobile from '../LatestInsightsSection/useIsMobile'
 import SliderNav from '@/components/ui/SliderNav/SliderNav'
+import Image from 'next/image'
+import { motion } from 'framer-motion'
 // import SliderNav from './SliderNav'
 
 const cards = [
@@ -114,12 +116,31 @@ export default function SectionUnique({ block }: { block: SectionUniqueBlock }) 
         <MainTitle title={block.title} />
       </div>
       <div className={styles.sectionUnique}>
-        <div className={styles.sectionUniqueSide}>
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
+          viewport={{ once: false, amount: 0.5 }}
+          className={styles.sectionUniqueSide}
+        >
           <div className={styles.sideAvatarBlock}>
             <div className={styles.sideAvatarBg}>
-              <img src="/images/icons/chat.svg" alt="Chat" className={styles.sideChatIcon} />
+              <Image
+                width={100}
+                height={100}
+                src="/images/icons/chat.svg"
+                alt="Chat"
+                className={styles.sideChatIcon}
+              />
             </div>
-            <img src="/images/icons/frame.png" alt="Avatar" className={styles.sideAvatar} />
+            <Image
+              priority
+              width={100}
+              height={100}
+              src="/images/icons/frame.png"
+              alt="Avatar"
+              className={styles.sideAvatar}
+            />
           </div>
           <div className={styles.sideTitle}>
             YOU ARE HERE <span>TO ACHIEVE RESULTS</span>
@@ -127,12 +148,18 @@ export default function SectionUnique({ block }: { block: SectionUniqueBlock }) 
           <div className={styles.sideDescription}>
             Order your first free call and receive a tailored strategy to promote your business
           </div>
-          <button className={styles.sideButton}>
+          <a href="#form" className={styles.sideButton}>
             <PhoneIcon className={styles.sidePhoneIcon} /> Demo call
-          </button>
-        </div>
+          </a>
+        </motion.div>
 
-        <div className={styles.sectionUniqueContent}>
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
+          viewport={{ once: false, amount: 0.6 }}
+          className={styles.sectionUniqueContent}
+        >
           {isMobile ? (
             <>
               <Swiper
@@ -179,7 +206,7 @@ export default function SectionUnique({ block }: { block: SectionUniqueBlock }) 
               ))}
             </div>
           )}
-        </div>
+        </motion.div>
       </div>
     </section>
   )

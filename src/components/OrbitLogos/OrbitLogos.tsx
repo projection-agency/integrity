@@ -2,12 +2,27 @@ import { useEffect, useRef, useState } from 'react'
 import styles from './OrbitLogos.module.css'
 import Image from 'next/image'
 const radiiVW = ['42.5vw', '35vw', '27vw', '19vw'] // половина від 85, 70, 54, 38
-const speeds = [0.005, 0.0033, -0.0027, 0.002]
 const icons = [
   '/images/ads-icon/meta.svg',
   '/images/ads-icon/adwords.svg',
   '/images/ads-icon/linkedin.svg',
   '/images/ads-icon/tiktok.svg',
+]
+
+// Різний порядок іконок для кожного кола
+const iconOrders = [
+  [0, 1, 2, 3], // Перше коло: meta, adwords, linkedin, tiktok
+  [1, 3, 0, 2], // Друге коло: adwords, tiktok, meta, linkedin
+  [2, 0, 3, 1], // Третє коло: linkedin, meta, tiktok, adwords
+  [3, 2, 1, 0], // Четверте коло: tiktok, linkedin, adwords, meta
+]
+
+// Індивідуальні значення повороту для кожного кола (в градусах)
+const rotationValues = [
+  -90, // Перше коло: 20 градусів
+  50, // Друге коло: 15 градусів
+  105, // Третє коло: 25 градусів
+  140, // Четверте коло: 30 градусів
 ]
 
 function vwToPx(vw: string) {
@@ -17,6 +32,7 @@ function vwToPx(vw: string) {
 const OrbitLogos = () => {
   const refs = useRef<Array<Array<HTMLDivElement | null>>>([])
   const [radiiPx, setRadiiPx] = useState([0, 0, 0, 0])
+  const [scrollProgress, setScrollProgress] = useState(0)
 
   useEffect(() => {
     function updateRadii() {
@@ -28,50 +44,79 @@ const OrbitLogos = () => {
   }, [])
 
   useEffect(() => {
-    if (radiiPx.some((r) => r === 0)) return
-    let frameId: number
-    const angles = radiiPx.map(() => Math.random() * Math.PI * 2)
+    const handleScroll = () => {
+      const element = refs.current[0]?.[0]?.closest('.wrapper')?.parentElement
+      if (!element) return
 
-    const animate = () => {
-      refs.current.forEach((circleRefs, circleIdx) => {
-        const baseAngle = angles[circleIdx]
-        const radius = radiiPx[circleIdx]
-        const iconsPerCircle = icons.length
-        for (let i = 0; i < iconsPerCircle; i++) {
-          const el = circleRefs?.[i]
-          const iconAngle = (i * Math.PI * 2) / iconsPerCircle
-          const totalAngle = baseAngle + iconAngle
-          const x = Math.cos(totalAngle) * radius
-          const y = Math.sin(totalAngle) * radius
-          if (el) {
-            el.style.transform = `translate(-50%, -50%) translate(${x}px, ${y}px)`
-          }
-        }
-        angles[circleIdx] += speeds[circleIdx]
-      })
-      frameId = requestAnimationFrame(animate)
+      const rect = element.getBoundingClientRect()
+      const windowHeight = window.innerHeight
+      const elementHeight = rect.height
+
+      // Розраховуємо прогрес скролу для цього елемента (0-1)
+      let progress = 0
+      if (rect.top <= windowHeight && rect.bottom >= 0) {
+        const visibleHeight = Math.min(rect.bottom, windowHeight) - Math.max(rect.top, 0)
+        const scrollDistance = windowHeight - rect.top
+        progress = Math.max(0, Math.min(1, scrollDistance / (windowHeight + elementHeight)))
+      }
+
+      setScrollProgress(progress)
     }
-    animate()
-    return () => cancelAnimationFrame(frameId)
-  }, [radiiPx])
+
+    window.addEventListener('scroll', handleScroll)
+    handleScroll() // Викликаємо одразу для початкової позиції
+
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  useEffect(() => {
+    if (radiiPx.some((r) => r === 0)) return
+
+    refs.current.forEach((circleRefs, circleIdx) => {
+      const radius = radiiPx[circleIdx]
+      const iconsPerCircle = icons.length
+
+      // Індивідуальне значення повороту для кожного кола
+      const totalRotationDegrees = rotationValues[circleIdx] || 20
+      const rotationRadians = (scrollProgress * totalRotationDegrees * Math.PI) / 180
+
+      // Різні напрямки обертання для різних кіл
+      const direction = circleIdx % 2 === 0 ? 1 : -1
+      const baseAngle = rotationRadians * direction
+
+      for (let i = 0; i < iconsPerCircle; i++) {
+        const el = circleRefs?.[i]
+        const iconAngle = (i * Math.PI * 2) / iconsPerCircle
+        const totalAngle = baseAngle + iconAngle
+        const x = Math.cos(totalAngle) * radius
+        const y = Math.sin(totalAngle) * radius
+        if (el) {
+          el.style.transform = `translate(-50%, -50%) translate(${x}px, ${y}px)`
+        }
+      }
+    })
+  }, [radiiPx, scrollProgress])
 
   return (
     <div className="wrapper">
       <div className={styles.orbitContainer}>
         {radiiPx.map((radius, circleIdx) =>
-          Array.from({ length: icons.length }).map((_, i) => (
-            <div
-              key={`${circleIdx}-${i}`}
-              className={styles.logo}
-              ref={(el) => {
-                if (!refs.current[circleIdx]) refs.current[circleIdx] = []
-                refs.current[circleIdx][i] = el
-              }}
-              style={{ position: 'absolute', left: '50%', top: '50%' }}
-            >
-              <Image src={icons[i]} alt="logo" width={100} height={100} />
-            </div>
-          )),
+          Array.from({ length: icons.length }).map((_, i) => {
+            const iconIndex = iconOrders[circleIdx]?.[i] || i
+            return (
+              <div
+                key={`${circleIdx}-${i}`}
+                className={styles.logo}
+                ref={(el) => {
+                  if (!refs.current[circleIdx]) refs.current[circleIdx] = []
+                  refs.current[circleIdx][i] = el
+                }}
+                style={{ position: 'absolute', left: '50%', top: '50%' }}
+              >
+                <Image src={icons[iconIndex]} alt="logo" width={100} height={100} />
+              </div>
+            )
+          }),
         )}
         {/* Render 4 background circles */}
         {radiiVW.map((vw, i) => (

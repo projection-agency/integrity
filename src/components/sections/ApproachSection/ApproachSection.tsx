@@ -1,3 +1,4 @@
+'use client'
 import s from './ApproachSection.module.css'
 import MainTitle from '@/components/ui/MainTitle/MainTitle'
 import Image from 'next/image'
@@ -5,6 +6,7 @@ import TabSection from '@/components/ui/TabSection/TabSection'
 import MovingIconsLine from '@/components/MovingIconsLine/MovingIconsLine'
 import { JSX } from 'react'
 import GridBackground from '@/components/GridBackground/GridBackground'
+import { motion } from 'framer-motion'
 
 const advantages = [
   {
@@ -54,22 +56,45 @@ export default function ApproachSection({ block }: { block: ApproachSection }) {
           <MainTitle title={block.title} />
         </div>
 
-        <div className={s.sloganCont}>
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
+          viewport={{ once: false, amount: 0.2 }}
+          className={s.sloganCont}
+        >
           <div className={s.images}>
-            <div className={`${s.imageContainer} ${s.decision}`}>{decision}</div>
-            <div className={`${s.imageContainer} ${s.logo}`}>{logo}</div>
-            <Image
-              src={'/images/approach_gpt_image.png'}
-              width={118}
-              height={118}
-              alt="boss image"
-            />
+            <motion.div
+              initial={{ x: '100%' }}
+              whileInView={{ x: 0 }}
+              transition={{ duration: 0.5, ease: 'easeOut' }}
+              viewport={{ once: false, amount: 0.2 }}
+              className={`${s.imageContainer} ${s.decision}`}
+            >
+              {decision}
+            </motion.div>
+
+            <motion.div className={`${s.imageContainer} ${s.logo}`}>{logo}</motion.div>
+
+            <motion.div
+              initial={{ x: '-100%' }}
+              whileInView={{ x: 0 }}
+              transition={{ duration: 0.5, ease: 'easeOut' }}
+              viewport={{ once: false, amount: 0.2 }}
+            >
+              <Image
+                src={'/images/approach_gpt_image.png'}
+                width={118}
+                height={118}
+                alt="boss image"
+              />
+            </motion.div>
           </div>
           <h3>
             “ Good marketing <span className={s.computer}>{computer}</span> feels calm, focused and
             connected That’s <span className={s.computer}>{like}</span> the work we believe in“
           </h3>
-          <p className={s.subtitle}>Our Team</p>
+          <p className={s.subtitle}>{block.subtitle}</p>
           <article className={s.approach}>
             <p className={s.paragraph}>
               We’re a small team <span>that takes marketing seriously.</span> We work with Meta,
@@ -84,18 +109,25 @@ export default function ApproachSection({ block }: { block: ApproachSection }) {
               through practical strategies and long-term thinking
             </p>
           </article>
-        </div>
+        </motion.div>
         <MovingIconsLine className={s.iconsLineCont} />
         <ul className={s.advantages}>
           {advantages.map((item, idx) => {
             return (
-              <li key={idx} className={s.advantageItem}>
+              <motion.li
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, ease: 'easeOut', delay: idx * 0.1 }}
+                viewport={{ once: false, amount: 0.2 }}
+                key={idx}
+                className={s.advantageItem}
+              >
                 <div className={s.upperDescr}>
                   {iconMap[item.icon]} <p>{item.upper_desription}</p>
                 </div>
                 <h3>{item.title}</h3>
                 <p>{item.post_title}</p>
-              </li>
+              </motion.li>
             )
           })}
         </ul>

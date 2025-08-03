@@ -19,7 +19,7 @@ const locales = [
   },
 ]
 
-export default function LocaleSwitcher() {
+export default function LocaleSwitcher({ className }: { className?: string }) {
   const router = useRouter()
   const pathname = usePathname()
   const currentLocale = useLocale()
@@ -30,7 +30,7 @@ export default function LocaleSwitcher() {
   }
 
   return (
-    <div className={s.localeWrap}>
+    <div className={`${s.localeWrap} ${className}`}>
       {locales.map(({ code, label, flag }) => (
         <div
           key={code}

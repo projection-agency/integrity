@@ -1,20 +1,31 @@
-.mainTitle{
-    color: #B5B5B5;
-    text-align: center;
-    font-family: "Inter Tight";
-    font-size: 4.16vw;
-    font-style: normal;
-    font-weight: 900;
-    line-height: 1.1; /* 4.58333rem */
-    text-transform: uppercase;
+.mainTitle {
+  color: #b5b5b5;
+  text-align: center;
+  font-family: 'Inter Tight';
+  font-size: 4.16vw;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 1.1; /* 4.58333rem */
+  text-transform: uppercase;
 
-    span{
-        color: #222;
-        font-style: italic;
-    }
+  div {
+    clip-path: inset(0 -20% 0 0);
+  }
+
+  span {
+    color: #222;
+    font-style: italic;
+  }
 }
-@media screen and (max-width:1024px) {
-    .mainTitle{
-        font-size: 8.53vw;
-    }
+
+.word {
+  display: inline-block;
+
+  margin-right: 0.2em;
+}
+
+@media screen and (max-width: 1024px) {
+  .mainTitle {
+    font-size: 8.53vw;
+  }
 }

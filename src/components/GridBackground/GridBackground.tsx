@@ -1,123 +1,81 @@
 'use client'
-import { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
 const GridBackground = () => {
-  const canvasRef = useRef<HTMLCanvasElement | null>(null)
+  const svgRef = useRef<SVGSVGElement | null>(null)
+  const [cursor, setCursor] = useState({ x: 0, y: 0 })
+  const [dimensions, setDimensions] = useState({ width: 0, height: 0 })
+  const [uniqueId] = useState(() => `grid-${Math.random().toString(36).substr(2, 9)}`)
 
   useEffect(() => {
-    const canvas = canvasRef.current
-    if (!canvas) return
-    const ctx = canvas.getContext('2d')
-    if (!ctx) return
+    const svg = svgRef.current
+    if (!svg) return
 
-    const parentElement = canvas.parentElement
+    const parentElement = svg.parentElement
     if (!parentElement) return
 
-    let width = parentElement.offsetWidth
-    let height = parentElement.offsetHeight
-    canvas.width = width
-    canvas.height = height
-
-    const gridSize = 120
-    const cursor = { x: width / 2, y: height / 2 }
-
-    const handleResize = () => {
-      if (parentElement) {
-        width = parentElement.offsetWidth
-        height = parentElement.offsetHeight
-        canvas.width = width
-        canvas.height = height
-      }
+    const updateDimensions = () => {
+      const width = parentElement.offsetWidth
+      const height = parentElement.offsetHeight
+      setDimensions({ width, height })
     }
 
     const handleMouseMove = (e: MouseEvent) => {
-      const rect = canvas.getBoundingClientRect()
-      cursor.x = e.clientX - rect.left
-      cursor.y = e.clientY - rect.top
+      const rect = svg.getBoundingClientRect()
+      setCursor({
+        x: e.clientX - rect.left,
+        y: e.clientY - rect.top,
+      })
     }
 
-    window.addEventListener('resize', handleResize)
+    updateDimensions()
+    window.addEventListener('resize', updateDimensions)
     window.addEventListener('mousemove', handleMouseMove)
 
-    const draw = () => {
-      ctx.clearRect(0, 0, width, height)
-      ctx.lineWidth = 0.6
-
-      // Псевдохвиля — автоматично рухається
-      const time = Date.now() * 0.001
-      const waveX = width / 2 + Math.cos(time * 0.5) * width * 0.4
-      const waveY = height / 2 + Math.sin(time * 0.3) * height * 0.4
-
-      // Функція, яка об'єднує силу впливу хвилі + курсора
-      const getForceAndAlpha = (x: number, y: number) => {
-        // курсор
-        const dx1 = x - cursor.x
-        const dy1 = y - cursor.y
-        const dist1 = Math.sqrt(dx1 * dx1 + dy1 * dy1)
-        const force1 = Math.max(400 - dist1, 0) * 0.1
-
-        // автохвиля
-        const dx2 = x - waveX
-        const dy2 = y - waveY
-        const dist2 = Math.sqrt(dx2 * dx2 + dy2 * dy2)
-        const force2 = Math.max(400 - dist2, 0) * 0.1
-
-        const totalForce = force1 + force2
-        const alpha = 0.02 + Math.min(1, totalForce / 100)
-
-        return {
-          offsetX: ((dx1 / dist1 || 0) * force1 + (dx2 / dist2 || 0) * force2) * 0.3,
-          offsetY: ((dy1 / dist1 || 0) * force1 + (dy2 / dist2 || 0) * force2) * 0.3,
-          alpha,
-        }
-      }
-
-      // вертикальні лінії
-      for (let x = 0; x <= width; x += gridSize) {
-        ctx.beginPath()
-        for (let y = 0; y <= height; y += 10) {
-          const { offsetX, alpha } = getForceAndAlpha(x, y)
-          ctx.strokeStyle = `rgba(255,255,255,${alpha})`
-
-          if (y === 0) {
-            ctx.moveTo(x + offsetX, y)
-          } else {
-            ctx.lineTo(x + offsetX, y)
-          }
-        }
-        ctx.stroke()
-      }
-
-      // горизонтальні лінії
-      for (let y = 0; y <= height; y += gridSize) {
-        ctx.beginPath()
-        for (let x = 0; x <= width; x += 10) {
-          const { offsetY, alpha } = getForceAndAlpha(x, y)
-          ctx.strokeStyle = `rgba(255,255,255,${alpha})`
-
-          if (x === 0) {
-            ctx.moveTo(x, y + offsetY)
-          } else {
-            ctx.lineTo(x, y + offsetY)
-          }
-        }
-        ctx.stroke()
-      }
-
-      requestAnimationFrame(draw)
-    }
-
-    draw()
-
     return () => {
-      window.removeEventListener('resize', handleResize)
+      window.removeEventListener('resize', updateDimensions)
       window.removeEventListener('mousemove', handleMouseMove)
     }
   }, [])
 
+  const gridSize = 150
+  const maskRadius = 200
+
+  // Генеруємо вертикальні лінії
+  const verticalLines = []
+  for (let x = 0; x <= dimensions.width; x += gridSize) {
+    verticalLines.push(
+      <line
+        key={`v-${x}`}
+        x1={x}
+        y1={0}
+        x2={x}
+        y2={dimensions.height}
+        stroke="rgba(255, 255, 255, 0.05)"
+        strokeWidth="0.5"
+      />,
+    )
+  }
+
+  // Генеруємо горизонтальні лінії
+  const horizontalLines = []
+  for (let y = 0; y <= dimensions.height; y += gridSize) {
+    horizontalLines.push(
+      <line
+        key={`h-${y}`}
+        x1={0}
+        y1={y}
+        x2={dimensions.width}
+        y2={y}
+        stroke="rgba(255, 255, 255, 0.05)"
+        strokeWidth="0.5"
+      />,
+    )
+  }
+
   return (
-    <canvas
-      ref={canvasRef}
+    <svg
+      ref={svgRef}
       style={{
         position: 'absolute',
         top: 0,
@@ -127,7 +85,53 @@ const GridBackground = () => {
         pointerEvents: 'none',
         zIndex: 1,
       }}
-    />
+    >
+      <defs>
+        <linearGradient
+          id={`gridGradient-${uniqueId}`}
+          x1="0%"
+          y1="0%"
+          x2="100%"
+          y2="100%"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stopColor="white" />
+          <stop offset="0.2" stopColor="#222222" />
+          <stop offset="0.35" stopColor="#A6A6A6" />
+          <stop offset="0.82" stopColor="#222222" />
+          <stop offset="1" stopColor="white" />
+        </linearGradient>
+
+        <mask id={`gridMask-${uniqueId}`}>
+          <rect width="100%" height="100%" fill="black" />
+          <circle cx={cursor.x} cy={cursor.y} r={maskRadius} fill="white" />
+        </mask>
+      </defs>
+
+      {/* Базова сітка */}
+      <g>
+        {verticalLines}
+        {horizontalLines}
+      </g>
+
+      {/* Підсвічена сітка */}
+      <g mask={`url(#gridMask-${uniqueId})`}>
+        {verticalLines.map((line) =>
+          React.cloneElement(line, {
+            ...line.props,
+            stroke: `url(#gridGradient-${uniqueId})`,
+            strokeWidth: '1',
+          }),
+        )}
+        {horizontalLines.map((line) =>
+          React.cloneElement(line, {
+            ...line.props,
+            stroke: `url(#gridGradient-${uniqueId})`,
+            strokeWidth: '1',
+          }),
+        )}
+      </g>
+    </svg>
   )
 }
 
