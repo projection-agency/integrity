@@ -13,6 +13,7 @@ import SimilarArticlesSectionServer from '@/components/sections/SimilarArticlesS
 import ExpertSection from '@/components/sections/ExpertSection/ExpertSection'
 import { Metadata } from 'next'
 import { getPostsWithFilter } from '@/action/getPostsWithFilter'
+import GridBackground from '@/components/GridBackground/GridBackground'
 
 export async function generateMetadata({
   params,
@@ -166,6 +167,7 @@ export default async function BlogPostPage({
   return (
     <div className={s.blog}>
       <div className={s.heroPage}>
+        <GridBackground />
         <div className={s.subtitle}>
           <span>Article</span>
         </div>

@@ -52,33 +52,43 @@ export default function WorkflowMarker({ index, total, scrollYProgress }: Props)
   const markerRef = useRef(null)
 
   const stepSize = 1 / total
-  const shift = 0.02
+  const shift = 0.008 // Зменшуємо shift на 20% для швидшої анімації
 
   const start = index * stepSize + shift
   const end = (index + 1) * stepSize + shift
 
-  const y = useTransform(scrollYProgress, [start, end], ['0px', '210px'])
+  const y = useTransform(scrollYProgress, [start, end], ['0px', '10vw']) // Використовуємо vw замість px
   const smoothY = useSpring(y, {
-    stiffness: 80,
-    damping: 40,
-    restDelta: 0.0001,
+    stiffness: 60, // Збільшуємо stiffness для швидшої реакції
+    damping: 25, // Зменшуємо damping для швидшого завершення
+    restDelta: 0.001, // Збільшуємо restDelta для більш стабільного руху
   })
 
   const opacity = useTransform(
     scrollYProgress,
-    [start, start + 0.05, end - 0.05, end],
-    [0.5, 1, 1, 0.5],
+    [start, start + 0.024, end - 0.024, end], // Зменшуємо зону активації на 20%
+    [0, 1, 1, 1],
   )
   const smoothOpacity = useSpring(opacity, {
-    stiffness: 80,
-    damping: 40,
+    stiffness: 60, // Збільшуємо stiffness для швидшої реакції
+    damping: 25, // Зменшуємо damping для швидшого завершення
+  })
+
+  const scale = useTransform(
+    scrollYProgress,
+    [start, start + 0.024, end - 0.024, end], // Зменшуємо зону активації на 20%
+    [0.5, 1, 1, 1],
+  )
+  const smoothScale = useSpring(scale, {
+    stiffness: 60, // Збільшуємо stiffness для швидшої реакції
+    damping: 25, // Зменшуємо damping для швидшого завершення
   })
 
   return (
     <motion.div
       ref={markerRef}
       className={styles['workflow-step-marker']}
-      style={{ y: smoothY, opacity: smoothOpacity }}
+      style={{ y: smoothY, opacity: smoothOpacity, scale: smoothScale }}
       //   style={{ scaleY: useSpring(scrollYProgress, { stiffness: 80, damping: 40 }) }}
     >
       <div className={styles['step-indicator']}>

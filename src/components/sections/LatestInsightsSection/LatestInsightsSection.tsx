@@ -14,6 +14,7 @@ import ArticleItem from '@/components/ui/ArticleItem/ArticleItem'
 import type { Post as PayloadPost } from '@/payload-types'
 import SliderNav from './SliderNav'
 import useHasMounted from './useHasMounted'
+import Link from 'next/link'
 
 type Post = PayloadPost & {
   readingTime: string
@@ -75,10 +76,10 @@ export default function LatestInsightsSection({ block, filteredPosts }: Props) {
             onNext={() => swiperRef.current?.slideNext()}
             onDotClick={(i) => swiperRef.current?.slideTo(i)}
           />
-          <button className={styles.latestInsightsCta}>
+          <Link href="/blog" className={styles.latestInsightsCta}>
             <Image src="/images/icons/revised-card2.svg" alt="arrow icon" width={16} height={16} />
             See all Integrity posts
-          </button>
+          </Link>
         </>
       ) : (
         <div className={styles.latestInsightsCards}>
@@ -89,10 +90,10 @@ export default function LatestInsightsSection({ block, filteredPosts }: Props) {
       )}
 
       {!isMobile && (
-        <button className={styles.latestInsightsCta}>
+        <Link href="/blog" className={styles.latestInsightsCta}>
           <Image src="/images/icons/revised-card2.svg" alt="arrow icon" width={16} height={16} />
           <span className={styles.latestText}>See all Integrity posts</span>
-        </button>
+        </Link>
       )}
     </section>
   )

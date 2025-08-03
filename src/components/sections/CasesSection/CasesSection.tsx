@@ -35,7 +35,7 @@ export default function CasesSection({ block }: { block: CasesBlockData }) {
   const swiperRef = useRef<any>(null)
   const [caseData, setCaseData] = useState<CaseItemType[]>([])
   const [activeSlide, setActiveSlide] = useState<number>(0)
-  const [windowWidth, setWndowWidth] = useState<number>(window.innerWidth)
+  const [windowWidth, setWndowWidth] = useState<number>(0)
   const [isExpanded, setIsExpanded] = useState(false)
 
   const handleClick = () => {
@@ -52,7 +52,17 @@ export default function CasesSection({ block }: { block: CasesBlockData }) {
     setCaseData(block.case)
     console.log(swiperRef.current)
 
-    setWndowWidth(window.innerWidth)
+    // Встановлюємо ширину вікна тільки на клієнті
+    if (typeof window !== 'undefined') {
+      setWndowWidth(window.innerWidth)
+
+      const handleResize = () => {
+        setWndowWidth(window.innerWidth)
+      }
+
+      window.addEventListener('resize', handleResize)
+      return () => window.removeEventListener('resize', handleResize)
+    }
   }, [block.case])
 
   return (
@@ -147,7 +157,7 @@ export default function CasesSection({ block }: { block: CasesBlockData }) {
               )
             })}
           </Swiper>
-          {window.innerWidth <= 1024 ? (
+          {windowWidth <= 1024 ? (
             <button
               className={`${s.expandBtn} ${isExpanded ? s.isExpanded : ''}`}
               onClick={handleClick}
@@ -158,7 +168,7 @@ export default function CasesSection({ block }: { block: CasesBlockData }) {
             ''
           )}
           <div className={s.controlsCont}>
-            {window.innerWidth <= 1024 ? <p>Next case</p> : <p>Switch to the next case</p>}
+            {windowWidth <= 1024 ? <p>Next case</p> : <p>Switch to the next case</p>}
             <div className={s.controls}>
               <button className={`${s.navigationBtn} ${s.navigationPrev}`}>{navArrow}</button>
               <div className={s.pagination}></div>

@@ -42,11 +42,11 @@ export default async function BlogPage({
   return (
     <div className={s.blog}>
       <div className={s.heroPage}>
+        <GridBackground />
         <div className={s.subtitle}>
           <span>{page?.title || 'Blog'}</span>
         </div>
         <h1>{page?.description || 'Latest Insights'}</h1>
-        <GridBackground />
       </div>
       <BlogPosts posts={filteredPosts} categories={categories} />
 

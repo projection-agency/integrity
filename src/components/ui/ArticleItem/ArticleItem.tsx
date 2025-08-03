@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import AnimatedLink from '@/components/AnimatedLink/AnimatedLinkWrapper'
 import s from './ArticleItem.module.css'
 import Image from 'next/image'
 
@@ -21,7 +22,7 @@ export default function ArticleItem({
   style?: 'small'
 }) {
   return (
-    <Link
+    <AnimatedLink
       href={`/blog/${post.slug}`}
       className={`${s.insightCard} ${style === 'small' ? s.small : ''}`}
       key={idx}
@@ -61,7 +62,7 @@ export default function ArticleItem({
         />
         <span className={s.readMoreText}>Read more</span>
       </button>
-    </Link>
+    </AnimatedLink>
   )
 }
 

@@ -232,12 +232,12 @@ export default function WorkflowSection({
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
-    offset: ['start 0.2', 'end 1'],
+    offset: ['start 0.2', 'end 1'], // Анімація починається коли верхній край досягає 20% від верху, закінчується коли низ торкається низу екрану
   })
   const line = useTransform(scrollYProgress, [0, 1], [0, 1])
   const smoothLine = useSpring(line, {
-    stiffness: 80,
-    damping: 40,
+    stiffness: 60, // Збільшуємо stiffness для швидшої реакції
+    damping: 25, // Зменшуємо damping для швидшого завершення
   })
 
   if (!safeBlock.enabled) return null
@@ -279,7 +279,7 @@ export default function WorkflowSection({
                   className={styles['step-marker']}
                   initial={{ scale: 0.5, opacity: 0 }}
                   whileInView={{ scale: 1.2, opacity: 1 }}
-                  viewport={{ once: false, amount: 0.5 }}
+                  viewport={{ once: false, amount: 0.3 }}
                   transition={{
                     duration: 0.8,
                     delay: i * 0.25,

@@ -355,3 +355,7 @@
     }
   }
 }
+
+.swiperContainer :global(.swiper-slide) {
+  height: auto !important;
+}

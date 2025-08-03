@@ -3,35 +3,44 @@
 import { Accordion, AccordionItem } from '@szhsin/react-accordion'
 import { RichText } from '@payloadcms/richtext-lexical/react'
 import s from './Accordion.module.css'
+import { motion } from 'framer-motion'
 
 export default function ClientAccordion({ items }: { items: any[] }) {
   return (
     <>
       <Accordion className={s.accordion}>
         {items.map((item, idx) => (
-          <AccordionItem
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: 'easeOut' }}
+            viewport={{ once: false, amount: 0.2 }}
             key={idx}
-            className={s.accordionItem}
-            header={
-              <div className={s.itemHeader}>
-                <p className={s.question}>{item.title}</p>
-                <button>
-                  <span>{accordionArrow}</span>
-                </button>
-              </div>
-            }
-            buttonProps={{
-              className: ({ isEnter }) => `${s.itemBtn} ${isEnter && s.itemBtnExpanded}`,
-            }}
-            contentProps={{ className: s.itemContent }}
-            panelProps={{ className: s.itemPanel }}
           >
-            {typeof item.content === 'object' && item.content ? (
-              <RichText data={item.content} />
-            ) : (
-              <div dangerouslySetInnerHTML={{ __html: item.content || '' }} />
-            )}
-          </AccordionItem>
+            <AccordionItem
+              key={idx}
+              className={s.accordionItem}
+              header={
+                <div className={s.itemHeader}>
+                  <p className={s.question}>{item.title}</p>
+                  <button>
+                    <span>{accordionArrow}</span>
+                  </button>
+                </div>
+              }
+              buttonProps={{
+                className: ({ isEnter }) => `${s.itemBtn} ${isEnter && s.itemBtnExpanded}`,
+              }}
+              contentProps={{ className: s.itemContent }}
+              panelProps={{ className: s.itemPanel }}
+            >
+              {typeof item.content === 'object' && item.content ? (
+                <RichText data={item.content} />
+              ) : (
+                <div dangerouslySetInnerHTML={{ __html: item.content || '' }} />
+              )}
+            </AccordionItem>
+          </motion.div>
         ))}
       </Accordion>
     </>

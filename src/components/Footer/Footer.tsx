@@ -1,8 +1,12 @@
+'use client'
+
 import s from './Footer.module.css'
 import IconHero from '../icons/IconHero/IconHero'
 import Link from 'next/link'
-import { JSX } from 'react'
+import AnimatedLink from '@/components/AnimatedLink/AnimatedLinkWrapper'
+import { JSX, useRef, useEffect, useState } from 'react'
 import GridBackground from '@/components/GridBackground/GridBackground'
+import { motion, useScroll, useTransform } from 'framer-motion'
 
 const whatsapp = (
   <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 38 38">
@@ -63,9 +67,40 @@ const iconMap: Record<string, JSX.Element> = {
 
 const socials = ['whatsapp', 'linkedin', 'x', 'youtube']
 export default function Footer({ menu }: { menu: MenuItem[] }) {
+  const footerRef = useRef<HTMLElement>(null)
+  const integrityRef = useRef<HTMLDivElement>(null)
+  const [topBlockVisible, setTopBlockVisible] = useState(false)
+
+  const { scrollYProgress } = useScroll({
+    target: footerRef,
+    offset: ['start 0.6', 'end 1'],
+  })
+
+  const integrityY = useTransform(scrollYProgress, [0, 0.8], ['-45vw', '0vw'])
+  const integrityOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 1])
+
+  useEffect(() => {
+    const unsubscribe = scrollYProgress.on('change', (latest) => {
+      if (latest >= 0.8 && !topBlockVisible) {
+        setTopBlockVisible(true)
+      } else if (latest < 0.8 && topBlockVisible) {
+        setTopBlockVisible(false)
+      }
+    })
+    return unsubscribe
+  }, [scrollYProgress, topBlockVisible])
+
   return (
-    <footer className={s.footer}>
-      <div className={s.topBlock}>
+    <footer ref={footerRef} className={s.footer}>
+      <motion.div
+        className={s.topBlock}
+        initial={{ opacity: 0, y: 50 }}
+        animate={{
+          opacity: topBlockVisible ? 1 : 0,
+          y: topBlockVisible ? 0 : 50,
+        }}
+        transition={{ duration: 0.5, ease: 'easeOut' }}
+      >
         <div className={s.slogan}>
           <p>
             Smart digital{' '}
@@ -79,7 +114,7 @@ export default function Footer({ menu }: { menu: MenuItem[] }) {
               {menu.map((item, idx) => {
                 return (
                   <li key={idx}>
-                    <Link href={`${item.link}`}>{item.label}</Link>
+                    <AnimatedLink href={`${item.link}`}>{item.label}</AnimatedLink>
                   </li>
                 )
               })}
@@ -107,15 +142,24 @@ export default function Footer({ menu }: { menu: MenuItem[] }) {
             </ul>
           </div>
         </div>
-      </div>
+      </motion.div>
 
       <div className={s.bottomBlock}>
-        {integrity}
+        <motion.div
+          ref={integrityRef}
+          style={{
+            y: integrityY,
+            opacity: integrityOpacity,
+          }}
+          className={s.integrity}
+        >
+          {integrity}
+        </motion.div>
         <div className={s.privacyCont}>
           <p>© 2025 integrity. All rights reserved</p>
-          <Link href={'/privacy'}>Privacy Policy</Link>
-          <Link href={'/terms'}>Terms of use</Link>
-          <Link href={'/legal-notice'}>Legal notice</Link>
+          <AnimatedLink href={'/privacy'}>Privacy Policy</AnimatedLink>
+          <AnimatedLink href={'/terms'}>Terms of use</AnimatedLink>
+          <AnimatedLink href={'/legal-notice'}>Legal notice</AnimatedLink>
           <div className={s.developers}>
             <p>Website Development </p>{' '}
             <Link href={'https://www.instagram.com/before_after.agency/'} target="_blank">

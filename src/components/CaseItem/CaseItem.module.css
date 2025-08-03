@@ -1,12 +1,16 @@
 .item {
   display: flex;
   gap: 0.42vw;
+  height: 100%;
 
   .clientInfo {
     width: 41.67vw;
     padding: 1.67vw;
     border-radius: 1.67vw;
     background-color: rgba(249, 249, 249, 1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
     .caseTitle {
       margin-bottom: 2.92vw;

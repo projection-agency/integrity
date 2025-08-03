@@ -1,13 +1,18 @@
 .footer {
   position: relative;
   padding: 5.21vw 4.17vw;
+  padding-bottom: 8vw;
   background-color: rgba(34, 34, 34, 1);
   border-top-left-radius: 2.08vw;
   border-top-right-radius: 2.08vw;
+  overflow: hidden;
 
   .topBlock {
     display: flex;
     justify-content: space-between;
+    z-index: 99;
+    position: relative;
+
     .slogan {
       width: 36.31vw;
 
@@ -171,6 +176,8 @@
 
   .bottomBlock {
     padding-top: 6.25vw;
+    position: relative;
+    z-index: 99;
 
     svg {
       margin-bottom: 2.92vw;
