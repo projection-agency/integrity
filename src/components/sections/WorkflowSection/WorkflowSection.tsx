@@ -232,7 +232,7 @@ export default function WorkflowSection({
 
   const { scrollYProgress } = useScroll({
     target: sectionRef,
-    offset: ['start 0.2', 'end 0.9'],
+    offset: ['start 0.2', 'end 1'],
   })
   const line = useTransform(scrollYProgress, [0, 1], [0, 1])
   const smoothLine = useSpring(line, {
