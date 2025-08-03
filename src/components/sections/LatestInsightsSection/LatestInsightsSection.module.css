@@ -81,6 +81,10 @@
   /* border-radius: 0.63vw 0.63vw 0 0; */
   border-radius: 2vw;
   height: 20vw;
+  transition: transform 0.4s ease;
+}
+.insightCard:hover .insightCardImage {
+  transform: scale(1.05); /* збільшення при наведені */
 }
 .insightCardBadge {
   position: absolute;

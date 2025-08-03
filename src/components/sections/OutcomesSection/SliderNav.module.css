@@ -15,7 +15,8 @@
   width: 9.7vw;
   height: 2.917vw;
   border-radius: 0.833vw;
-  fill: var(--light-gray);
+  /* fill: var(--light-gray); */
+  background: #f9f9f9;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -32,7 +33,6 @@
   align-items: center;
   justify-content: center;
   img {
-    transform: rotate(180deg);
     width: 1.042vw;
     height: 0.833vw;
   }
@@ -46,6 +46,7 @@
     height: 0.833vw;
   }
 }
+/* background: #f9f9f9; */
 
 .arrowBtn svg {
   width: 1.042vw;
@@ -256,7 +257,6 @@
     stroke: var(--black-600);
 
     img {
-      transform: rotate(180deg);
       width: 5.6vw;
       height: 4.27vw;
     }
