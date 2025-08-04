@@ -548,15 +548,21 @@
     width: 76.533vw;
     height: 12.8vw;
     gap: 2.63vw;
+
+    span {
+      gap: 3.2vw;
+
+      .order {
+        font-family: var(--font-family);
+        font-weight: 800;
+        font-size: 3.733vw;
+        line-height: 140%;
+        letter-spacing: -0.02em;
+        color: var(--white);
+      }
+    }
   }
-  .order {
-    font-family: var(--font-family);
-    font-weight: 800;
-    font-size: 3.733vw;
-    line-height: 140%;
-    letter-spacing: -0.02em;
-    color: var(--white);
-  }
+
   .btnIcon {
     width: 5.25vw;
     height: 5.25vw;

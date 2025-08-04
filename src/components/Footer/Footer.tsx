@@ -66,10 +66,26 @@ const iconMap: Record<string, JSX.Element> = {
 }
 
 const socials = ['whatsapp', 'linkedin', 'x', 'youtube']
+
 export default function Footer({ menu }: { menu: MenuItem[] }) {
   const footerRef = useRef<HTMLElement>(null)
   const integrityRef = useRef<HTMLDivElement>(null)
   const [topBlockVisible, setTopBlockVisible] = useState(false)
+  const [isDesktop, setIsDesktop] = useState(false)
+
+  // Перевіряємо розмір екрану
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsDesktop(window.innerWidth > 1024)
+    }
+
+    checkScreenSize()
+    window.addEventListener('resize', checkScreenSize)
+
+    return () => {
+      window.removeEventListener('resize', checkScreenSize)
+    }
+  }, [])
 
   const { scrollYProgress } = useScroll({
     target: footerRef,
@@ -80,6 +96,8 @@ export default function Footer({ menu }: { menu: MenuItem[] }) {
   const integrityOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 1])
 
   useEffect(() => {
+    if (!isDesktop) return
+
     const unsubscribe = scrollYProgress.on('change', (latest) => {
       if (latest >= 0.8 && !topBlockVisible) {
         setTopBlockVisible(true)
@@ -88,18 +106,18 @@ export default function Footer({ menu }: { menu: MenuItem[] }) {
       }
     })
     return unsubscribe
-  }, [scrollYProgress, topBlockVisible])
+  }, [scrollYProgress, topBlockVisible, isDesktop])
 
   return (
     <footer ref={footerRef} className={s.footer}>
       <motion.div
         className={s.topBlock}
-        initial={{ opacity: 0, y: 50 }}
+        initial={{ opacity: isDesktop ? 0 : 1, y: isDesktop ? 50 : 0 }}
         animate={{
-          opacity: topBlockVisible ? 1 : 0,
-          y: topBlockVisible ? 0 : 50,
+          opacity: isDesktop ? (topBlockVisible ? 1 : 0) : 1,
+          y: isDesktop ? (topBlockVisible ? 0 : 50) : 0,
         }}
-        transition={{ duration: 0.5, ease: 'easeOut' }}
+        transition={{ duration: isDesktop ? 0.5 : 0, ease: 'easeOut' }}
       >
         <div className={s.slogan}>
           <p>
@@ -148,8 +166,8 @@ export default function Footer({ menu }: { menu: MenuItem[] }) {
         <motion.div
           ref={integrityRef}
           style={{
-            y: integrityY,
-            opacity: integrityOpacity,
+            y: isDesktop ? integrityY : 0,
+            opacity: isDesktop ? integrityOpacity : 1,
           }}
           className={s.integrity}
         >

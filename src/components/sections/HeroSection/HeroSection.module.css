@@ -275,12 +275,14 @@
         gap: 3.2vw;
 
         button {
-          gap: 2.13vw;
           width: 63.47vw;
           height: 13.87vw;
           border-radius: 4.27vw;
 
-          font-size: 3.73vw;
+          span {
+            font-size: 3.73vw;
+            gap: 2.13vw;
+          }
 
           svg {
             width: 5.33vw;

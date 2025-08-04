@@ -165,17 +165,25 @@
   .header {
     display: flex;
     justify-content: space-between;
-    padding-top: 6.4vw;
-    padding-bottom: 6.4vw;
+    padding: 3.2vw;
+    border-radius: 6.4vw;
+    position: fixed;
 
     .logoHeader {
       width: 25.33vw;
       height: 10.67vw;
+      max-height: 10.67vw;
+      padding: 0;
 
       div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
         svg {
           width: 25.33vw;
           height: 10.67vw;
+          max-height: 10.67vw;
         }
       }
     }
