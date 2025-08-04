@@ -464,24 +464,35 @@
               }
 
               .reviewBlock {
-                div {
-                  padding: 2.13vw 4.27vw;
+                .stars {
+                  width: max-content;
+                  padding: 2.13vw 4.26vw;
                   margin-bottom: 5.33vw;
+                  display: flex;
+                  align-items: center;
                   gap: 2.13vw;
                   border-radius: 2.13vw;
+                  font-size: 4.26vw;
 
-                  p {
-                    font-size: 4.27vw;
+                  .wrapStars {
+                    display: flex;
+                    align-items: center;
+                    gap: 1.3vw;
                   }
 
-                  .star {
-                    height: 5.33vw;
+                  span {
+                    margin-top: 0.33vw;
+                  }
+
+                  svg {
                     width: 5.33vw;
+                    height: 5.33vw;
                   }
 
-                  .upwork {
-                    width: 14.93vw;
-                    height: 4.53vw;
+                  img {
+                    height: 4.5vw;
+                    width: auto;
+                    object-fit: contain;
                   }
                 }
 
