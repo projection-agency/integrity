@@ -123,6 +123,8 @@
   border-radius: 0.83vw;
   background: #fff;
   margin: 0 auto;
+  border-radius: 0.83vw;
+  padding: 0.42vw;
 }
 
 /* Додаю відступ для секції з формою */
@@ -452,6 +454,8 @@
     margin: 0 auto;
     width: 91.467vw;
     height: 14.4vw;
+    border-radius: 4.32vw;
+    padding: 2.16vw;
   }
   .sliderDotsRow {
     display: flex;

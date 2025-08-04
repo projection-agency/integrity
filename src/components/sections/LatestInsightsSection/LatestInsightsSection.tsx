@@ -15,6 +15,7 @@ import type { Post as PayloadPost } from '@/payload-types'
 import SliderNav from './SliderNav'
 import useHasMounted from './useHasMounted'
 import Link from 'next/link'
+import { RevisedСard } from '@/components/Icon/Icon'
 
 type Post = PayloadPost & {
   readingTime: string
@@ -35,6 +36,7 @@ export default function LatestInsightsSection({ block, filteredPosts }: Props) {
   const hasMounted = useHasMounted()
   const isMobile = useIsMobile()
   const visiblePosts = filteredPosts.slice(0, 3)
+  const [isHovered, setIsHovered] = useState(false)
 
   const [activeIndex, setActiveIndex] = useState(0)
   const swiperRef = useRef<SwiperType | null>(null)
@@ -76,8 +78,15 @@ export default function LatestInsightsSection({ block, filteredPosts }: Props) {
             onNext={() => swiperRef.current?.slideNext()}
             onDotClick={(i) => swiperRef.current?.slideTo(i)}
           />
-          <Link href="/blog" className={styles.latestInsightsCta}>
-            <Image src="/images/icons/revised-card2.svg" alt="arrow icon" width={16} height={16} />
+          <Link
+            href="/blog"
+            className={`${styles.latestInsightsCta} ${isHovered ? styles.hovered : ''}`}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+            onTouchStart={() => setIsHovered(true)}
+            onTouchEnd={() => setIsHovered(false)}
+          >
+            <RevisedСard className={styles.icon} />
             See all Integrity posts
           </Link>
         </>
@@ -91,7 +100,7 @@ export default function LatestInsightsSection({ block, filteredPosts }: Props) {
 
       {!isMobile && (
         <Link href="/blog" className={styles.latestInsightsCta}>
-          <Image src="/images/icons/revised-card2.svg" alt="arrow icon" width={16} height={16} />
+          <RevisedСard className={styles.icon} />
           <span className={styles.latestText}>See all Integrity posts</span>
         </Link>
       )}

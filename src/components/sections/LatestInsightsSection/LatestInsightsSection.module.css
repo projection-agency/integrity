@@ -183,6 +183,25 @@
   border: none;
   cursor: pointer;
 }
+.latestInsightsCta:hover {
+  background: black;
+  color: white;
+}
+
+.latestInsightsCta:hover {
+  color: var(--white);
+}
+.latestInsightsCta:hover .icon {
+  background: brightness(0) invert(1);
+  background-color: white;
+}
+
+.latestInsightsCta:hover {
+  color: white;
+}
+.latestInsightsCta:hover .icon {
+  fill: currentColor;
+}
 .latestInsightsCta svg {
   width: 1vw;
   height: 1vw;
@@ -288,6 +307,12 @@
     line-height: 140%;
     letter-spacing: -0.02em;
     color: var(--black);
+  }
+  .latestInsightsCta.hovered {
+    color: white;
+  }
+  .latestInsightsCta.hovered .icon {
+    fill: white;
   }
 }
 
