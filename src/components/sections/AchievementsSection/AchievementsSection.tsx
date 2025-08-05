@@ -35,7 +35,6 @@ export default function AchievementsSection({
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          console.log('AchievementsSection is visible')
           setIsVisible(true)
           observer.disconnect()
         }

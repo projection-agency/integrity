@@ -6,7 +6,7 @@ import FillForm from '@/components/FillForm/FillForm'
 
 const ExpertSection = () => {
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.wrapper} id="call">
       <div className={styles.rowLayout}>
         {/* TalkToExpertBlock */}
         <div className={styles.expertBlock}>

@@ -24,7 +24,6 @@ export default function ArticleNavItem({ item }: { item: { id: string; text: str
         onClick={(e) => {
           const element = document.getElementById(item.id)
           const yOffset = window.innerWidth * 0.7
-          console.log(yOffset)
           if (element) {
             const y = element?.getBoundingClientRect().top + window.scrollY - yOffset
             window.scrollTo({

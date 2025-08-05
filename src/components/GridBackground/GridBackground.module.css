@@ -1,0 +1,49 @@
+.gridBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: var(--grid-size, 100px) var(--grid-size, 100px);
+  background-position: 0 0;
+  will-change: transform;
+  transform: translateZ(0);
+  transition: all 0.05s ease-out;
+}
+
+.gridBackground::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.3) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.3) 1px, transparent 1px);
+  background-size: var(--grid-size, 100px) var(--grid-size, 100px);
+  background-position: 0 0;
+  mask: radial-gradient(
+    circle var(--mask-radius, 150px) at var(--cursor-x, 0px) var(--cursor-y, 0px),
+    white,
+    transparent
+  );
+  -webkit-mask: radial-gradient(
+    circle var(--mask-radius, 150px) at var(--cursor-x, 0px) var(--cursor-y, 0px),
+    white,
+    transparent
+  );
+  pointer-events: none;
+  will-change:
+    mask,
+    -webkit-mask;
+  transform: translateZ(0);
+  transition:
+    mask 0.08s ease-out,
+    -webkit-mask 0.08s ease-out;
+}

@@ -9,6 +9,7 @@ import NumberInput from '../NumberInput/NumberInput'
 import { Form, Formik, Field, ErrorMessage, FormikHelpers } from 'formik'
 import * as Yup from 'yup'
 import { NumberIcon } from '../Icon/Icon'
+import { useCustomToastContext } from '@/contexts/CustomToastProvider'
 
 interface FormValues {
   name: string
@@ -38,6 +39,8 @@ const validationSchema = Yup.object({
 })
 
 const FillForm = () => {
+  const { showSuccessToast, showErrorToast } = useCustomToastContext()
+
   const handleSubmit = async (values: FormValues, { setSubmitting }: FormikHelpers<FormValues>) => {
     try {
       const response = await fetch('/api/order-call-full', {
@@ -59,9 +62,11 @@ const FillForm = () => {
       }
 
       const result = await response.json()
-      console.log('Успішно відправлено:', result)
+      console.log('Form sent successfully:', result)
+      showSuccessToast('Form sent successfully!')
     } catch (error) {
-      console.error('Помилка:', error)
+      console.error('Error:', error)
+      showErrorToast('Failed to send form. Please try again.')
     } finally {
       setSubmitting(false)
     }

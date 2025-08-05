@@ -50,7 +50,6 @@ export default function CasesSection({ block }: { block: CasesBlockData }) {
 
   useEffect(() => {
     setCaseData(block.case)
-    console.log(swiperRef.current)
 
     // Встановлюємо ширину вікна тільки на клієнті
     if (typeof window !== 'undefined') {

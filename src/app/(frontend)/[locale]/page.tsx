@@ -61,7 +61,6 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
   const payload = await getPayload({ config: payloadConfig })
 
   const faqs = await addFaqs(locale)
-  console.log(faqs)
 
   const { docs } = await payload.find({
     collection: 'pages',

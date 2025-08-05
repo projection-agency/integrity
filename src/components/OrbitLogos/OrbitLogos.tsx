@@ -25,20 +25,21 @@ const rotationValues = [
   140, // Четверте коло: 30 градусів
 ]
 
-function vwToPx(vw: string) {
-  return (parseFloat(vw) / 100) * window.innerWidth
+function vwToPx(vw: string, windowWidth: number) {
+  return (parseFloat(vw) / 100) * windowWidth
 }
 
 const OrbitLogos = () => {
   const refs = useRef<Array<Array<HTMLDivElement | null>>>([])
   const [radiiPx, setRadiiPx] = useState([0, 0, 0, 0])
   const [scrollProgress, setScrollProgress] = useState(0)
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth)
+  const [windowWidth, setWindowWidth] = useState(0)
 
   useEffect(() => {
     function updateRadii() {
-      setWindowWidth(window.innerWidth)
-      setRadiiPx(radiiVW.map((vw) => vwToPx(vw)))
+      const width = window.innerWidth
+      setWindowWidth(width)
+      setRadiiPx(radiiVW.map((vw) => vwToPx(vw, width)))
     }
     updateRadii()
     window.addEventListener('resize', updateRadii)
@@ -101,6 +102,11 @@ const OrbitLogos = () => {
       }
     })
   }, [radiiPx, scrollProgress])
+
+  // Не рендеримо компонент до тих пір, поки не отримаємо розміри вікна
+  if (windowWidth === 0) {
+    return <div className="wrapper" />
+  }
 
   return (
     <div className="wrapper">

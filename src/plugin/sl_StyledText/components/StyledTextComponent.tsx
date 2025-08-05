@@ -7,8 +7,7 @@ import FullTextArea from '@/plugin/sl_StyledText/components/FullTextArea/FullTex
 import { useField } from '@payloadcms/ui'
 
 export default function StyledTextComponent(props: any) {
-  const { path,  field} = props
-  console.log(props)
+  const { path, field } = props
   const ids = {
     id_st_container: `st_container_${path}`,
     id_preview_container: `preview_container_${path}`,
@@ -22,9 +21,9 @@ export default function StyledTextComponent(props: any) {
 
   return (
     <div className={styles.st_container} id={ids.id_st_container}>
-      <div className={styles.st_container_title}>{
-        field.label.en ? field.label.en : field.label.uk  || field.label
-      }</div>
+      <div className={styles.st_container_title}>
+        {field.label.en ? field.label.en : field.label.uk || field.label}
+      </div>
       <ST_Header text={value} setText={setContent} ids={ids} />
       <PreviewArea content={value} onChange={setContent} id={ids.id_preview_container} />
       <FullTextArea content={value} onChange={setContent} id={ids.id_fulltext_container} />

@@ -74,7 +74,7 @@ export default function FormSection() {
   }, [])
 
   return (
-    <section className={s.section}>
+    <section className={s.section} id="strategy">
       <div className={s.leftBlock}>
         <div className={s.content}>
           <div className={s.imagesCont}>

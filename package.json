@@ -41,7 +41,7 @@
     "react-select": "^5.10.2",
     "react-select-country-list": "^2.2.3",
     "reading-time": "^1.5.0",
-    "sharp": "0.32.6",
+    "sharp": "^0.34.3",
     "simplebar-react": "^3.3.2",
     "swiper": "^11.2.10",
     "yup": "^1.6.1"
@@ -75,11 +75,7 @@
     "node": "^18.20.2 || >=20.9.0",
     "pnpm": "^9 || ^10"
   },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "sharp"
-    ]
-  },
+  "pnpm": {},
   "main": "index.js",
   "directories": {
     "test": "tests"
