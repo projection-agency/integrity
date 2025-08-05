@@ -84,8 +84,17 @@
 }
 
 @media screen and (max-width: 1024px) {
-  .circleBg {
-    height: 328.53vw !important;
-    width: 328.53vw !important;
+  .orbitContainer {
+    top: -67vw;
+  }
+
+  .logo {
+    width: 8.53vw;
+    height: 8.53vw;
+
+    img {
+      width: 3.2vw;
+      height: 3.2vw;
+    }
   }
 }

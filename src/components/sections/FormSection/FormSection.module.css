@@ -127,7 +127,7 @@
       }
 
       .checkboxLine {
-        overflow-x: scroll;
+        padding-bottom: 0.5vw;
       }
 
       .stagesLine {

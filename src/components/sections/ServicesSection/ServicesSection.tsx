@@ -52,33 +52,28 @@ export default function ServicesSection({ block }: { block: ServicesBlock }) {
         <div className={s.sliderWindow}>
           <Swiper
             grabCursor={true}
-            centeredSlides={true}
-            slidesPerView={1.2}
+            slidesPerView={'auto'}
             loop={services.length >= 6}
             speed={600}
-            // spaceBetween={145}
-            spaceBetween={8}
             pagination={false}
             navigation={{
               nextEl: '.navSwiperNext',
               prevEl: '.navSwiperPrev',
             }}
-            observer={true}
-            observeParents={true}
             modules={[EffectCoverflow, Pagination, Navigation]}
             className={s.swiperCustom}
             onSwiper={(swiper) => (swiperRef.current = swiper)}
             onSlideChange={(swiper) => setSwiperIndex(swiper.realIndex)}
             breakpoints={{
               1024: {
-                slidesPerView: 3.6,
-                spaceBetween: 16,
+                slidesPerView: 'auto',
                 centeredSlides: true,
+                spaceBetween: 16,
               },
               320: {
-                slidesPerView: 1.2,
+                slidesPerView: 'auto',
                 spaceBetween: 8,
-                centeredSlides: false,
+                centeredSlides: true,
               },
             }}
           >
@@ -87,10 +82,6 @@ export default function ServicesSection({ block }: { block: ServicesBlock }) {
                 <div className={s.serviceCard}>
                   <div className={s.heroServices}>
                     <div className={s.serviceIconWrapper}>
-                      {/* <div
-                        className={s.iconService}
-                        dangerouslySetInnerHTML={{ __html: service?.service_icon || '' }}
-                      /> */}
                       <div className={s.cardBlock}>
                         <div className={s.cardIconcBlock}>
                           <div
