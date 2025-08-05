@@ -8,7 +8,6 @@ import NumberInput from '../NumberInput/NumberInput'
 import { Form, Formik, Field, ErrorMessage, FormikHelpers } from 'formik'
 import * as Yup from 'yup'
 import { NumberIcon } from '../Icon/Icon'
-import { number } from 'framer-motion'
 
 interface FormValues {
   name: string
@@ -44,8 +43,8 @@ const FillForm = () => {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'x-api-key': 'pk_3f9a1c7e8b2d4a6f9e0c1a2b3d4e5f6a',
-          'x-api-secret': 'sk_9d7e6c5b4a3f2e1d0c9b8a7f6e5d4c3b',
+          'x-api-key': process.env.NEXT_PUBLIC_API_KEY || 'pk_...',
+          'x-api-secret': process.env.NEXT_PUBLIC_API_SECRET || 'sk_...',
         },
         body: JSON.stringify({
           name: values.name,
