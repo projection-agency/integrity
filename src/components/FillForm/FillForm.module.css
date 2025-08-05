@@ -102,7 +102,6 @@
   padding: 0.42vw 0.83vw;
   font-weight: 700;
 }
-
 .submitBtn {
   position: relative;
   overflow: hidden;
@@ -113,6 +112,10 @@
   border-radius: 0.83vw;
   border: none;
   cursor: pointer;
+  transition: background 0.3s ease;
+
+  /* За замовчуванням білий текст */
+  color: var(--white);
 
   span {
     position: relative;
@@ -122,14 +125,10 @@
     justify-content: center;
     gap: 0.63vw;
 
-    .btnIcon {
-      transition: fill 300ms ease-in-out;
-      fill: #ffffff;
-    }
-
+    .btnIcon,
     svg {
+      fill: var(--white);
       transition: fill 300ms ease-in-out;
-      fill: #ffffff;
     }
 
     .order {
@@ -155,27 +154,22 @@
   opacity: 0;
 }
 
-.submitBtn:hover {
-  span {
-    .btnIcon {
-      fill: rgba(34, 34, 34, 1);
-    }
-    svg {
-      fill: rgba(34, 34, 34, 1);
-    }
-    .order {
-      color: rgba(34, 34, 34, 1);
-    }
-  }
-}
-
 .submitBtn:hover::after {
   opacity: 1;
 }
 
-.btnIcon {
-  width: 1.25vw;
-  height: 1.25vw;
+/* ✅ Ховер: змінюємо колір тексту + іконки */
+.submitBtn:hover {
+  color: var(--black);
+}
+
+.submitBtn:hover .order {
+  color: var(--black);
+}
+
+.submitBtn:hover .btnIcon,
+.submitBtn:hover svg {
+  fill: var(--black);
 }
 
 .wrapper {
@@ -431,7 +425,7 @@
   width: max-content;
   position: relative;
   margin-bottom: 0.63vw;
-  font-family: "Inter Tight";
+  font-family: 'Inter Tight';
   font-size: 0.83vw;
   font-style: italic;
   font-weight: 800;
