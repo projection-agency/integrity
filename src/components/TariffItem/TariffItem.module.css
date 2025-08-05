@@ -1,6 +1,6 @@
 .cardContainer {
   display: flex;
-  height: auto;
+  height: 37.97vw;
   width: auto;
   perspective: 1000px;
 }
@@ -131,8 +131,6 @@
     }
 
     .servicesList {
-      max-height: 4.43vw;
-      overflow-y: scroll;
       display: flex;
       flex-direction: column;
       gap: 0.63vw;
@@ -164,6 +162,7 @@
     margin-top: auto;
     margin-bottom: 1.67vw;
     border-radius: 0.83vw;
+    flex-shrink: 0;
 
     background-color: #ffffff;
 
@@ -304,6 +303,7 @@
 
 .tariffPlan.back {
   height: 100%;
+  overflow: scroll;
   .services {
     background-color: transparent;
 

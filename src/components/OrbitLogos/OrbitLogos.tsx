@@ -33,9 +33,11 @@ const OrbitLogos = () => {
   const refs = useRef<Array<Array<HTMLDivElement | null>>>([])
   const [radiiPx, setRadiiPx] = useState([0, 0, 0, 0])
   const [scrollProgress, setScrollProgress] = useState(0)
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth)
 
   useEffect(() => {
     function updateRadii() {
+      setWindowWidth(window.innerWidth)
       setRadiiPx(radiiVW.map((vw) => vwToPx(vw)))
     }
     updateRadii()
@@ -60,7 +62,7 @@ const OrbitLogos = () => {
         progress = Math.max(0, Math.min(1, scrollDistance / (windowHeight + elementHeight)))
       }
 
-      setScrollProgress(progress)
+      setScrollProgress(progress * 3)
     }
 
     window.addEventListener('scroll', handleScroll)
@@ -88,8 +90,11 @@ const OrbitLogos = () => {
         const el = circleRefs?.[i]
         const iconAngle = (i * Math.PI * 2) / iconsPerCircle
         const totalAngle = baseAngle + iconAngle
-        const x = Math.cos(totalAngle) * radius
-        const y = Math.sin(totalAngle) * radius
+        const x =
+          windowWidth <= 1024 ? Math.cos(totalAngle) * radius * 3.98 : Math.cos(totalAngle) * radius
+        const y =
+          windowWidth <= 1024 ? Math.sin(totalAngle) * radius * 3.98 : Math.sin(totalAngle) * radius
+
         if (el) {
           el.style.transform = `translate(-50%, -50%) translate(${x}px, ${y}px)`
         }
@@ -119,22 +124,37 @@ const OrbitLogos = () => {
           }),
         )}
         {/* Render 4 background circles */}
-        {radiiVW.map((vw, i) => (
-          <div
-            key={`circle-${i}`}
-            className={styles.circleBg}
-            style={{
-              width: `calc(${vw} * 2)`,
-              height: `calc(${vw} * 2)`,
-              left: `calc(50% - ${vw})`,
-              top: `calc(50% - ${vw})`,
-              position: 'absolute',
-              borderRadius: '50%',
-              border: '1px solid rgba(0, 0, 0, 0.1)',
-              pointerEvents: 'none',
-            }}
-          />
-        ))}
+        {radiiVW.map((vw, i) => {
+          return (
+            <div
+              key={`circle-${i}`}
+              className={styles.circleBg}
+              style={
+                windowWidth >= 1024
+                  ? {
+                      width: `calc(${vw} * 2)`,
+                      height: `calc(${vw} * 2)`,
+                      left: `calc(50% - ${vw})`,
+                      top: `calc(50% - ${vw})`,
+                      position: 'absolute',
+                      borderRadius: '50%',
+                      border: '1px solid rgba(0, 0, 0, 0.1)',
+                      pointerEvents: 'none',
+                    }
+                  : {
+                      width: `calc(${vw} * 2 * 3.98)`,
+                      height: `calc(${vw} * 2 * 3.98)`,
+                      left: `calc(50% - ${vw} *3.98)`,
+                      top: `calc(-50% - ${vw}*3.98)`,
+                      position: 'absolute',
+                      borderRadius: '50%',
+                      border: '1px solid rgba(0, 0, 0, 0.1)',
+                      pointerEvents: 'none',
+                    }
+              }
+            />
+          )
+        })}
       </div>
     </div>
   )

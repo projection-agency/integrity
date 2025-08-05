@@ -353,35 +353,34 @@
     gap: 2.08vw;
   }
   .contactItem {
-    display: flex;
-    span {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 1.67vw;
-      height: 1.67vw;
-      border-radius: 50%;
-      background-color: linear-gradient(
-        141deg,
-        rgba(255, 255, 255, 0.12) 8.87%,
-        rgba(41, 41, 41, 0.12) 93.36%
-      );
-
-      svg {
-        width: 0.83vw;
-        height: 0.83vw;
-      }
-    }
-
     .contactInfo {
       p {
-        margin-bottom: 0.26vw;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 0.63vw;
+        margin-bottom: 0.63vw;
         font-size: 0.83vw;
         font-style: normal;
         font-weight: 600;
         line-height: 1.2;
 
         color: rgba(181, 181, 181, 1);
+
+        span {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 1.67vw;
+          height: 1.67vw;
+          border-radius: 50%;
+          background-color: rgba(255, 255, 255, 0.12);
+
+          svg {
+            width: 0.83vw;
+            height: 0.83vw;
+          }
+        }
       }
 
       a {

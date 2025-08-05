@@ -291,5 +291,37 @@
         }
       }
     }
+
+    .iconsAds {
+      bottom: 10.67vw;
+    }
+    
+    .iconsWrapper img:first-child {
+      top: -8.48vw;
+      left: 4.27vw;
+      transform: rotate(-7deg);
+      width: 14.93vw;
+      height: 14.93vw;
+    }
+
+    .iconsWrapper img:nth-child(2) {
+      bottom: 2.6vw;
+      left: 30vw;
+      width: 9.33vw;
+      height: 9.33vw;
+    }
+
+    .iconsWrapper img:nth-child(3) {
+      transform: rotateZ(12deg);
+      width: 10.67vw;
+      height: 10.67vw;
+    }
+
+    .iconsWrapper img:nth-child(4) {
+      top: 1.3vw;
+      right: 4vw;
+      width: 9.33vw;
+      height: 9.33vw;
+    }
   }
 }

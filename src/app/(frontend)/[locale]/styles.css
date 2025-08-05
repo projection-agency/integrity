@@ -75,7 +75,7 @@ h6 {
 
 /* Set default font and smooth rendering */
 body {
-  font-family: "Mont";
+  font-family: 'Mont';
   font-weight: 600;
   line-height: 1.5;
   background-color: #fff;
@@ -146,3 +146,10 @@ div[id] {
 html {
   scroll-behavior: smooth;
 }
+
+.simplebar-scrollbar::before {
+  height: 0.2vw !important;
+  border-radius: 1vw !important;
+}
+
+
