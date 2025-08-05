@@ -1,6 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
+import { usePathname } from 'next/navigation'
 import 'react-phone-input-2/lib/style.css'
 import styles from './FillForm.module.css'
 import Image from 'next/image'
@@ -37,6 +38,7 @@ const validationSchema = Yup.object({
 })
 
 const FillForm = () => {
+
   const handleSubmit = async (values: FormValues, { setSubmitting }: FormikHelpers<FormValues>) => {
     try {
       const response = await fetch('/api/order-call-full', {
@@ -67,7 +69,9 @@ const FillForm = () => {
   }
 
   return (
-    <div className={styles.wrapper}>
+    <div
+      className={`${styles.wrapper} ${pathname.includes('contacts') ? styles.contactsPage : ''}`}
+    >
       <div className={styles.rowLayout}>
         <Formik
           initialValues={initialValues}

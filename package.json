@@ -36,11 +36,13 @@
     "html-react-parser": "^5.2.6",
     "next-intl": "^4.3.3",
     "payload": "^3.48.0",
+    "pnpm": "^10.14.0",
     "react-phone-input-2": "^2.15.1",
     "react-select": "^5.10.2",
     "react-select-country-list": "^2.2.3",
     "reading-time": "^1.5.0",
     "sharp": "0.32.6",
+    "simplebar-react": "^3.3.2",
     "swiper": "^11.2.10",
     "yup": "^1.6.1"
   },

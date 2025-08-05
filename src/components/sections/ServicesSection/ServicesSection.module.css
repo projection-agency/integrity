@@ -54,6 +54,10 @@
   width: 100%;
 }
 
+.swiperSlide{
+  margin-right: 0.83vw;
+}
+
 .serviceCard {
   padding: 2.08vw;
   border-radius: 1.66vw;
@@ -66,6 +70,7 @@
   text-align: left;
   background: #fff;
   height: 100%;
+
   transition: all 0.3s ease;
 }
 
@@ -182,7 +187,15 @@
   justify-content: center;
   align-items: center;
   gap: 0.83vw;
-  position: static;
+}
+
+.sliderDot {
+  flex-shrink: 0;
+  width: 0.31vw;
+  height: 0.31vw;
+  background: #e4e4e4;
+  border-radius: 50%;
+  margin: 0 !important;
 }
 
 .sliderActiveDot {
@@ -191,15 +204,6 @@
   border-radius: 166px;
   background: #222;
   display: inline-block;
-}
-
-.sliderDot {
-  width: 0.31vw;
-  height: 0.31vw;
-  z-index: 1;
-  background: #e4e4e4;
-  border-radius: 50%;
-  margin: 0 !important;
 }
 
 .sliderSvgRow {
@@ -260,14 +264,16 @@
     opacity: 0.5;
     transition: all 0.3s ease;
     padding: 1.27vw 0;
-    width: 27vw !important;
+    width: 27vw;
+    /* transform: scale(0); */
   }
 
   .swiperCustom :global(.swiper-slide-active) {
     opacity: 1;
     padding: 0vw;
-    width: 29.8vw !important;
+    /* transform: scale(1); */
   }
+
   .swiperCustom :global(.swiper-slide-active) .serviceCard {
     opacity: 1;
     padding: 3.125vw;
@@ -280,9 +286,9 @@
 }
 
 @media (max-width: 1024px) {
-  .swiperCustom :global(.swiper-slide) {
+  /* .swiperCustom :global(.swiper-slide) {
     padding: 0 !important;
-  }
+  } */
 
   .swiperCustom {
     width: 91.46vw;
