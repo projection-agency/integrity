@@ -53,9 +53,17 @@ export default function ServicesSection({ block }: { block: ServicesBlock }) {
           <Swiper
             grabCursor={true}
             slidesPerView={'auto'}
-            loop={services.length >= 6}
+            loop={true}
             speed={600}
-            pagination={false}
+            pagination={{
+              enabled: true,
+              el: `.${s.sliderDotsRow}`,
+              type: 'bullets',
+              clickable: true,
+              bulletActiveClass: `${s.sliderActiveDot}`,
+              bulletClass: `${s.sliderDot}`,
+            }}
+            centeredSlides={true}
             navigation={{
               nextEl: '.navSwiperNext',
               prevEl: '.navSwiperPrev',
@@ -64,21 +72,20 @@ export default function ServicesSection({ block }: { block: ServicesBlock }) {
             className={s.swiperCustom}
             onSwiper={(swiper) => (swiperRef.current = swiper)}
             onSlideChange={(swiper) => setSwiperIndex(swiper.realIndex)}
-            breakpoints={{
-              1024: {
-                slidesPerView: 'auto',
-                centeredSlides: true,
-                spaceBetween: 16,
-              },
-              320: {
-                slidesPerView: 'auto',
-                spaceBetween: 8,
-                centeredSlides: true,
-              },
-            }}
+            // breakpoints={{
+            //   1024: {
+            //     slidesPerView: 'auto',
+            //     spaceBetween: 16,
+            //     slidesOffsetBefore: 64,
+            //   },
+            //   320: {
+            //     slidesPerView: 'auto',
+            //     spaceBetween: 8,
+            //   },
+            // }}
           >
             {services.map((service, idx) => (
-              <SwiperSlide key={service?.service_title || idx}>
+              <SwiperSlide key={service?.service_title || idx} className={s.swiperSlide}>
                 <div className={s.serviceCard}>
                   <div className={s.heroServices}>
                     <div className={s.serviceIconWrapper}>
@@ -118,25 +125,7 @@ export default function ServicesSection({ block }: { block: ServicesBlock }) {
               />
             </button>
           </div>
-          <div className={s.sliderDotsRow}>
-            {services.map((_, idx) =>
-              idx === swiperIndex ? (
-                <span
-                  key={idx}
-                  className={s.sliderActiveDot}
-                  onClick={() => swiperRef.current?.slideToLoop(idx)}
-                  style={{ cursor: 'pointer' }}
-                ></span>
-              ) : (
-                <span
-                  key={idx}
-                  className={s.sliderDot}
-                  onClick={() => swiperRef.current?.slideToLoop(idx)}
-                  style={{ cursor: 'pointer' }}
-                ></span>
-              ),
-            )}
-          </div>
+          <div className={s.sliderDotsRow}></div>
           <div className={s.arrowContainer}>
             <button className={'navSwiperNext ' + s.arrowBtn} aria-label="Next slide">
               <Image

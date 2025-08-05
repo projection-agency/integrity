@@ -62,7 +62,7 @@ const OrbitLogos = () => {
         progress = Math.max(0, Math.min(1, scrollDistance / (windowHeight + elementHeight)))
       }
 
-      setScrollProgress(progress)
+      setScrollProgress(progress * 3)
     }
 
     window.addEventListener('scroll', handleScroll)
@@ -76,7 +76,6 @@ const OrbitLogos = () => {
 
     refs.current.forEach((circleRefs, circleIdx) => {
       const radius = radiiPx[circleIdx]
-      console.log(radius)
       const iconsPerCircle = icons.length
 
       // Індивідуальне значення повороту для кожного кола
