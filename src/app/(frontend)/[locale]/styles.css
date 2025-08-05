@@ -1,4 +1,4 @@
-/* Глобальні CSS-змінні для кольорів і шрифтів */
+
 @font-face {
   font-family: 'Mont';
   src:
@@ -8,7 +8,7 @@
   font-style: normal;
   font-display: swap;
 }
-/* ../../../../public/fonts/Mont-Bold.woff2 */
+
 @font-face {
   font-family: 'Mont';
   src:
@@ -35,6 +35,7 @@
   --black: #181818;
   --font-family: 'Mont', system-ui, sans-serif;
   --third-family: 'Inter Tight', system-ui, sans-serif;
+  --font-inter:"Inter";
   --black-600: #222;
   --gray: #b5b5b5;
   --light-garay-2: #b5b5b5; /* ймовірно, це опечатка, але додаю як є */

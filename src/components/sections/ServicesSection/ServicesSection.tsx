@@ -72,17 +72,6 @@ export default function ServicesSection({ block }: { block: ServicesBlock }) {
             className={s.swiperCustom}
             onSwiper={(swiper) => (swiperRef.current = swiper)}
             onSlideChange={(swiper) => setSwiperIndex(swiper.realIndex)}
-            // breakpoints={{
-            //   1024: {
-            //     slidesPerView: 'auto',
-            //     spaceBetween: 16,
-            //     slidesOffsetBefore: 64,
-            //   },
-            //   320: {
-            //     slidesPerView: 'auto',
-            //     spaceBetween: 8,
-            //   },
-            // }}
           >
             {services.map((service, idx) => (
               <SwiperSlide key={service?.service_title || idx} className={s.swiperSlide}>
@@ -116,25 +105,13 @@ export default function ServicesSection({ block }: { block: ServicesBlock }) {
         <div className={s.sliderNavWrapper}>
           <div className={s.arrowContainer}>
             <button className={'navSwiperPrev ' + s.arrowBtn} aria-label="Previous slide">
-              <Image
-                src={ArrowIcon}
-                alt="prev"
-                width={48}
-                height={48}
-                style={{ transform: 'rotate(180deg)', width: 'auto', height: 'auto' }}
-              />
+              {swiperArrow}
             </button>
           </div>
           <div className={s.sliderDotsRow}></div>
           <div className={s.arrowContainer}>
             <button className={'navSwiperNext ' + s.arrowBtn} aria-label="Next slide">
-              <Image
-                src={ArrowIcon}
-                alt="next"
-                width={48}
-                height={48}
-                style={{ width: 'auto', height: 'auto' }}
-              />
+              {swiperArrow}
             </button>
           </div>
         </div>
@@ -145,3 +122,9 @@ export default function ServicesSection({ block }: { block: ServicesBlock }) {
     </div>
   )
 }
+
+const swiperArrow = (
+  <svg xmlns="http://www.w3.org/2000/svg" width="21" height="16" viewBox="0 0 21 16" fill="none">
+    <path d="M19.5 7C20.0523 7 20.5 7.44772 20.5 8C20.5 8.55228 20.0523 9 19.5 9V7ZM0.792892 8.70711C0.402369 8.31658 0.402369 7.68342 0.792892 7.29289L7.15685 0.928932C7.54738 0.538408 8.18054 0.538408 8.57107 0.928932C8.96159 1.31946 8.96159 1.95262 8.57107 2.34315L2.91421 8L8.57107 13.6569C8.96159 14.0474 8.96159 14.6805 8.57107 15.0711C8.18054 15.4616 7.54738 15.4616 7.15685 15.0711L0.792892 8.70711ZM19.5 8V9H1.5V8V7H19.5V8Z" />
+  </svg>
+)

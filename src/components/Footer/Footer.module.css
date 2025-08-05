@@ -16,6 +16,7 @@
     .slogan {
       width: 36.31vw;
 
+      font-family: 'Inter Tight';
       font-size: 4.17vw;
       font-style: italic;
       font-weight: 900;
@@ -105,6 +106,7 @@
           }
 
           p {
+            font-family: 'Inter Tight';
             margin-bottom: 0.26vw;
             font-size: 0.83vw;
             font-style: normal;
