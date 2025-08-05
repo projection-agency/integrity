@@ -90,10 +90,22 @@
   margin-top: auto;
   transition: box-shadow 0.2s;
   width: max-content;
+  border: 1px solid transparent;
 }
 .insightCardBtn svg {
   width: 1vw;
   height: 1vw;
+}
+.insightCardImage {
+  transition: transform 0.3s ease;
+}
+
+.insightCard:hover .insightCardImage {
+  transform: scale(1.05);
+}
+.insightCardBtn:hover {
+  border: 1px solid var(--black);
+  background: var(--white);
 }
 .readMoreText {
   font-family: var(--font-family);

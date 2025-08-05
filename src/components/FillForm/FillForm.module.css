@@ -196,7 +196,7 @@
 }
 
 .expertBlock {
-  background: linear-gradient(135deg, #ffe466, #ffa700);
+  background: linear-gradient(135deg, #ffe414 0%, #ffae00 100%);
   border-radius: 1.67vw;
   padding: 5.21vw;
   width: 38.65vw;
@@ -454,7 +454,7 @@
   width: 52.6vw;
   background-color: #ffffff;
   border-radius: 1.67vw;
-
+  height: 32.29vw;
   label {
     position: relative;
   }
