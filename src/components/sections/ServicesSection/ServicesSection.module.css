@@ -66,6 +66,8 @@
   text-align: left;
   background: #fff;
   height: 100%;
+  transform: scale(1);
+
   transition: all 0.3s ease;
 }
 
@@ -258,17 +260,18 @@
     opacity: 0.5;
     transition: all 0.3s ease;
     padding: 1.27vw 0;
-    width: 27vw !important;
+    width: 27vw;
   }
 
   .swiperCustom :global(.swiper-slide-active) {
     opacity: 1;
     padding: 0vw;
-    width: 29.8vw !important;
   }
+
   .swiperCustom :global(.swiper-slide-active) .serviceCard {
     opacity: 1;
     padding: 3.125vw;
+    transform: scale(1.05);
   }
 
   .swiperCustom :global(.swiper-slide-prev),
@@ -278,9 +281,9 @@
 }
 
 @media (max-width: 1024px) {
-  .swiperCustom :global(.swiper-slide) {
+  /* .swiperCustom :global(.swiper-slide) {
     padding: 0 !important;
-  }
+  } */
 
   .swiperCustom {
     width: 91.46vw;

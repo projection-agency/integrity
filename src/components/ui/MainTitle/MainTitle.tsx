@@ -130,10 +130,6 @@ const MainTitle = ({ title }: { title: string }) => {
     parseHTML(title)
   }, [title, uniqueId, isVisible])
 
-  console.log('Title HTML:', title)
-  console.log('Unique ID:', uniqueId)
-  console.log('Parsed content:', parsedContent)
-
   return (
     <h2 ref={titleRef} className={s.mainTitle}>
       {parsedContent}

@@ -41,6 +41,7 @@
     "react-select-country-list": "^2.2.3",
     "reading-time": "^1.5.0",
     "sharp": "0.32.6",
+    "simplebar-react": "^3.3.2",
     "swiper": "^11.2.10",
     "yup": "^1.6.1"
   },

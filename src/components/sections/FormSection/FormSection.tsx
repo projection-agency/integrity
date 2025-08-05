@@ -7,6 +7,8 @@ import CountrySelector from '@/components/CountryInput/CountryInput'
 import CustomCheckbox from '@/components/CustomCheckbox/CustomCheckbox'
 import { object, string } from 'yup'
 import Image from 'next/image'
+import 'simplebar-react/dist/simplebar.min.css'
+import SimpleBar from 'simplebar-react'
 
 const industries = [
   { name: 'Finthech' },
@@ -182,18 +184,26 @@ export default function FormSection() {
                 </div>
                 <div className={s.checkboxLineCont}>
                   <p className={s.required}>Choose your industry</p>
-                  <div className={`${s.inputLine} ${s.checkboxLine}`}>
-                    {industries.map((item, idx) => {
-                      return (
-                        <CustomCheckbox
-                          key={idx}
-                          label={item.name}
-                          name={'industry'}
-                          value={item.name}
-                        />
-                      )
-                    })}
-                  </div>
+                  <SimpleBar
+                    dir="horizontal"
+                    forceVisible="x"
+                    style={{ maxWidth: '100%' }}
+                    className={s.simpleBarCont}
+                    autoHide={false}
+                  >
+                    <div className={`${s.inputLine} ${s.checkboxLine}`}>
+                      {industries.map((item, idx) => {
+                        return (
+                          <CustomCheckbox
+                            key={idx}
+                            label={item.name}
+                            name={'industry'}
+                            value={item.name}
+                          />
+                        )
+                      })}
+                    </div>
+                  </SimpleBar>
                   <ErrorMessage name="industry">
                     {(msg) => <div className={s.errorMessage}>{msg}</div>}
                   </ErrorMessage>
