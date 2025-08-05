@@ -37,7 +37,7 @@ export default function PopUp({ isOpen, onClose, onDownload }: PopUpProps) {
     { setSubmitting }: { setSubmitting: (isSubmitting: boolean) => void },
   ) => {
     try {
-      const response = await fetch('/api/order-call-full', {
+      const response = await fetch('/api/get-calculate', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

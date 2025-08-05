@@ -30,12 +30,12 @@ export default function HeaderFix({ menu, buttonText }: { menu: MenuItem[]; butt
         <NavList menu={menu} />
         <div className={s.left}>
           <LocaleSwitcher className={s.localeSwitcher} />
-          <button className={s.btn}>
+          <Link className={s.btn} href="#call">
             <span>
               {phone}
               {buttonText}
             </span>
-          </button>
+          </Link>
         </div>
         <button className={s.mobMenuBtn} onClick={() => setMenuIsOpen(true)}>
           {burger}

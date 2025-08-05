@@ -47,8 +47,7 @@
     border-radius: 0.63vw;
     background-color: #ffffff;
 
-
-    font-family: "Inter";
+    font-family: 'Inter';
     font-size: 0.73vw;
     font-style: normal;
     font-weight: 700;
@@ -157,6 +156,9 @@
   }
 
   .orderBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: relative;
     overflow: hidden;
     width: 100%;

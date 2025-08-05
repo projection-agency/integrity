@@ -2,6 +2,7 @@
 import s from './TariffItem.module.css'
 import { useState } from 'react'
 import { tariffItem } from '../sections/TariffsSection/TariffsSection'
+import Link from 'next/link'
 
 const TariffItem = ({ item, index }: { item: tariffItem; index: number }) => {
   const [flipped, setFlipped] = useState(false)
@@ -23,9 +24,9 @@ const TariffItem = ({ item, index }: { item: tariffItem; index: number }) => {
               })}
             </ul>
           </div>
-          <button className={s.orderBtn}>
+          <Link href="#call" className={s.orderBtn}>
             <span>{order}Order</span>
-          </button>
+          </Link>
           <button className={s.moreDetails} onClick={() => setFlipped(!flipped)}>
             <span> More details {moreDetails}</span>
           </button>
@@ -44,9 +45,9 @@ const TariffItem = ({ item, index }: { item: tariffItem; index: number }) => {
               })}
             </ul>
           </div>
-          <button className={s.orderBtn}>
+          <Link href="#call" className={s.orderBtn}>
             <span>{order}Order</span>
-          </button>
+          </Link>
           <button onClick={() => setFlipped(!flipped)} className={s.moreDetails}>
             <span>{iconBack} Back</span>
           </button>

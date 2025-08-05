@@ -57,12 +57,12 @@ export default function Header({
         <NavList menu={menu} />
         <div className={s.left}>
           <LocaleSwitcher />
-          <button className={s.btn}>
+          <Link className={s.btn} href="#call">
             <span>
               {phone}
               {buttonText}
             </span>
-          </button>
+          </Link>
         </div>
         <button className={s.mobMenuBtn} onClick={() => setMenuIsOpen(true)}>
           {burger}

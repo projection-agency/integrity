@@ -71,6 +71,9 @@
     gap: 0.42vw;
 
     .btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       position: relative;
       overflow: hidden;
       padding: 1.09vw 2.08vw;

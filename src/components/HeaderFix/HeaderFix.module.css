@@ -91,6 +91,9 @@
     }
 
     .btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       position: relative;
       overflow: hidden;
       padding: 0.625vw 1.04vw;

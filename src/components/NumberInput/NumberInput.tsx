@@ -28,7 +28,6 @@ const NumberInput = ({ value, className, id, name }: Props) => {
           setFieldValue('number', e)
 
           const error = validatePhone(e)
-          console.log(values)
           if (error) {
             setFieldError('number', error)
           } else {
@@ -37,7 +36,6 @@ const NumberInput = ({ value, className, id, name }: Props) => {
         }}
         onFocus={() => {
           setFieldTouched('number', true)
-          console.log(errors)
         }}
         enableSearch={false}
         disableDropdown={false}

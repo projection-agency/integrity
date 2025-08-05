@@ -8,6 +8,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { Pagination, Navigation } from 'swiper/modules'
 import { useState, useEffect } from 'react'
 import 'swiper/css'
+import Link from 'next/link'
 
 type ReviewsSection = {
   subtitle: string
@@ -30,8 +31,6 @@ export default function ReviewsSection({ block }: { block: ReviewsSection }) {
   const [windowWidth, setWindowWidth] = useState<number>(
     typeof window !== 'undefined' ? window.innerWidth : 0,
   )
-
-  console.log(block)
 
   useEffect(() => {
     const handleResize = () => {
@@ -61,9 +60,9 @@ export default function ReviewsSection({ block }: { block: ReviewsSection }) {
             <span>Do you want</span> the same result?
           </h3>
           <p>Order your first free call and receive a tailored strategy to promote your business</p>
-          <button>
+          <Link href="#call" className={s.button}>
             <span>{phone} Demo call</span>
-          </button>
+          </Link>
         </div>
         <div className={s.rightBlock}>
           <Swiper

@@ -1,12 +1,10 @@
-'use client'
-
-import React, { useState } from 'react'
+import React from 'react'
 
 import s from './HeroSection.module.css'
 import IconHero from '../../icons/IconHero/IconHero'
 import GridBackground from '../../GridBackground/GridBackground'
 import Image from 'next/image'
-import PopUp from '../../PopUp/PopUp'
+import Link from 'next/link'
 
 type HeroBlock = {
   title?: string
@@ -17,17 +15,6 @@ type HeroBlock = {
 }
 
 export default function HeroSection({ block }: { block: HeroBlock }) {
-  const [isOpen, setIsOpen] = useState(false)
-  const handleOpenPopUp = () => setIsOpen(true)
-  const handleClosePopUp = () => setIsOpen(false)
-  const handleDownload = () => {
-    console.log('download clicked')
-  }
-
-  const [isDownloadOpen, setIsDownloadOpen] = useState(false)
-  const openDownload = () => setIsDownloadOpen(true)
-  const closeDownload = () => setIsDownloadOpen(false)
-
   const ICON_MAP: Record<string, React.ReactNode> = {
     icon: <IconHero iconClass={s.icon} />,
   }
@@ -52,18 +39,18 @@ export default function HeroSection({ block }: { block: HeroBlock }) {
         </h1>
         <p dangerouslySetInnerHTML={{ __html: block.description || '' }} />
         <div className={s.wrapButtons}>
-          <button className={s.firstButton} onClick={handleOpenPopUp}>
+          <Link className={s.firstButton} href="#strategy">
             <span>
               {iconFirst}
               {block.firstButton}
             </span>
-          </button>
-          <button className={s.lastButton} onClick={openDownload}>
+          </Link>
+          <Link className={s.lastButton} href="#call">
             <span>
               {iconLast}
               {block.lastButton}
             </span>
-          </button>
+          </Link>
         </div>
       </div>
       <div className={s.iconsAds}>
@@ -122,7 +109,6 @@ export default function HeroSection({ block }: { block: HeroBlock }) {
           />
         </div>
       </div>
-      <PopUp isOpen={isOpen} onClose={handleClosePopUp} onDownload={handleDownload} />
       <GridBackground />
     </div>
   )
