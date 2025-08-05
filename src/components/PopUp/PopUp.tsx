@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { Formik, Form, Field } from 'formik'
 import { object, string } from 'yup'
 import styles from './PopUp.module.css'
@@ -23,49 +23,45 @@ export default function PopUp({ isOpen, onClose, onDownload }: PopUpProps) {
     onClose()
   }
 
-  // lock/unlock body scroll depending on isOpen
-  // useEffect(() => {
-  //   if (!isOpen) return
-
-  //   const body = document.body
-  //   const scrollY = window.scrollY
-
-  //   const prev = {
-  //     overflow: body.style.overflow,
-  //     touchAction: body.style.touchAction,
-  //     position: body.style.position,
-  //     top: body.style.top,
-  //     left: body.style.left,
-  //     right: body.style.right,
-  //   }
-
-  //   body.style.overflow = 'hidden'
-  //   body.style.touchAction = 'none'
-  //   body.style.position = 'fixed'
-  //   body.style.top = `-${scrollY}px`
-  //   body.style.left = '0'
-  //   body.style.right = '0'
-
-  //   return () => {
-  //     body.style.overflow = prev.overflow
-  //     body.style.touchAction = prev.touchAction
-  //     body.style.position = prev.position
-  //     body.style.top = prev.top
-  //     body.style.left = prev.left
-  //     body.style.right = prev.right
-  //     window.scrollTo(0, scrollY)
-  //   }
-  // }, [isOpen])
-
   if (!isOpen) return null
 
   const initialValues = { name: '', email: '' }
+
   const validationSchema = object({
     name: string().required('Enter your name'),
     email: string().email('Invalid email').required('Enter your email'),
   })
-  const onSubmit = () => {
-    setSent(true)
+
+  const onSubmit = async (
+    values: typeof initialValues,
+    { setSubmitting }: { setSubmitting: (isSubmitting: boolean) => void },
+  ) => {
+    try {
+      const response = await fetch('/api/order-call-full', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-api-key': process.env.NEXT_PUBLIC_API_KEY!,
+          'x-api-secret': process.env.NEXT_PUBLIC_API_SECRET!,
+        },
+        body: JSON.stringify({
+          name: values.name,
+          email: values.email,
+        }),
+      })
+
+      if (!response.ok) {
+        throw new Error(`Error submitting form: ${response.status}`)
+      }
+
+      const result = await response.json()
+      console.log('Success:', result)
+      setSent(true)
+    } catch (error) {
+      console.error('Submission error:', error)
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   return (
@@ -75,95 +71,99 @@ export default function PopUp({ isOpen, onClose, onDownload }: PopUpProps) {
           <ClosedIcon />
         </button>
 
-        {/* ================== FORM STATE ================== */}
         <Formik
           key={resetKey}
           initialValues={initialValues}
           validationSchema={validationSchema}
           onSubmit={onSubmit}
         >
-          {({ errors, touched }) => (
-            <Form className={sent ? styles.hidden : styles.form}>
-              <div className={styles.header}>
-                <div className={styles.titleRow}>
-                  <span className={styles.headerText}>GET A CALCULATOR</span>
-                  <span className={styles.calcIconTitle}>
-                    <CalcIcon />
-                  </span>
+          {({ errors, touched, isSubmitting }) => (
+            <>
+              <Form className={sent ? styles.hidden : styles.form}>
+                <div className={styles.header}>
+                  <div className={styles.titleRow}>
+                    <span className={styles.headerText}>GET A CALCULATOR</span>
+                    <span className={styles.calcIconTitle}>
+                      <CalcIcon />
+                    </span>
+                  </div>
+                  <span className={styles.headerTextBusiness}>FOR YOUR BUSINESS</span>
                 </div>
-                <span className={styles.headerTextBusiness}>FOR YOUR BUSINESS</span>
-              </div>
-              <div className={styles.formGroupBlock}>
-                <div className={styles.formGroup}>
-                  <label
-                    className={`${styles.label} ${
-                      typeof errors !== 'undefined' && errors.name ? styles.labelError : ''
-                    }`}
-                    htmlFor="name"
-                  >
-                    <span className={styles.required}>Name</span>
-                  </label>
-                  <Field name="name">
-                    {({ field, meta }: any) => (
-                      <>
-                        <input
-                          id="name"
-                          placeholder="Enter your name"
-                          className={`${styles.input} ${meta.touched && meta.error ? styles.inputError : ''}`}
-                          {...field}
-                        />
-                        {meta.touched && meta.error && (
-                          <div className={styles.errorMessage}>{meta.error}</div>
-                        )}
-                      </>
-                    )}
-                  </Field>
+                <div className={styles.formGroupBlock}>
+                  <div className={styles.formGroup}>
+                    <label
+                      className={`${styles.label} ${
+                        errors.name && touched.name ? styles.labelError : ''
+                      }`}
+                      htmlFor="name"
+                    >
+                      <span className={styles.required}>Name</span>
+                    </label>
+                    <Field name="name">
+                      {({ field, meta }: any) => (
+                        <>
+                          <input
+                            id="name"
+                            placeholder="Enter your name"
+                            className={`${styles.input} ${
+                              meta.touched && meta.error ? styles.inputError : ''
+                            }`}
+                            {...field}
+                          />
+                          {meta.touched && meta.error && (
+                            <div className={styles.errorMessage}>{meta.error}</div>
+                          )}
+                        </>
+                      )}
+                    </Field>
+                  </div>
+
+                  <div className={styles.formGroup}>
+                    <label
+                      className={`${styles.label} ${
+                        errors.email && touched.email ? styles.labelError : ''
+                      }`}
+                      htmlFor="email"
+                    >
+                      <span className={styles.required}>Email</span>
+                    </label>
+                    <Field name="email">
+                      {({ field, meta }: any) => (
+                        <>
+                          <input
+                            id="email"
+                            type="email"
+                            placeholder="Enter your email"
+                            className={`${styles.input} ${
+                              meta.touched && meta.error ? styles.inputError : ''
+                            }`}
+                            {...field}
+                          />
+                          {meta.touched && meta.error && (
+                            <div className={styles.errorMessage}>{meta.error}</div>
+                          )}
+                        </>
+                      )}
+                    </Field>
+                  </div>
                 </div>
 
-                <div className={styles.formGroup}>
-                  <label
-                    className={`${styles.label} ${
-                      typeof errors !== 'undefined' && errors.email ? styles.labelError : ''
-                    }`}
-                    htmlFor="email"
-                  >
-                    <span className={styles.required}>Email</span>
-                  </label>
-                  <Field name="email">
-                    {({ field, meta }: any) => (
-                      <>
-                        <input
-                          id="email"
-                          type="email"
-                          placeholder="Enter your email"
-                          className={`${styles.input} ${meta.touched && meta.error ? styles.inputError : ''}`}
-                          {...field}
-                        />
-                        {meta.touched && meta.error && (
-                          <div className={styles.errorMessage}>{meta.error}</div>
-                        )}
-                      </>
-                    )}
-                  </Field>
-                </div>
-              </div>
+                <button type="submit" className={styles.actionBtn} disabled={isSubmitting}>
+                  <SendIcon />
+                  {isSubmitting ? 'Sending...' : 'Send'}
+                </button>
+              </Form>
 
-              <button type="submit" className={styles.actionBtn}>
-                <SendIcon />
-                Send
-              </button>
-            </Form>
+              {sent && (
+                <PopUpDownload
+                  isOpen={true}
+                  onClose={handleClose}
+                  onDownload={onDownload ?? (() => {})}
+                />
+              )}
+            </>
           )}
         </Formik>
-
-        {/* ================== THANK-YOU STATE ================== */}
-        {sent && (
-          <PopUpDownload
-            isOpen={true}
-            onClose={handleClose}
-            onDownload={onDownload ?? (() => {})}
-          />
-        )}
       </div>
     </div>
   )
