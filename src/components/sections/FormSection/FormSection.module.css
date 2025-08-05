@@ -104,7 +104,7 @@
       .errorMessage {
         position: absolute;
         left: 0;
-        bottom: -0vw;
+        bottom: 0.5vw;
 
         font-size: 0.63vw;
         font-style: normal;
