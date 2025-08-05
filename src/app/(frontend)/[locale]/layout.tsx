@@ -17,9 +17,11 @@ import TransitionBodyBackground from '@/components/TransitionBodyBackground/Tran
 import PageLoadHandler from '@/components/PageLoadHandler/PageLoadHandler'
 
 import { Inter_Tight } from 'next/font/google'
+import { Inter } from 'next/font/google'
 import HeaderFix from '@/components/HeaderFix/HeaderFix'
 
 const interTight = Inter_Tight({ subsets: ['latin'], variable: '--font-inter-tight' })
+const inter = Inter({ subsets: ['latin'] ,variable:"--font-inter"})
 
 export const metadata = {
   description: 'A blank template using Payload in a Next.js app.',
@@ -41,7 +43,7 @@ export default async function LocaleLayout({
   const { main, headerMenu, footerMenu } = await getLayoutData(locale)
 
   return (
-    <html lang={locale} className={interTight.className}>
+    <html lang={locale} className={`${interTight.className} ${inter.className}`}>
       <body>
         <BodyBackground />
         <NextIntlClientProvider>

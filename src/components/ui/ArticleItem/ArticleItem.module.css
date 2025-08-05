@@ -79,13 +79,26 @@
   padding: 0.83vw;
   gap: 0.41vw;
   border-radius: 0.62vw;
-  background: var(--Light-gray, #f9f9f9);
+  transition:
+    background-color 300ms ease-in-out,
+    border-color 300ms ease-in-out,
+    box-shadow 0.2s;
+  background: var(#f9f9f9);
+  border: 1px solid transparent;
   box-sizing: border-box;
   cursor: pointer;
   margin-top: auto;
-  transition: box-shadow 0.2s;
+
   width: max-content;
 }
+
+.insightCard:hover {
+  .insightCardBtn {
+    background-color: transparent;
+    border-color: rgba(34, 34, 34, 1);
+  }
+}
+
 .insightCardBtn svg {
   width: 1vw;
   height: 1vw;
@@ -100,12 +113,12 @@
   margin-top: 0.1vw;
 }
 
-.insightCard:hover {
+/* .insightCard:hover {
   .insightCardBtn {
     color: rgba(34, 34, 34, 1);
     border-color: rgba(34, 34, 34, 1);
   }
-}
+} */
 
 @media (max-width: 1024px) {
   .insightCardImage {

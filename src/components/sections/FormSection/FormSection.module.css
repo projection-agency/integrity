@@ -104,9 +104,9 @@
       .errorMessage {
         position: absolute;
         left: 0;
-        bottom: -0.1vw;
+        bottom: -0vw;
 
-        font-size: 0.83vw;
+        font-size: 0.63vw;
         font-style: normal;
         font-weight: 600;
         line-height: 1.2;
@@ -178,7 +178,7 @@
 
           .input {
             width: 100%;
-            margin-bottom: 1.04vw;
+            margin-bottom: 1.54vw;
             padding: 1.25vw;
             border-radius: 0.83vw;
             background-color: rgba(249, 249, 249, 1);

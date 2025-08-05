@@ -54,7 +54,7 @@
   width: 100%;
 }
 
-.swiperSlide{
+.swiperSlide {
   margin-right: 0.83vw;
 }
 
@@ -142,10 +142,29 @@
   width: 8.55vw;
   height: 3vw;
   border-radius: 0.43vw;
+  transition: background-color 300ms ease-in-out;
   background: #f9f9f9;
   display: flex;
   align-items: center;
   justify-content: center;
+
+  svg {
+    width: 0.94vw;
+    transition: fill 300ms ease-in-out;
+    fill: #222222;
+  }
+}
+
+.arrowContainer:last-child {
+  transform: rotateZ(180deg);
+}
+
+.arrowBtn:hover {
+  background-color: #222222;
+
+  svg {
+    fill: #ffffff;
+  }
 }
 
 .sliderIndicators {
@@ -274,7 +293,6 @@
 
   .swiperCustom :global(.swiper-slide-active) .serviceCard {
     opacity: 1;
-    padding: 3.125vw;
   }
 
   .swiperCustom :global(.swiper-slide-prev),

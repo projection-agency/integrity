@@ -182,6 +182,7 @@
         width: 100%;
         padding: 1.25vw 0;
         border-radius: 0.83vw;
+        background-color: #fff;
 
         span {
           transition: all 300ms ease-in-out;
@@ -218,15 +219,6 @@
         transition: opacity 300ms ease-in-out;
         opacity: 1;
         z-index: 1;
-      }
-
-      button:hover {
-        span {
-          color: #ffffff;
-          svg {
-            fill: #ffffff;
-          }
-        }
       }
 
       button:hover::after {
