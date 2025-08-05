@@ -36,6 +36,7 @@
     "html-react-parser": "^5.2.6",
     "next-intl": "^4.3.3",
     "payload": "^3.48.0",
+    "pnpm": "^10.14.0",
     "react-phone-input-2": "^2.15.1",
     "react-select": "^5.10.2",
     "react-select-country-list": "^2.2.3",
