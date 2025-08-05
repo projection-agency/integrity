@@ -40,6 +40,7 @@ const validationSchema = Yup.object({
 
 const FillForm = () => {
   const { showSuccessToast, showErrorToast } = useCustomToastContext()
+
   const handleSubmit = async (values: FormValues, { setSubmitting }: FormikHelpers<FormValues>) => {
     try {
       const response = await fetch('/api/order-call-full', {
@@ -71,6 +72,7 @@ const FillForm = () => {
     }
   }
 
+  const [phoneNumber, setPhoneNumber] = useState('')
   const pathname = usePathname()
 
   return (
