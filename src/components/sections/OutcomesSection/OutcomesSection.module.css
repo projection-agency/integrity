@@ -327,19 +327,23 @@
   transition: all 0.4s;
 }
 .swiperCustomOutcome :global(.swiper-slide) {
-  width: 30vw;
+  width: 20vw;
   opacity: 0.5;
   padding: 5.85vw 0;
   height: 100%;
+  transition: all 300ms ease-in-out;
 }
 .swiperCustomOutcome :global(.swiper-slide) .card {
-  padding: 2.083vw;
   transition: all 0.4s;
+  padding: 2.083vw;
 }
 .swiperCustomOutcome :global(.swiper-slide-active) .card {
   padding: 3.125vw;
 }
 .swiperCustomOutcome :global(.swiper-slide-active) {
+  transform: scale(1.1);
+  margin-left: 0.83vw;
+  margin-right: 0.83vw;
   opacity: 1;
   padding: 0;
 }
