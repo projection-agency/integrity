@@ -226,6 +226,12 @@
   background: linear-gradient(149deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0) 100%);
 }
 
+.error {
+  color: red;
+  font-size: 12px;
+  margin-top: 4px;
+}
+
 .expertAvatar {
   width: 6.15vw;
   height: 6.15vw;
