@@ -5,7 +5,7 @@ type typeOrderCall = {
   name: string;
   email: string;
   phone: string;
-  county: string;
+  country: string;
   employees: string;
   position: string;
   industry: string;
@@ -46,7 +46,7 @@ export const OrderCallFull: Endpoint = {
       email,
       phone,
 
-      county,
+      country,
       employees,
       position,
 
@@ -61,13 +61,13 @@ export const OrderCallFull: Endpoint = {
       'name',
       'email',
       'phone',
-      'county',
-      'employees',
-      'position',
-      'industry',
-      'stage',
-      'website',
-      'message',
+      // 'country',
+      // 'employees',
+      // 'position',
+      // 'industry',
+      // 'stage',
+      // 'website',
+      // 'message',
     ];
 
     // Перевірка на відсутні значення
@@ -85,7 +85,7 @@ export const OrderCallFull: Endpoint = {
       { key: 'email', value: email },
       { key: 'phone', value: phone },
 
-      { key: 'county', value: county },
+      { key: 'country', value: country },
       { key: 'employees', value: employees },
       { key: 'position', value: position },
 

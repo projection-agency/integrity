@@ -43,7 +43,7 @@ export const OrderCall: Endpoint = {
       return Response.json({ error: 'Поле "phone" є обовʼязковим' }, { status: 400 });
     }
     if (!email) {
-      return Response.json({ error: 'Поле "phone" є обовʼязковим' }, { status: 400 });
+      return Response.json({ error: 'Поле "email" є обовʼязковим' }, { status: 400 });
     }
 
 
