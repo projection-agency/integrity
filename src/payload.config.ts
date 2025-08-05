@@ -22,6 +22,7 @@ import Applications from '@/collections/Applications'
 import applicationCategory from '@/collections/categories/applicationCategory'
 import { OrderCallFull } from '@/endpoints/OrderCallFull'
 import { s3Storage } from '@payloadcms/storage-s3'
+import { GetCalculate } from '@/endpoints/GetCalculate'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -97,5 +98,5 @@ export default buildConfig({
       disableLocalStorage: true,
     }),
   ],
-  endpoints: [OrderCall, OrderCallFull],
+  endpoints: [OrderCall, OrderCallFull, GetCalculate],
 })
