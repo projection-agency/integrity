@@ -34,6 +34,7 @@
         flex-direction: column;
         justify-content: space-between;
         height: 100%;
+
         .cardNumberBlock {
           transition: all 300ms ease-in-out;
 
@@ -148,7 +149,11 @@
         .cardTextBlock {
           .cardTitle {
             .cardTitleText {
-              transition: font-size 300ms ease-in-out;
+              transition:
+                font-size 300ms ease-in-out,
+                line-height 300ms ease-in-out,
+                transform 300ms ease-in-out;
+              will-change: font-size, line-height, transform;
               font-family: 'Mont', sans-serif;
               font-size: 1.67vw;
               font-style: italic;
@@ -269,10 +274,3 @@
     }
   }
 }
-
-/* background: linear-gradient(
-              169deg,
-              rgba(255, 255, 255, 0.05) -6.56%,
-              rgba(255, 255, 255, 0) 112.07%
-            );
-            backdrop-filter: blur(3.3130671977996826px); */

@@ -1,5 +1,5 @@
 'use client'
-import { Formik, Form, Field, ErrorMessage } from 'formik'
+import { Formik, Form, Field, ErrorMessage, FormikHelpers } from 'formik'
 import { useState, useEffect } from 'react'
 import s from './FormSection.module.css'
 import NumberInput from '@/components/NumberInput/NumberInput'
@@ -59,6 +59,67 @@ const stages = [{ name: 'Seed' }, { name: 'Series A or higher' }, { name: 'Enter
 export default function FormSection() {
   const [windowWidth, setWindowWidth] = useState(0)
 
+  // country
+  // :
+  // "Albania"
+  // email
+  // :
+  // "kdncwkjnek@ndwkjcnfe.com"
+  // employees
+  // :
+  // 12331
+  // industry
+  // :
+  // "B2B"
+  // name
+  // :
+  // "knwlkcwlknc"
+  // number
+  // :
+  // "380123123123"
+  // position
+  // :
+  // "asdcljwncdkj"
+  // stage
+  // :
+  // "Series A or higher"
+  // website
+  // :
+  // ""
+
+  const handleSubmit = async (values: FormValues) => {
+    try {
+      const response = await fetch('/api/order-call-full', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-api-key': process.env.NEXT_PUBLIC_API_KEY || 'pk_...',
+          'x-api-secret': process.env.NEXT_PUBLIC_API_SECRET || 'sk_...',
+        },
+        body: JSON.stringify({
+          name: values.name,
+          email: values.email,
+          phone: values.number,
+          country: values.country,
+          employees: values.employees,
+          position: values.position,
+          industry: values.industry,
+          stage: values.stage,
+          website: values.website,
+        }),
+      })
+
+      if (!response.ok) {
+        throw new Error(`Помилка при відправці форми: ${response.status}`)
+      }
+
+      const result = await response.json()
+      console.log('Form sent successfully:', result)
+    } catch (error) {
+      console.error('Error:', error)
+    }
+  }
+
   useEffect(() => {
     // Встановлюємо ширину вікна тільки на клієнті
     if (typeof window !== 'undefined') {
@@ -102,7 +163,7 @@ export default function FormSection() {
         )}
         <Formik
           initialValues={initialValues}
-          onSubmit={(values) => console.log(values)}
+          onSubmit={(values) => handleSubmit(values)}
           validationSchema={validationSchema}
         >
           {({ values, errors }) => {
