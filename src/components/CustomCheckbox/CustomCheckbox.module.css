@@ -33,6 +33,7 @@
 
 @media screen and (max-width: 1024px) {
   .checkboxLabel {
+    flex-shrink: 0;
     width: max-content;
     height: 12.27vw;
     padding: 3.47vw 5.33vw;
