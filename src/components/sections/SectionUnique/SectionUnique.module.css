@@ -338,7 +338,7 @@
     border: 0.27vw solid var(--black);
     border-radius: 4.27vw;
     padding: 3.73vw 10.67vw;
-    width: 70.13vw;
+    width: 100%;
     height: 12.8vw;
     font-family: var(--font-family);
     font-weight: 800;

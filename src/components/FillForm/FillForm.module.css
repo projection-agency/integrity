@@ -517,7 +517,7 @@
   }
   .inputGroupBlock {
     width: 76.533vw;
-    height: 69.333vw;
+    height: 100%;
     display: flex;
     flex-direction: column;
   }
