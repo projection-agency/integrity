@@ -10,6 +10,7 @@ export type tariffItem = {
   result: { points: string; id: string }[]
   title: string
   whats_included: []
+  channels: { id: string; c_points: string; c_icon: string }[]
 }
 
 type TariffsSection = {

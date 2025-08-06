@@ -57,7 +57,7 @@ const MovingIconsLine = ({ className }: { className?: string }) => {
 
     const pathLength = path.getTotalLength()
     const offsets = [0, 0.25, 0.5, 0.75].map((p) => p * pathLength)
-    const speed = 3
+    const speed = 1.5
     let frameId: number
 
     const animate = () => {
