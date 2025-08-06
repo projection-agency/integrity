@@ -25,23 +25,23 @@ const initialValues = {
   county: '',
 }
 
+// Оновлена схема валідації
 const validationSchema = Yup.object({
   name: Yup.string().required('Enter your name'),
   email: Yup.string().email('Invalid email format').required('Enter your email'),
-  number: Yup.string(),
+  number: Yup.string()
+    .required('Enter your phone number')
+    .matches(/^\+?[0-9\s-]+$/, 'Invalid phone number format'),
   county: Yup.string(),
-  employees: Yup.string(),
-  position: Yup.string(),
-  industry: Yup.string(),
-  stage: Yup.string(),
-  website: Yup.string(),
-  message: Yup.string(),
 })
 
 const FillForm = () => {
   const { showSuccessToast, showErrorToast } = useCustomToastContext()
 
-  const handleSubmit = async (values: FormValues, { setSubmitting }: FormikHelpers<FormValues>) => {
+  const handleSubmit = async (
+    values: FormValues,
+    { setSubmitting, resetForm }: FormikHelpers<FormValues>,
+  ) => {
     try {
       const response = await fetch('/api/order-call-full', {
         method: 'POST',
@@ -64,6 +64,7 @@ const FillForm = () => {
       const result = await response.json()
       console.log('Form sent successfully:', result)
       showSuccessToast('Form sent successfully!')
+      resetForm()
     } catch (error) {
       console.error('Error:', error)
       showErrorToast('Failed to send form. Please try again.')
@@ -84,8 +85,11 @@ const FillForm = () => {
           initialValues={initialValues}
           onSubmit={handleSubmit}
           validationSchema={validationSchema}
+          validateOnBlur={true}
+          validateOnChange={false}
+          enableReinitialize={true}
         >
-          {({ isSubmitting }) => (
+          {({ isSubmitting, errors, touched }) => (
             <Form className={styles.form}>
               <h3 className={styles.title}>
                 <div className={styles.fillBlock}>
@@ -141,9 +145,10 @@ const FillForm = () => {
                       name="number"
                       as={NumberInput}
                       id="forNumber"
-                      className={`${styles.input} ${styles.numberInput}`}
+                      className={`${styles.input} ${styles.numberInput} ${
+                        errors.number && touched.number ? styles.errorBorder : ''
+                      }`}
                     />
-                    {/* <ErrorMessage name="number" component="div" className={styles.error} /> */}
                     <ErrorMessage
                       name="number"
                       render={(msg) => (

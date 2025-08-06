@@ -16,7 +16,7 @@ const NumberInput = ({ value, className, id, name }: Props) => {
   }>()
 
   const validatePhone = (phone: string) => {
-    return phone.length < 19 ? 'Введіть валідний номер' : undefined
+    return phone.length < 19 ? 'Enter your phone number' : undefined
   }
 
   return (
