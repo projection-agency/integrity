@@ -274,3 +274,134 @@
     }
   }
 }
+
+@media screen and (max-width: 1024px) {
+  .customSliderWrapper {
+    margin-bottom: 8.53vw;
+  }
+  .customSliderContainer {
+    .customSliderTrack {
+      height: max-content;
+      .customSliderSlide {
+        width: 84vw;
+        height: 75.73vw;
+        padding: 7.47vw;
+        border-radius: 6.4vw;
+
+        .card {
+          .cardNumberBlock {
+            .cardNumber {
+              font-size: 4.67vw;
+            }
+
+            .cardBlock {
+              width: 14.93vw;
+              height: 14.93vw;
+              border-radius: 2.4vw;
+
+              .cardIconBlock {
+                .cardIconWrapper {
+                  width: 10.67vw;
+                  height: 10.67vw;
+                  border-radius: 2.4vw;
+
+                  .cardIcon {
+                    width: 100%;
+                    height: 100%;
+                    svg {
+                      width: 5.33vw;
+                      height: 5.33vw;
+                    }
+                  }
+                }
+              }
+            }
+          }
+
+          .cardTextBlock {
+            .cardTitle {
+              .cardTitleText {
+                font-size: 6.4vw;
+              }
+            }
+          }
+        }
+      }
+
+      .customSliderSlide.active {
+        width: 84vw;
+        height: 75.73vw;
+        padding: 7.48vw;
+        border-radius: 6.4vw;
+
+        .card {
+          .cardNumberBlock {
+            .cardNumber {
+              font-size: 4.67vw;
+            }
+
+            .cardBlock {
+              width: 14.93vw;
+              height: 14.93vw;
+              border-radius: 2.4vw;
+
+              .cardIconBlock {
+                .cardIconWrapper {
+                  width: 10.67vw;
+                  height: 10.67vw;
+                  border-radius: 2.4vw;
+
+                  .cardIcon {
+                    width: 100%;
+                    height: 100%;
+                    svg {
+                      width: 5.33vw;
+                      height: 5.33vw;
+                    }
+                  }
+                }
+              }
+            }
+          }
+
+          .cardTextBlock {
+            .cardTitle {
+              .cardTitleText {
+                font-size: 6.4vw;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .customSliderNav {
+      padding: 2.17vw;
+      gap: 4.27vw;
+      border-radius: 4.27vw;
+
+      .customSliderArrow {
+        border-radius: 3.2vw;
+        width: 22.67vw;
+        height: 10.13vw;
+
+        svg {
+          width: 4.8vw;
+        }
+      }
+
+      .customSliderDots {
+        gap: 4.27vw;
+
+        .customSliderDot {
+          width: 1.6vw;
+          height: 1.6vw;
+        }
+
+        .customSliderDot.active {
+          width: 9.6vw;
+        }
+      }
+    }
+  }
+}
