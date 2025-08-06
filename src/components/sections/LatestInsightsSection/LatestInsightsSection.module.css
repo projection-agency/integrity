@@ -253,6 +253,9 @@
 }
 
 @media (max-width: 1024px) {
+  .latestInsightsHeader {
+    margin-bottom: 8.5vw;
+  }
   .latestInsightsSection {
     padding: 21vw 4vw 21vw;
   }
