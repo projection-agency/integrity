@@ -3,7 +3,7 @@
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import s from './Header.module.css'
-import AnimatedLink from '@/components/AnimatedLink/AnimatedLinkWrapper'
+import Link from 'next/link'
 
 export type MenuItem = {
   label: string
@@ -234,14 +234,14 @@ export default function NavList({
                 {item.label}
               </a>
             ) : (
-              <AnimatedLink
+              <Link
                 href={item.link}
                 onClick={() => {
                   handleClose()
                 }}
               >
                 {item.label}
-              </AnimatedLink>
+              </Link>
             )}
           </li>
         ))}

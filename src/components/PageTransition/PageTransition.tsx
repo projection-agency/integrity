@@ -30,11 +30,11 @@ export default function PageTransition({ children }: PageTransitionProps) {
         key={currentPage || 'default'}
         className={s.pageContent}
         initial={{
-          y: '10vh',
+          y: '-10vh',
           opacity: 0,
         }}
         animate={{
-          y: shouldShowContent ? 0 : '-10vh',
+          y: shouldShowContent ? 0 : '10vh',
           opacity: shouldShowContent ? 1 : 0,
         }}
         transition={{
