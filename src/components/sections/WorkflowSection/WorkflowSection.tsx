@@ -222,7 +222,7 @@ export default function WorkflowSection({
     enabled: true,
     subtitle: 'WORKFLOW',
     title: 'STEP BY STEP [[TO RESULTS]]',
-    tabStyle: 'gray',
+    tabStyle: 'dark',
     ...block,
   }
 
