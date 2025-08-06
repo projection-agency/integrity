@@ -1,8 +1,7 @@
 'use client'
 
 import React, { useState, useEffect, useRef } from 'react'
-import s from './OutcomesSection.module.css'
-
+import s from './CustomSlider.module.css'
 interface SliderItem {
   number: string
   icon: React.ReactNode
@@ -15,9 +14,10 @@ interface CustomSliderProps {
 }
 
 export default function CustomSlider({ items, onSlideChange }: CustomSliderProps) {
-  const [currentIndex, setCurrentIndex] = useState(0)
+  const [currentIndex, setCurrentIndex] = useState(2)
   const [isTransitioning, setIsTransitioning] = useState(false)
-  const containerRef = useRef<HTMLDivElement>(null)
+  const containerRef = useRef<HTMLDivElement | null>(null)
+  const progressRefs = useRef<(HTMLDivElement | null)[]>([])
   const timeoutRef = useRef<NodeJS.Timeout | undefined>(undefined)
 
   const goToSlide = (index: number) => {
@@ -37,13 +37,13 @@ export default function CustomSlider({ items, onSlideChange }: CustomSliderProps
   }
 
   const nextSlide = () => {
-    const nextIndex = (currentIndex + 1) % items.length
-    goToSlide(nextIndex)
+    const nextIndex = currentIndex + 1
+    setCurrentIndex(nextIndex)
   }
 
   const prevSlide = () => {
     const prevIndex = currentIndex === 0 ? items.length - 1 : currentIndex - 1
-    goToSlide(prevIndex)
+    setCurrentIndex(prevIndex)
   }
 
   const goToDot = (index: number) => {
@@ -51,16 +51,41 @@ export default function CustomSlider({ items, onSlideChange }: CustomSliderProps
   }
 
   useEffect(() => {
-    return () => {
-      if (timeoutRef.current) {
-        clearTimeout(timeoutRef.current)
-      }
+    const container = containerRef.current
+    const activeItem = progressRefs.current[currentIndex]
+
+    if (!container || !activeItem) return
+
+    const onTransitionEnd = () => {
+      const itemRect = activeItem.getBoundingClientRect()
+      const containerRect = container.getBoundingClientRect()
+
+      const containerWidth = container.offsetWidth
+      const itemWidth = activeItem.offsetWidth
+
+      const itemOffsetInContainer = itemRect.left - containerRect.left
+
+      const scrollToCenter =
+        container.scrollLeft + itemOffsetInContainer - containerWidth / 2 + itemWidth / 2
+
+      container.scrollTo({ left: scrollToCenter, behavior: 'smooth' })
     }
-  }, [])
+
+    activeItem.addEventListener('transitionend', onTransitionEnd)
+
+    return () => {
+      activeItem.removeEventListener('transitionend', onTransitionEnd)
+    }
+  }, [currentIndex])
 
   return (
     <div className={s.customSliderContainer}>
-      <div className={s.customSliderWrapper} ref={containerRef}>
+      <div
+        className={s.customSliderWrapper}
+        ref={(el) => {
+          containerRef.current = el
+        }}
+      >
         <div className={s.customSliderTrack}>
           {items.map((item, index) => {
             const isActive = index === currentIndex
@@ -73,14 +98,19 @@ export default function CustomSlider({ items, onSlideChange }: CustomSliderProps
                 className={`${s.customSliderSlide} ${
                   isActive ? s.active : isPrev ? s.prev : isNext ? s.next : s.inactive
                 }`}
-                onClick={() => goToSlide(index)}
+                onClick={() => setCurrentIndex(index)}
+                ref={(el) => {
+                  progressRefs.current[index] = el
+                }}
               >
                 <div className={s.card}>
                   <div className={s.cardNumberBlock}>
                     <div className={s.cardNumber}>{item.number}</div>
                     <div className={s.cardBlock}>
-                      <div className={s.cardIconcBlock}>
-                        <div className={s.cardIcon}>{item.icon}</div>
+                      <div className={s.cardIconBlock}>
+                        <div className={s.cardIconWrapper}>
+                          <div className={s.cardIcon}>{item.icon}</div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -99,7 +129,7 @@ export default function CustomSlider({ items, onSlideChange }: CustomSliderProps
       {/* Навігація */}
       <div className={s.customSliderNav}>
         <button className={s.customSliderArrow} onClick={prevSlide} aria-label="Previous slide">
-          <img src="/images/icons/arrow-1.svg" alt="Previous" />
+          {navArrow}
         </button>
 
         <div className={s.customSliderDots}>
@@ -114,9 +144,15 @@ export default function CustomSlider({ items, onSlideChange }: CustomSliderProps
         </div>
 
         <button className={s.customSliderArrow} onClick={nextSlide} aria-label="Next slide">
-          <img src="/images/icons/arrow-2.svg" alt="Next" />
+          {navArrow}
         </button>
       </div>
     </div>
   )
 }
+
+const navArrow = (
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="16" viewBox="0 0 20 16" fill="none">
+    <path d="M19 7C19.5523 7 20 7.44772 20 8C20 8.55228 19.5523 9 19 9V7ZM0.292892 8.70711C-0.0976315 8.31658 -0.0976315 7.68342 0.292892 7.29289L6.65685 0.928932C7.04738 0.538408 7.68054 0.538408 8.07107 0.928932C8.46159 1.31946 8.46159 1.95262 8.07107 2.34315L2.41421 8L8.07107 13.6569C8.46159 14.0474 8.46159 14.6805 8.07107 15.0711C7.68054 15.4616 7.04738 15.4616 6.65685 15.0711L0.292892 8.70711ZM19 8V9H1V8V7H19V8Z" />
+  </svg>
+)

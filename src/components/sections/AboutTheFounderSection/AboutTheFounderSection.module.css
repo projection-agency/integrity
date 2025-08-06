@@ -189,7 +189,7 @@
         margin-bottom: 1.41vw;
 
         text-align: center;
-        font-family: "Inter Tight";
+        font-family: 'Inter Tight';
         font-size: 2.5vw;
         font-style: italic;
         font-weight: 900;
@@ -199,11 +199,13 @@
         color: rgba(34, 34, 34, 1);
 
         .computer {
+          position: relative;
+          top: 0.5vw;
+          left: 0.5vw;
           display: inline-flex;
           justify-content: center;
           align-items: center;
           height: 3.33vw;
-          transform: translateY(0.5vw);
 
           img {
             width: 3.33vw;

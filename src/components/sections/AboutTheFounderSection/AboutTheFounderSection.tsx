@@ -88,12 +88,16 @@ const AboutTheFounderSection = ({ block }: { block: AboutTheFounderSection }) =>
         <div className={s.content}>
           {width <= 1024 ? (
             <h3>
-              <span> “ For me, marketing</span>
               <span>
                 {' '}
+                “ For me, marketing <pre></pre>
+              </span>
+              <span>
+                {'  '}
                 <span className={s.computer}>
                   <Image src={'/images/icons/computer.svg'} width={64} height={64} alt="icon" />
-                </span>{' '}
+                </span>
+                {'  '} <pre></pre>
                 only made sense
               </span>{' '}
               <span>once I stopped seeing</span> <span>it as campaigns and</span>
