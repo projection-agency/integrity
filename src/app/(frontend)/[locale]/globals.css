@@ -23,6 +23,7 @@ body.privacyBackground {
 /* Стилі для анімацій переходів */
 body {
   transition: background-color 0.3s ease;
+  overflow-x: hidden;
 }
 
 /* Забезпечуємо, що хедер залишається поверх анімацій */
