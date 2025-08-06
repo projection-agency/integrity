@@ -55,11 +55,13 @@
         transition-duration: 0.3s;
         border-radius: 0.6vw;
         cursor: pointer;
+        opacity: 0.6;
       }
       li a:hover {
         background: var(--Black, #222);
       }
       li.current a {
+        opacity: 1;
         background: var(--White, #fff);
         color: var(--Black, #222);
       }
