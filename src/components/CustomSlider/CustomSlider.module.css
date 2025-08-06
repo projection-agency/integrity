@@ -276,10 +276,12 @@
 }
 
 @media screen and (max-width: 1024px) {
-  .customSliderWrapper {
-    margin-bottom: 8.53vw;
-  }
   .customSliderContainer {
+    margin-bottom: 21.33vw;
+    .customSliderWrapper {
+      margin-bottom: 8.53vw;
+    }
+
     .customSliderTrack {
       height: max-content;
       .customSliderSlide {
