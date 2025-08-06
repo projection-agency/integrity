@@ -10,7 +10,6 @@ export default function CaseItem({
   item: CaseItemType
   isExpanded: boolean
 }) {
-  console.log(item)
   return (
     <>
       <div className={`${s.item} ${isExpanded ? s.expanded : ''}`}>

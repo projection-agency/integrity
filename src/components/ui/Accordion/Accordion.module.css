@@ -109,6 +109,7 @@
           span {
             width: 7.47vw;
             height: 7.47vw;
+            border-radius: 2.13vw;
             svg {
               width: 3.2vw;
             }

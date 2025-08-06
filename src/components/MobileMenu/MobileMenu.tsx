@@ -22,8 +22,16 @@ const MobileMenu = ({
         </header>
         <div className={s.content}>
           <LocaleSwitcher />
-          <NavList menu={menu} />
-          <button>{iconPhone}Order a call</button>
+          <NavList menu={menu} handleClose={handleClose} />
+          <a
+            href="#call"
+            className={s.orderACall}
+            onClick={() => {
+              handleClose()
+            }}
+          >
+            {iconPhone}Order a call
+          </a>
         </div>
       </div>
     </div>
