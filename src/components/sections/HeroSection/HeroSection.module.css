@@ -99,7 +99,9 @@
       overflow: hidden;
       padding: 1.25vw 2vw;
       border-radius: 0.83vw;
-      transition: border-color 300ms ease-in-out;
+      transition:
+        border-color 300ms ease-in-out,
+        background-color 300ms ease-in-out;
       border: 0.05vw solid var(--White, #fff);
 
       span {
@@ -123,20 +125,8 @@
       }
     }
 
-    .firstButton:after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: 1;
-      width: 100%;
-      height: 1000%;
-      transition: opacity 300ms ease-in-out;
-      opacity: 0;
-      background: linear-gradient(94deg, #ffe414 0.19%, #ffae00 100.19%);
-    }
-
     .firstButton:hover {
+      background-color: #fff;
       border-color: transparent;
       span {
         color: #222222;
@@ -145,10 +135,6 @@
           fill: #222222;
         }
       }
-    }
-
-    .firstButton:hover::after {
-      opacity: 1;
     }
 
     .lastButton {
@@ -274,7 +260,10 @@
         flex-direction: column;
         gap: 3.2vw;
 
-        button {
+        a {
+          display: flex;
+          justify-content: center;
+          align-items: center;
           width: 63.47vw;
           height: 13.87vw;
           border-radius: 4.27vw;
@@ -295,7 +284,7 @@
     .iconsAds {
       bottom: 10.67vw;
     }
-    
+
     .iconsWrapper img:first-child {
       top: -8.48vw;
       left: 4.27vw;

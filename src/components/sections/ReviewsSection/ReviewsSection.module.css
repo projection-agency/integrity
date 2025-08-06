@@ -78,7 +78,7 @@
         width: 100%;
         padding: 1.25vw 2.08vw;
         border-radius: 0.83vw;
-        border: 0.1vw solid var(--Black, #222);
+        border: 0.08vw solid var(--Black, #222);
         display: flex;
         justify-content: center;
         align-items: center;
@@ -161,6 +161,7 @@
               }
 
               h3 {
+                text-align: center;
                 margin-bottom: 1.25vw;
                 font-size: 1.25vw;
                 font-style: italic;
