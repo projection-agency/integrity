@@ -433,6 +433,7 @@
 
 @media (max-width: 1020px) {
   .wrapHeading {
+    margin-bottom: 8.53vw;
     display: flex;
     align-items: flex-end;
     justify-content: center;
