@@ -151,6 +151,17 @@
     background: var(--light-gray);
     border-radius: 6.49vw;
   }
+  .insightCard:hover .insightCardImage {
+    transform: none;
+  }
+  .insightCard:hover .insightCardBtn {
+    background-color: var(--light-gray);
+    border-color: transparent;
+  }
+  .insightCardBtn:hover {
+    border: 1px solid transparent;
+    background: var(--light-gray);
+  }
   .small {
     .insightCardImage {
       height: 64vw;
