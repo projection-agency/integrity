@@ -15,8 +15,6 @@ import PageTransition from '@/components/PageTransition/PageTransition'
 import PageTransitionOverlay from '@/components/PageTransition/PageTransitionOverlay'
 import TransitionBackground from '@/components/TransitionBackground/TransitionBackgroundWrapper'
 import TransitionBodyBackground from '@/components/TransitionBodyBackground/TransitionBodyBackground'
-import PageLoadHandler from '@/components/PageLoadHandler/PageLoadHandler'
-import PageReadyTracker from '@/components/PageReadyTracker/PageReadyTracker'
 
 import { Inter_Tight } from 'next/font/google'
 import { Inter } from 'next/font/google'
@@ -54,8 +52,6 @@ export default async function LocaleLayout({
         <NextIntlClientProvider messages={messages}>
           <CustomToastProvider>
             <PageTransitionProvider>
-              <PageLoadHandler />
-              <PageReadyTracker />
               <PageTransitionOverlay />
               <TransitionBodyBackground />
               <TransitionBackground />

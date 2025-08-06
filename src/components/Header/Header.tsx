@@ -2,7 +2,6 @@
 import React from 'react'
 import { useState } from 'react'
 import Link from 'next/link'
-import AnimatedLink from '@/components/AnimatedLink/AnimatedLinkWrapper'
 import s from './Header.module.css'
 import LocaleSwitcher from './LocaleSwitcher'
 import NavList, { MenuItem } from './NavList'
@@ -51,9 +50,9 @@ export default function Header({
   return (
     <>
       <header className={s.header}>
-        <AnimatedLink className={s.logoHeader} href="/">
+        <Link className={s.logoHeader} href="/">
           <div dangerouslySetInnerHTML={{ __html: logo || '' }} />
-        </AnimatedLink>
+        </Link>
         <NavList menu={menu} handleClose={handleClose} />
         <div className={s.left}>
           <LocaleSwitcher />
