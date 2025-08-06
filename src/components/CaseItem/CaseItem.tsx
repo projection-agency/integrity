@@ -29,9 +29,12 @@ export default function CaseItem({
                 <div className={s.topBlock}>
                   <span>{client}</span>
                   <p>Client:</p>
-                  {item.case_client && (
+                  {item.case_client !== '' && (
                     <span className={s.websiteLink}>
-                      <Link href={item.case_client}>Website</Link> {copy}
+                      <Link href={item.case_client} target="blank">
+                        Website
+                      </Link>{' '}
+                      {copy}
                     </span>
                   )}
                 </div>

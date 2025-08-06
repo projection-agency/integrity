@@ -1,5 +1,6 @@
 .section {
   padding: 10.41vw 0;
+  overflow: hidden;
 }
 
 .sectionUnique {
