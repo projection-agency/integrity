@@ -347,17 +347,22 @@
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-  .arrowBtn {
-    border-radius: 0.43vw;
-    background: #f9f9f9;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 18vw;
-    height: 10vw;
-    border-radius: 3.22vw;
-    fill: var(--light-gray);
+
+    .arrowBtn {
+      border-radius: 0.43vw;
+      background: #f9f9f9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 18vw;
+      height: 10vw;
+      border-radius: 3.22vw;
+      fill: var(--light-gray);
+
+      svg {
+        width: 4.8vw;
+      }
+    }
   }
 
   .swiperCustom :global(.swiper-slide-active) .serviceCard {
@@ -485,7 +490,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 4.3vw;
+    gap: 3.3vw;
 
     position: static;
   }

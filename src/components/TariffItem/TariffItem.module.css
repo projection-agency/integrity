@@ -429,6 +429,10 @@
 }
 
 @media screen and (max-width: 1024px) {
+  .cardContainer {
+    height: auto;
+  }
+
   .card {
     width: 100%;
 
@@ -473,6 +477,8 @@
       }
 
       .services {
+        height: 49.07vw;
+        margin-bottom: 6.4vw;
         padding: 5.33vw;
         border-radius: 6.4vw;
 
@@ -529,6 +535,33 @@
 
     .tariffPlan.back {
       overflow-y: scroll;
+
+      .services {
+        .channelsHead {
+          margin-top: 7.47vw;
+        }
+        .channelsList {
+          gap: 4.8vw;
+          li {
+            gap: 2.13vw;
+
+            span {
+              width: 6.4vw;
+              height: 6.4vw;
+
+              svg {
+                width: 3.2vw;
+                height: 2.2vw;
+              }
+            }
+          }
+        }
+        .results {
+          margin-top: 4.27vw;
+          border-radius: 5.33vw;
+          padding: 5.33vw;
+        }
+      }
     }
   }
 }
