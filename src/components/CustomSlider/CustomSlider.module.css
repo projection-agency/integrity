@@ -9,6 +9,7 @@
   .customSliderWrapper::-webkit-scrollbar {
     display: none;
   }
+
   .customSliderTrack {
     width: max-content;
     height: 26.72vw;
