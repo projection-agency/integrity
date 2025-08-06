@@ -14,17 +14,31 @@ interface CustomSliderProps {
 }
 
 export default function CustomSlider({ items, onSlideChange }: CustomSliderProps) {
-  const [currentIndex, setCurrentIndex] = useState(2)
+  const [currentIndex, setCurrentIndex] = useState(2) // Починаємо з 2, щоб бути в оригінальних слайдах
   const [isTransitioning, setIsTransitioning] = useState(false)
+  const [isTransitionEnabled, setIsTransitionEnabled] = useState(true)
+  const [isAddingClones, setIsAddingClones] = useState(false)
+  const [infiniteItems, setInfiniteItems] = useState<SliderItem[]>([])
   const containerRef = useRef<HTMLDivElement | null>(null)
   const progressRefs = useRef<(HTMLDivElement | null)[]>([])
   const timeoutRef = useRef<NodeJS.Timeout | undefined>(undefined)
+
+  // Ініціалізуємо масив з клонованими слайдами
+  useEffect(() => {
+    const initialItems = [
+      ...items.slice(-2), // Останні 2 слайди на початок
+      ...items, // Всі оригінальні слайди
+      ...items, // Додаткові клони для безкінечного скролу
+      ...items.slice(0, 2), // Перші 2 слайди в кінець
+    ]
+    setInfiniteItems(initialItems)
+  }, [items])
 
   const goToSlide = (index: number) => {
     if (isTransitioning || index === currentIndex) return
 
     setIsTransitioning(true)
-    setCurrentIndex(index)
+    setCurrentIndex(index + 2) // +2 тому що у нас 2 клоновані слайди на початок
     onSlideChange?.(index)
 
     // Скидаємо стан переходу після завершення анімації
@@ -37,13 +51,54 @@ export default function CustomSlider({ items, onSlideChange }: CustomSliderProps
   }
 
   const nextSlide = () => {
+    if (isTransitioning || isAddingClones) return
+
     const nextIndex = currentIndex + 1
+
+    // Додаємо нові клони якщо наближаємося до кінця
+    if (nextIndex >= infiniteItems.length - 2 && !isAddingClones) {
+      setIsAddingClones(true)
+      setIsTransitionEnabled(false)
+      const newItems = [...infiniteItems, ...items]
+      setInfiniteItems(newItems)
+      setTimeout(() => {
+        setIsTransitionEnabled(true)
+        setIsAddingClones(false)
+      }, 10)
+    }
+
     setCurrentIndex(nextIndex)
+
+    // Обчислюємо оригінальний індекс для callback
+    const originalIndex =
+      nextIndex < 2 ? items.length - 2 + nextIndex : (nextIndex - 2) % items.length
+    onSlideChange?.(originalIndex)
   }
 
   const prevSlide = () => {
-    const prevIndex = currentIndex === 0 ? items.length - 1 : currentIndex - 1
+    if (isTransitioning || isAddingClones) return
+
+    const prevIndex = currentIndex - 1
+
+    // Додаємо клони на початок якщо наближаємося до початку
+    if (prevIndex <= 2 && !isAddingClones) {
+      setIsAddingClones(true)
+      setIsTransitionEnabled(false)
+      const newItems = [...items.slice(-items.length), ...infiniteItems]
+      setInfiniteItems(newItems)
+      setCurrentIndex((prev) => prev + items.length)
+      setTimeout(() => {
+        setIsTransitionEnabled(true)
+        setIsAddingClones(false)
+      }, 1)
+      return
+    }
+
     setCurrentIndex(prevIndex)
+
+    const originalIndex =
+      prevIndex < 2 ? items.length - 2 + prevIndex : (prevIndex - 2) % items.length
+    onSlideChange?.(originalIndex)
   }
 
   const goToDot = (index: number) => {
@@ -69,6 +124,14 @@ export default function CustomSlider({ items, onSlideChange }: CustomSliderProps
         container.scrollLeft + itemOffsetInContainer - containerWidth / 2 + itemWidth / 2
 
       container.scrollTo({ left: scrollToCenter, behavior: 'smooth' })
+
+      if (currentIndex === 0) {
+        setIsTransitionEnabled(false)
+        setCurrentIndex(items.length)
+        setTimeout(() => {
+          setIsTransitionEnabled(true)
+        }, 10)
+      }
     }
 
     activeItem.addEventListener('transitionend', onTransitionEnd)
@@ -76,7 +139,7 @@ export default function CustomSlider({ items, onSlideChange }: CustomSliderProps
     return () => {
       activeItem.removeEventListener('transitionend', onTransitionEnd)
     }
-  }, [currentIndex])
+  }, [currentIndex, items.length])
 
   return (
     <div className={s.customSliderContainer}>
@@ -87,10 +150,10 @@ export default function CustomSlider({ items, onSlideChange }: CustomSliderProps
         }}
       >
         <div className={s.customSliderTrack}>
-          {items.map((item, index) => {
+          {infiniteItems.map((item, index) => {
             const isActive = index === currentIndex
-            const isPrev = index === (currentIndex - 1 + items.length) % items.length
-            const isNext = index === (currentIndex + 1) % items.length
+            const isPrev = index === currentIndex - 1
+            const isNext = index === currentIndex + 1
 
             return (
               <div
@@ -98,7 +161,17 @@ export default function CustomSlider({ items, onSlideChange }: CustomSliderProps
                 className={`${s.customSliderSlide} ${
                   isActive ? s.active : isPrev ? s.prev : isNext ? s.next : s.inactive
                 }`}
-                onClick={() => setCurrentIndex(index)}
+                style={{
+                  transition: !isTransitionEnabled ? 'none' : undefined,
+                }}
+                onClick={() => {
+                  // Обчислюємо оригінальний індекс для кліку
+                  const originalIndex =
+                    index < 2 ? items.length - 2 + index : (index - 2) % items.length
+                  if (originalIndex >= 0 && originalIndex < items.length) {
+                    goToSlide(originalIndex)
+                  }
+                }}
                 ref={(el) => {
                   progressRefs.current[index] = el
                 }}
@@ -133,14 +206,19 @@ export default function CustomSlider({ items, onSlideChange }: CustomSliderProps
         </button>
 
         <div className={s.customSliderDots}>
-          {items.map((_, index) => (
-            <button
-              key={index}
-              className={`${s.customSliderDot} ${index === currentIndex ? s.active : ''}`}
-              onClick={() => goToDot(index)}
-              aria-label={`Go to slide ${index + 1}`}
-            />
-          ))}
+          {items.map((_, index) => {
+            // Обчислюємо активний індекс для точок
+            const activeIndex =
+              currentIndex < 2 ? items.length - 2 + currentIndex : (currentIndex - 2) % items.length
+            return (
+              <button
+                key={index}
+                className={`${s.customSliderDot} ${index === activeIndex ? s.active : ''}`}
+                onClick={() => goToDot(index)}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            )
+          })}
         </div>
 
         <button className={s.customSliderArrow} onClick={nextSlide} aria-label="Next slide">
