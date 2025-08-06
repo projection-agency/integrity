@@ -9,6 +9,7 @@ import { object, string } from 'yup'
 import Image from 'next/image'
 import 'simplebar-react/dist/simplebar.min.css'
 import SimpleBar from 'simplebar-react'
+import { useCustomToastContext } from '@/contexts/CustomToastProvider'
 
 const industries = [
   { name: 'Finthech' },
@@ -58,34 +59,7 @@ export interface FormValues {
 const stages = [{ name: 'Seed' }, { name: 'Series A or higher' }, { name: 'Enterprise' }]
 export default function FormSection() {
   const [windowWidth, setWindowWidth] = useState(0)
-
-  // country
-  // :
-  // "Albania"
-  // email
-  // :
-  // "kdncwkjnek@ndwkjcnfe.com"
-  // employees
-  // :
-  // 12331
-  // industry
-  // :
-  // "B2B"
-  // name
-  // :
-  // "knwlkcwlknc"
-  // number
-  // :
-  // "380123123123"
-  // position
-  // :
-  // "asdcljwncdkj"
-  // stage
-  // :
-  // "Series A or higher"
-  // website
-  // :
-  // ""
+  const { showSuccessToast, showErrorToast } = useCustomToastContext()
 
   const handleSubmit = async (values: FormValues) => {
     try {
@@ -115,8 +89,10 @@ export default function FormSection() {
 
       const result = await response.json()
       console.log('Form sent successfully:', result)
+      showSuccessToast('Form sent successfully!')
     } catch (error) {
       console.error('Error:', error)
+      showErrorToast('Failed to send form. Please try again.')
     }
   }
 
@@ -163,7 +139,10 @@ export default function FormSection() {
         )}
         <Formik
           initialValues={initialValues}
-          onSubmit={(values) => handleSubmit(values)}
+          onSubmit={(values, actions) => {
+            handleSubmit(values)
+            actions.resetForm()
+          }}
           validationSchema={validationSchema}
         >
           {({ values, errors }) => {

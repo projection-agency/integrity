@@ -154,3 +154,6 @@ html {
 }
 
 
+.simplebar-track{
+  z-index: 0 !important;
+}
