@@ -3,7 +3,6 @@
 import s from './Footer.module.css'
 import IconHero from '../icons/IconHero/IconHero'
 import Link from 'next/link'
-import AnimatedLink from '@/components/AnimatedLink/AnimatedLinkWrapper'
 import { JSX, useRef, useEffect, useState } from 'react'
 import GridBackground from '@/components/GridBackground/GridBackground'
 import { motion, useScroll, useTransform } from 'framer-motion'
@@ -132,7 +131,7 @@ export default function Footer({ menu }: { menu: MenuItem[] }) {
               {menu.map((item, idx) => {
                 return (
                   <li key={idx}>
-                    <AnimatedLink href={`${item.link}`}>{item.label}</AnimatedLink>
+                    <Link href={`${item.link}`}>{item.label}</Link>
                   </li>
                 )
               })}
@@ -175,9 +174,9 @@ export default function Footer({ menu }: { menu: MenuItem[] }) {
         </motion.div>
         <div className={s.privacyCont}>
           <p>© 2025 integrity. All rights reserved</p>
-          <AnimatedLink href={'/privacy'}>Privacy Policy</AnimatedLink>
-          <AnimatedLink href={'/terms'}>Terms of use</AnimatedLink>
-          <AnimatedLink href={'/legal-notice'}>Legal notice</AnimatedLink>
+          <Link href={'/privacy'}>Privacy Policy</Link>
+          <Link href={'/terms'}>Terms of use</Link>
+          <Link href={'/legal-notice'}>Legal notice</Link>
           <div className={s.developers}>
             <p>Website Development </p>{' '}
             <Link href={'https://www.instagram.com/before_after.agency/'} target="_blank">
