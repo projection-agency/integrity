@@ -76,6 +76,7 @@
   font-size: 0.83vw;
   margin-bottom: 0.42vw;
   width: 100%;
+  position: relative; /* Додаємо для коректного позиціювання помилок */
 }
 
 .input {
@@ -221,9 +222,23 @@
 }
 
 .error {
-  color: red;
   font-size: 12px;
-  margin-top: 4px;
+  color: red;
+  min-height: 16px;
+  visibility: hidden;
+  transition:
+    visibility 0.2s ease-in-out,
+    opacity 0.2s ease-in-out;
+  opacity: 0;
+  position: absolute; /* Додаємо абсолютне позиціювання */
+  width: 100%; /* Займає всю ширину батьківського елемента */
+  top: 5.21vw;
+  left: 0;
+}
+
+.error.visible {
+  visibility: visible;
+  opacity: 1;
 }
 
 .expertAvatar {
@@ -497,6 +512,21 @@
     width: 91.47vw;
     height: max-content;
     gap: 8vw;
+  }
+
+  .error {
+    font-size: 12px;
+    color: red;
+    min-height: 16px;
+    visibility: hidden;
+    transition:
+      visibility 0.2s ease-in-out,
+      opacity 0.2s ease-in-out;
+    opacity: 0;
+    position: absolute; /* Додаємо абсолютне позиціювання */
+    width: 100%; /* Займає всю ширину батьківського елемента */
+    top: 100%;
+    left: 0;
   }
 
   /* .rowLayout {
