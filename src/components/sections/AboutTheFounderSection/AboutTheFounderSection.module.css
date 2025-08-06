@@ -7,8 +7,8 @@
     display: flex;
     gap: 3.91vw;
     margin-left: auto;
-    margin-right: auto;
-    width: 91.67vw;
+    margin-right: 4.17vw;
+    width: 88.54vw;
 
     div {
       width: calc((100% - 3.91vw) / 2);

@@ -10,6 +10,7 @@ export default function CaseItem({
   item: CaseItemType
   isExpanded: boolean
 }) {
+  console.log(item)
   return (
     <>
       <div className={`${s.item} ${isExpanded ? s.expanded : ''}`}>
@@ -63,9 +64,9 @@ export default function CaseItem({
                 )
               })}
             </ul>
-            <button>
+            <a href="#call">
               <span>{chat} I want too</span>
-            </button>
+            </a>
           </div>
         </div>
 

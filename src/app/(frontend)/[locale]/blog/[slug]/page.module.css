@@ -123,6 +123,7 @@
       .articleNav {
         position: sticky;
         top: 10vw;
+        align-self: flex-start;
         width: 20.63vw;
         padding: 1.67vw;
         height: max-content;
@@ -515,7 +516,8 @@
         }
 
         .articleNav {
-          top: 25vw;
+          position: static;
+
           width: 100%;
           padding: 6.4vw;
           border-radius: 6.4vw;

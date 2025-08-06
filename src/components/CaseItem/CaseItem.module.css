@@ -176,7 +176,8 @@
         }
       }
 
-      button {
+      a {
+        display: block;
         position: relative;
         overflow: hidden;
         width: 100%;
@@ -208,7 +209,7 @@
         }
       }
 
-      button::after {
+      a::after {
         content: ' ';
         position: absolute;
         top: 0;
@@ -221,7 +222,7 @@
         z-index: 1;
       }
 
-      button:hover::after {
+      a:hover::after {
         opacity: 0;
       }
     }
