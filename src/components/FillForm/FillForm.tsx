@@ -111,7 +111,12 @@ const FillForm = () => {
                       type="text"
                       placeholder="Enter your name"
                     />
-                    <ErrorMessage name="name" component="div" className={styles.error} />
+                    <ErrorMessage
+                      name="name"
+                      render={(msg) => (
+                        <div className={`${styles.error} ${msg ? styles.visible : ''}`}>{msg}</div>
+                      )}
+                    />
                   </label>
                 </div>
                 <div className={styles.row}>
@@ -123,7 +128,12 @@ const FillForm = () => {
                       type="email"
                       placeholder="Enter your email"
                     />
-                    <ErrorMessage name="email" component="div" className={styles.error} />
+                    <ErrorMessage
+                      name="email"
+                      render={(msg) => (
+                        <div className={`${styles.error} ${msg ? styles.visible : ''}`}>{msg}</div>
+                      )}
+                    />
                   </label>
                   <label className={styles.label}>
                     <p className={styles.required}>Number</p>
@@ -133,7 +143,13 @@ const FillForm = () => {
                       id="forNumber"
                       className={`${styles.input} ${styles.numberInput}`}
                     />
-                    <ErrorMessage name="number" component="div" className={styles.error} />
+                    {/* <ErrorMessage name="number" component="div" className={styles.error} /> */}
+                    <ErrorMessage
+                      name="number"
+                      render={(msg) => (
+                        <div className={`${styles.error} ${msg ? styles.visible : ''}`}>{msg}</div>
+                      )}
+                    />
                   </label>
                 </div>
               </div>
