@@ -136,7 +136,7 @@ const FillForm = () => {
                     />
                   </label>
                   <label className={styles.label}>
-                    <p className={styles.required}>Number</p>
+                    <p className={styles.required}>Phone Number</p>
                     <Field
                       name="number"
                       as={NumberInput}
