@@ -3,7 +3,6 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  /* height не вказуємо, щоб вона визначалася вмістом */
 }
 .insightCardImage {
   width: 100%;
@@ -107,7 +106,7 @@
   box-sizing: border-box;
   cursor: pointer;
   margin-top: auto;
-
+  background: var(--light-gray);
   width: max-content;
   border: 1px solid transparent;
 }
@@ -144,16 +143,8 @@
   margin-top: 0.1vw;
 }
 
-/* .insightCard:hover {
-  .insightCardBtn {
-    color: rgba(34, 34, 34, 1);
-    border-color: rgba(34, 34, 34, 1);
-  }
-} */
-
 @media (max-width: 1024px) {
   .insightCardImage {
-    /* border-radius: 24px; */
     width: 100%;
     height: 64vw;
     background: var(--light-gray);
@@ -161,7 +152,7 @@
   .small {
     .insightCardImage {
       height: 64vw;
-      border-radius: 1.25vw;
+      border-radius: 6.49vw;
     }
   }
   .insightCardBadge {
@@ -189,7 +180,6 @@
     border: 0.5px solid var(--light-garay-2);
     border-radius: 10.67vw;
     padding: 1.6vw 3.2vw;
-    /* width: 139px; */
     width: auto;
     height: 6.93vw;
     font-family: var(--second-family);
@@ -210,7 +200,6 @@
     line-height: 100%;
     text-transform: uppercase;
     color: var(--black);
-    /* margin-bottom: 0.83vw; */
 
     margin-bottom: 1.83vw;
   }
@@ -230,7 +219,6 @@
   .insightCardBtn {
     border-radius: 3.2vw;
     padding: 3.47vw 4.27vw;
-    /* width: auto; */
     gap: 2.13vw;
     height: 12.27vw;
     background: var(--light-gray);
