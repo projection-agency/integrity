@@ -2,7 +2,7 @@
   background: var(--white);
   border-radius: 1.67vw;
   padding: 5.21vw;
-  width: 52.6vw;
+  width: 100%;
   height: 30.99vw;
   display: flex;
   flex-direction: column;
@@ -547,7 +547,7 @@
     flex-direction: column;
   }
   .inputGroupBlock {
-    width: 76.533vw;
+    width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
