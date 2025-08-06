@@ -148,6 +148,7 @@
     width: 100%;
     height: 64vw;
     background: var(--light-gray);
+    border-radius: 6.49vw;
   }
   .small {
     .insightCardImage {
@@ -155,12 +156,15 @@
       border-radius: 6.49vw;
     }
   }
+
   .insightCardBadge {
     border-radius: 10.67vw;
     padding: 2.13vw 6.4vw;
     width: 23.47vw;
     height: 8.8vw;
     background: var(--light-gray);
+    top: 3.2vw;
+    left: 3.2vw;
   }
   .insightCardText {
     font-family: var(--second-family);
@@ -180,6 +184,7 @@
     border: 0.5px solid var(--light-garay-2);
     border-radius: 10.67vw;
     padding: 1.6vw 3.2vw;
+    gap: 1.6vw;
     width: auto;
     height: 6.93vw;
     font-family: var(--second-family);
