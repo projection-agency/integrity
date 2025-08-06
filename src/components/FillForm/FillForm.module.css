@@ -25,6 +25,7 @@
 }
 
 .error {
+  font-weight: 500;
   color: #ff4d4f;
   font-size: 0.73vw;
   height: 0;
@@ -561,10 +562,9 @@
         .inputGroup {
           width: auto;
         }
-
-        .row {
-          width: auto;
-        }
+      }
+      .row {
+        width: auto;
       }
 
       bottom: unset;
@@ -576,6 +576,9 @@
 }
 
 @media (max-width: 1024px) {
+  .row {
+    width: auto !important;
+  }
   .form {
     border-radius: 8.53vw;
     padding: 7.47vw;
@@ -585,7 +588,7 @@
   }
 
   .error {
-    font-size: 3.24vw;
+    font-size: 2.27vw;
     color: red;
     min-height: 4.32vw;
     visibility: hidden;

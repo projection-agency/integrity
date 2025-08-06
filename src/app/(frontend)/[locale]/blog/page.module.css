@@ -59,6 +59,10 @@
 
 @media screen and (max-width: 1024px) {
   .blog {
+    .fillFormWrapper {
+      padding-top: 21.33vw;
+      padding-bottom: 21.33vw;
+    }
     .heroPage {
       padding-top: 29.87vw;
       padding-bottom: 10.67vw;
