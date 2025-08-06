@@ -27,13 +27,16 @@ export default function ArticleItem({
       className={`${s.insightCard} ${style === 'small' ? s.small : ''}`}
       key={idx}
     >
-      <Image
-        className={s.insightCardImage}
-        src={post.featuredImage?.url || '/images/blog/blog-placeholder.png'}
-        alt={post.title}
-        width={400}
-        height={300}
-      />
+      <div className={s.insightCardImageBlock}>
+        <Image
+          className={s.insightCardImage}
+          src={post.featuredImage?.url || '/images/blog/blog-placeholder.png'}
+          alt={post.title}
+          width={400}
+          height={300}
+        />
+      </div>
+
       <div className={s.insightCardBadge}>
         <span className={s.insightCardText}>News</span>
       </div>

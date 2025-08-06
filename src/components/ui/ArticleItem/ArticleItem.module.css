@@ -2,19 +2,33 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  /* overflow: hidden; */
   position: relative;
+  /* height не вказуємо, щоб вона визначалася вмістом */
 }
 .insightCardImage {
   width: 100%;
-  height: 23.9vw;
+  height: 100%;
   object-fit: cover;
   border-radius: 1.66vw;
+  transition: transform 0.3s ease;
+}
+.insightCard:hover .insightCardImage {
+  transform: scale(1.05);
+}
+.insightCardImageBlock {
+  width: 100%;
+  height: 23.9vw;
+  overflow: hidden;
+  border-radius: 1.66vw;
+  position: relative;
 }
 .small {
   .insightCardImage {
     height: 20vw;
   }
+}
+.small .insightCardImageBlock {
+  height: 20vw;
 }
 .insightCardBadge {
   position: absolute;
@@ -242,5 +256,12 @@
     display: flex;
     width: 87.2vw;
     height: 48.27vw;
+  }
+  .insightCardImageBlock {
+    height: 64vw;
+  }
+
+  .small .insightCardImageBlock {
+    height: 64vw;
   }
 }
