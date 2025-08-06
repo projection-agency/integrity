@@ -27,7 +27,7 @@ export default function HeaderFix({ menu, buttonText }: { menu: MenuItem[]; butt
         <Link className={s.logoHeader} href="/">
           {logo}
         </Link>
-        <NavList menu={menu} />
+        <NavList menu={menu} handleClose={handleClose} />
         <div className={s.left}>
           <LocaleSwitcher className={s.localeSwitcher} />
           <Link className={s.btn} href="#call">

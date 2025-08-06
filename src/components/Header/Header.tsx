@@ -54,7 +54,7 @@ export default function Header({
         <AnimatedLink className={s.logoHeader} href="/">
           <div dangerouslySetInnerHTML={{ __html: logo || '' }} />
         </AnimatedLink>
-        <NavList menu={menu} />
+        <NavList menu={menu} handleClose={handleClose} />
         <div className={s.left}>
           <LocaleSwitcher />
           <Link className={s.btn} href="#call">

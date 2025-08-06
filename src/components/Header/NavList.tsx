@@ -11,7 +11,13 @@ export type MenuItem = {
   id?: string
 }
 
-export default function NavList({ menu }: { menu: MenuItem[] }) {
+export default function NavList({
+  menu,
+  handleClose,
+}: {
+  menu: MenuItem[]
+  handleClose: () => void
+}) {
   const pathname = usePathname()
   const [currentSection, setCurrentSection] = useState<string>('')
 
@@ -228,7 +234,14 @@ export default function NavList({ menu }: { menu: MenuItem[] }) {
                 {item.label}
               </a>
             ) : (
-              <AnimatedLink href={item.link}>{item.label}</AnimatedLink>
+              <AnimatedLink
+                href={item.link}
+                onClick={() => {
+                  handleClose()
+                }}
+              >
+                {item.label}
+              </AnimatedLink>
             )}
           </li>
         ))}

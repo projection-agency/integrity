@@ -365,7 +365,7 @@
     padding-bottom: 21.33vw;
 
     .topBlock {
-      width: 54.67vw;
+      width: 84.67vw;
       margin-left: auto;
       margin-right: auto;
       margin-bottom: 8.53vw;
@@ -548,7 +548,7 @@
 
           .paginationCont {
             width: 33.07vw;
-            gap: 4.27vw;
+            gap: 1.27vw;
 
             .paginationBullet {
               width: 1.6vw;
