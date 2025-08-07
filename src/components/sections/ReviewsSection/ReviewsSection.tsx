@@ -85,6 +85,7 @@ export default function ReviewsSection({ block }: { block: ReviewsSection }) {
             }}
           >
             {block.review.map((item: Review, idx) => {
+              console.log(item)
               return (
                 <SwiperSlide key={idx} className={s.swiperSlide}>
                   <div className={s.swiperItem}>

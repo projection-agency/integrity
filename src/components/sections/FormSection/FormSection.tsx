@@ -62,6 +62,7 @@ export default function FormSection() {
   const { showSuccessToast, showErrorToast } = useCustomToastContext()
 
   const handleSubmit = async (values: FormValues) => {
+    console.log(values)
     try {
       const response = await fetch('/api/order-call-full', {
         method: 'POST',
