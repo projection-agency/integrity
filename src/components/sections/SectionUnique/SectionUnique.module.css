@@ -16,6 +16,16 @@
   margin-top: 6.25vw;
 }
 
+.sideText {
+  margin-bottom: 2.08vw;
+  font-size: 0.83vw;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: -0.32px;
+  color: rgba(34, 34, 34, 0.6);
+}
+
 .sectionUniqueSide {
   width: 21.09vw;
   min-width: 16.67vw;
@@ -81,12 +91,12 @@
   }
 }
 .sideDescription {
-  font-family: var(--font-family);
+  /* font-family: var(--font-family);
   font-weight: 700;
   font-size: 0.84vw;
   line-height: 140%;
   letter-spacing: -0.02em;
-  color: #898787;
+  color: #898787; */
   margin: 0.83vw 0;
 }
 .sideButton {
@@ -233,12 +243,23 @@
     justify-content: space-between;
   }
   .sideDescription {
+    /* font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 3.73vw;
+    line-height: 140%;
+    letter-spacing: -0.02em;
+    color: var(--black-600); */
+  }
+
+  .sideText {
     font-family: var(--font-family);
+    font-family: 'Mont';
     font-weight: 700;
     font-size: 3.73vw;
     line-height: 140%;
     letter-spacing: -0.02em;
     color: var(--black-600);
+    color: rgba(34, 34, 34, 0.6);
   }
   .sectionUniqueCard {
     border-radius: 6.4vw;

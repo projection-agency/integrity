@@ -163,7 +163,7 @@
   height: 3.5vw;
   border-radius: 0.83vw;
   padding: 0.83vw 2vw;
-  background: linear-gradient(135deg, #ffe400, #ffcb05);
+  background: linear-gradient(94deg, #ffe414 0.19%, #ffae00 100.19%);
   font-family: var(--font-family);
   font-weight: 800;
   font-size: 0.83vw;
@@ -175,14 +175,24 @@
   margin: 2vw auto 0 auto;
   border: none;
   cursor: pointer;
+  transition: all 0.5s ease;
+  transition:
+    background 0.5s ease-in-out,
+    color 0.5s ease-in-out;
+  transition: opacity 300ms ease-in-out;
 }
 .latestInsightsCta:hover {
   background: black;
   color: white;
+  transition:
+    background 0.5s ease-in-out,
+    color 0.5s ease-in-out;
+  background: linear-gradient(94deg, #2d2d2a 0.19%, #282725 100.19%);
 }
 
 .latestInsightsCta:hover {
   color: var(--white);
+  background: linear-gradient(94deg, #2d2d2a 0.19%, #282725 100.19%);
 }
 .latestInsightsCta:hover .icon {
   background: brightness(0) invert(1);
@@ -198,6 +208,10 @@
 .latestInsightsCta svg {
   width: 1vw;
   height: 1vw;
+  transition: fill 0.5s ease;
+  transition:
+    fill 0.5s ease,
+    color 0.5s ease;
 }
 .readMoreIcon {
   width: 1.04vw;
