@@ -3,6 +3,7 @@ import s from './TariffItem.module.css'
 import { useState } from 'react'
 import { tariffItem } from '../sections/TariffsSection/TariffsSection'
 import Link from 'next/link'
+import SimpleBar from 'simplebar-react'
 
 const TariffItem = ({ item, index }: { item: tariffItem; index: number }) => {
   const [flipped, setFlipped] = useState(false)
@@ -38,37 +39,45 @@ const TariffItem = ({ item, index }: { item: tariffItem; index: number }) => {
           <span className={s.line}></span>
           <h3 className={s.slogan}>{item.title}</h3>
           <p className={s.descr} dangerouslySetInnerHTML={{ __html: item.description }}></p>
-          <div className={s.services}>
-            <h4>{whatsIncluded} What`s included:</h4>
-            <ul className={s.servicesList}>
-              {item.whats_included.map((item: { wi_points: string; id: string }, idx) => {
-                return <li key={idx}>{item.wi_points}</li>
-              })}
-            </ul>
-            <h4 className={s.channelsHead}>{channels} Channels:</h4>
-            <ul className={s.channelsList}>
-              {item.channels.map((item) => {
-                return (
-                  <li key={item.id}>
-                    <span dangerouslySetInnerHTML={{ __html: item.c_icon }}></span>
-                    <p>{item.c_points}</p>
-                  </li>
-                )
-              })}
-            </ul>
-            {item.result.length !== 0 ? (
-              <div className={s.results}>
-                <h4>{result} Result:</h4>
-                <ul>
-                  {item.result.map((item, idx) => {
-                    return <li key={idx}>{item.points}</li>
-                  })}
-                </ul>
-              </div>
-            ) : (
-              ' '
-            )}
-          </div>
+          <SimpleBar
+            className={s.simpleBarCont}
+            dir="vertical"
+            forceVisible="y"
+            autoHide={false}
+            classNames={{ scrollbar: s.scrollbar }}
+          >
+            <div className={s.services}>
+              <h4>{whatsIncluded} What`s included:</h4>
+              <ul className={s.servicesList}>
+                {item.whats_included.map((item: { wi_points: string; id: string }, idx) => {
+                  return <li key={idx}>{item.wi_points}</li>
+                })}
+              </ul>
+              <h4 className={s.channelsHead}>{channels} Channels:</h4>
+              <ul className={s.channelsList}>
+                {item.channels.map((item) => {
+                  return (
+                    <li key={item.id}>
+                      <span dangerouslySetInnerHTML={{ __html: item.c_icon }}></span>
+                      <p>{item.c_points}</p>
+                    </li>
+                  )
+                })}
+              </ul>
+              {item.result.length !== 0 ? (
+                <div className={s.results}>
+                  <h4>{result} Result:</h4>
+                  <ul>
+                    {item.result.map((item, idx) => {
+                      return <li key={idx}>{item.points}</li>
+                    })}
+                  </ul>
+                </div>
+              ) : (
+                ' '
+              )}
+            </div>
+          </SimpleBar>
           <Link href="#call" className={s.orderBtn}>
             <span>{order}Order</span>
           </Link>
