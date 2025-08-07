@@ -180,43 +180,67 @@
 
 .iconsAds {
   position: absolute;
-  bottom: 4.3vw;
+  bottom: 8.3vw;
   left: 50%;
-  transform: translate(-50%);
   width: 97vw;
 
+  .iconLine {
+    position: absolute;
+    bottom: -5.21vw;
+    transform: translate(-50%);
+  }
+
   .iconsWrapper {
-    img {
+    div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 0.05vw solid #fff;
+      background: linear-gradient(
+        141deg,
+        rgba(255, 255, 255, 0.12) 8.87%,
+        rgba(41, 41, 41, 0.12) 93.36%
+      );
+      backdrop-filter: blur(2.478468894958496px);
+      -webkit-backdrop-filter: blur(10px);
       position: absolute;
       z-index: 9;
     }
   }
 }
 
-.iconsAds img:first-child {
-  top: -3.48vw;
+.iconsAds div:nth-child(3) {
+  top: 3.52vw;
   left: 12.13vw;
-  transform: rotate(-7deg);
+  transform: rotate(12deg);
   width: 7.3vw;
+  height: 7.3vw;
+  border-radius: 1.25vw;
 }
 
-.iconsAds img:nth-child(2) {
-  bottom: 2.6vw;
+.iconsAds div:nth-child(2) {
+  bottom: 4.6vw;
   left: 35vw;
   transform: rotate(0deg);
   width: 4.16vw;
+  height: 4.16vw;
+  border-radius: 0.63vw;
 }
-.iconsAds img:nth-child(3) {
-  bottom: -1vw;
-  right: 25vw;
-  transform: rotate(0deg);
+.iconsAds div:first-child {
+  bottom: 6vw;
+  right: 31vw;
+  transform: rotate(-7deg);
   width: 8vw;
+  height: 8vw;
+  border-radius: 1.25vw;
 }
-.iconsAds img:nth-child(4) {
-  top: 4.3vw;
+.iconsAds div:nth-child(4) {
+  top: 2.3vw;
   right: 12vw;
   transform: rotate(0deg);
   width: 4.2vw;
+  height: 4.2vw;
+  border-radius: 0.63vw;
 }
 
 @media screen and (max-width: 1024px) {
