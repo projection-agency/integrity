@@ -24,7 +24,7 @@ export default function IconHero({
         className={`${s.icon} ${iconClass ? iconClass : ''}`}
         initial={{ x: 0 }}
         animate={{ x: '115%' }} // зміщення на ширину контейнера мінус іконка
-        transition={{ duration: 0.5, delay: 6, ease: 'easeInOut' }}
+        transition={{ duration: 0.5, delay: 8, ease: 'easeInOut' }}
         viewport={{ once: false, amount: 0.2 }}
       >
         <g clipPath="url(#clip0_1034_6189)">
