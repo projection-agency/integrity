@@ -8,7 +8,7 @@ import { motion } from 'framer-motion'
 export default function ClientAccordion({ items }: { items: any[] }) {
   return (
     <>
-      <Accordion className={s.accordion}>
+      <Accordion className={s.accordion} transition>
         {items.map((item, idx) => (
           <motion.div
             initial={{ opacity: 0, y: 50 }}

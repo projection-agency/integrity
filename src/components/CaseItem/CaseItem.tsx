@@ -3,6 +3,8 @@ import s from './CaseItem.module.css'
 import Image from 'next/image'
 import Link from 'next/link'
 import { CaseItemType } from '../sections/CasesSection/CasesSection'
+import { motion } from 'framer-motion'
+import { useState, useEffect } from 'react'
 export default function CaseItem({
   item,
   isExpanded,
@@ -10,11 +12,31 @@ export default function CaseItem({
   item: CaseItemType
   isExpanded: boolean
 }) {
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth)
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth)
+    }
+
+    window.addEventListener('resize', handleResize)
+    return window.removeEventListener('resize', () => {})
+  }, [])
   return (
     <>
       <div className={`${s.item} ${isExpanded ? s.expanded : ''}`}>
         <div className={s.clientInfo}>
-          <div className={s.clientInfoMobContainer}>
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={
+              windowWidth <= 1024
+                ? { duration: 0.5, ease: 'easeOut' }
+                : { duration: 0.5, ease: 'easeOut', delay: 0 }
+            }
+            viewport={{ once: false, amount: 0.2 }}
+            className={s.clientInfoMobContainer}
+          >
             <h3 className={s.caseTitle}>{item.case_title}</h3>
             <ul className={s.infoList}>
               <li>
@@ -47,8 +69,18 @@ export default function CaseItem({
                 <p dangerouslySetInnerHTML={{ __html: item.case_goal }}></p>
               </li>
             </ul>
-          </div>
-          <div className={s.doneWork}>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={
+              windowWidth <= 1024
+                ? { duration: 0.5, ease: 'easeOut' }
+                : { duration: 0.5, ease: 'easeOut', delay: 0.5 }
+            }
+            viewport={{ once: false, amount: 0.2 }}
+            className={s.doneWork}
+          >
             <div className={s.topBlock}>
               <div className={s.blockTitle}>
                 {whatWeDid} <p>What we did:</p>
@@ -69,17 +101,27 @@ export default function CaseItem({
             <a href="#call">
               <span>{chat} I want too</span>
             </a>
-          </div>
+          </motion.div>
         </div>
 
-        <div className={s.results}>
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={
+            windowWidth <= 1024
+              ? { duration: 0.5, ease: 'easeOut' }
+              : { duration: 0.5, ease: 'easeOut', delay: 1 }
+          }
+          viewport={{ once: false, amount: 0.2 }}
+          className={s.results}
+        >
           <Image
             src={`${item.case_image?.url ? item.case_image?.url : ''}`}
             width={543}
             height={628}
             alt="result"
           />
-        </div>
+        </motion.div>
         <div className={s.bgCont}></div>
       </div>
     </>
