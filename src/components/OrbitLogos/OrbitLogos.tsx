@@ -63,7 +63,7 @@ const OrbitLogos = () => {
         progress = Math.max(0, Math.min(1, scrollDistance / (windowHeight + elementHeight)))
       }
 
-      setScrollProgress(progress * 3)
+      setScrollProgress(progress * 1.5)
     }
 
     window.addEventListener('scroll', handleScroll)

@@ -216,7 +216,7 @@
 
             .reviewBlock {
               .stars {
-                width: max-content;
+                width: 10.52vw;
                 padding: 0.63vw 1.25vw;
                 margin-bottom: 2.5vw;
                 display: flex;

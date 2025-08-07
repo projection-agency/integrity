@@ -432,6 +432,10 @@
 }
 
 @media (max-width: 1020px) {
+  .section {
+    padding-top: 21.33vw;
+    padding-bottom: 21.33vw;
+  }
   .wrapHeading {
     margin-bottom: 8.53vw;
     display: flex;

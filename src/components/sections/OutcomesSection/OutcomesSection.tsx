@@ -3,7 +3,6 @@
 import React, { useState, useEffect } from 'react'
 import s from './OutcomesSection.module.css'
 import { Group01, Analytics02, Chart03, GlobeIcon04, GlobeIcon05 } from '../../Icon/Icon'
-
 import ExpertSection from '@/components/sections/ExpertSection/ExpertSection'
 import TabSection from '@/components/ui/TabSection/TabSection'
 import MainTitle from '@/components/ui/MainTitle/MainTitle'
@@ -13,19 +12,15 @@ const outcomes = [
   {
     number: '01',
     icon: <Group01 />,
-    // icon: <Globe2Icon />,
     title: 'MORE CLARITY METRICS DECISIONS',
   },
   {
     number: '02',
     icon: <Analytics02 />,
-
-    // icon: <Chart2Icon />,
     title: 'STRUCTURE THAT REDUCES WASTE AND GUESSWORK',
   },
   {
     number: '03',
-    // icon: <Analytics2Icon />,
     icon: <Chart03 />,
     title: 'SMARTER CAMPAIGNS ALIGNED WITH REAL BUSINESS GOALS',
   },
