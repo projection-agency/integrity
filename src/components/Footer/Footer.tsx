@@ -121,8 +121,7 @@ export default function Footer({ menu }: { menu: MenuItem[] }) {
       >
         <div className={s.slogan}>
           <p>
-            Smart digital{' '}
-            <IconHero style="small" containerClass={s.logoContainer} iconClass={s.logo} /> marketing
+            Smart digital <IconHero containerClass={s.logoContainer} iconClass={s.logo} /> marketing
             that drives growth
           </p>
         </div>

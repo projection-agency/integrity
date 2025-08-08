@@ -41,7 +41,7 @@ const AboutTheFounderSection = ({ block }: { block: AboutTheFounderSection }) =>
             height={1486}
             alt="founder"
           />
-          <IconHero containerClass={s.logoContainer} iconClass={s.logo} />
+          <IconHero containerClass={s.logoContainer} iconClass={s.logo} style="small" />
           <motion.div
             initial={{ opacity: 0, y: 100, x: -50, rotate: 10 }}
             whileInView={{ opacity: 1, y: 0, x: 0, rotate: 0 }}
