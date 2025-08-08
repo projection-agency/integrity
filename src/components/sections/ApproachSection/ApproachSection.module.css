@@ -285,6 +285,7 @@
             max-width: 8.53vw;
             width: 8.53vw;
             height: 8.53vw;
+            margin-left: 1vw;
 
             svg {
               width: 8.53vw;
@@ -326,6 +327,7 @@
           border-radius: 6.4vw;
 
           .upperDescr {
+            align-items: anchor-center;
             gap: 2.13vw;
             padding: 2.13vw 3.2vw;
             border-radius: 2.13vw;

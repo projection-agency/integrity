@@ -37,11 +37,6 @@
     backdrop-filter: blur(3px);
   }
 }
-.small {
-  .icon {
-    margin-left: 3.9vw;
-  }
-}
 
 @media screen and (max-width: 1024px) {
   .iconHero {
@@ -51,7 +46,11 @@
     .icon {
       width: 10.67vw;
       height: 10.67vw;
-      margin-left: 12.8vw;
     }
+  }
+
+  .iconHero.small {
+    width: 24.93vw !important;
+    height: 12.8vw;
   }
 }
