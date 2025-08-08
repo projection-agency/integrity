@@ -160,6 +160,9 @@ export default function CustomSlider({ items, onSlideChange }: CustomSliderProps
                 key={index}
                 className={`${s.customSliderSlide} ${
                   isActive ? s.active : isPrev ? s.prev : isNext ? s.next : s.inactive
+                }${
+                  // Додатковий клас для останніх слайдів
+                  index > currentIndex + 2 ? s.lastSlide : ''
                 }`}
                 style={{
                   transition: !isTransitionEnabled ? 'none' : undefined,
