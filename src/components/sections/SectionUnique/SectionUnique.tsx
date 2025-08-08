@@ -146,7 +146,9 @@ export default function SectionUnique({ block }: { block: SectionUniqueBlock }) 
             YOU ARE HERE <span>TO ACHIEVE RESULTS</span>
           </div>
           <div className={styles.sideDescription}>
-            Order your first free call and receive a tailored strategy to promote your business
+            <p className={styles.sideText}>
+              Order your first free call and receive a tailored strategy to promote your business
+            </p>
           </div>
           <a href="#call" className={styles.sideButton}>
             <PhoneIcon className={styles.sidePhoneIcon} /> Demo call
