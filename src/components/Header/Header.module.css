@@ -173,6 +173,7 @@
     padding: 3.2vw;
     border-radius: 6.4vw;
     position: fixed;
+    top: 3.2vw;
 
     .logoHeader {
       width: 25.33vw;

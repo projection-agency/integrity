@@ -5,6 +5,7 @@ import Link from 'next/link'
 import s from './Header.module.css'
 import LocaleSwitcher from './LocaleSwitcher'
 import NavList, { MenuItem } from './NavList'
+import { motion } from 'framer-motion'
 import MobileMenu from '../MobileMenu/MobileMenu'
 
 const phone = (
@@ -63,8 +64,11 @@ export default function Header({
             </span>
           </Link>
         </div>
-        <button className={s.mobMenuBtn} onClick={() => setMenuIsOpen(true)}>
-          {burger}
+        <button
+          className={s.mobMenuBtn}
+          onClick={() => (menuIsOpen ? handleClose() : setMenuIsOpen(true))}
+        >
+          {menuIsOpen ? closeIcon : burger}
         </button>
       </header>
       <MobileMenu menuIsOpen={menuIsOpen} handleClose={handleClose} menu={menu} />
@@ -77,5 +81,14 @@ const burger = (
     <rect width="20" height="2" rx="1" fill="white" />
     <rect x="4" y="6" width="16" height="2" rx="1" fill="white" />
     <rect y="12" width="20" height="2" rx="1" fill="white" />
+  </svg>
+)
+
+const closeIcon = (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+    <path
+      fill="white"
+      d="M183.1 137.4C170.6 124.9 150.3 124.9 137.8 137.4C125.3 149.9 125.3 170.2 137.8 182.7L275.2 320L137.9 457.4C125.4 469.9 125.4 490.2 137.9 502.7C150.4 515.2 170.7 515.2 183.2 502.7L320.5 365.3L457.9 502.6C470.4 515.1 490.7 515.1 503.2 502.6C515.7 490.1 515.7 469.8 503.2 457.3L365.8 320L503.1 182.6C515.6 170.1 515.6 149.8 503.1 137.3C490.6 124.8 470.3 124.8 457.8 137.3L320.5 274.7L183.1 137.4z"
+    />
   </svg>
 )

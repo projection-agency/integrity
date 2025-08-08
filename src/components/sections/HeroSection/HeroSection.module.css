@@ -57,18 +57,7 @@
     font-weight: 900;
     line-height: 110%; /* 5.72917rem */
     text-transform: uppercase;
-    background: linear-gradient(
-      99deg,
-      #fff -0.38%,
-      #b1b1b1 28.6%,
-      #fff 48.3%,
-      #b1b1b1 58.98%,
-      #b1b1b1 88.48%,
-      #fff 112.92%
-    );
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: rgba(255, 255, 255, 1);
     max-width: 48.2vw;
   }
   p {
@@ -309,32 +298,44 @@
       bottom: 10.67vw;
     }
 
-    .iconsWrapper img:first-child {
-      top: -8.48vw;
-      left: 4.27vw;
+    .iconsWrapper div:first-child {
       transform: rotate(-7deg);
       width: 14.93vw;
       height: 14.93vw;
+
+      svg {
+        width: 10.27vw;
+        height: 7.27vw;
+      }
     }
 
-    .iconsWrapper img:nth-child(2) {
-      bottom: 2.6vw;
-      left: 30vw;
+    .iconsWrapper div:nth-child(2) {
       width: 9.33vw;
       height: 9.33vw;
+
+      svg {
+        width: 4.27vw;
+        height: 4.27vw;
+      }
     }
 
-    .iconsWrapper img:nth-child(3) {
+    .iconsWrapper div:nth-child(3) {
       transform: rotateZ(12deg);
       width: 10.67vw;
       height: 10.67vw;
+      svg {
+        width: 4.27vw;
+        height: 4.27vw;
+      }
     }
 
-    .iconsWrapper img:nth-child(4) {
-      top: 1.3vw;
-      right: 4vw;
+    .iconsWrapper div:nth-child(4) {
       width: 9.33vw;
       height: 9.33vw;
+      svg {
+        width: 4.27vw;
+        height: 4.27vw;
+      }
     }
   }
 }

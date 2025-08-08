@@ -118,6 +118,7 @@
       padding: 0 4.27vw;
       margin-top: 0;
       flex-direction: column;
+      gap: 3.2vw;
 
       .card {
         width: 76.53vw;
