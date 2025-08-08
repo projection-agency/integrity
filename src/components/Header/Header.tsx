@@ -5,8 +5,8 @@ import Link from 'next/link'
 import s from './Header.module.css'
 import LocaleSwitcher from './LocaleSwitcher'
 import NavList, { MenuItem } from './NavList'
-import { motion } from 'framer-motion'
 import MobileMenu from '../MobileMenu/MobileMenu'
+import { AnimatedLink } from '../ui/AnimatedLink/AnimatedLink'
 
 const phone = (
   <svg
@@ -51,9 +51,9 @@ export default function Header({
   return (
     <>
       <header className={s.header}>
-        <Link className={s.logoHeader} href="/">
+        <AnimatedLink className={s.logoHeader} href="/" prefetch>
           <div dangerouslySetInnerHTML={{ __html: logo || '' }} />
-        </Link>
+        </AnimatedLink>
         <NavList menu={menu} handleClose={handleClose} />
         <div className={s.left}>
           <LocaleSwitcher />

@@ -6,6 +6,7 @@ import s from './HeaderFix.module.css'
 import LocaleSwitcher from '../Header/LocaleSwitcher'
 import NavList, { MenuItem } from '../Header/NavList'
 import MobileMenu from '../MobileMenu/MobileMenu'
+import { AnimatedLink } from '@/components/ui/AnimatedLink/AnimatedLink'
 
 export default function HeaderFix({ menu, buttonText }: { menu: MenuItem[]; buttonText?: string }) {
   const [menuIsOpen, setMenuIsOpen] = useState(false)
@@ -24,9 +25,9 @@ export default function HeaderFix({ menu, buttonText }: { menu: MenuItem[]; butt
   return (
     <>
       <header className={`${s.header} ${isFixed ? s.fixed : ''}`}>
-        <Link className={s.logoHeader} href="/">
+        <AnimatedLink className={s.logoHeader} href="/" prefetch>
           {logo}
-        </Link>
+        </AnimatedLink>
         <NavList menu={menu} handleClose={handleClose} />
         <div className={s.left}>
           <LocaleSwitcher className={s.localeSwitcher} />

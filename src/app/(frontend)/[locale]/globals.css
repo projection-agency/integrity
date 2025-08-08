@@ -21,9 +21,19 @@ body.privacyBackground {
 }
 
 /* Стилі для анімацій переходів */
+html {
+  transition: background-color 0.5s ease;
+}
 body {
-  transition: background-color 0.3s ease;
+  transition:
+    opacity 0.5s ease,
+    background-color 0.3s ease;
   overflow-x: hidden;
+}
+main {
+  transition:
+    opacity 0.5s ease,
+    transform 0.3s ease;
 }
 
 /* Забезпечуємо, що хедер залишається поверх анімацій */
@@ -60,4 +70,17 @@ footer,
 
 .Toastify__close-button {
   display: none !important;
+}
+
+.page-transition {
+  opacity: 0;
+  transform: translateY(-100px);
+  transition:
+    transform 0.3s ease,
+    opacity 0.5s ease;
+}
+
+.body-transition {
+  background: #222 !important;
+  transition: background-color 0.5s ease;
 }
