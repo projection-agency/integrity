@@ -1,4 +1,3 @@
-
 @font-face {
   font-family: 'Mont';
   src:
@@ -35,7 +34,7 @@
   --black: #181818;
   --font-family: 'Mont', system-ui, sans-serif;
   --third-family: 'Inter Tight', system-ui, sans-serif;
-  --font-inter:"Inter";
+  --font-inter: 'Inter';
   --black-600: #222;
   --gray: #b5b5b5;
   --light-garay-2: #b5b5b5; /* ймовірно, це опечатка, але додаю як є */
@@ -72,6 +71,8 @@ h5,
 h6 {
   font-weight: normal;
   font-size: inherit;
+  margin-block-start: 0;
+  margin-block-end: 0;
 }
 
 /* Set default font and smooth rendering */
@@ -153,7 +154,6 @@ html {
   border-radius: 1vw !important;
 }
 
-
-.simplebar-track{
+.simplebar-track {
   z-index: 0 !important;
 }

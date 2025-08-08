@@ -36,7 +36,7 @@ const AboutTheFounderSection = ({ block }: { block: AboutTheFounderSection }) =>
         <div className={s.imgContainer}>
           <Image
             className={s.founderImage}
-            src={'/images/boss.jpg'}
+            src={width <= 1024 ? '/images/boss-mobile.jpg' : '/images/boss.jpg'}
             width={1486}
             height={1486}
             alt="founder"
@@ -89,15 +89,12 @@ const AboutTheFounderSection = ({ block }: { block: AboutTheFounderSection }) =>
           {width <= 1024 ? (
             <h3>
               <span>
-                {' '}
                 “ For me, marketing <pre></pre>
               </span>
               <span>
-                {'  '}
                 <span className={s.computer}>
                   <Image src={'/images/icons/computer.svg'} width={64} height={64} alt="icon" />
                 </span>
-                {'  '} <pre></pre>
                 only made sense
               </span>{' '}
               <span>once I stopped seeing</span> <span>it as campaigns and</span>
