@@ -10,6 +10,21 @@
     display: none;
   }
 
+  @media (min-width: 1020px) {
+    .inactive {
+      opacity: 0.4;
+      backdrop-filter: blur(20px);
+      background: linear-gradient(141deg, rgba(255, 255, 255, 0.1) 0%, rgba(41, 41, 41, 0.1) 100%);
+    }
+
+    /* Якщо ви хочете, щоб затемнення було тільки на останніх слайдах, а не на всіх неактивних */
+    .lastSlide {
+      opacity: 0.4;
+      backdrop-filter: blur(20px);
+      background: linear-gradient(141deg, rgba(255, 255, 255, 0.1) 0%, rgba(41, 41, 41, 0.1) 100%);
+    }
+  }
+
   .customSliderTrack {
     width: max-content;
     height: 26.72vw;
@@ -75,7 +90,7 @@
 
             .cardIconBlock {
               transition: all 300ms ease-in-out;
-
+              background: linear-gradient(149deg, rgb(40 40 40 / 71%) 0%, rgb(43 41 41) 100%);
               display: flex;
               justify-content: center;
               align-items: center;
@@ -106,7 +121,6 @@
                   backdrop-filter: blur(4px);
                   border-radius: 0.52vw;
                   border: 0.05vw solid rgba(255, 255, 255, 0.5);
-
                   svg {
                     transition:
                       width 300s ease-in-out,
@@ -162,6 +176,7 @@
                 .cardIcon {
                   width: 2.92vw;
                   height: 2.92vw;
+                  background: linear-gradient(149deg, rgb(40 40 40 / 71%) 0%, rgb(43 41 41) 100%);
 
                   svg {
                     width: 1.67vw;
@@ -255,6 +270,11 @@
     .customSliderWrapper {
       margin-bottom: 8.53vw;
     }
+    /* .inactive {
+      opacity: 0.4;
+      backdrop-filter: blur(20px);
+      background: linear-gradient(141deg, rgba(255, 255, 255, 0.1) 0%, rgba(41, 41, 41, 0.1) 100%);
+    } */
 
     .customSliderTrack {
       height: max-content;
@@ -280,6 +300,7 @@
                   width: 10.67vw;
                   height: 10.67vw;
                   border-radius: 2.4vw;
+                  background: linear-gradient(149deg, rgb(40 40 40 / 71%) 0%, rgb(43 41 41) 100%);
 
                   .cardIcon {
                     width: 100%;
