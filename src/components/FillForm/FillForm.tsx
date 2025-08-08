@@ -162,7 +162,7 @@ const FillForm = () => {
               <button type="submit" className={styles.submitBtn} disabled={isSubmitting}>
                 <span>
                   <NumberIcon className={styles.btnIcon} />
-                  {isSubmitting ? 'Sending...' : 'Order a call'}
+                  <p className={styles.btnIcon}>{isSubmitting ? 'Sending...' : 'Order a call'}</p>
                 </span>
               </button>
             </Form>
