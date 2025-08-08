@@ -1,30 +1,41 @@
 import { getPayload } from 'payload'
 import config from '@/payload.config'
+import { unstable_cache } from 'next/cache'
 
 export async function getLayoutData(locale: string) {
-  const payloadConfig = await config
-  const payload = await getPayload({ config: payloadConfig })
+  const cached = unstable_cache(
+    async (loc: string) => {
+      const payloadConfig = await config
+      const payload = await getPayload({ config: payloadConfig })
 
-  const main = await payload.findGlobal({ slug: 'main', locale: locale as 'en' })
-  const menuGlobal = await payload.findGlobal({ slug: 'menu', locale: locale as 'en' })
+      const [main, menuGlobal] = await Promise.all([
+        payload.findGlobal({ slug: 'main', locale: loc as 'en' }),
+        payload.findGlobal({ slug: 'menu', locale: loc as 'en' }),
+      ])
 
-  const headerMenu = Array.isArray(menuGlobal?.['header-menu'])
-    ? menuGlobal['header-menu'].map(({ id, ...rest }) => ({
-        ...rest,
-        id: typeof id === 'string' ? id : undefined,
-      }))
-    : []
+      const headerMenu = Array.isArray(menuGlobal?.['header-menu'])
+        ? menuGlobal['header-menu'].map(({ id, ...rest }: any) => ({
+            ...rest,
+            id: typeof id === 'string' ? id : undefined,
+          }))
+        : []
 
-  const footerMenu = Array.isArray(menuGlobal?.['footer-menu'])
-    ? menuGlobal['footer-menu'].map(({ id, ...rest }) => ({
-        ...rest,
-        id: typeof id === 'string' ? id : undefined,
-      }))
-    : []
+      const footerMenu = Array.isArray(menuGlobal?.['footer-menu'])
+        ? menuGlobal['footer-menu'].map(({ id, ...rest }: any) => ({
+            ...rest,
+            id: typeof id === 'string' ? id : undefined,
+          }))
+        : []
 
-  return {
-    main,
-    headerMenu,
-    footerMenu,
-  }
+      return {
+        main,
+        headerMenu,
+        footerMenu,
+      }
+    },
+    ['layout-data', locale],
+    { revalidate: 300, tags: ['layout', 'menu', `layout-${locale}`, `menu-${locale}`] },
+  )
+
+  return cached(locale)
 }

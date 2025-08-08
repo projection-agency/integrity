@@ -1,7 +1,6 @@
-import Link from 'next/link'
-import AnimatedLink from '@/components/AnimatedLink/AnimatedLinkWrapper'
 import s from './ArticleItem.module.css'
 import Image from 'next/image'
+import { AnimatedLink } from '@/components/ui/AnimatedLink/AnimatedLink'
 
 function formatDate(isoDate: string) {
   const date = new Date(isoDate)
@@ -26,6 +25,7 @@ export default function ArticleItem({
       href={`/blog/${post.slug}`}
       className={`${s.insightCard} ${style === 'small' ? s.small : ''}`}
       key={idx}
+      prefetch
     >
       <div className={s.insightCardImageBlock}>
         <Image

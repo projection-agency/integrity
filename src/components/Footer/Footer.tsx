@@ -3,10 +3,10 @@
 import s from './Footer.module.css'
 import IconHero from '../icons/IconHero/IconHero'
 import Link from 'next/link'
-import AnimatedLink from '@/components/AnimatedLink/AnimatedLinkWrapper'
 import { JSX, useRef, useEffect, useState } from 'react'
 import GridBackground from '@/components/GridBackground/GridBackground'
 import { motion, useScroll, useTransform } from 'framer-motion'
+import { AnimatedLink } from '@/components/ui/AnimatedLink/AnimatedLink'
 
 const whatsapp = (
   <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 38 38">
@@ -131,7 +131,7 @@ export default function Footer({ menu }: { menu: MenuItem[] }) {
               {menu.map((item, idx) => {
                 return (
                   <li key={idx}>
-                    <AnimatedLink href={`${item.link}`}>{item.label}</AnimatedLink>
+                    <Link href={`${item.link}`}>{item.label}</Link>
                   </li>
                 )
               })}

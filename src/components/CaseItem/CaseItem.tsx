@@ -1,7 +1,7 @@
 'use client'
 import s from './CaseItem.module.css'
 import Image from 'next/image'
-import Link from 'next/link'
+// External website links рендеримо як <a>, внутрішні — через Link (тут потрібен <a>)
 import { CaseItemType } from '../sections/CasesSection/CasesSection'
 import { motion } from 'framer-motion'
 import { useState, useEffect } from 'react'
@@ -12,15 +12,23 @@ export default function CaseItem({
   item: CaseItemType
   isExpanded: boolean
 }) {
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth)
+  const [windowWidth, setWindowWidth] = useState(0)
 
   useEffect(() => {
     const handleResize = () => {
       setWindowWidth(window.innerWidth)
     }
 
-    window.addEventListener('resize', handleResize)
-    return window.removeEventListener('resize', () => {})
+    // Ініціалізація на клієнті
+    if (typeof window !== 'undefined') {
+      setWindowWidth(window.innerWidth)
+      window.addEventListener('resize', handleResize)
+    }
+    return () => {
+      if (typeof window !== 'undefined') {
+        window.removeEventListener('resize', handleResize)
+      }
+    }
   }, [])
   return (
     <>
@@ -50,11 +58,17 @@ export default function CaseItem({
                 <div className={s.topBlock}>
                   <span>{client}</span>
                   <p>Client:</p>
-                  {item.case_client !== '' && (
+                  {typeof item.case_client === 'string' && item.case_client.trim().length > 0 && (
                     <span className={s.websiteLink}>
-                      <Link href={item.case_client} target="blank">
-                        Website
-                      </Link>{' '}
+                      {(() => {
+                        const raw = item.case_client!.trim()
+                        const href = /^(https?:)?\/\//i.test(raw) ? raw : `https://${raw}`
+                        return (
+                          <a href={href} target="_blank" rel="noopener noreferrer">
+                            Website
+                          </a>
+                        )
+                      })()}{' '}
                       {copy}
                     </span>
                   )}
