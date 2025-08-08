@@ -466,7 +466,7 @@
   }
 
   .headWrapper {
-    margin: 9.38vw;
+    margin-bottom: 8.53vw;
   }
   .swiperCustom :global(.swiper-slide-active) .serviceCard {
     opacity: 1;

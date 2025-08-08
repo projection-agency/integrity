@@ -16,10 +16,6 @@ const MobileMenu = ({
   return (
     <div className={`${s.menuOverlay} ${menuIsOpen ? s.isOpen : ''}`}>
       <div className={s.contentContainer}>
-        <header className={s.header}>
-          {logo}
-          <button onClick={() => handleClose()}>{closeIcon}</button>
-        </header>
         <div className={s.content}>
           <LocaleSwitcher />
           <NavList menu={menu} handleClose={handleClose} />

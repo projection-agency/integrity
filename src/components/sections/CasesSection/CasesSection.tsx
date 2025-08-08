@@ -161,7 +161,7 @@ export default function CasesSection({ block }: { block: CasesBlockData }) {
               className={`${s.expandBtn} ${isExpanded ? s.isExpanded : ''}`}
               onClick={handleClick}
             >
-              {isExpanded ? 'Show less' : 'Show more'} {btnArrow}
+              {isExpanded ? 'Show less' : 'Read case details'} {btnArrow}
             </button>
           ) : (
             ''
