@@ -203,7 +203,8 @@
     font-weight: 600;
     font-size: 3.2vw;
     line-height: 120%;
-    color: var(--gray);
+    /* color: var(--gray); */
+    color: #8c8686;
 
     img {
       width: 3vw;
