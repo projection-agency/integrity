@@ -427,11 +427,12 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    background-image: url(/images/bg_services.svg);
 
     svg {
       width: 6.3vw;
     }
-    .cardBlock {
+    /* .cardBlock {
       border-radius: 3.2vw;
       padding: 3.2vw;
       width: 21.333vw;
@@ -440,9 +441,9 @@
       border: 0.05vw solid #fff;
       backdrop-filter: blur(0.417vw);
       box-shadow: 0.104vw -0.104vw 1.042vw 0 rgba(255, 228, 20, 0.15);
-    }
+    } */
 
-    .cardIconcBlock {
+    /* .cardIconcBlock {
       border-radius: 3.2vw;
       padding: 4.267vw;
       width: 14.933vw;
@@ -456,7 +457,7 @@
       border: 0.05vw solid #fff;
       display: flex;
       align-items: center;
-    }
+    } */
   }
   .fillFormSection {
     margin-top: 18.75vw;
