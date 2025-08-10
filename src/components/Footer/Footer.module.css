@@ -235,11 +235,11 @@
 
         .logoContainer {
           height: 9.07vw;
+          width: 17.17vw;
 
           .logo {
             height: 6.93vw;
             width: 6.93vw;
-            margin-left: 9.67vw;
           }
         }
       }

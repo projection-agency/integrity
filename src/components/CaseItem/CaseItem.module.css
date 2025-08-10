@@ -242,7 +242,7 @@
   .item {
     position: relative;
     transition: height 300ms ease-in-out;
-    height: 131.73vw;
+    height: 155.73vw;
     margin-bottom: 3.73vw;
     flex-direction: column-reverse;
     justify-content: flex-end;
@@ -378,7 +378,7 @@
     .results {
       flex-shrink: 0;
       width: 100%;
-      border-radius: 5.33vw;
+      border-radius: 8.53vw;
     }
 
     .bgCont {
