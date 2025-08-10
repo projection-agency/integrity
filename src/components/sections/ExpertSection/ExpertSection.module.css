@@ -116,7 +116,8 @@
   font-size: 0.83vw;
   line-height: 140%;
   letter-spacing: -0.02em;
-  color: var(--black-600);
+  /* color: var(--black-600); */
+  color: rgb(79 75 75 / 56%);
   width: 19.69vw;
   margin-top: 0.83vw;
 }
@@ -202,7 +203,7 @@
     font-size: 3.73vw;
     line-height: 140%;
     font-weight: 700;
-    color: rgb(79 75 75 / 80%);
+    color: rgb(79 75 75 / 56%);
     width: auto;
     margin-top: 4.26vw;
   }

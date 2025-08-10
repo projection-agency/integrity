@@ -8,7 +8,7 @@ import Image from 'next/image'
 import NumberInput from '../NumberInput/NumberInput'
 import { Form, Formik, Field, ErrorMessage, FormikHelpers } from 'formik'
 import * as Yup from 'yup'
-import { NumberIcon } from '../Icon/Icon'
+import { NumberBlackIcon, NumberIcon } from '../Icon/Icon'
 import { useCustomToastContext } from '@/contexts/CustomToastProvider'
 
 interface FormValues {
@@ -37,6 +37,7 @@ const validationSchema = Yup.object({
 
 const FillForm = () => {
   const { showSuccessToast, showErrorToast } = useCustomToastContext()
+  const [isHovered, setIsHovered] = useState(false)
 
   const handleSubmit = async (
     values: FormValues,
@@ -159,10 +160,20 @@ const FillForm = () => {
                 </div>
               </div>
 
-              <button type="submit" className={styles.submitBtn} disabled={isSubmitting}>
+              <button
+                type="submit"
+                className={styles.submitBtn}
+                disabled={isSubmitting}
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
+              >
                 <span>
-                  <NumberIcon className={styles.btnIcon} />
-                  <p className={styles.btnIcon}>{isSubmitting ? 'Sending...' : 'Order a call'}</p>
+                  {isHovered ? (
+                    <NumberBlackIcon className={styles.btnIcon} />
+                  ) : (
+                    <NumberIcon className={styles.btnIcon} />
+                  )}
+                  <p className={styles.btnText}>{isSubmitting ? 'Sending...' : 'Order a call'}</p>
                 </span>
               </button>
             </Form>

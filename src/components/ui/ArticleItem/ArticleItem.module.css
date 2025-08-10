@@ -60,7 +60,7 @@
   font-weight: 600;
   font-size: 0.83vw;
   line-height: 120%;
-  color: #717070;
+  color: #8c8686;
   gap: 0.4vw;
 
   img {
@@ -203,7 +203,8 @@
     font-weight: 600;
     font-size: 3.2vw;
     line-height: 120%;
-    color: var(--gray);
+    /* color: var(--gray); */
+    color: #8c8686;
 
     img {
       width: 3vw;

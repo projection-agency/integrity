@@ -12,9 +12,13 @@
 }
 .btnText {
   font-family: var(--font-family);
-  font-weight: 800;
-  font-size: 16px;
+  font-weight: 700;
+  font-size: 0.83vw;
   color: var(--white);
+}
+
+.submitBtn:hover .btnText {
+  color: black;
 }
 
 .input {
@@ -188,6 +192,12 @@
     svg {
       /* fill: var(--white); */
       transition: fill 300ms ease-in-out;
+      width: 0.73vw;
+      height: 0.73vw;
+      @media (max-width: 1024px) {
+        width: 5.33vw;
+        height: 5.33vw;
+      }
     }
 
     .order {
@@ -227,7 +237,7 @@
 
 .submitBtn:hover .btnIcon,
 .submitBtn:hover svg {
-  fill: var(--black);
+  /* fill: var(--black); */
 }
 
 .wrapper {
@@ -588,7 +598,8 @@
   .btnText {
     font-family: var(--font-family);
     font-weight: 800;
-    font-size: 14px;
+
+    font-size: 3.78vw;
     line-height: 140%;
     letter-spacing: -0.02em;
     color: var(--white);
@@ -711,8 +722,38 @@
     }
   }
 
+  .span {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.63vw;
+
+    .btnIcon,
+    svg {
+      /* fill: var(--white); */
+      transition: fill 300ms ease-in-out;
+      width: 5.33vw;
+      height: 5.33vw;
+    }
+  }
+
+  .submitBtn span .btnIcon svg {
+    width: 5.33vw !important;
+    height: 5.33vw !important;
+  }
+
   .btnIcon {
-    /* width: 5.25vw; */
+    width: 5.33vw;
+    height: 5.33vw;
+    svg {
+      transition: fill 300ms ease-in-out;
+      width: 5.33vw;
+      height: 5.33vw;
+    }
+  }
+  .btnIconText {
     height: 5.25vw;
     font-family: var(--font-family);
     font-weight: 800;
@@ -720,5 +761,9 @@
     line-height: 140%;
     letter-spacing: -0.02em;
     color: var(--white);
+  }
+
+  .btnIconText :hover {
+    color: var(--black-600);
   }
 }
