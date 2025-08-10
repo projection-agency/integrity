@@ -200,7 +200,6 @@
           }
         }
       }
-
       .submitBtn {
         position: relative;
         width: 100%;
@@ -226,8 +225,9 @@
             width: 1.04vw;
             height: 1.04vw;
             transition: fill 300ms ease-in-out;
-
-            fill: #ffffff;
+            stroke: #ffffff;
+            stroke-width: 0.25vw;
+            fill: none;
           }
         }
       }
@@ -250,7 +250,7 @@
           color: rgba(34, 34, 34, 1);
 
           svg {
-            fill: #222;
+            stroke: #222;
           }
         }
       }
@@ -357,7 +357,6 @@
 
             .messageInput {
               height: 37.33vw;
-              margin-bottom: 6.4vw;
               padding: 5.33vw 6.4vw;
             }
           }
@@ -399,6 +398,13 @@
             flex-direction: row;
             gap: 2.13vw;
             overflow-y: scroll;
+          }
+        }
+
+        .messageInputLine {
+          margin-bottom: 6.4vw;
+          label {
+            margin-bottom: 0;
           }
         }
 
