@@ -6,6 +6,7 @@ import { useState, useEffect, useRef } from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination } from 'swiper/modules'
 import CaseItem from '@/components/CaseItem/CaseItem'
+import { useTranslations } from 'next-intl'
 
 export interface CaseItemType {
   case_title: string
@@ -32,6 +33,7 @@ export interface CasesBlockData {
   case: CaseItemType[]
 }
 export default function CasesSection({ block }: { block: CasesBlockData }) {
+  const t = useTranslations('CasesSection')
   const swiperRef = useRef<any>(null)
   const [caseData, setCaseData] = useState<CaseItemType[]>([])
   const [activeSlide, setActiveSlide] = useState<number>(0)
@@ -71,7 +73,7 @@ export default function CasesSection({ block }: { block: CasesBlockData }) {
         <div className={s.wrapHeading}>
           <MainTitle title={block.title} />
           <div className={s.count}>
-            <span>(05)</span>
+            <span>{t('caseCount')}</span>
           </div>
         </div>
       </div>
@@ -100,7 +102,9 @@ export default function CasesSection({ block }: { block: CasesBlockData }) {
                       swiperRef.current?.slideTo(idx)
                     }}
                   >
-                    <p>Case {idx + 1}</p>
+                    <p>
+                      {t('caseNumber')} {idx + 1}
+                    </p>
                     <h3>{item.case_title}</h3>
                   </li>
                 )
@@ -118,7 +122,9 @@ export default function CasesSection({ block }: { block: CasesBlockData }) {
                       swiperRef.current?.slideTo(idx)
                     }}
                   >
-                    <p>Case {idx + 1}</p>
+                    <p>
+                      {t('caseNumber')} {idx + 1}
+                    </p>
                     <h3>{item.case_title}</h3>
                   </li>
                 )
@@ -161,13 +167,13 @@ export default function CasesSection({ block }: { block: CasesBlockData }) {
               className={`${s.expandBtn} ${isExpanded ? s.isExpanded : ''}`}
               onClick={handleClick}
             >
-              {isExpanded ? 'Show less' : 'Read case details'} {btnArrow}
+              {isExpanded ? t('showLess') : t('readCaseDetails')} {btnArrow}
             </button>
           ) : (
             ''
           )}
           <div className={s.controlsCont}>
-            {windowWidth <= 1024 ? <p>Next case</p> : <p>Switch to the next case</p>}
+            {windowWidth <= 1024 ? <p>{t('nextCase')}</p> : <p>{t('switchToNextCase')}</p>}
             <div className={s.controls}>
               <button className={`${s.navigationBtn} ${s.navigationPrev}`}>{navArrow}</button>
               <div className={s.pagination}></div>

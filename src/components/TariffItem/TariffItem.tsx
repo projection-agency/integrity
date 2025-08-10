@@ -4,10 +4,11 @@ import { useState } from 'react'
 import { tariffItem } from '../sections/TariffsSection/TariffsSection'
 import Link from 'next/link'
 import SimpleBar from 'simplebar-react'
+import { useTranslations } from 'next-intl'
 
 const TariffItem = ({ item, index }: { item: tariffItem; index: number }) => {
+  const t = useTranslations('TariffItem')
   const [flipped, setFlipped] = useState(false)
-  console.log(item)
 
   return (
     <div className={`${s.cardContainer}`}>
@@ -19,7 +20,10 @@ const TariffItem = ({ item, index }: { item: tariffItem; index: number }) => {
           <h3 className={s.slogan}>{item.title}</h3>
           <p className={s.descr} dangerouslySetInnerHTML={{ __html: item.description }}></p>
           <div className={s.services}>
-            <h4>{result}Result:</h4>
+            <h4>
+              {result}
+              {t('result')}
+            </h4>
             <ul className={s.servicesList}>
               {item.result.map((item, idx) => {
                 return <li key={idx}>{item.points}</li>
@@ -27,10 +31,16 @@ const TariffItem = ({ item, index }: { item: tariffItem; index: number }) => {
             </ul>
           </div>
           <Link href="#call" className={s.orderBtn}>
-            <span>{order}Order</span>
+            <span>
+              {order}
+              {t('order')}
+            </span>
           </Link>
           <button className={s.moreDetails} onClick={() => setFlipped(!flipped)}>
-            <span> More details {moreDetails}</span>
+            <span>
+              {' '}
+              {t('moreDetails')} {moreDetails}
+            </span>
           </button>
         </div>
 
@@ -47,13 +57,17 @@ const TariffItem = ({ item, index }: { item: tariffItem; index: number }) => {
             classNames={{ scrollbar: s.scrollbar }}
           >
             <div className={s.services}>
-              <h4>{whatsIncluded} What`s included:</h4>
+              <h4>
+                {whatsIncluded} {t('whatsIncluded')}
+              </h4>
               <ul className={s.servicesList}>
                 {item.whats_included.map((item: { wi_points: string; id: string }, idx) => {
                   return <li key={idx}>{item.wi_points}</li>
                 })}
               </ul>
-              <h4 className={s.channelsHead}>{channels} Channels:</h4>
+              <h4 className={s.channelsHead}>
+                {channels} {t('channels')}
+              </h4>
               <ul className={s.channelsList}>
                 {item.channels.map((item) => {
                   return (
@@ -66,7 +80,9 @@ const TariffItem = ({ item, index }: { item: tariffItem; index: number }) => {
               </ul>
               {item.result.length !== 0 ? (
                 <div className={s.results}>
-                  <h4>{result} Result:</h4>
+                  <h4>
+                    {result} {t('result')}
+                  </h4>
                   <ul>
                     {item.result.map((item, idx) => {
                       return <li key={idx}>{item.points}</li>
@@ -79,10 +95,15 @@ const TariffItem = ({ item, index }: { item: tariffItem; index: number }) => {
             </div>
           </SimpleBar>
           <Link href="#call" className={s.orderBtn}>
-            <span>{order}Order</span>
+            <span>
+              {order}
+              {t('order')}
+            </span>
           </Link>
           <button onClick={() => setFlipped(!flipped)} className={s.moreDetails}>
-            <span>{iconBack} Back</span>
+            <span>
+              {iconBack} {t('back')}
+            </span>
           </button>
         </div>
       </div>
@@ -110,7 +131,6 @@ const order = (
     <path d="M13.3109 15.1939C13.2284 15.1941 13.1467 15.178 13.0705 15.1463C12.9944 15.1147 12.9252 15.0683 12.8672 15.0097L12.0299 14.1725C11.9682 14.1151 11.9188 14.0457 11.8844 13.9687C11.8501 13.8917 11.8317 13.8085 11.8302 13.7242C11.8287 13.6399 11.8442 13.5562 11.8758 13.478C11.9074 13.3998 11.9544 13.3288 12.014 13.2692C12.0736 13.2095 12.1446 13.1625 12.2228 13.131C12.301 13.0994 12.3848 13.0839 12.4691 13.0853C12.5534 13.0868 12.6365 13.1053 12.7136 13.1396C12.7906 13.1739 12.8599 13.2234 12.9174 13.2851L13.3109 13.6777L14.5416 12.4479C14.5991 12.3862 14.6684 12.3367 14.7454 12.3024C14.8225 12.2681 14.9056 12.2496 14.9899 12.2481C15.0742 12.2467 15.158 12.2622 15.2362 12.2937C15.3143 12.3253 15.3854 12.3723 15.445 12.432C15.5046 12.4916 15.5516 12.5626 15.5832 12.6408C15.6148 12.719 15.6303 12.8027 15.6288 12.887C15.6273 12.9713 15.6089 13.0545 15.5746 13.1315C15.5402 13.2085 15.4908 13.2778 15.4291 13.3353L13.7546 15.0097C13.6965 15.0683 13.6274 15.1147 13.5512 15.1463C13.475 15.178 13.3934 15.1941 13.3109 15.1939Z" />
   </svg>
 )
-
 const moreDetails = (
   <svg xmlns="http://www.w3.org/2000/svg" width="9" height="20" viewBox="0 0 9 20">
     <g clipPath="url(#clip0_3087_527)">

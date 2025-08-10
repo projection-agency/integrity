@@ -15,11 +15,9 @@ const TabSection = ({ style, text }: { style: string; text: string }) => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          console.log(`TabSection ${uniqueId} is visible`)
           setIsVisible(true)
           // Запускаємо shiny анімацію після появи елемента
           setTimeout(() => {
-            console.log(`TabSection ${uniqueId} starting shiny animation`)
             setIsShinyActive(true)
           }, 500) // Затримка 500ms після появи
           observer.disconnect()

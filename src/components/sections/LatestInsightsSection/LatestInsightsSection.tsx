@@ -4,7 +4,6 @@ import React, { useState, useRef, useEffect } from 'react'
 import styles from './LatestInsightsSection.module.css'
 import TabSection from '@/components/ui/TabSection/TabSection'
 import MainTitle from '@/components/ui/MainTitle/MainTitle'
-import Image from 'next/image'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import type SwiperType from 'swiper'
 import 'swiper/css'
@@ -15,7 +14,7 @@ import type { Post as PayloadPost } from '@/payload-types'
 import SliderNav from './SliderNav'
 import useHasMounted from './useHasMounted'
 import Link from 'next/link'
-import { RevisedСard } from '@/components/Icon/Icon'
+import { useTranslations } from 'next-intl'
 
 type Post = PayloadPost & {
   readingTime: string
@@ -40,6 +39,7 @@ export default function LatestInsightsSection({ block, filteredPosts }: Props) {
 
   const [activeIndex, setActiveIndex] = useState(0)
   const swiperRef = useRef<SwiperType | null>(null)
+  const t = useTranslations('LatestInsightsSection')
 
   useEffect(() => {
     setActiveIndex(0)
@@ -100,7 +100,7 @@ export default function LatestInsightsSection({ block, filteredPosts }: Props) {
                 className={styles.iconPath}
               />
             </svg>
-            <span className={styles.latestText}>See all Integrity posts</span>
+            <span className={styles.latestText}>{t('seeAllIntegrityPosts')}</span>
           </Link>
         </>
       ) : (
@@ -132,7 +132,7 @@ export default function LatestInsightsSection({ block, filteredPosts }: Props) {
               className={styles.iconPath}
             />
           </svg>
-          <span className={styles.latestText}>See all Integrity posts</span>
+          <span className={styles.latestText}>{t('seeAllIntegrityPosts')}</span>
         </Link>
       )}
     </section>

@@ -10,28 +10,9 @@ import Image from 'next/image'
 import 'simplebar-react/dist/simplebar.min.css'
 import SimpleBar from 'simplebar-react'
 import { useCustomToastContext } from '@/contexts/CustomToastProvider'
+import { useTranslations } from 'next-intl'
 
-const industries = [
-  { name: 'Finthech' },
-  { name: 'B2B' },
-  { name: 'Healthecare' },
-  { name: 'Furniture & home' },
-  { name: 'Electronics' },
-  { name: 'Other sectors' },
-]
-
-const validationSchema = object({
-  name: string().required('Enter your name'),
-  email: string().email().required('Enter your email'),
-  number: string().required('Enter your phone number'),
-  country: string().required('Enter your country'),
-  employees: string().required('Enter number of employees'),
-  position: string().required('Enter your position'),
-  industry: string().required('Enter your industry'),
-  stage: string().required('Enter your company stage'),
-  website: string(),
-  message: string(),
-})
+// Validation schema will be created inside the component to access translations
 
 const initialValues = {
   name: '',
@@ -56,10 +37,40 @@ export interface FormValues {
   stage: string
   website: string
 }
-const stages = [{ name: 'Seed' }, { name: 'Series A or higher' }, { name: 'Enterprise' }]
+
 export default function FormSection() {
   const [windowWidth, setWindowWidth] = useState(0)
   const { showSuccessToast, showErrorToast } = useCustomToastContext()
+  const t = useTranslations('FormSection')
+
+  // Create validation schema with translations
+  const validationSchema = object({
+    name: string().required(t('validation.nameRequired')),
+    email: string().email(t('validation.emailInvalid')).required(t('validation.emailRequired')),
+    number: string().required(t('validation.phoneRequired')),
+    country: string().required(t('validation.countryRequired')),
+    employees: string().required(t('validation.employeesRequired')),
+    position: string().required(t('validation.positionRequired')),
+    industry: string().required(t('validation.industryRequired')),
+    stage: string().required(t('validation.stageRequired')),
+    website: string(),
+    message: string(),
+  })
+
+  const industries = [
+    { name: t('industries.finthech') },
+    { name: t('industries.b2b') },
+    { name: t('industries.healthcare') },
+    { name: t('industries.furniture') },
+    { name: t('industries.electronics') },
+    { name: t('industries.other') },
+  ]
+
+  const stages = [
+    { name: t('stages.seed') },
+    { name: t('stages.seriesA') },
+    { name: t('stages.enterprise') },
+  ]
 
   const handleSubmit = async (values: FormValues) => {
     try {
@@ -89,10 +100,10 @@ export default function FormSection() {
 
       const result = await response.json()
       console.log('Form sent successfully:', result)
-      showSuccessToast('Form sent successfully!')
+      showSuccessToast(t('formSentSuccess'))
     } catch (error) {
       console.error('Error:', error)
-      showErrorToast('Failed to send form. Please try again.')
+      showErrorToast(t('formSentError'))
     }
   }
 
@@ -118,21 +129,15 @@ export default function FormSection() {
             <div>{chat}</div>
             <Image src={'/images/business-woman.png'} width={118} height={118} alt="woman" />
           </div>
-          <h1>
-            Let’s <br />
-            unpack your growth potential
-          </h1>
-          <p>
-            Book your free strategy call. Together we’ll analyze your goals and recommend the next
-            best steps
-          </p>
+          <h1>{t('title')}</h1>
+          <p>{t('subtitle')}</p>
         </div>
       </div>
 
       <div className={s.formCont}>
         {windowWidth <= 1024 ? (
           <h3>
-            Fill <span>{report}</span> <br /> out the form
+            {t('mobileTitle')} <span>{report}</span>
           </h3>
         ) : (
           ''
@@ -150,31 +155,31 @@ export default function FormSection() {
               <Form className={s.form}>
                 <div className={s.inputLine}>
                   <label htmlFor="forName">
-                    <p className={s.required}>Name</p>
+                    <p className={s.required}>{t('name')}</p>
                     <Field
                       name="name"
                       id="forName"
                       className={`${s.input}`}
-                      placeholder="Enter your name"
+                      placeholder={t('enterName')}
                     />
                     <ErrorMessage name="name">
                       {(msg) => <div className={s.errorMessage}>{msg}</div>}
                     </ErrorMessage>
                   </label>
                   <label htmlFor="forEmail">
-                    <p className={s.required}>Email</p>
+                    <p className={s.required}>{t('email')}</p>
                     <Field
                       name="email"
                       id="forEmail"
                       className={`${s.input}`}
-                      placeholder="Enter your email"
+                      placeholder={t('enterEmail')}
                     />
                     <ErrorMessage name="email">
                       {(msg) => <div className={s.errorMessage}>{msg}</div>}
                     </ErrorMessage>
                   </label>
                   <label htmlFor="forNumber">
-                    <p className={s.required}>Phone Number</p>
+                    <p className={s.required}>{t('phoneNumber')}</p>
                     <NumberInput
                       name="number"
                       id="forNumber"
@@ -187,19 +192,19 @@ export default function FormSection() {
                 </div>
                 <div className={s.inputLine}>
                   <label htmlFor="forCountry">
-                    <p className={s.required}>Country</p>
+                    <p className={s.required}>{t('country')}</p>
                     <CountrySelector />
                     <ErrorMessage name="country">
                       {(msg) => <div className={s.errorMessage}>{msg}</div>}
                     </ErrorMessage>
                   </label>
                   <label htmlFor="forEmployees">
-                    <p className={s.required}>Number of employees</p>
+                    <p className={s.required}>{t('employees')}</p>
                     <Field
                       id="forEmployees"
                       type="number"
                       name="employees"
-                      placeholder="12"
+                      placeholder={t('enterEmployees')}
                       className={`${s.input}`}
                     />
                     <ErrorMessage name="employees">
@@ -209,13 +214,13 @@ export default function FormSection() {
                 </div>
                 <div className={s.inputLine}>
                   <label htmlFor="forPosition">
-                    <p className={s.required}>Your position in the company</p>
+                    <p className={s.required}>{t('position')}</p>
                     <Field
                       type="text"
                       name="position"
                       id="forPosition"
                       className={`${s.input}`}
-                      placeholder="Your position"
+                      placeholder={t('enterPosition')}
                     />
                     <ErrorMessage name="position">
                       {(msg) => <div className={s.errorMessage}>{msg}</div>}
@@ -223,7 +228,7 @@ export default function FormSection() {
                   </label>
                 </div>
                 <div className={s.checkboxLineCont}>
-                  <p className={s.required}>Choose your industry</p>
+                  <p className={s.required}>{t('industry')}</p>
                   <SimpleBar
                     dir="horizontal"
                     forceVisible="x"
@@ -249,7 +254,7 @@ export default function FormSection() {
                   </ErrorMessage>
                 </div>
                 <div className={s.checkboxLineCont}>
-                  <p className={s.required}>Company stage</p>
+                  <p className={s.required}>{t('companyStage')}</p>
                   <div className={s.inputLine}>
                     <div className={`${s.inputLine} ${s.stagesLine}`}>
                       {stages.map((item, idx) => {
@@ -270,32 +275,34 @@ export default function FormSection() {
                 </div>
                 <div className={s.inputLine}>
                   <label htmlFor="forWebsite">
-                    <p>Your company website</p>
+                    <p>{t('website')}</p>
                     <Field
                       type="textarea"
                       name="website"
                       id="forWebsite"
                       className={s.input}
-                      placeholder="Link"
+                      placeholder={t('enterWebsite')}
                     />
                   </label>
                 </div>
 
                 <div className={s.inputLine}>
                   <label htmlFor="forMessage">
-                    <p>Message</p>
+                    <p>{t('message')}</p>
                     <Field
                       as="textarea"
                       type="text"
                       name="message"
                       id="forMessage"
                       className={`${s.input} ${s.messageInput}`}
-                      placeholder="Enter your message"
+                      placeholder={t('enterMessage')}
                     />
                   </label>
                 </div>
                 <button type="submit" className={s.submitBtn} onClick={() => console.log(errors)}>
-                  <span>{submitIcon} Order a call</span>
+                  <span>
+                    {submitIcon} {t('orderCall')}
+                  </span>
                 </button>
               </Form>
             )

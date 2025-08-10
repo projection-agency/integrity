@@ -72,6 +72,7 @@
           justify-content: center;
           align-items: center;
           width: 4.17vw;
+          min-width: 4.17vw;
           height: 4.17vw;
           background-color: #ffffff;
           border-radius: 0.83vw;
@@ -361,6 +362,7 @@ margin-bottom: ;
           }
 
           .arrowContainer {
+            min-width: 12.8vw;
             width: 12.8vw;
             height: 12.8vw;
             border-radius: 3.2vw;

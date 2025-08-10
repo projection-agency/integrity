@@ -3,6 +3,7 @@ import styles from './ContactForm.module.css'
 import Image from 'next/image'
 import Link from 'next/link'
 import FillForm from '@/components/FillForm/FillForm'
+import { useTranslations } from 'next-intl'
 
 const ContactForm = () => {
   const whatsapp = (
@@ -49,14 +50,14 @@ const ContactForm = () => {
     </svg>
   )
 
-  const iconMap: Record<string, JSX.Element> = {
-    whatsapp,
-    linkedin,
-    x,
-    youtube,
-  }
+  const socials = [
+    { link: 'https://wa.me/+380639304403', icon: whatsapp },
+    { link: 'https://www.linkedin.com/in/eugenpushenko/', icon: linkedin },
+    { link: 'https://x.com/Pushenko', icon: x },
+    { link: 'https://www.youtube.com/@INTEGRITYMARKETING', icon: youtube },
+  ]
 
-  const socials = ['whatsapp', 'linkedin', 'x', 'youtube']
+  const t = useTranslations('ContactForm')
 
   return (
     <div className={styles.wrapper}>
@@ -86,7 +87,7 @@ const ContactForm = () => {
               <div className={`${styles.contactItem} ${styles.phone}`}>
                 <div className={styles.contactInfo}>
                   <p>
-                    <span>{phone}</span> Phone:
+                    <span>{phone}</span> {t('phone')}
                   </p>
                   <Link href={'tel:+380639304403'}>+38 (063) 930 44 03</Link>
                 </div>
@@ -94,7 +95,7 @@ const ContactForm = () => {
               <div className={`${styles.contactItem} ${styles.email}`}>
                 <div className={styles.contactInfo}>
                   <p>
-                    <span>{email}</span> E-mail:
+                    <span>{email}</span> {t('email')}
                   </p>
                   <Link href={'mailto:info@integritymarketingsystem.com'}>
                     info@integritymarketingsystem.com
@@ -104,7 +105,13 @@ const ContactForm = () => {
             </div>
             <ul className={styles.socialsList}>
               {socials.map((item, idx) => {
-                return <li key={idx}>{iconMap[item]}</li>
+                return (
+                  <li key={idx}>
+                    <Link href={item.link} target="_blank">
+                      {item.icon}
+                    </Link>
+                  </li>
+                )
               })}
             </ul>
           </div>

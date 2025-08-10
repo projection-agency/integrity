@@ -4,10 +4,12 @@ import React, { useMemo } from 'react'
 import Select from 'react-select'
 import { useFormikContext } from 'formik'
 import countryList from 'react-select-country-list'
+import { useTranslations } from 'next-intl'
 
 function CountrySelector() {
   const options = useMemo(() => countryList().getData(), [])
   const { setFieldValue, setFieldTouched } = useFormikContext()
+  const t = useTranslations('CountryInput')
 
   const changeHandler = (value: string) => {
     setFieldValue('country', value)
@@ -24,7 +26,7 @@ function CountrySelector() {
         }
       }}
       unstyled={true}
-      placeholder="Choose your country"
+      placeholder={t('placeholder')}
       classNames={{
         control: () => s.control,
         placeholder: () => s.placeholder,
@@ -36,6 +38,7 @@ function CountrySelector() {
         valueContainer: () => s.valueContainer,
       }}
       isSearchable={true}
+      noOptionsMessage={() => t('searchPlaceholder')}
     />
   )
 }

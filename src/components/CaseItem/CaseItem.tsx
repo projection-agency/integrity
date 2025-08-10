@@ -5,6 +5,8 @@ import Image from 'next/image'
 import { CaseItemType } from '../sections/CasesSection/CasesSection'
 import { motion } from 'framer-motion'
 import { useState, useEffect } from 'react'
+import { useTranslations } from 'next-intl'
+
 export default function CaseItem({
   item,
   isExpanded,
@@ -12,6 +14,7 @@ export default function CaseItem({
   item: CaseItemType
   isExpanded: boolean
 }) {
+  const t = useTranslations('CaseItem')
   const [windowWidth, setWindowWidth] = useState(0)
 
   useEffect(() => {
@@ -50,14 +53,14 @@ export default function CaseItem({
               <li>
                 <div className={s.topBlock}>
                   <span>{location}</span>
-                  <p>Location:</p>
+                  <p>{t('location')}</p>
                 </div>
                 <p>{item.case_location}</p>
               </li>
               <li>
                 <div className={s.topBlock}>
                   <span>{client}</span>
-                  <p>Client:</p>
+                  <p>{t('client')}</p>
                   {typeof item.case_client === 'string' && item.case_client.trim().length > 0 && (
                     <span className={s.websiteLink}>
                       {(() => {
@@ -65,7 +68,7 @@ export default function CaseItem({
                         const href = /^(https?:)?\/\//i.test(raw) ? raw : `https://${raw}`
                         return (
                           <a href={href} target="_blank" rel="noopener noreferrer">
-                            Website
+                            {t('website')}
                           </a>
                         )
                       })()}{' '}
@@ -78,7 +81,7 @@ export default function CaseItem({
               <li>
                 <div className={s.topBlock}>
                   <span>{goal}</span>
-                  <p>Goal:</p>
+                  <p>{t('goal')}</p>
                 </div>
                 <p dangerouslySetInnerHTML={{ __html: item.case_goal }}></p>
               </li>
@@ -97,7 +100,7 @@ export default function CaseItem({
           >
             <div className={s.topBlock}>
               <div className={s.blockTitle}>
-                {whatWeDid} <p>What we did:</p>
+                {whatWeDid} <p>{t('whatWeDid')}</p>
               </div>
               <div className={s.duration}>
                 {clock} <p>{item.case_time}</p>
@@ -113,7 +116,9 @@ export default function CaseItem({
               })}
             </ul>
             <a href="#call">
-              <span>{chat} I want too</span>
+              <span>
+                {chat} {t('iWantToo')}
+              </span>
             </a>
           </motion.div>
         </div>

@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect, useRef } from 'react'
+import React, { useRef } from 'react'
 import styles from './WorkflowSection.module.css'
 import {
   IconAnalytics,
@@ -281,7 +281,7 @@ export default function WorkflowSection({
                   whileInView={{ scale: 1.2, opacity: 1 }}
                   viewport={{ once: false, amount: 0.3 }}
                   transition={{
-                    duration: 0.8,
+                    duration: 0.5,
                     delay: i * 0.25,
                     ease: 'easeInOut',
                   }}
@@ -296,9 +296,9 @@ export default function WorkflowSection({
                   className={styles['step-card']}
                   initial={{ opacity: 0, y: 40 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: false, amount: 0.5 }}
+                  viewport={{ once: false, amount: 0.7 }}
                   transition={{
-                    duration: 0.8,
+                    duration: 0.5,
                     delay: i * 0.25,
                     ease: 'easeInOut',
                   }}
@@ -360,9 +360,9 @@ export default function WorkflowSection({
                 className={styles['step-card'] + (i >= 1 ? ' ' + styles['step-card--shadow'] : '')}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false, amount: 0.5 }}
+                viewport={{ once: false, amount: 0.7 }}
                 transition={{
-                  duration: 0.8,
+                  duration: 0.5,
                   delay: i * 0.25,
                   ease: 'easeInOut',
                 }}
@@ -431,7 +431,7 @@ export default function WorkflowSection({
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: false, amount: 0.7 }}
                   transition={{
-                    duration: 0.8,
+                    duration: 0.5,
                     delay: i * 0.25,
                     ease: 'easeInOut',
                   }}

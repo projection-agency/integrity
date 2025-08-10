@@ -3,8 +3,11 @@ import 'react-phone-input-2/lib/style.css'
 import styles from './ExpertSection.module.css'
 import Image from 'next/image'
 import FillForm from '@/components/FillForm/FillForm'
+import { useTranslations } from 'next-intl'
 
 const ExpertSection = () => {
+  const t = useTranslations('ExpertSection')
+
   return (
     <div className={styles.wrapper} id="call">
       <div className={styles.rowLayout}>
@@ -28,12 +31,10 @@ const ExpertSection = () => {
               />
             </div>
             <div className={styles.expertTitle}>
-              <span className={styles.expertTitleLine}>TALK TO</span>
-              <span className={styles.expertTitleLine}>AN EXPERT</span>
+              <span className={styles.expertTitleLine}>{t('talkTo')}</span>
+              <span className={styles.expertTitleLine}>{t('anExpert')}</span>
             </div>
-            <div className={styles.expertSubtitle}>
-              Order your first free call and receive a tailored strategy to promote your business
-            </div>
+            <div className={styles.expertSubtitle}>{t('orderFirstFreeCall')}</div>
           </div>
         </div>
         {/* FillForm */}

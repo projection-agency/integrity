@@ -1,0 +1,51 @@
+.socialsList {
+  display: flex;
+  gap: 0.42vw;
+
+  li {
+    button {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 2.5vw;
+      height: 2.5vw;
+      border-radius: 0.42vw;
+      transition: border-color 300ms ease-in-out;
+      border: 0.05vw solid var(--Backgraund-detail, rgba(255, 255, 255, 0.6));
+      background: var(
+        --Backgraund-detail,
+        linear-gradient(141deg, rgba(255, 255, 255, 0.12) 8.87%, rgba(41, 41, 41, 0.12) 93.36%)
+      );
+
+      svg {
+        width: 0.94vw;
+        height: 0.94vw;
+        transition: fill 300ms ease-in-out;
+      }
+    }
+  }
+
+  li:hover {
+    button {
+      border-color: #222;
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .socialsList {
+    gap: 2.13vw;
+    li {
+      button {
+        width: 12.8vw;
+        height: 12.8vw;
+        border-radius: 2.13vw;
+
+        svg {
+          width: 4.8vw;
+          height: 4.8vw;
+        }
+      }
+    }
+  }
+}

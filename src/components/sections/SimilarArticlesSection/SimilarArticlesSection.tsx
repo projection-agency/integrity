@@ -5,14 +5,17 @@ import ArticleItem from '@/components/ui/ArticleItem/ArticleItem'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination } from 'swiper/modules'
 import { EnrichedPost } from '.'
+import { useTranslations } from 'next-intl'
 
 const SimilarArticlesSection = ({ posts }: { posts: EnrichedPost[] }) => {
+  const t = useTranslations('SimilarArticlesSection')
+
   return (
     <div className={s.similarArticlesCont}>
       <div className={s.topBlock}>
-        <TabSection text="articles" style="gray" />
+        <TabSection text={t('articles')} style="gray" />
         <h2>
-          <span>similar</span> articles
+          <span>{t('similar')}</span> {t('articles')}
         </h2>
       </div>
 

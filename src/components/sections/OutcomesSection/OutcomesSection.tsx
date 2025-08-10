@@ -7,34 +7,7 @@ import ExpertSection from '@/components/sections/ExpertSection/ExpertSection'
 import TabSection from '@/components/ui/TabSection/TabSection'
 import MainTitle from '@/components/ui/MainTitle/MainTitle'
 import CustomSlider from '../../CustomSlider/CustomSlider'
-
-const outcomes = [
-  {
-    number: '01',
-    icon: <Group01 />,
-    title: 'MORE CLARITY METRICS DECISIONS',
-  },
-  {
-    number: '02',
-    icon: <Analytics02 />,
-    title: 'STRUCTURE THAT REDUCES WASTE AND GUESSWORK',
-  },
-  {
-    number: '03',
-    icon: <Chart03 />,
-    title: 'SMARTER CAMPAIGNS ALIGNED WITH REAL BUSINESS GOALS',
-  },
-  {
-    number: '04',
-    icon: <GlobeIcon04 />,
-    title: 'BETTER ROI THROUGH CONTINUOUS TESTING',
-  },
-  {
-    number: '05',
-    icon: <GlobeIcon05 />,
-    title: 'LESS STRESS, MORE FOCUS FOR YOUR TEAM',
-  },
-]
+import { useTranslations } from 'next-intl'
 
 type OutcomesSection = {
   subtitle: string
@@ -43,11 +16,41 @@ type OutcomesSection = {
 
 export default function OutcomesSection({ block }: { block: OutcomesSection }) {
   const [mounted, setMounted] = useState(false)
+  const t = useTranslations('OutcomesSection')
+
   useEffect(() => {
     setMounted(true)
   }, [])
 
   if (!mounted) return null
+
+  const outcomes = [
+    {
+      number: '01',
+      icon: <Group01 />,
+      title: t('outcomes.0.title'),
+    },
+    {
+      number: '02',
+      icon: <Analytics02 />,
+      title: t('outcomes.1.title'),
+    },
+    {
+      number: '03',
+      icon: <Chart03 />,
+      title: t('outcomes.2.title'),
+    },
+    {
+      number: '04',
+      icon: <GlobeIcon04 />,
+      title: t('outcomes.3.title'),
+    },
+    {
+      number: '05',
+      icon: <GlobeIcon05 />,
+      title: t('outcomes.4.title'),
+    },
+  ]
 
   return (
     <section className={s.section}>
@@ -55,7 +58,7 @@ export default function OutcomesSection({ block }: { block: OutcomesSection }) {
         <TabSection style="white" text={block.subtitle} />
         <div className={s.wrapHeading}>
           <MainTitle title={block.title} />
-          <div className={s.count}>(5)</div>
+          <div className={s.count}>{t('count')}</div>
         </div>
       </div>
       <div className={s.outcomes}>
