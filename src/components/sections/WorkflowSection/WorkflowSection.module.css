@@ -23,7 +23,7 @@
 .workflow-left {
   display: flex;
   flex-direction: column;
-  gap: 6.82vw;
+  gap: 8.82vw;
   grid-column: 1;
   grid-row: 1 / span 3;
 }
@@ -31,7 +31,7 @@
 .workflow-right {
   display: flex;
   flex-direction: column;
-  gap: 6.82vw;
+  gap: 8.82vw;
   grid-column: 3;
   grid-row: 1 / span 3;
 }
@@ -217,7 +217,7 @@
   flex-direction: column;
   align-items: center;
 
-  gap: 12vw;
+  gap: 13vw;
   position: relative;
   z-index: 2;
 }

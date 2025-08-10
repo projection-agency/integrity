@@ -3,7 +3,6 @@ import React from 'react'
 import s from './HeroSection.module.css'
 import IconHero from '../../icons/IconHero/IconHero'
 import GridBackground from '../../GridBackground/GridBackground'
-import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 
@@ -20,7 +19,7 @@ export default function HeroSection({ block }: { block: HeroBlock }) {
     icon: <IconHero iconClass={s.icon} />,
   }
 
-  const parts = block.title?.split(/(\{icon\})/g) || []
+  const parts = block.title?.split(/(\{icon\}|<br\/?>)/g) || []
   return (
     <div className={s.section} id="main">
       <div className={s.heroWrap}>
@@ -44,6 +43,8 @@ export default function HeroSection({ block }: { block: HeroBlock }) {
               <span key={i} style={{ display: 'inline-block', verticalAlign: 'middle' }}>
                 {ICON_MAP.icon}
               </span>
+            ) : part === '<br/>' || part === '<br>' ? (
+              <br key={i} />
             ) : (
               part
             ),

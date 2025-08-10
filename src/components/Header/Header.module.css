@@ -41,11 +41,11 @@
       li a {
         display: flex;
         width: 6.8vw;
-        padding: 0.8vw 0.9vw;
+        padding: 0.7vw 1.2vw;
         justify-content: center;
         align-items: center;
         gap: 0.5vw;
-        width: 6.8vw;
+        width: max-content;
         color: var(--Light-gray, #f9f9f9);
         text-align: center;
         font-size: 0.72vw;
@@ -78,7 +78,7 @@
       align-items: center;
       position: relative;
       overflow: hidden;
-      padding: 1.09vw 2.08vw;
+      padding: 0.62vw 1.5vw;
       border-radius: 0.6vw;
       background: var(--White, #fff);
       color: var(--Black, #222);
@@ -93,13 +93,13 @@
         align-items: center;
         gap: 0.6vw;
 
-        font-size: 0.83vw;
+        font-size: 0.82vw;
         font-style: normal;
         font-weight: 600;
         line-height: normal;
 
         svg {
-          width: 1.04vw;
+          width: 0.82vw;
         }
       }
     }
@@ -129,7 +129,7 @@
 
 .localeWrap {
   display: flex;
-  padding: 0.41667vw;
+  padding: 0.32vw;
   align-items: center;
   gap: 0.20833vw;
   border-radius: 0.625vw;
@@ -144,7 +144,7 @@
 
   .currentLang {
     display: flex;
-    padding: 0.78125vw 0.625vw;
+    padding: 0.62vw;
     justify-content: center;
     align-items: center;
     gap: 0.41667vw;
