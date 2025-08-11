@@ -19,6 +19,7 @@ export default function CustomSlider({ items, onSlideChange }: CustomSliderProps
   const [isTransitionEnabled, setIsTransitionEnabled] = useState(true)
   const [isAddingClones, setIsAddingClones] = useState(false)
   const [infiniteItems, setInfiniteItems] = useState<SliderItem[]>([])
+  const [isInitialized, setIsInitialized] = useState(false)
   const containerRef = useRef<HTMLDivElement | null>(null)
   const progressRefs = useRef<(HTMLDivElement | null)[]>([])
   const timeoutRef = useRef<NodeJS.Timeout | undefined>(undefined)
@@ -33,6 +34,31 @@ export default function CustomSlider({ items, onSlideChange }: CustomSliderProps
     ]
     setInfiniteItems(initialItems)
   }, [items])
+
+  // Центруємо активний слайд тільки при початковому завантаженні
+  useEffect(() => {
+    if (containerRef.current && infiniteItems.length > 0 && !isInitialized) {
+      const container = containerRef.current
+      const activeItem = progressRefs.current[currentIndex]
+
+      if (activeItem) {
+        requestAnimationFrame(() => {
+          const itemRect = activeItem.getBoundingClientRect()
+          const containerRect = container.getBoundingClientRect()
+
+          const containerWidth = container.offsetWidth
+          const itemWidth = activeItem.offsetWidth
+
+          const itemOffsetInContainer = itemRect.left - containerRect.left
+          const scrollToCenter =
+            container.scrollLeft + itemOffsetInContainer - containerWidth / 2 + itemWidth / 2
+
+          container.scrollTo({ left: scrollToCenter, behavior: 'auto' })
+          setIsInitialized(true)
+        })
+      }
+    }
+  }, [infiniteItems, currentIndex, isInitialized])
 
   const goToSlide = (index: number) => {
     if (isTransitioning || index === currentIndex) return
@@ -109,7 +135,7 @@ export default function CustomSlider({ items, onSlideChange }: CustomSliderProps
     const container = containerRef.current
     const activeItem = progressRefs.current[currentIndex]
 
-    if (!container || !activeItem) return
+    if (!container || !activeItem || !isInitialized) return
 
     const onTransitionEnd = () => {
       const itemRect = activeItem.getBoundingClientRect()
@@ -139,7 +165,7 @@ export default function CustomSlider({ items, onSlideChange }: CustomSliderProps
     return () => {
       activeItem.removeEventListener('transitionend', onTransitionEnd)
     }
-  }, [currentIndex, items.length])
+  }, [currentIndex, items.length, isInitialized])
 
   return (
     <div className={s.customSliderContainer}>

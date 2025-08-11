@@ -52,6 +52,18 @@ export default function ServicesSection({ block }: { block: ServicesBlock }) {
             slidesPerView={'auto'}
             loop={true}
             speed={600}
+            breakpoints={{
+              320: {
+                slidesPerView: 1.2,
+                spaceBetween: 20,
+                centeredSlides: false,
+              },
+              1024: {
+                slidesPerView: 'auto',
+                spaceBetween: 0,
+                centeredSlides: true,
+              },
+            }}
             pagination={{
               enabled: true,
               el: `.${s.sliderDotsRow}`,
@@ -60,7 +72,6 @@ export default function ServicesSection({ block }: { block: ServicesBlock }) {
               bulletActiveClass: `${s.sliderActiveDot}`,
               bulletClass: `${s.sliderDot}`,
             }}
-            centeredSlides={true}
             navigation={{
               nextEl: '.navSwiperNext',
               prevEl: '.navSwiperPrev',
