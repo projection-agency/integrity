@@ -45,7 +45,7 @@ export default function CaseItem({
                 ? { duration: 0.5, ease: 'easeOut' }
                 : { duration: 0.5, ease: 'easeOut', delay: 0 }
             }
-            viewport={{ once: false, amount: 0.2 }}
+            viewport={{ once: false, amount: 0.1 }}
             className={s.clientInfoMobContainer}
           >
             <h3 className={s.caseTitle}>{item.case_title}</h3>
@@ -95,7 +95,7 @@ export default function CaseItem({
                 ? { duration: 0.5, ease: 'easeOut' }
                 : { duration: 0.5, ease: 'easeOut', delay: 0.2 }
             }
-            viewport={{ once: false, amount: 0.2 }}
+            viewport={{ once: false, amount: 0.1 }}
             className={s.doneWork}
           >
             <div className={s.topBlock}>

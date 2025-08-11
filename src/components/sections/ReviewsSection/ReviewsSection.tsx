@@ -87,6 +87,7 @@ export default function ReviewsSection({ block }: { block: ReviewsSection }) {
               prevEl: `.${s.navigationPrev}`,
               disabledClass: s.disabled,
             }}
+            wrapperClass={s.swiperWrapper}
           >
             {block.review.map((item: Review, idx) => {
               return (

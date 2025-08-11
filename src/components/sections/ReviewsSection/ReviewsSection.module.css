@@ -420,6 +420,11 @@
           span {
             gap: 2.13vw;
             font-size: 3.73vw;
+
+            svg {
+              height: 5.43vw;
+              width: 5.43vw;
+            }
           }
         }
       }
@@ -428,10 +433,16 @@
         .swiper {
           width: auto !important;
 
+          .swiperWrapper {
+            display: flex;
+          }
+
           .swiperSlide {
             width: 74.67vw !important;
+            height: auto;
             .swiperItem {
               width: 74.67vw;
+              height: 100%;
 
               padding: 7.47vw;
               border-radius: 6.4vw;
@@ -443,6 +454,7 @@
                 flex-wrap: wrap;
                 row-gap: 2.13vw;
                 column-gap: 3.2vw;
+                margin-bottom: auto;
 
                 img {
                   width: 11.2vw;
@@ -454,6 +466,7 @@
                   width: 18.33vw;
                   margin-bottom: 0;
                   font-size: 4.8vw;
+                  text-align: left;
                 }
 
                 .locationBlock {
