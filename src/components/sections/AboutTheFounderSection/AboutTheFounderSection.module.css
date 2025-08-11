@@ -198,6 +198,10 @@
 
         color: rgba(34, 34, 34, 1);
 
+        pre{
+          display: inline;
+        }
+
         .computer {
           position: relative;
           top: 0.5vw;
@@ -280,10 +284,6 @@
     padding-top: 21.33vw;
     padding-bottom: 21.33vw;
 
-    /* div{
-margin-bottom: ;
-    }
- */
     .contentContainer {
       margin-top: 27.47vw;
       flex-direction: column;
@@ -397,9 +397,6 @@ margin-bottom: ;
           font-size: 6.1vw;
           line-height: 1.2;
 
-          span {
-            display: block;
-          }
 
           .computer {
             width: 8.53vw;

@@ -15,15 +15,18 @@ export default function BlogPosts({
   posts: any[] | undefined
   categories: Category[]
 }) {
-  if (!posts) return null
-
+  console.log(posts)
   return (
     <div className={s.blogSection}>
       <FilterBlog categories={categories} />
       <div className={s.items}>
-        {posts.map((post, index) => {
-          return <ArticleItem key={post.id} post={post} idx={index} />
-        })}
+        {posts ? (
+          posts.map((post, index) => {
+            return <ArticleItem key={post.id} post={post} idx={index} />
+          })
+        ) : (
+          <p>please wait</p>
+        )}
       </div>
     </div>
   )

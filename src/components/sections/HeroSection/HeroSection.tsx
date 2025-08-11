@@ -35,7 +35,7 @@ export default function HeroSection({ block }: { block: HeroBlock }) {
         <motion.h1
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, ease: 'easeOut' }}
+          transition={{ duration: 0.5, ease: 'easeOut', delay: 0.2 }}
           viewport={{ once: false, amount: 0.2 }}
         >
           {parts?.map((part, i) =>
@@ -53,14 +53,14 @@ export default function HeroSection({ block }: { block: HeroBlock }) {
         <motion.p
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, ease: 'easeOut' }}
+          transition={{ duration: 0.5, ease: 'easeOut', delay: 0.4 }}
           viewport={{ once: false, amount: 0.2 }}
           dangerouslySetInnerHTML={{ __html: block.description || '' }}
         />
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, ease: 'easeOut' }}
+          transition={{ duration: 0.5, ease: 'easeOut', delay: 0.6 }}
           viewport={{ once: false, amount: 0.2 }}
           className={s.wrapButtons}
         >

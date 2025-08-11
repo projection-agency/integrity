@@ -80,12 +80,25 @@
 }
 
 .expertChatIcon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: absolute;
   left: 0;
   top: 0;
   width: 6.15vw;
   height: 6.15vw;
   z-index: 1;
+
+  svg {
+    fill: #222;
+  }
+}
+
+.expertChatIcon.white {
+  svg {
+    fill: white;
+  }
 }
 
 .expertTitle {

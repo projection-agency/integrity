@@ -1,5 +1,6 @@
 'use client'
 import { useRouter, useSearchParams } from 'next/navigation'
+import { useState } from 'react'
 import s from './BlogSection.module.css'
 import 'simplebar-react/dist/simplebar.min.css'
 import SimpleBar from 'simplebar-react'
@@ -13,6 +14,7 @@ export default function FilterBlog({ categories }: { categories: Category[] }) {
   const router = useRouter()
   const searchParams = useSearchParams()
   const activeCategory = searchParams.get('category') || 'all'
+  const [activeFilter, setActiveFilter] = useState('all')
 
   const handleCategoryChange = (categoryId: string) => {
     const params = new URLSearchParams(searchParams)
@@ -36,8 +38,11 @@ export default function FilterBlog({ categories }: { categories: Category[] }) {
           {categories.map((category) => (
             <div
               key={category.id}
-              className={`${s.filterPostsCategory} ${activeCategory === category.id ? s.active : ''}`}
-              onClick={() => handleCategoryChange(category.id)}
+              className={`${s.filterPostsCategory} ${activeFilter === category.id ? s.active : ''}`}
+              onClick={() => {
+                handleCategoryChange(category.id)
+                setActiveFilter(category.id)
+              }}
             >
               {category.name}
               <span className={s.filterPostsCategoryCount}>( {category.count} )</span>

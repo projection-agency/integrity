@@ -99,7 +99,11 @@ const AboutTheFounderSection = ({ block }: { block: AboutTheFounderSection }) =>
                 </span>
                 {t('founderQuote.part2')}
               </span>{' '}
-              <span>{t('founderQuote.part3')}</span> <span>{t('founderQuote.part4')}</span>
+              <span>{t('founderQuote.part3')}</span>{' '}
+              <span className={s.stonks}>
+                <Image src={'/images/icons/stonks.svg'} width={64} height={64} alt="icon" />
+              </span>
+              <span>{t('founderQuote.part4')}</span>
             </h3>
           ) : (
             <h3>
@@ -107,7 +111,11 @@ const AboutTheFounderSection = ({ block }: { block: AboutTheFounderSection }) =>
               <span className={s.computer}>
                 <Image src={'/images/icons/computer.svg'} width={64} height={64} alt="icon" />
               </span>{' '}
-              {t('founderQuote.part2')} {t('founderQuote.part3')} {t('founderQuote.part4')}
+              {t('founderQuote.part2')} {t('founderQuote.part3')} <br />
+              <span className={s.stonks}>
+                <Image src={'/images/icons/stonks.svg'} width={64} height={64} alt="icon" />
+              </span>{' '}
+              {t('founderQuote.part4')}
             </h3>
           )}
           <p className={s.founder}>{t('founder')}</p>
