@@ -10,7 +10,7 @@ type Category = {
   count: number
 }
 
-export default function FilterBlog({ categories }: { categories: Category[] }) {
+export default function FilterBlog({ categories }: { categories: Category[] | undefined }) {
   const router = useRouter()
   const searchParams = useSearchParams()
   const activeCategory = searchParams.get('category') || 'all'

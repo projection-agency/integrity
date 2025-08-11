@@ -21,7 +21,6 @@ import SliderNav from '@/components/ui/SliderNav/SliderNav'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { useTranslations } from 'next-intl'
-// import SliderNav from './SliderNav'
 
 type SectionUniqueBlock = {
   subtitle: string
@@ -197,7 +196,22 @@ export default function SectionUnique({ block }: { block: SectionUniqueBlock }) 
           ) : (
             <div className={styles.sectionUniqueGrid}>
               {cards.map((card, idx) => (
-                <div className={styles.sectionUniqueCard} key={idx}>
+                <div
+                  className={styles.sectionUniqueCard}
+                  key={idx}
+                  onMouseEnter={(e) => {
+                    const lordIcons = e.currentTarget.querySelectorAll('lord-icon')
+                    lordIcons.forEach((icon) => {
+                      icon.dispatchEvent(new Event('mouseenter'))
+                    })
+                  }}
+                  onMouseLeave={(e) => {
+                    const lordIcons = e.currentTarget.querySelectorAll('lord-icon')
+                    lordIcons.forEach((icon) => {
+                      icon.dispatchEvent(new Event('mouseleave'))
+                    })
+                  }}
+                >
                   <div className={styles.cardIcon}>{card.icon}</div>
                   <div className={styles.cardBlok}>
                     <div className={styles.cardTitle}>{card.title}</div>

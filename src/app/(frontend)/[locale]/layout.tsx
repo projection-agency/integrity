@@ -15,6 +15,8 @@ import { Inter_Tight } from 'next/font/google'
 import { Inter } from 'next/font/google'
 import HeaderFix from '@/components/HeaderFix/HeaderFix'
 import { CustomToastProvider } from '@/contexts/CustomToastProvider'
+import { LordIconProvider } from '@/contexts/LordIconProvider'
+import Script from 'next/script'
 const interTight = Inter_Tight({ subsets: ['latin'], variable: '--font-inter-tight' })
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 
@@ -45,10 +47,12 @@ export default async function LocaleLayout({
       <body>
         <NextIntlClientProvider messages={messages}>
           <CustomToastProvider>
+            <LordIconProvider />
             <BodyBackground />
             <Header menu={headerMenu} logo={main.logo || ''} buttonText={main.button || ''} />
             <HeaderFix menu={headerMenu} buttonText={main.button || ''} />
             <main>{children}</main>
+            <Script src="https://cdn.lordicon.com/lordicon.js" strategy="afterInteractive" />
             <Footer menu={footerMenu} />
           </CustomToastProvider>
         </NextIntlClientProvider>
