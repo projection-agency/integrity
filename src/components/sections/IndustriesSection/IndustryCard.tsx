@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import styles from './IndustriesSection.module.css'
 import { ArrowIcon } from '@/components/Icon/Icon'
+import { useTranslations } from 'next-intl'
 
 export interface IndustryCardProps {
   cases: number
@@ -22,6 +23,7 @@ export const IndustryCard: React.FC<IndustryCardProps> = ({
   image,
   active = false,
 }) => {
+  const t = useTranslations('IndustriesSection')
   const [isHovered, setHovered] = useState(false)
 
   const bgVariants = {
@@ -47,7 +49,9 @@ export const IndustryCard: React.FC<IndustryCardProps> = ({
       />
 
       <div className={styles.cardTop}>
-        <span className={styles.cases}>{cases} CASES</span>
+        <span className={styles.cases}>
+          {cases} {t('cases')}
+        </span>
         <button className={styles.closeBtn} type="button">
           <ArrowIcon />
         </button>

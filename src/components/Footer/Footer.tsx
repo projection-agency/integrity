@@ -3,10 +3,11 @@
 import s from './Footer.module.css'
 import IconHero from '../icons/IconHero/IconHero'
 import Link from 'next/link'
-import AnimatedLink from '@/components/AnimatedLink/AnimatedLinkWrapper'
 import { JSX, useRef, useEffect, useState } from 'react'
 import GridBackground from '@/components/GridBackground/GridBackground'
 import { motion, useScroll, useTransform } from 'framer-motion'
+import { AnimatedLink } from '@/components/ui/AnimatedLink/AnimatedLink'
+import { useTranslations } from 'next-intl'
 
 const whatsapp = (
   <svg xmlns="http://www.w3.org/2000/svg" width="38" height="38" viewBox="0 0 38 38">
@@ -58,16 +59,15 @@ export type MenuItem = {
   id?: string
 }
 
-const iconMap: Record<string, JSX.Element> = {
-  whatsapp,
-  linkedin,
-  x,
-  youtube,
-}
-
-const socials = ['whatsapp', 'linkedin', 'x', 'youtube']
+const socials = [
+  { link: 'https://wa.me/+380639304403', icon: whatsapp },
+  { link: 'https://www.linkedin.com/in/eugenpushenko/', icon: linkedin },
+  { link: 'https://x.com/Pushenko', icon: x },
+  { link: 'https://www.youtube.com/@INTEGRITYMARKETING', icon: youtube },
+]
 
 export default function Footer({ menu }: { menu: MenuItem[] }) {
+  const t = useTranslations('Footer')
   const footerRef = useRef<HTMLElement>(null)
   const integrityRef = useRef<HTMLDivElement>(null)
   const [topBlockVisible, setTopBlockVisible] = useState(false)
@@ -121,8 +121,15 @@ export default function Footer({ menu }: { menu: MenuItem[] }) {
       >
         <div className={s.slogan}>
           <p>
-            Smart digital <IconHero containerClass={s.logoContainer} iconClass={s.logo} /> marketing
-            that drives growth
+            {t('slogan').includes('icon') ? (
+              <>
+                {t('slogan').split('icon')[0]}
+                <IconHero containerClass={s.logoContainer} iconClass={s.logo} />
+                {t('slogan').split('icon')[1]}
+              </>
+            ) : (
+              t('slogan')
+            )}
           </p>
         </div>
         <div className={s.rightBlock}>
@@ -131,7 +138,7 @@ export default function Footer({ menu }: { menu: MenuItem[] }) {
               {menu.map((item, idx) => {
                 return (
                   <li key={idx}>
-                    <AnimatedLink href={`${item.link}`}>{item.label}</AnimatedLink>
+                    <Link href={`${item.link}`}>{item.label}</Link>
                   </li>
                 )
               })}
@@ -139,13 +146,13 @@ export default function Footer({ menu }: { menu: MenuItem[] }) {
           </nav>
           <div className={s.contacts}>
             <div className={`${s.contactItem} ${s.phone}`}>
-              <span>{iconPhone}</span> <p>Phone:</p>
+              <span>{iconPhone}</span> <p>{t('phone')}</p>
               <div className={s.contactInfo}>
                 <Link href={'tel:+380639304403'}>+38 (063) 930 44 03</Link>
               </div>
             </div>
             <div className={`${s.contactItem} ${s.email}`}>
-              <span>{iconMail}</span> <p>E-mail:</p>
+              <span>{iconMail}</span> <p>{t('email')}</p>
               <div className={s.contactInfo}>
                 <Link href={'mailto:info@integritymarketingsystem.com'}>
                   info@integritymarketingsystem.com
@@ -154,7 +161,13 @@ export default function Footer({ menu }: { menu: MenuItem[] }) {
             </div>
             <ul className={s.socialsList}>
               {socials.map((item, idx) => {
-                return <li key={idx}>{iconMap[item]}</li>
+                return (
+                  <li key={idx}>
+                    <Link href={item.link} target="_blank">
+                      {item.icon}
+                    </Link>
+                  </li>
+                )
               })}
             </ul>
           </div>
@@ -173,12 +186,12 @@ export default function Footer({ menu }: { menu: MenuItem[] }) {
           {integrity}
         </motion.div>
         <div className={s.privacyCont}>
-          <p>© 2025 integrity. All rights reserved</p>
-          <AnimatedLink href={'/privacy'}>Privacy Policy</AnimatedLink>
-          <AnimatedLink href={'/terms'}>Terms of use</AnimatedLink>
-          <AnimatedLink href={'/legal-notice'}>Legal notice</AnimatedLink>
+          <p>{t('copyright')}</p>
+          <AnimatedLink href={'/privacy'}>{t('privacyPolicy')}</AnimatedLink>
+          <AnimatedLink href={'/terms'}>{t('termsOfUse')}</AnimatedLink>
+          <AnimatedLink href={'/legal-notice'}>{t('legalNotice')}</AnimatedLink>
           <div className={s.developers}>
-            <p>Website Development </p>{' '}
+            <p>{t('websiteDevelopment')} </p>{' '}
             <Link href={'https://www.instagram.com/before_after.agency/'} target="_blank">
               BeforeAfter
             </Link>

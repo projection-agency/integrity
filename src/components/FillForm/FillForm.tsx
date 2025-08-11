@@ -8,8 +8,9 @@ import Image from 'next/image'
 import NumberInput from '../NumberInput/NumberInput'
 import { Form, Formik, Field, ErrorMessage, FormikHelpers } from 'formik'
 import * as Yup from 'yup'
-import { NumberIcon } from '../Icon/Icon'
+import { NumberBlackIcon, NumberIcon } from '../Icon/Icon'
 import { useCustomToastContext } from '@/contexts/CustomToastProvider'
+import { useTranslations } from 'next-intl'
 
 interface FormValues {
   name: string
@@ -25,18 +26,20 @@ const initialValues = {
   county: '',
 }
 
-// Оновлена схема валідації
-const validationSchema = Yup.object({
-  name: Yup.string().required('Enter your name'),
-  email: Yup.string().email('Invalid email format').required('Enter your email'),
-  number: Yup.string()
-    .required('Enter your phone number')
-    .matches(/^\+?[0-9\s-]+$/, 'Invalid phone number format'),
-  county: Yup.string(),
-})
-
 const FillForm = () => {
+  const t = useTranslations('FillForm')
   const { showSuccessToast, showErrorToast } = useCustomToastContext()
+  const [isHovered, setIsHovered] = useState(false)
+
+  // Оновлена схема валідації
+  const validationSchema = Yup.object({
+    name: Yup.string().required(t('enterYourNameError')),
+    email: Yup.string().email(t('invalidEmailFormat')).required(t('enterYourEmailError')),
+    number: Yup.string()
+      .required(t('enterYourPhoneNumber'))
+      .matches(/^\+?[0-9\s-]+$/, t('invalidPhoneNumberFormat')),
+    county: Yup.string(),
+  })
 
   const handleSubmit = async (
     values: FormValues,
@@ -63,11 +66,11 @@ const FillForm = () => {
 
       const result = await response.json()
       console.log('Form sent successfully:', result)
-      showSuccessToast('Form sent successfully!')
+      showSuccessToast(t('formSentSuccessfully'))
       resetForm()
     } catch (error) {
       console.error('Error:', error)
-      showErrorToast('Failed to send form. Please try again.')
+      showErrorToast(t('failedToSendForm'))
     } finally {
       setSubmitting(false)
     }
@@ -93,7 +96,7 @@ const FillForm = () => {
             <Form className={styles.form}>
               <h3 className={styles.title}>
                 <div className={styles.fillBlock}>
-                  <span className={styles.text}>FILL</span>
+                  <span className={styles.text}>{t('fill')}</span>
                   <Image
                     src="/images/icons/report.svg"
                     alt="Report"
@@ -103,17 +106,17 @@ const FillForm = () => {
                   />
                 </div>
 
-                <span className={styles.text}>OUT THE FORM</span>
+                <span className={styles.text}>{t('outTheForm')}</span>
               </h3>
               <div className={styles.inputGroupBlock}>
                 <div className={styles.inputGroup}>
                   <label className={styles.label}>
-                    <p className={styles.required}>Name</p>
+                    <p className={styles.required}>{t('name')}</p>
                     <Field
                       name="name"
                       className={styles.input}
                       type="text"
-                      placeholder="Enter your name"
+                      placeholder={t('enterYourName')}
                     />
                     <ErrorMessage
                       name="name"
@@ -125,12 +128,12 @@ const FillForm = () => {
                 </div>
                 <div className={styles.row}>
                   <label className={styles.label}>
-                    <p className={styles.required}>Email</p>
+                    <p className={styles.required}>{t('email')}</p>
                     <Field
                       name="email"
                       className={styles.input}
                       type="email"
-                      placeholder="Enter your email"
+                      placeholder={t('enterYourEmail')}
                     />
                     <ErrorMessage
                       name="email"
@@ -140,7 +143,7 @@ const FillForm = () => {
                     />
                   </label>
                   <label className={styles.label}>
-                    <p className={styles.required}>Phone Number</p>
+                    <p className={styles.required}>{t('phoneNumber')}</p>
                     <Field
                       name="number"
                       as={NumberInput}
@@ -159,10 +162,20 @@ const FillForm = () => {
                 </div>
               </div>
 
-              <button type="submit" className={styles.submitBtn} disabled={isSubmitting}>
+              <button
+                type="submit"
+                className={styles.submitBtn}
+                disabled={isSubmitting}
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
+              >
                 <span>
-                  <NumberIcon className={styles.btnIcon} />
-                  {isSubmitting ? 'Sending...' : 'Order a call'}
+                  {isHovered ? (
+                    <NumberBlackIcon className={styles.btnIcon} />
+                  ) : (
+                    <NumberIcon className={styles.btnIcon} />
+                  )}
+                  <p className={styles.btnText}>{isSubmitting ? t('sending') : t('orderCall')}</p>
                 </span>
               </button>
             </Form>

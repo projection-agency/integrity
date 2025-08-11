@@ -269,7 +269,7 @@
           justify-content: space-between;
 
           a {
-            width: 9.32vw;
+            width: max-content;
             height: 3.33vw;
             display: flex;
             align-items: center;
@@ -306,49 +306,6 @@
           a:hover {
             background-color: transparent;
             border-color: #222;
-          }
-
-          .socialsList {
-            display: flex;
-            gap: 0.42vw;
-
-            li {
-              a {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                width: 2.5vw;
-                height: 2.5vw;
-                border-radius: 0.42vw;
-                transition: border-color 300ms ease-in-out;
-                border: 0.05vw solid var(--Backgraund-detail, rgba(255, 255, 255, 0.6));
-                background: var(
-                  --Backgraund-detail,
-                  linear-gradient(
-                    141deg,
-                    rgba(255, 255, 255, 0.12) 8.87%,
-                    rgba(41, 41, 41, 0.12) 93.36%
-                  )
-                );
-
-                svg {
-                  width: 0.94vw;
-                  height: 0.94vw;
-                  transition: fill 300ms ease-in-out;
-                  fill: #222222;
-                }
-              }
-            }
-
-            li:hover {
-              a {
-                border-color: rgba(255, 228, 20, 1);
-
-                svg {
-                  fill: rgba(255, 228, 20, 1);
-                }
-              }
-            }
           }
         }
       }
@@ -481,8 +438,9 @@
 
             a {
               padding: 2.13vw;
+              height: auto;
               gap: 3.2vw;
-              width: 42.4vw;
+              width: max-content;
               border-radius: 3.2vw;
 
               font-size: 3.73vw;
@@ -494,22 +452,6 @@
 
                 svg {
                   width: 3.2vw;
-                }
-              }
-            }
-
-            .socialsList {
-              gap: 2.13vw;
-              li {
-                a {
-                  width: 12.8vw;
-                  height: 12.8vw;
-                  border-radius: 2.13vw;
-
-                  svg {
-                    width: 4.8vw;
-                    height: 4.8vw;
-                  }
                 }
               }
             }

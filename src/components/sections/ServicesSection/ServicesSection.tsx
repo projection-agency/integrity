@@ -4,8 +4,6 @@ import React from 'react'
 import MainTitle from '@/components/ui/MainTitle/MainTitle'
 import s from './ServicesSection.module.css'
 import TabSection from '@/components/ui/TabSection/TabSection'
-import Image from 'next/image'
-import ArrowIcon from 'public/images/icons/arrow-2.svg'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import 'swiper/css/effect-coverflow'
@@ -15,7 +13,6 @@ import { EffectCoverflow, Pagination, Navigation } from 'swiper/modules'
 import { useRef, useState, useEffect } from 'react'
 import ExpertSection from '@/components/sections/ExpertSection/ExpertSection'
 import { ServicesBlock } from '@/blocks/ServicesBlock'
-import SliderNav from '@/components/ui/SliderNav/SliderNav'
 
 type ServicesBlock = {
   title?: string

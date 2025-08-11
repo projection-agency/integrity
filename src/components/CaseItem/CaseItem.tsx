@@ -1,10 +1,12 @@
 'use client'
 import s from './CaseItem.module.css'
 import Image from 'next/image'
-import Link from 'next/link'
+// External website links рендеримо як <a>, внутрішні — через Link (тут потрібен <a>)
 import { CaseItemType } from '../sections/CasesSection/CasesSection'
 import { motion } from 'framer-motion'
 import { useState, useEffect } from 'react'
+import { useTranslations } from 'next-intl'
+
 export default function CaseItem({
   item,
   isExpanded,
@@ -12,15 +14,24 @@ export default function CaseItem({
   item: CaseItemType
   isExpanded: boolean
 }) {
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth)
+  const t = useTranslations('CaseItem')
+  const [windowWidth, setWindowWidth] = useState(0)
 
   useEffect(() => {
     const handleResize = () => {
       setWindowWidth(window.innerWidth)
     }
 
-    window.addEventListener('resize', handleResize)
-    return window.removeEventListener('resize', () => {})
+    // Ініціалізація на клієнті
+    if (typeof window !== 'undefined') {
+      setWindowWidth(window.innerWidth)
+      window.addEventListener('resize', handleResize)
+    }
+    return () => {
+      if (typeof window !== 'undefined') {
+        window.removeEventListener('resize', handleResize)
+      }
+    }
   }, [])
   return (
     <>
@@ -42,19 +53,25 @@ export default function CaseItem({
               <li>
                 <div className={s.topBlock}>
                   <span>{location}</span>
-                  <p>Location:</p>
+                  <p>{t('location')}</p>
                 </div>
                 <p>{item.case_location}</p>
               </li>
               <li>
                 <div className={s.topBlock}>
                   <span>{client}</span>
-                  <p>Client:</p>
-                  {item.case_client !== '' && (
+                  <p>{t('client')}</p>
+                  {typeof item.case_client === 'string' && item.case_client.trim().length > 0 && (
                     <span className={s.websiteLink}>
-                      <Link href={item.case_client} target="blank">
-                        Website
-                      </Link>{' '}
+                      {(() => {
+                        const raw = item.case_client!.trim()
+                        const href = /^(https?:)?\/\//i.test(raw) ? raw : `https://${raw}`
+                        return (
+                          <a href={href} target="_blank" rel="noopener noreferrer">
+                            {t('website')}
+                          </a>
+                        )
+                      })()}{' '}
                       {copy}
                     </span>
                   )}
@@ -64,7 +81,7 @@ export default function CaseItem({
               <li>
                 <div className={s.topBlock}>
                   <span>{goal}</span>
-                  <p>Goal:</p>
+                  <p>{t('goal')}</p>
                 </div>
                 <p dangerouslySetInnerHTML={{ __html: item.case_goal }}></p>
               </li>
@@ -83,7 +100,7 @@ export default function CaseItem({
           >
             <div className={s.topBlock}>
               <div className={s.blockTitle}>
-                {whatWeDid} <p>What we did:</p>
+                {whatWeDid} <p>{t('whatWeDid')}</p>
               </div>
               <div className={s.duration}>
                 {clock} <p>{item.case_time}</p>
@@ -99,7 +116,9 @@ export default function CaseItem({
               })}
             </ul>
             <a href="#call">
-              <span>{chat} I want too</span>
+              <span>
+                {chat} {t('iWantToo')}
+              </span>
             </a>
           </motion.div>
         </div>

@@ -9,6 +9,7 @@ import { Pagination, Navigation } from 'swiper/modules'
 import { useState, useEffect } from 'react'
 import 'swiper/css'
 import Link from 'next/link'
+import { useTranslations } from 'next-intl'
 
 type ReviewsSection = {
   subtitle: string
@@ -28,6 +29,7 @@ type Review = {
 }
 
 export default function ReviewsSection({ block }: { block: ReviewsSection }) {
+  const t = useTranslations('ReviewsSection')
   const [windowWidth, setWindowWidth] = useState<number>(
     typeof window !== 'undefined' ? window.innerWidth : 0,
   )
@@ -57,11 +59,13 @@ export default function ReviewsSection({ block }: { block: ReviewsSection }) {
             <Image src={'/images/business-woman.png'} width={118} height={118} alt="woman" />
           </div>
           <h3>
-            <span>Do you want</span> the same result?
+            <span>{t('leftBlock.title.part1')}</span> {t('leftBlock.title.part2')}
           </h3>
-          <p>Order your first free call and receive a tailored strategy to promote your business</p>
+          <p>{t('leftBlock.description')}</p>
           <Link href="#call" className={s.button}>
-            <span>{phone} Demo call</span>
+            <span>
+              {phone} {t('leftBlock.button')}
+            </span>
           </Link>
         </div>
         <div className={s.rightBlock}>
@@ -85,7 +89,6 @@ export default function ReviewsSection({ block }: { block: ReviewsSection }) {
             }}
           >
             {block.review.map((item: Review, idx) => {
-              console.log(item)
               return (
                 <SwiperSlide key={idx} className={s.swiperSlide}>
                   <div className={s.swiperItem}>
@@ -100,7 +103,7 @@ export default function ReviewsSection({ block }: { block: ReviewsSection }) {
                       <div className={s.locationBlock}>
                         <div className={s.icon}>{marker}</div>
                         <div className={s.location}>
-                          <p className={s.blockTitle}>Location:</p>
+                          <p className={s.blockTitle}>{t('reviewBlock.location')}</p>
                           <p className={s.country}>{item.location}</p>
                         </div>
                       </div>

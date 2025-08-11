@@ -3,7 +3,7 @@
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import s from './Header.module.css'
-import AnimatedLink from '@/components/AnimatedLink/AnimatedLinkWrapper'
+import { AnimatedLink } from '@/components/ui/AnimatedLink/AnimatedLink'
 
 export type MenuItem = {
   label: string

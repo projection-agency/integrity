@@ -40,7 +40,7 @@
 .expertBlock {
   background: linear-gradient(135deg, #ffe414 0%, #ffae00 100%);
   border-radius: 1.67vw;
-  padding: 5.21vw;
+  padding: 4vw;
   width: 100%;
   height: 100%;
   display: flex;
@@ -91,7 +91,7 @@
 .expertTitle {
   margin-top: 1.25vw;
   margin-bottom: 1.25vw;
-  width: 23.07vw;
+  width: 100%;
   height: 10.1vw;
   display: flex;
   flex-direction: column;
@@ -116,7 +116,8 @@
   font-size: 0.83vw;
   line-height: 140%;
   letter-spacing: -0.02em;
-  color: var(--black-600);
+  /* color: var(--black-600); */
+  color: rgb(79 75 75 / 56%);
   width: 19.69vw;
   margin-top: 0.83vw;
 }
@@ -202,7 +203,7 @@
     font-size: 3.73vw;
     line-height: 140%;
     font-weight: 700;
-    color: var(--black-600);
+    color: rgb(79 75 75 / 56%);
     width: auto;
     margin-top: 4.26vw;
   }

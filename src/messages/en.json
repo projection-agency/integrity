@@ -1,6 +1,345 @@
 {
-    "HomePage": {
-      "title": "Hello world!",
-      "about": "Go to the blog page"
+  "HomePage": {
+    "title": "Hello world!",
+    "about": "Go to the blog page"
+  },
+  "CasesSection": {
+    "caseCount": "(05)",
+    "caseNumber": "Case",
+    "showLess": "Show less",
+    "readCaseDetails": "Read case details",
+    "nextCase": "Next case",
+    "switchToNextCase": "Switch to the next case"
+  },
+  "CaseItem": {
+    "location": "Location:",
+    "client": "Client:",
+    "website": "Website",
+    "goal": "Goal:",
+    "whatWeDid": "What we did:",
+    "iWantToo": "I want too"
+  },
+  "ExpertSection": {
+    "talkTo": "TALK TO",
+    "anExpert": "AN EXPERT",
+    "orderFirstFreeCall": "Order your first free call and receive a tailored strategy to promote your business"
+  },
+  "FillForm": {
+    "fill": "FILL",
+    "outTheForm": "OUT THE FORM",
+    "name": "Name",
+    "email": "Email",
+    "phoneNumber": "Phone Number",
+    "enterYourName": "Enter your name",
+    "enterYourEmail": "Enter your email",
+    "orderCall": "Order a call",
+    "sending": "Sending...",
+    "formSentSuccessfully": "Form sent successfully!",
+    "failedToSendForm": "Failed to send form. Please try again.",
+    "enterYourNameError": "Enter your name",
+    "invalidEmailFormat": "Invalid email format",
+    "enterYourEmailError": "Enter your email",
+    "enterYourPhoneNumber": "Enter your phone number",
+    "invalidPhoneNumberFormat": "Invalid phone number format"
+  },
+  "ContactForm": {
+    "phone": "Phone:",
+    "email": "E-mail:"
+  },
+  "SectionUnique": {
+    "structuredExecution": "STRUCTURED EXECUTION",
+    "structuredExecutionDesc": "Every action supports the strategy and drives measurable progress",
+    "dataFirstApproach": "DATA-FIRST APPROACH",
+    "dataFirstApproachDesc": "Decisions are based on numbers, not gut feeling",
+    "builtInClarity": "BUILT-IN CLARITY",
+    "builtInClarityDesc": "Every step is structured and transparent",
+    "truePartnership": "TRUE PARTNERSHIP",
+    "truePartnershipDesc": "We don't take on projects unless we believe we can create real value",
+    "experienceInTier1Markets": "EXPERIENCE IN TIER-1 MARKETS",
+    "experienceInTier1MarketsDesc": "Years of hands-on work across leading global markets",
+    "longTermMindset": "LONG-TERM MINDSET",
+    "longTermMindsetDesc": "No short bursts. We create systems designed to grow, scale, and last",
+    "youAreHere": "YOU ARE HERE",
+    "toAchieveResults": "TO ACHIEVE RESULTS",
+    "orderFirstFreeCall": "Order your first free call and receive a tailored strategy to promote your business",
+    "demoCall": "Demo call"
+  },
+  "IndustriesSection": {
+    "saasInnovationStartups": "SAAS & INNOVATION STARTUPS",
+    "saasInnovationStartupsDesc": "Campaigns that raise awareness and build trust around ideas, initiatives, and people",
+    "mobileAppsDigitalProducts": "MOBILE APPS & DIGITAL PRODUCTS",
+    "mobileAppsDigitalProductsDesc": "Audience-first strategies, designed to grow subscribers and optimise engagement",
+    "b2bServicesMarketingTech": "B2B SERVICES & MARKETING TECH",
+    "b2bServicesMarketingTechDesc": "Local and regional campaigns designed to connect businesses with real clients",
+    "businessServices": "BUSINESS SERVICES",
+    "businessServicesDesc": "Lead systems for service-based businesses to capture demand and drive consistent conversions",
+    "ecommerceDtcBrands": "ECOMMERCE & DTC BRANDS",
+    "ecommerceDtcBrandsDesc": "Ads and content designed to move product and build loyalty",
+    "cases": "CASES",
+    "count": "(5)"
+  },
+  "WorkflowSection": {
+    "title": "OUR WORKFLOW",
+    "subtitle": "HOW WE WORK",
+    "step": "Step",
+    "steps": {
+      "step1": {
+        "title": "ANALYSIS & RESEARCH",
+        "list": [
+          ["Deep analysis of ", "market and competitors", " to understand current situation"],
+          ["Research of ", "target audience", " and their needs"],
+          ["Analysis of ", "current marketing channels", " and their effectiveness"]
+        ]
+      },
+      "step2": {
+        "title": "STRATEGIC PLANNING",
+        "list": [
+          ["Development of ", "target strategy", " based on analysis"],
+          ["Definition of ", "key metrics", " and KPI for measuring success"],
+          ["Creation of ", "detailed action plan", " with timelines"]
+        ]
+      },
+      "step3": {
+        "title": "IMPLEMENTATION & OPTIMIZATION",
+        "list": [
+          ["Step-by-step ", "strategy implementation", " with continuous monitoring"],
+          ["Optimization of ", "campaigns", " based on real data"],
+          ["Adaptation of ", "approaches", " to achieve better results"]
+        ]
+      },
+      "step4": {
+        "title": "TESTING & VALIDATION",
+        "list": [
+          ["A/B testing of ", "different approaches", " to find optimal solutions"],
+          ["Validation of ", "results", " and making necessary adjustments"],
+          ["Checking ", "effectiveness", " and ROI of all marketing activities"]
+        ]
+      },
+      "step5": {
+        "title": "SCALING & DEVELOPMENT",
+        "list": [
+          ["Scaling ", "successful strategies", " to larger volumes"],
+          ["Development of ", "new channels", " and growth opportunities"],
+          ["Creation of ", "long-term systems", " for sustainable development"]
+        ]
+      },
+      "step6": {
+        "title": "MONITORING & SUPPORT",
+        "list": [
+          ["Continuous ", "monitoring of results", " and performance"],
+          ["Regular ", "analytics and reporting", " for clients"],
+          ["Support of ", "optimal operation", " of all systems and processes"]
+        ]
+      }
     }
+  },
+  "ApproachSection": {
+    "subtitle": "Our team",
+    "advantages": {
+      "expertise": {
+        "upperDescription": "Expertise",
+        "title": "Expertise that integrates",
+        "postTitle": "Consistency in language, execution, and numbers"
+      },
+      "precision": {
+        "upperDescription": "Precision",
+        "title": "Precision over promises",
+        "postTitle": "We commit to what we can measure and deliver"
+      },
+      "focused": {
+        "upperDescription": "Focused",
+        "title": "Focused on what matters",
+        "postTitle": "Everything we do ties back to growth"
+      },
+      "dialogue": {
+        "upperDescription": "Dialogue",
+        "title": "Direct communication",
+        "postTitle": "Straight answers from the people responsible"
+      }
+    },
+    "slogan": {
+      "part1": "Good marketing",
+      "part2": " feels calm, focused and connected That's",
+      "part3": " the work we believe in"
+    },
+    "description": {
+      "part1": "We're a small team",
+      "part2": "that takes marketing seriously.",
+      "part3": " We work with Meta, Google, TikTok and LinkedIn —",
+      "part4": "building clear, well-structured campaigns that support real business growth"
+    },
+    "experience": {
+      "part1": "Over the years, we've helped",
+      "part2": "SaaS, FinTech, mobile apps and local companies from Tier-1 markets",
+      "part3": " grow through practical strategies and long-term thinking"
+    }
+  },
+  "ReviewsSection": {
+    "leftBlock": {
+      "title": {
+        "part1": "Do you want",
+        "part2": " the same result?"
+      },
+      "description": "Order your first free call and receive a tailored strategy to promote your business",
+      "button": "Demo call"
+    },
+    "reviewBlock": {
+      "location": "Location:"
+    }
+  },
+  "TariffItem": {
+    "result": "Result:",
+    "order": "Order",
+    "moreDetails": "More details",
+    "whatsIncluded": "What's included:",
+    "channels": "Channels:",
+    "back": "Back"
+  },
+  "AboutTheFounderSection": {
+    "experience": "Experience",
+    "success": "Success",
+    "yearsOfExperience": "10 years",
+    "ofRealBusinessExperience": "Of real business experience",
+    "jobSuccess": "100% job success",
+    "topRatedOnUpwork": "Top Rated on Upwork with long-term clients",
+    "inAdSpendManagement": "In ad spend management",
+    "founderQuote": {
+      "part1": "\" For me, marketing",
+      "part2": "only made sense once I stopped seeing it as campaigns",
+      "part3": "and started building it",
+      "part4": "like a business system \""
+    },
+    "founder": "Founder, CEO of the Company",
+    "name": "Pushenko Eugen",
+    "about": {
+      "part1": "I graduated in ",
+      "part2": "Marketing in 2004",
+      "part3": " but spent 15 years in Aviation and Tourism, where marketing was always present but never the core",
+      "part4": "By 2019, I had seen how disconnected and reactive marketing had become. ",
+      "part5": "I started building what would later become Integrity",
+      "part6": " — not an agency in the traditional sense, but a system. ",
+      "part7": "Focused, structured, and built around what actually helps businesses grow"
+    }
+  },
+  "OutcomesSection": {
+    "outcomes": [
+      {
+        "number": "01",
+        "title": "MORE CLARITY METRICS DECISIONS"
+      },
+      {
+        "number": "02",
+        "title": "STRUCTURE THAT REDUCES WASTE AND GUESSWORK"
+      },
+      {
+        "number": "03",
+        "title": "SMARTER CAMPAIGNS ALIGNED WITH REAL BUSINESS GOALS"
+      },
+      {
+        "number": "04",
+        "title": "BETTER ROI THROUGH CONTINUOUS TESTING"
+      },
+      {
+        "number": "05",
+        "title": "LESS STRESS, MORE FOCUS FOR YOUR TEAM"
+      }
+    ],
+    "count": "(5)"
+  },
+  "ArticleItem": {
+    "news": "News",
+    "minutesReading": "minutes reading",
+    "readMore": "Read more",
+    "defaultCategory": "Article"
+  },
+  "LatestInsightsSection": {
+    "seeAllIntegrityPosts": "See all Integrity posts"
+  },
+  "FormSection": {
+    "title": "Let's unpack your growth potential",
+    "subtitle": "Book your free strategy call. Together we'll analyze your goals and recommend the next best steps",
+    "mobileTitle": "Fill out the form",
+    "name": "Name",
+    "email": "Email",
+    "phoneNumber": "Phone Number",
+    "country": "Country",
+    "employees": "Number of employees",
+    "position": "Your position in the company",
+    "industry": "Choose your industry",
+    "companyStage": "Company stage",
+    "website": "Your company website",
+    "message": "Message",
+    "orderCall": "Order a call",
+    "enterName": "Enter your name",
+    "enterEmail": "Enter your email",
+    "enterPhone": "Enter your phone number",
+    "enterCountry": "Enter your country",
+    "enterEmployees": "12",
+    "enterPosition": "Your position",
+    "enterIndustry": "Enter your industry",
+    "enterStage": "Enter your company stage",
+    "enterWebsite": "Link",
+    "enterMessage": "Enter your message",
+    "required": "required",
+    "formSentSuccess": "Form sent successfully!",
+    "formSentError": "Failed to send form. Please try again.",
+    "industries": {
+      "finthech": "Finthech",
+      "b2b": "B2B",
+      "healthcare": "Healthcare",
+      "furniture": "Furniture & home",
+      "electronics": "Electronics",
+      "other": "Other sectors"
+    },
+    "stages": {
+      "seed": "Seed",
+      "seriesA": "Series A or higher",
+      "enterprise": "Enterprise"
+    },
+    "validation": {
+      "nameRequired": "Enter your name",
+      "emailRequired": "Enter your email",
+      "emailInvalid": "Invalid email format",
+      "phoneRequired": "Enter your phone number",
+      "countryRequired": "Enter your country",
+      "employeesRequired": "Enter number of employees",
+      "positionRequired": "Enter your position",
+      "industryRequired": "Choose your industry",
+      "stageRequired": "Choose company stage"
+    }
+  },
+  "CountryInput": {
+    "placeholder": "Choose your country",
+    "searchPlaceholder": "Search country..."
+  },
+  "Footer": {
+    "slogan": "Smart digital icon marketing that drives growth",
+    "phone": "Phone:",
+    "email": "E-mail:",
+    "copyright": "© 2025 integrity. All rights reserved",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfUse": "Terms of use",
+    "legalNotice": "Legal notice",
+    "websiteDevelopment": "Website Development"
+  },
+  "BlogPostPage": {
+    "article": "Article",
+    "minutesReading": "minutes reading",
+    "backToBlog": "Back to blog",
+    "articleContent": "Article content",
+    "copyLink": "Copy link",
+    "linkedin": "LinkedIn",
+    "facebook": "Facebook",
+    "whatsapp": "WhatsApp",
+    "x": "X (Twitter)",
+    "telegram": "Telegram"
+  },
+  "SimilarArticlesSection": {
+    "articles": "articles",
+    "similar": "similar"
+  },
+  "InfoPage": {
+    "effectiveDate": "Effective date",
+    "copyright": "Copyright © [Insert Year] Integrity Marketing System. All rights reserved"
+  }
 }

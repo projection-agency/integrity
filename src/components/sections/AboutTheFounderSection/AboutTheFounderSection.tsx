@@ -6,6 +6,7 @@ import s from './AboutTheFounderSection.module.css'
 import Image from 'next/image'
 import IconHero from '@/components/icons/IconHero/IconHero'
 import { motion } from 'framer-motion'
+import { useTranslations } from 'next-intl'
 
 type AboutTheFounderSection = {
   subtitle: string
@@ -14,6 +15,7 @@ type AboutTheFounderSection = {
 
 const AboutTheFounderSection = ({ block }: { block: AboutTheFounderSection }) => {
   const [width, setWidth] = useState(0)
+  const t = useTranslations('AboutTheFounderSection')
 
   useEffect(() => {
     // Встановлюємо ширину вікна тільки на клієнті
@@ -52,18 +54,18 @@ const AboutTheFounderSection = ({ block }: { block: AboutTheFounderSection }) =>
             <div className={s.item}>
               <span>
                 <Image src={'/images/icons/star.svg'} width={24} height={24} alt="icon" />
-                <p>Experience</p>
+                <p>{t('experience')}</p>
               </span>
-              <h3>10 years</h3>
-              <p className={s.subtitle}>Of real business experience</p>
+              <h3>{t('yearsOfExperience')}</h3>
+              <p className={s.subtitle}>{t('ofRealBusinessExperience')}</p>
             </div>
             <div className={s.item}>
               <span>
                 <Image src={'/images/icons/star.svg'} width={24} height={24} alt="icon" />
-                <p>Success</p>
+                <p>{t('success')}</p>
               </span>
-              <h3>100% job success</h3>
-              <p className={s.subtitle}>Top Rated on Upwork with long-term clients</p>
+              <h3>{t('jobSuccess')}</h3>
+              <p className={s.subtitle}>{t('topRatedOnUpwork')}</p>
             </div>
           </motion.div>
 
@@ -80,7 +82,7 @@ const AboutTheFounderSection = ({ block }: { block: AboutTheFounderSection }) =>
             </div>
             <div className={s.spendedCont}>
               <h3>$10M+</h3>
-              <p className={s.subtitle}>In ad spend managment</p>
+              <p className={s.subtitle}>{t('inAdSpendManagement')}</p>
             </div>
           </motion.div>
         </div>
@@ -89,50 +91,34 @@ const AboutTheFounderSection = ({ block }: { block: AboutTheFounderSection }) =>
           {width <= 1024 ? (
             <h3>
               <span>
-                “ For me, marketing <pre></pre>
+                {t('founderQuote.part1')} <pre></pre>
               </span>
               <span>
                 <span className={s.computer}>
                   <Image src={'/images/icons/computer.svg'} width={64} height={64} alt="icon" />
                 </span>
-                only made sense
+                {t('founderQuote.part2')}
               </span>{' '}
-              <span>once I stopped seeing</span> <span>it as campaigns and</span>
-              <span>started building it </span>
-              <span>
-                like{' '}
-                <span className={s.stonks}>
-                  <Image src={'/images/icons/stonks.svg'} width={64} height={64} alt="icon" />
-                </span>{' '}
-                a business system “
-              </span>
+              <span>{t('founderQuote.part3')}</span> <span>{t('founderQuote.part4')}</span>
             </h3>
           ) : (
             <h3>
-              “ For me, marketing
+              {t('founderQuote.part1')}
               <span className={s.computer}>
                 <Image src={'/images/icons/computer.svg'} width={64} height={64} alt="icon" />
               </span>{' '}
-              only made sense once I stopped seeing it as campaigns <br /> and started building it
-              like{' '}
-              <span className={s.stonks}>
-                <Image src={'/images/icons/stonks.svg'} width={64} height={64} alt="icon" />
-              </span>{' '}
-              a business system “
+              {t('founderQuote.part2')} {t('founderQuote.part3')} {t('founderQuote.part4')}
             </h3>
           )}
-          <p className={s.founder}>Founder, CEO of the Company</p>
-          <p className={s.name}>Pushenko Eugen</p>
+          <p className={s.founder}>{t('founder')}</p>
+          <p className={s.name}>{t('name')}</p>
           <article className={s.about}>
             <p>
-              I graduated in <span>Marketing in 2004</span> but spent 15 years in Aviation and
-              Tourism, where marketing was always present but never the core
+              {t('about.part1')} <span>{t('about.part2')}</span> {t('about.part3')}
             </p>
             <p>
-              By 2019, I had seen how disconnected and reactive marketing had become.{' '}
-              <span>I started building what would later become Integrity</span> — not an agency in
-              the traditional sense, but a system.{' '}
-              <span>Focused, structured, and built around what actually helps businesses grow</span>
+              {t('about.part4')} <span>{t('about.part5')}</span> {t('about.part6')}{' '}
+              {t('about.part7')}
             </p>
           </article>
         </div>

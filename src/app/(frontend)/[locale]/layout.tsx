@@ -10,11 +10,6 @@ import { routing } from '@/i18n/routing'
 import { getLayoutData } from '@/action/getLayoutData'
 import { getMessages } from 'next-intl/server'
 import BodyBackground from '@/components/BodyBackground/BodyBackground'
-import { PageTransitionProvider } from '@/contexts/PageTransitionContext'
-import PageTransition from '@/components/PageTransition/PageTransition'
-import PageTransitionOverlay from '@/components/PageTransition/PageTransitionOverlay'
-import TransitionBackground from '@/components/TransitionBackground/TransitionBackgroundWrapper'
-import TransitionBodyBackground from '@/components/TransitionBodyBackground/TransitionBodyBackground'
 
 import { Inter_Tight } from 'next/font/google'
 import { Inter } from 'next/font/google'
@@ -48,20 +43,13 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} className={`${interTight.className} ${inter.className}`}>
       <body>
-        <BodyBackground />
         <NextIntlClientProvider messages={messages}>
           <CustomToastProvider>
-            <PageTransitionProvider>
-              <PageTransitionOverlay />
-              <TransitionBodyBackground />
-              <TransitionBackground />
-              <Header menu={headerMenu} logo={main.logo || ''} buttonText={main.button || ''} />
-              <HeaderFix menu={headerMenu} buttonText={main.button || ''} />
-              <PageTransition>
-                <main>{children}</main>
-              </PageTransition>
-              <Footer menu={footerMenu} />
-            </PageTransitionProvider>
+            <BodyBackground />
+            <Header menu={headerMenu} logo={main.logo || ''} buttonText={main.button || ''} />
+            <HeaderFix menu={headerMenu} buttonText={main.button || ''} />
+            <main>{children}</main>
+            <Footer menu={footerMenu} />
           </CustomToastProvider>
         </NextIntlClientProvider>
       </body>

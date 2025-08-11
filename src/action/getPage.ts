@@ -1,11 +1,21 @@
 import { getPayloadInstance } from '../utils/payload'
+import { unstable_cache } from 'next/cache'
 
 export async function getPage(slug: string) {
-  const payload = await getPayloadInstance()
+  const cached = unstable_cache(
+    async (s: string) => {
+      const payload = await getPayloadInstance()
+      const page = await payload.find({
+        collection: 'pages',
+        where: { slug: { equals: s } },
+      })
+      return page
+    },
+    ['page-by-slug', slug],
+    { revalidate: 300, tags: ['page', `page-${slug}`] },
+  )
 
-  const page = await payload.find({ collection: 'pages', where: { slug: { equals: slug } } })
-
-  return page
+  return cached(slug)
 }
 
 export async function getSinglePage(slug: string) {
