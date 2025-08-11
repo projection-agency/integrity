@@ -13,6 +13,10 @@
     column-gap: 0.83vw;
     row-gap: 3.125vw;
   }
+
+  .loaderWrapper {
+    margin: 0 auto;
+  }
 }
 
 .filterPostsCategories {
@@ -82,7 +86,7 @@
     }
   }
 
-  .simpleBarCont{
+  .simpleBarCont {
     margin-bottom: 10.67vw;
   }
 }
