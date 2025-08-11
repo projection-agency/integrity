@@ -34,10 +34,10 @@
       .logoContainer {
         display: inline-flex;
         transform: none;
-        width: max-content;
+        width: 7.6vw;
         height: 3.75vw;
         background-color: rgba(34, 34, 34, 1);
-        transform: translateY(0.2vw);
+        /* transform: translateY(0.2vw); */
 
         .logo {
           width: 3.125vw;

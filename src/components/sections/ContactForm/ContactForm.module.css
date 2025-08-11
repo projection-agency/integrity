@@ -197,21 +197,6 @@
   top: 0;
 }
 
-.expertChatIcon {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 6.15vw;
-  height: 6.15vw;
-  z-index: 1;
-
-  svg{
-    fill: #ffffff;
-    width: 4.8vw;
-    height: 4.8vw;
-  }
-}
-
 .phoneInputWrapper {
   width: 20.57vw;
   height: 4.79vw;
@@ -320,8 +305,6 @@
   width: 6.15vw;
   height: 6.15vw;
   z-index: 1;
-  /* width: 2.08vw; */
-  height: 2.08vw;
   background: none;
   border-radius: 0;
   box-shadow: none;
@@ -331,6 +314,25 @@
   top: auto;
   transform: none;
 }
+
+.expertChatIcon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 6.15vw;
+  height: 6.15vw;
+  z-index: 1;
+
+  svg {
+    fill: #ffffff;
+    width: 1.67vw;
+    height: 1.67vw;
+  }
+}
+
 .expertAvatar {
   position: absolute;
   left: 5.16vw;
