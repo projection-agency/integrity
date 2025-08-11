@@ -52,7 +52,7 @@
       color: var(--white);
       max-width: 48.2vw;
       margin: 0 auto;
-      z-index: 99;
+      z-index: 0;
       position: relative;
     }
     .insightCardMeta {

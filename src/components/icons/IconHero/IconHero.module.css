@@ -41,6 +41,7 @@
 @media screen and (max-width: 1024px) {
   .iconHero {
     border-radius: 53.33vw;
+    border-width: 0.135vw;
     padding: 1.07vw;
 
     .icon {

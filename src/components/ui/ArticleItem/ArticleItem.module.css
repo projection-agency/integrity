@@ -172,7 +172,7 @@
   .insightCardBadge {
     border-radius: 10.67vw;
     padding: 2.13vw 6.4vw;
-    width: 23.47vw;
+    width: max-content;
     height: 8.8vw;
     background: var(--light-gray);
     top: 3.2vw;

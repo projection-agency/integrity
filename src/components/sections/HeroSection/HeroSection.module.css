@@ -297,12 +297,17 @@
 
     .iconsAds {
       bottom: 20.67vw;
+
+      div {
+        border-radius: 2.13vw;
+      }
     }
 
     .iconsWrapper div:first-child {
       transform: rotate(-7deg);
       width: 14.93vw;
       height: 14.93vw;
+      border-radius: 2.13vw;
 
       svg {
         width: 10.27vw;

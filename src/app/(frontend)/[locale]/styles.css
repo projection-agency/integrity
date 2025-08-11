@@ -160,7 +160,7 @@ html {
 }
 
 @media screen and (max-width: 1024px) {
-  .simplebar-track {
+  .simplebar-horizontal {
     height: 1vw !important;
     background-color: rgba(0, 0, 0, 0.3);
     border-radius: 1vw !important;
