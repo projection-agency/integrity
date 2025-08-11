@@ -1,114 +1,45 @@
+'use client'
+
 import React from 'react'
 
-export const CanvasIcon = ({ className = '' }: { className?: string }) => (
-  <svg
-    className={className}
-    width="80"
-    height="80"
-    viewBox="0 0 80 80"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M11.1621 40.3722C20.9296 15.566 30.697 15.566 40.4644 40.3722C50.2319 65.1784 59.9993 65.1784 69.7668 40.3722"
-      stroke="url(#paint0_linear_3035_9445)"
-      strokeWidth="2"
-      strokeLinecap="round"
-    />
-    <path
-      d="M11.1621 6.51172V68.8373H73.4877"
-      stroke="#222222"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <path
-      d="M5.58203 12.0931L11.1634 6.51172L16.7448 12.0931M67.9076 63.2559L73.489 68.8373L67.9076 74.4187"
-      stroke="#222222"
-      strokeWidth="2"
-      strokeMiterlimit="10"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <defs>
-      <linearGradient
-        id="paint0_linear_3035_9445"
-        x1="11.2812"
-        y1="21.7676"
-        x2="73.3854"
-        y2="29.0233"
-        gradientUnits="userSpaceOnUse"
-      >
-        <stop stopColor="#FFE414" />
-        <stop offset="1" stopColor="#FFAE00" />
-      </linearGradient>
-    </defs>
-  </svg>
-)
-export const GlobeIcon = ({ className = '' }: { className?: string }) => (
-  <svg
-    className={className}
-    width="80"
-    height="80"
-    viewBox="0 0 80 80"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M40.0024 8.63184C26.3777 8.63184 15.0586 17.3281 10.1326 30.1893C9.13692 33.239 8.56055 36.62 8.56055 40.0007C8.56055 57.306 22.6569 71.3697 40.0024 71.3697C43.4435 71.3697 46.7449 70.8121 49.8366 69.8012M40.0549 40.9244L40.0024 40.8373L10.6567 30.3983"
-      stroke="#222222"
-      strokeWidth="2"
-      strokeMiterlimit="18"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <path
-      d="M60.1409 63.7881L40.0181 40.8016L10.1309 30.1885M68.0886 54.1159C69.9576 50.4212 71.1106 46.3258 71.39 41.9691"
-      stroke="#222222"
-      strokeWidth="2"
-      strokeMiterlimit="18"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <path
-      d="M68.1052 54.0635C64.6466 61.6616 57.5198 67.5172 49.834 69.8001"
-      stroke="#222222"
-      strokeWidth="2"
-      strokeMiterlimit="18"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <path
-      d="M60.3848 64.0676L40.0176 40.8022L40.07 40.7324"
-      stroke="#222222"
-      strokeWidth="2"
-      strokeMiterlimit="18"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <path
-      d="M71.4419 40.5932V40.0007C71.4419 22.6955 57.4503 8.63184 40.0875 8.63184L40.0176 40.8024L71.1625 40.785"
-      stroke="url(#paint0_linear_3035_9453)"
-      strokeWidth="2"
-      strokeMiterlimit="18"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <defs>
-      <linearGradient
-        id="paint0_linear_3035_9453"
-        x1="40.0814"
-        y1="8.63183"
-        x2="73.6605"
-        y2="11.0649"
-        gradientUnits="userSpaceOnUse"
-      >
-        <stop stopColor="#FFE414" />
-        <stop offset="1" stopColor="#FFAE00" />
-      </linearGradient>
-    </defs>
-  </svg>
-)
+export const CanvasIcon = ({ className = '' }: { className?: string }) => {
+  const ref = React.useRef<HTMLDivElement>(null)
+
+  React.useEffect(() => {
+    if (ref.current) {
+      const lordIcon = document.createElement('lord-icon')
+      lordIcon.setAttribute('src', 'https://cdn.lordicon.com/rxpexbfb.json')
+      lordIcon.setAttribute('trigger', 'hover')
+      lordIcon.setAttribute('colors', 'primary:#222222,secondary:#ffe414')
+      lordIcon.style.width = '250px'
+      lordIcon.style.height = '250px'
+
+      ref.current.innerHTML = ''
+      ref.current.appendChild(lordIcon)
+    }
+  }, [])
+
+  return <div ref={ref} className={className} />
+}
+export const GlobeIcon = ({ className = '' }: { className?: string }) => {
+  const ref = React.useRef<HTMLDivElement>(null)
+
+  React.useEffect(() => {
+    if (ref.current) {
+      const lordIcon = document.createElement('lord-icon')
+      lordIcon.setAttribute('src', 'https://cdn.lordicon.com/xyzuxptc.json')
+      lordIcon.setAttribute('trigger', 'hover')
+      lordIcon.setAttribute('colors', 'primary:#222222,secondary:#ffe414')
+      lordIcon.style.width = '250px'
+      lordIcon.style.height = '250px'
+
+      ref.current.innerHTML = ''
+      ref.current.appendChild(lordIcon)
+    }
+  }, [])
+
+  return <div ref={ref} className={className} />
+}
 
 export const GlobeIcon04 = ({ className = '' }: { className?: string }) => (
   <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -135,405 +66,84 @@ export const GlobeIcon05 = ({ className = '' }: { className?: string }) => (
     />
   </svg>
 )
-export const ChartIcon = ({ className = '' }: { className?: string }) => (
-  <svg
-    className={className}
-    width="80"
-    height="80"
-    viewBox="0 0 80 80"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M33.3203 63.2578H46.1947C51.404 63.2578 55.6087 59.0444 55.6087 53.8657V23.2764M33.3203 39.2578H55.6087"
-      stroke="url(#paint0_linear_3035_9461)"
-      strokeWidth="2"
-      strokeMiterlimit="10"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <path
-      d="M62.4186 23.2762H48.8C47.5721 23.2762 46.5675 22.2739 46.5675 21.0489V12.5291C46.5675 11.3041 47.5721 10.3018 48.8 10.3018H62.4186C63.6466 10.3018 64.6512 11.3041 64.6512 12.5291V21.0489C64.6512 22.2739 63.6466 23.2762 62.4186 23.2762ZM31.107 69.7356H17.4884C16.2605 69.7356 15.2559 68.7333 15.2559 67.5083V58.9885C15.2559 57.7635 16.2605 56.7611 17.4884 56.7611H31.107C32.3349 56.7611 33.3396 57.7635 33.3396 58.9885V67.5083C33.3396 68.7333 32.3349 69.7356 31.107 69.7356ZM31.107 45.7356H17.4884C16.2605 45.7356 15.2559 44.7333 15.2559 43.5083V34.9885C15.2559 33.7635 16.2605 32.7612 17.4884 32.7612H31.107C32.3349 32.7612 33.3396 33.7635 33.3396 34.9885V43.5083C33.3396 44.7333 32.3349 45.7356 31.107 45.7356Z"
-      stroke="#222222"
-      strokeWidth="2"
-      strokeMiterlimit="10"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <defs>
-      <linearGradient
-        id="paint0_linear_3035_9461"
-        x1="33.3656"
-        y1="23.2764"
-        x2="57.2664"
-        y2="24.2647"
-        gradientUnits="userSpaceOnUse"
-      >
-        <stop stopColor="#FFE414" />
-        <stop offset="1" stopColor="#FFAE00" />
-      </linearGradient>
-    </defs>
-  </svg>
-)
-export const ChartBarIcon = ({ className = '' }: { className?: string }) => (
-  <svg
-    className={className}
-    width="62"
-    height="65"
-    viewBox="0 0 62 65"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M50.8597 38.96V35.4884C50.8597 34.666 50.1937 34 49.3714 34H37.4532C36.6309 34 35.9648 34.666 35.9648 35.4884V38.96"
-      stroke="url(#paint0_linear_5045_803)"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <path
-      d="M56.7049 38.96H30.1282C27.8675 38.96 26.0352 40.7925 26.0352 43.053V59.6967C26.0352 61.9572 27.8675 63.7897 30.1282 63.7897H56.7049C58.9654 63.7897 60.798 61.9572 60.798 59.6967V43.053C60.798 40.7925 58.9654 38.96 56.7049 38.96Z"
-      stroke="#222222"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <path d="M47.1408 53.8604V56.3441H39.6934V53.8604" fill="url(#paint1_linear_5045_803)" />
-    <path
-      d="M47.1408 53.8604V56.3441H39.6934V53.8604"
-      stroke="url(#paint2_linear_5045_803)"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <path
-      d="M60.798 53.8604H26.0352"
-      stroke="#222222"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <path
-      d="M18.0123 60.1745H18.0104L13.9695 57.7931C6.34156 53.2982 1.53226 45.2666 1.12109 36.4814"
-      stroke="url(#paint3_linear_5045_803)"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <path
-      d="M16.8791 55.7496L18.0121 60.1738L13.5879 61.3087M43.7648 7.82031L47.8058 10.2036C55.4355 14.6985 60.2448 22.7319 60.6541 31.5189"
-      stroke="url(#paint4_linear_5045_803)"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <path
-      d="M44.8987 12.2457L43.7656 7.82154L48.1898 6.68851M26.0257 6.68851V3.21689C26.0257 2.39456 25.3597 1.72852 24.5374 1.72852H12.6192C11.7969 1.72852 11.1309 2.39456 11.1309 3.21689V6.68851"
-      stroke="url(#paint5_linear_5045_803)"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <path
-      d="M31.8709 6.68848H5.2942C3.03373 6.68848 1.20117 8.52103 1.20117 10.7815V27.4252C1.20117 29.6857 3.03373 31.5182 5.2942 31.5182H31.8709C34.1314 31.5182 35.964 29.6857 35.964 27.4252V10.7815C35.964 8.52103 34.1314 6.68848 31.8709 6.68848Z"
-      stroke="#222222"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <path d="M22.3049 21.5869V24.0706H14.8574V21.5869" fill="url(#paint6_linear_5045_803)" />
-    <path
-      d="M22.3049 21.5869V24.0706H14.8574V21.5869"
-      stroke="url(#paint7_linear_5045_803)"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <path
-      d="M35.964 21.5869H1.20117"
-      stroke="#222222"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <defs>
-      <linearGradient
-        id="paint0_linear_5045_803"
-        x1="35.9951"
-        y1="34"
-        x2="51.2385"
-        y2="37.3956"
-        gradientUnits="userSpaceOnUse"
-      >
-        <stop stopColor="#FFE414" />
-        <stop offset="1" stopColor="#FFAE00" />
-      </linearGradient>
-      <linearGradient
-        id="paint1_linear_5045_803"
-        x1="39.7085"
-        y1="53.8604"
-        x2="47.3313"
-        y2="55.5558"
-        gradientUnits="userSpaceOnUse"
-      >
-        <stop stopColor="#FFE414" />
-        <stop offset="1" stopColor="#FFAE00" />
-      </linearGradient>
-      <linearGradient
-        id="paint2_linear_5045_803"
-        x1="39.7085"
-        y1="53.8604"
-        x2="47.3313"
-        y2="55.5558"
-        gradientUnits="userSpaceOnUse"
-      >
-        <stop stopColor="#FFE414" />
-        <stop offset="1" stopColor="#FFAE00" />
-      </linearGradient>
-      <linearGradient
-        id="paint3_linear_5045_803"
-        x1="1.15543"
-        y1="36.4814"
-        x2="19.249"
-        y2="37.4383"
-        gradientUnits="userSpaceOnUse"
-      >
-        <stop stopColor="#FFE414" />
-        <stop offset="1" stopColor="#FFAE00" />
-      </linearGradient>
-      <linearGradient
-        id="paint4_linear_5045_803"
-        x1="13.6836"
-        y1="7.82031"
-        x2="64.0266"
-        y2="11.1063"
-        gradientUnits="userSpaceOnUse"
-      >
-        <stop stopColor="#FFE414" />
-        <stop offset="1" stopColor="#FFAE00" />
-      </linearGradient>
-      <linearGradient
-        id="paint5_linear_5045_803"
-        x1="11.2062"
-        y1="1.72852"
-        x2="48.4684"
-        y2="11.4681"
-        gradientUnits="userSpaceOnUse"
-      >
-        <stop stopColor="#FFE414" />
-        <stop offset="1" stopColor="#FFAE00" />
-      </linearGradient>
-      <linearGradient
-        id="paint6_linear_5045_803"
-        x1="14.8726"
-        y1="21.5869"
-        x2="22.4953"
-        y2="23.2824"
-        gradientUnits="userSpaceOnUse"
-      >
-        <stop stopColor="#FFE414" />
-        <stop offset="1" stopColor="#FFAE00" />
-      </linearGradient>
-      <linearGradient
-        id="paint7_linear_5045_803"
-        x1="14.8726"
-        y1="21.5869"
-        x2="22.4953"
-        y2="23.2824"
-        gradientUnits="userSpaceOnUse"
-      >
-        <stop stopColor="#FFE414" />
-        <stop offset="1" stopColor="#FFAE00" />
-      </linearGradient>
-    </defs>
-  </svg>
-)
-export const DocumentIcon = ({ className = '' }: { className?: string }) => (
-  <svg
-    className={className}
-    width="80"
-    height="80"
-    viewBox="0 0 80 80"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <mask
-      id="mask0_3035_9475"
-      style={{ maskType: 'alpha' }}
-      maskUnits="userSpaceOnUse"
-      x="4"
-      y="6"
-      width="72"
-      height="71"
-    >
-      <path
-        d="M75.9421 6.06641H4.26562V76.7133H75.9421V69.7678H68.5986V71.0478C65.344 74.3023 53.4675 74.3023 50.2128 71.0478V63.4917H50.2146L42.7899 60.2562L59.3866 53.0236L75.9421 60.2299V6.06641Z"
-        fill="#D9D9D9"
-      />
-      <path d="M75.9427 60.2822L73.3848 61.3957H75.9427V60.2822Z" fill="#D9D9D9" />
-    </mask>
-    <g mask="url(#mask0_3035_9475)">
-      <path
-        d="M7.44336 43.7217H72.5596M32.1875 43.7217V51.1635H48.9317V43.7217"
-        stroke="#222222"
-        strokeWidth="2"
-        strokeMiterlimit="15.6"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M53.955 18.6051V13.0237C53.955 10.9686 52.2891 9.30273 50.2341 9.30273H29.7689C27.7139 9.30273 26.048 10.9686 26.048 13.0237V18.6051M72.5596 61.3958C72.5596 64.4782 70.0609 66.9772 66.9783 66.9772H13.0248C9.94234 66.9772 7.44336 64.4784 7.44336 61.3958V24.1865C7.44336 21.1039 9.94234 18.6051 13.0248 18.6051H66.9783C70.0609 18.6051 72.5596 21.1039 72.5596 24.1865V61.3958Z"
-        stroke="#222222"
-        strokeWidth="2"
-        strokeMiterlimit="15.6"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </g>
-    <path
-      d="M76.002 60.2549V69.3905"
-      stroke="url(#paint0_linear_3035_9475)"
-      strokeWidth="2.23256"
-      strokeMiterlimit="10"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <path
-      d="M76.0419 69.3916H75.9648"
-      stroke="url(#paint1_linear_3035_9475)"
-      strokeWidth="4.65116"
-      strokeMiterlimit="10"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <path
-      d="M68.5987 63.4717V71.0468C65.344 74.3013 53.4676 74.3013 50.2129 71.0468V63.4907"
-      stroke="url(#paint2_linear_3035_9475)"
-      strokeWidth="2.23256"
-      strokeMiterlimit="10"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <path
-      d="M59.3877 67.4884L76.0035 60.256L59.3877 53.0234L42.791 60.256L59.3877 67.4884Z"
-      stroke="url(#paint3_linear_3035_9475)"
-      strokeWidth="2.23256"
-      strokeMiterlimit="10"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <defs>
-      <linearGradient
-        id="paint0_linear_3035_9475"
-        x1="76.004"
-        y1="60.2549"
-        x2="77.0781"
-        y2="60.2636"
-        gradientUnits="userSpaceOnUse"
-      >
-        <stop stopColor="#FFE414" />
-        <stop offset="1" stopColor="#FFAE00" />
-      </linearGradient>
-      <linearGradient
-        id="paint1_linear_3035_9475"
-        x1="75.965"
-        y1="69.3916"
-        x2="76.0478"
-        y2="69.3921"
-        gradientUnits="userSpaceOnUse"
-      >
-        <stop stopColor="#FFE414" />
-        <stop offset="1" stopColor="#FFAE00" />
-      </linearGradient>
-      <linearGradient
-        id="paint2_linear_3035_9475"
-        x1="50.2503"
-        y1="63.4717"
-        x2="69.6404"
-        y2="66.112"
-        gradientUnits="userSpaceOnUse"
-      >
-        <stop stopColor="#FFE414" />
-        <stop offset="1" stopColor="#FFAE00" />
-      </linearGradient>
-      <linearGradient
-        id="paint3_linear_3035_9475"
-        x1="42.8585"
-        y1="53.0234"
-        x2="77.5289"
-        y2="58.9285"
-        gradientUnits="userSpaceOnUse"
-      >
-        <stop stopColor="#FFE414" />
-        <stop offset="1" stopColor="#FFAE00" />
-      </linearGradient>
-    </defs>
-  </svg>
-)
-export const AnalyticsIcon = ({ className = '' }: { className?: string }) => (
-  <svg
-    className={className}
-    width="80"
-    height="80"
-    viewBox="0 0 80 80"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M10.2344 69.6992H69.7693"
-      stroke="#222222"
-      strokeWidth="2"
-      strokeMiterlimit="14.8"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <path
-      d="M27.9061 69.6987V51.1372H14.8828V69.6987M46.5107 69.6987V34.4319H33.4875V69.6987M65.1154 69.6987V17.7266H52.0921V69.6987"
-      stroke="#222222"
-      strokeWidth="2"
-      strokeLinejoin="round"
-    />
-    <path
-      d="M14.8828 39.9992L46.5107 10.3008"
-      stroke="url(#paint0_linear_3035_9486)"
-      strokeWidth="2"
-      strokeMiterlimit="14.8"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <path
-      d="M35.3496 10.3008H46.5124V21.4377"
-      stroke="url(#paint1_linear_3035_9486)"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <defs>
-      <linearGradient
-        id="paint0_linear_3035_9486"
-        x1="14.9471"
-        y1="10.3008"
-        x2="48.7104"
-        y2="12.968"
-        gradientUnits="userSpaceOnUse"
-      >
-        <stop stopColor="#FFE414" />
-        <stop offset="1" stopColor="#FFAE00" />
-      </linearGradient>
-      <linearGradient
-        id="paint1_linear_3035_9486"
-        x1="35.3723"
-        y1="10.3008"
-        x2="47.2972"
-        y2="11.1874"
-        gradientUnits="userSpaceOnUse"
-      >
-        <stop stopColor="#FFE414" />
-        <stop offset="1" stopColor="#FFAE00" />
-      </linearGradient>
-    </defs>
-  </svg>
-)
+export const ChartIcon = ({ className = '' }: { className?: string }) => {
+  const ref = React.useRef<HTMLDivElement>(null)
+
+  React.useEffect(() => {
+    if (ref.current) {
+      const lordIcon = document.createElement('lord-icon')
+      lordIcon.setAttribute('src', 'https://cdn.lordicon.com/ontvaefu.json')
+      lordIcon.setAttribute('trigger', 'hover')
+      lordIcon.setAttribute('colors', 'primary:#222222,secondary:#ffe414')
+      lordIcon.style.width = '250px'
+      lordIcon.style.height = '250px'
+
+      ref.current.innerHTML = ''
+      ref.current.appendChild(lordIcon)
+    }
+  }, [])
+
+  return <div ref={ref} className={className} />
+}
+
+export const ChartBarIcon = ({ className = '' }: { className?: string }) => {
+  const ref = React.useRef<HTMLDivElement>(null)
+
+  React.useEffect(() => {
+    if (ref.current) {
+      const lordIcon = document.createElement('lord-icon')
+      lordIcon.setAttribute('src', 'https://cdn.lordicon.com/mqgoyiby.json')
+      lordIcon.setAttribute('trigger', 'hover')
+      lordIcon.setAttribute('colors', 'primary:#222222,secondary:#ffe414')
+      lordIcon.style.width = '250px'
+      lordIcon.style.height = '250px'
+
+      ref.current.innerHTML = ''
+      ref.current.appendChild(lordIcon)
+    }
+  }, [])
+
+  return <div ref={ref} className={className} />
+}
+
+export const DocumentIcon = ({ className = '' }: { className?: string }) => {
+  const ref = React.useRef<HTMLDivElement>(null)
+
+  React.useEffect(() => {
+    if (ref.current) {
+      const lordIcon = document.createElement('lord-icon')
+      lordIcon.setAttribute('src', 'https://cdn.lordicon.com/gxfwmcto.json')
+      lordIcon.setAttribute('trigger', 'hover')
+      lordIcon.setAttribute('colors', 'primary:#222222,secondary:#ffe414')
+      lordIcon.style.width = '250px'
+      lordIcon.style.height = '250px'
+
+      ref.current.innerHTML = ''
+      ref.current.appendChild(lordIcon)
+    }
+  }, [])
+
+  return <div ref={ref} className={className} />
+}
+export const AnalyticsIcon = ({ className = '' }: { className?: string }) => {
+  const ref = React.useRef<HTMLDivElement>(null)
+
+  React.useEffect(() => {
+    if (ref.current) {
+      const lordIcon = document.createElement('lord-icon')
+      lordIcon.setAttribute('src', 'https://cdn.lordicon.com/rfifkiwm.json')
+      lordIcon.setAttribute('trigger', 'hover')
+      lordIcon.setAttribute('colors', 'primary:#222222,secondary:#ffe414')
+      lordIcon.style.width = '250px'
+      lordIcon.style.height = '250px'
+
+      ref.current.innerHTML = ''
+      ref.current.appendChild(lordIcon)
+    }
+  }, [])
+
+  return <div ref={ref} className={className} />
+}
 
 // Тут треба вставити повний SVG-код з твоїх файлів для кожної іконки за тією ж структурою.
 // Всі іконки експортовані з одного файлу.
