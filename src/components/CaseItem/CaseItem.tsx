@@ -93,7 +93,7 @@ export default function CaseItem({
             transition={
               windowWidth <= 1024
                 ? { duration: 0.5, ease: 'easeOut' }
-                : { duration: 0.5, ease: 'easeOut', delay: 0.5 }
+                : { duration: 0.5, ease: 'easeOut', delay: 0.2 }
             }
             viewport={{ once: false, amount: 0.2 }}
             className={s.doneWork}
@@ -129,7 +129,7 @@ export default function CaseItem({
           transition={
             windowWidth <= 1024
               ? { duration: 0.5, ease: 'easeOut' }
-              : { duration: 0.5, ease: 'easeOut', delay: 1 }
+              : { duration: 0.5, ease: 'easeOut', delay: 0.5 }
           }
           viewport={{ once: false, amount: 0.2 }}
           className={s.results}

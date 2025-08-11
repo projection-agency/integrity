@@ -17,21 +17,13 @@
 }
 
 .wrapHeading {
+  position: relative;
   display: flex;
   align-items: flex-end;
   gap: clamp(0.42vw, 2vw, 0.83vw);
   margin-top: clamp(0.42vw, 2vw, 0.83vw);
 }
 
-.count {
-  font-size: clamp(0.83vw, 2vw, 1.25vw);
-  font-weight: 700;
-  color: #ffe066;
-  margin-left: clamp(0.21vw, 1vw, 0.42vw);
-  position: absolute;
-  right: 22vw;
-  font-size: 5.33vw;
-}
 .services {
   max-width: 100vw;
   width: 100%;
@@ -263,16 +255,17 @@
   .count {
     color: #f5da0a;
     font-family: 'Inter Tight';
-    font-size: 2.08333vw;
     font-style: italic;
     font-weight: 900;
     line-height: 100%;
     text-transform: uppercase;
     margin-bottom: 6.5vw;
     position: absolute;
-    right: 35vw;
+    bottom: -4.7vw;
+    right: -2vw;
     font-size: 2.08vw;
   }
+
 }
 
 .services :global(.swiper-slide) {
@@ -327,11 +320,10 @@
       font-weight: 900;
       line-height: 100%;
       text-transform: uppercase;
-      /* margin-bottom: 6.5vw; */
       margin-bottom: 2.7vw;
       position: absolute;
-      right: 10vw;
-      /* font-size: 2.08vw; */
+      bottom: 0vw;
+      right: 6vw;
       font-size: 5.33vw;
     }
 

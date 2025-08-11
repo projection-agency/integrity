@@ -100,13 +100,15 @@ export default function ReviewsSection({ block }: { block: ReviewsSection }) {
                         alt="reviewer avatar"
                       />
                       <h3>{item.client_name}</h3>
-                      <div className={s.locationBlock}>
-                        <div className={s.icon}>{marker}</div>
-                        <div className={s.location}>
-                          <p className={s.blockTitle}>{t('reviewBlock.location')}</p>
-                          <p className={s.country}>{item.location}</p>
+                      {item.location && (
+                        <div className={s.locationBlock}>
+                          <div className={s.icon}>{marker}</div>
+                          <div className={s.location}>
+                            <p className={s.blockTitle}>{t('reviewBlock.location')}</p>
+                            <p className={s.country}>{item.location}</p>
+                          </div>
                         </div>
-                      </div>
+                      )}
                     </div>
                     <div className={s.reviewBlock}>
                       <div className={s.stars}>
