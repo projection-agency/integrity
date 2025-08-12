@@ -10,11 +10,14 @@
   align-items: center;
   position: relative;
 }
+
 .btnText {
   font-family: var(--font-family);
   font-weight: 700;
   font-size: 0.83vw;
+  transition: color 300ms ease-in-out;
   color: var(--white);
+
 }
 
 .submitBtn:hover .btnText {
@@ -172,11 +175,11 @@
   width: 42.19vw;
   height: 3.49vw;
   padding: 0.83vw 2.08vw;
+  transition: all 0.3s ease;
   background: var(--black);
   border-radius: 0.83vw;
   border: none;
   cursor: pointer;
-  transition: background 0.3s ease;
 
   color: var(--white);
 
@@ -190,8 +193,8 @@
 
     .btnIcon,
     svg {
-      /* fill: var(--white); */
-      transition: fill 300ms ease-in-out;
+      transition: stroke 300ms ease-in-out;
+      stroke: #ffffff;
       width: 0.73vw;
       height: 0.73vw;
       @media (max-width: 1024px) {
@@ -231,13 +234,17 @@
   color: var(--black);
 }
 
+.submitBtn:hover span svg{
+  stroke: #222222;
+}
+
 .submitBtn:hover .order {
   color: var(--black);
 }
 
 .submitBtn:hover .btnIcon,
 .submitBtn:hover svg {
-  /* fill: var(--black); */
+  stroke: #222222;
 }
 
 .wrapper {

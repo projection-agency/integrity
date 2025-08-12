@@ -23,9 +23,9 @@ export default function ClientAccordion({ items }: { items: any[] }) {
               header={
                 <div className={s.itemHeader}>
                   <p className={s.question}>{item.title}</p>
-                  <button>
+                  <div>
                     <span>{accordionArrow}</span>
-                  </button>
+                  </div>
                 </div>
               }
               buttonProps={{

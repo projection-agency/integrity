@@ -43,7 +43,7 @@
         width: 70%;
       }
 
-      button {
+      div {
         display: flex;
         justify-content: center;
         align-items: center;
