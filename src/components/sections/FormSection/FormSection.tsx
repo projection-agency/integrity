@@ -155,7 +155,7 @@ export default function FormSection() {
               <Form className={s.form}>
                 <div className={s.inputLine}>
                   <label htmlFor="forName">
-                    <p className={s.required}>{t('name')}</p>
+                    <span className={s.required}>{t('name')}</span>
                     <Field
                       name="name"
                       id="forName"
@@ -167,7 +167,7 @@ export default function FormSection() {
                     </ErrorMessage>
                   </label>
                   <label htmlFor="forEmail">
-                    <p className={s.required}>{t('email')}</p>
+                    <span className={s.required}>{t('email')}</span>
                     <Field
                       name="email"
                       id="forEmail"
@@ -179,7 +179,7 @@ export default function FormSection() {
                     </ErrorMessage>
                   </label>
                   <label htmlFor="forNumber">
-                    <p className={s.required}>{t('phoneNumber')}</p>
+                    <span className={s.required}>{t('phoneNumber')}</span>
                     <NumberInput
                       name="number"
                       id="forNumber"
@@ -192,14 +192,14 @@ export default function FormSection() {
                 </div>
                 <div className={s.inputLine}>
                   <label htmlFor="forCountry">
-                    <p className={s.required}>{t('country')}</p>
+                    <span className={s.required}>{t('country')}</span>
                     <CountrySelector />
                     <ErrorMessage name="country">
                       {(msg) => <div className={s.errorMessage}>{msg}</div>}
                     </ErrorMessage>
                   </label>
                   <label htmlFor="forEmployees">
-                    <p className={s.required}>{t('employees')}</p>
+                    <span className={s.required}>{t('employees')}</span>
                     <Field
                       id="forEmployees"
                       type="number"
@@ -214,7 +214,7 @@ export default function FormSection() {
                 </div>
                 <div className={s.inputLine}>
                   <label htmlFor="forPosition">
-                    <p className={s.required}>{t('position')}</p>
+                    <span className={s.required}>{t('position')}</span>
                     <Field
                       type="text"
                       name="position"
@@ -228,7 +228,7 @@ export default function FormSection() {
                   </label>
                 </div>
                 <div className={s.checkboxLineCont}>
-                  <p className={s.required}>{t('industry')}</p>
+                  <span className={s.required}>{t('industry')}</span>
                   <SimpleBar
                     dir="horizontal"
                     forceVisible="x"
@@ -254,7 +254,7 @@ export default function FormSection() {
                   </ErrorMessage>
                 </div>
                 <div className={s.checkboxLineCont}>
-                  <p className={s.required}>{t('companyStage')}</p>
+                  <span className={s.required}>{t('companyStage')}</span>
                   <div className={s.inputLine}>
                     <div className={`${s.inputLine} ${s.stagesLine}`}>
                       {stages.map((item, idx) => {
@@ -275,7 +275,7 @@ export default function FormSection() {
                 </div>
                 <div className={s.inputLine}>
                   <label htmlFor="forWebsite">
-                    <p>{t('website')}</p>
+                    <span>{t('website')}</span>
                     <Field
                       type="textarea"
                       name="website"
@@ -288,10 +288,9 @@ export default function FormSection() {
 
                 <div className={`${s.inputLine} ${s.messageInputLine}`}>
                   <label htmlFor="forMessage">
-                    <p>{t('message')}</p>
+                    <span>{t('message')}</span>
                     <Field
                       as="textarea"
-                      type="text"
                       name="message"
                       id="forMessage"
                       className={`${s.input} ${s.messageInput}`}
