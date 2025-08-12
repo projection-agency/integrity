@@ -421,6 +421,11 @@
             gap: 2.13vw;
             font-size: 3.73vw;
 
+            span {
+              position: relative;
+              top: 0.25vw;
+            }
+
             svg {
               height: 5.43vw;
               width: 5.43vw;
