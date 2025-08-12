@@ -669,7 +669,7 @@
     width: 10.8vw;
     height: 10.5vw;
     display: inline-block;
-    margin-bottom: 4.8vw;
+    /* margin-bottom: 4.8vw; */
   }
   .required {
     font-family: var(--second-family);

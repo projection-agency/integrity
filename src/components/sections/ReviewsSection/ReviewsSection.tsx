@@ -18,12 +18,12 @@ type ReviewsSection = {
 }
 
 type Review = {
-  client_image: { url: string }
+  client_image?: { url: string }
   client_name: string
-  location: string
-  rating: string
+  location?: string
+  rating?: string
   stars: number
-  siteLogo: { url: string }
+  siteLogo?: { url: string }
   quote: string
   review_content: string
 }
@@ -94,12 +94,14 @@ export default function ReviewsSection({ block }: { block: ReviewsSection }) {
                 <SwiperSlide key={idx} className={s.swiperSlide}>
                   <div className={s.swiperItem}>
                     <div className={s.reviewerBlock}>
-                      <Image
-                        src={`${item.client_image.url}`}
-                        width={204}
-                        height={204}
-                        alt="reviewer avatar"
-                      />
+                      {item.client_image?.url && (
+                        <Image
+                          src={item.client_image.url}
+                          width={204}
+                          height={204}
+                          alt="reviewer avatar"
+                        />
+                      )}
                       <h3>{item.client_name}</h3>
                       {item.location && (
                         <div className={s.locationBlock}>
@@ -117,12 +119,9 @@ export default function ReviewsSection({ block }: { block: ReviewsSection }) {
                           <span>{item.stars}</span>
                           {star}
                         </div>
-                        <Image
-                          src={`${item.siteLogo.url}`}
-                          width={100}
-                          height={100}
-                          alt="site logo"
-                        />
+                        {item.siteLogo?.url && (
+                          <Image src={item.siteLogo.url} width={100} height={100} alt="site logo" />
+                        )}
                       </div>
                       <h4>{item.quote}</h4>
                       <p
