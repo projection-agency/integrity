@@ -23,6 +23,7 @@ const NumberInput = ({ value, className, id, name }: Props) => {
     <div className={`inputContainer`} id={id}>
       <PhoneInput
         country={'ua'}
+        preferredCountries={['ua', 'ca', 'en', 'de', 'fr', 'it', 'es', 'pl']}
         value={value}
         onChange={(e) => {
           setFieldValue('number', e)
@@ -44,7 +45,6 @@ const NumberInput = ({ value, className, id, name }: Props) => {
           required: true,
           autoFocus: false,
         }}
-        placeholder="63 105 83 15"
       />
     </div>
   )

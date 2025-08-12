@@ -1,5 +1,6 @@
 .react-tel-input {
   width: 100%;
+  height: 100%;
 }
 
 .react-tel-input .form-control {
@@ -12,17 +13,17 @@
   outline: none !important;
   background-color: var(--background-light) !important;
   border-radius: 8.65vw;
-  font-size: 0.83vw !important;
-  font-weight: 700;
+  height: 100% !important;
+  font-size: 0.73vw !important;
+  font-style: normal !important;
+  font-weight: 600 !important;
   line-height: 1 !important;
-  height: auto !important;
 }
 
-.react-tel-input .form-control::placeholder {
+.react-tel-input .form-control:placeholder {
   font-size: 0.83vw !important;
   font-weight: 600 !important;
   line-height: 1 !important;
-  color: red !important;
 }
 
 .form-control:has(.error) {
@@ -43,6 +44,7 @@
   padding-left: 0.83vw !important;
   top: 50% !important;
   transform: translateY(-50%);
+  height: 100%;
 }
 
 .react-tel-input .selected-flag:hover,
@@ -70,21 +72,50 @@
 }
 
 .react-tel-input .selected-flag .flag {
-  border-radius: 50% !important;
-  width: 0.83vw !important;
+  margin-right: 0.83vw !important;
+}
+.react-tel-input .selected-flag .flag:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%) translateX(130%);
+  width: 0.71em !important;
+  height: 0.55em !important;
+  background-image: url(/images/form-arrow.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.react-tel-input .country-name {
+  display: none !important;
 }
 
 .react-tel-input .country-list {
   border-radius: 0 !important;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1) !important;
   max-width: 10vw;
+  width: max-content !important;
   left: 0;
+  z-index: 1000 !important;
+  box-shadow: none !important;
+  background: rgba(249, 249, 249, 1) !important;
+  border-radius: 0.83em !important;
 
   .country {
+    display: flex;
+    align-items: center;
+
     .country-name {
       display: none;
     }
+    span {
+      margin-bottom: 0 !important;
+    }
   }
+}
+.react-tel-input .country-list .country {
+  padding: 0.83em 0.88em !important;
 }
 
 .react-tel-input .selected-flag .arrow.up {
@@ -103,25 +134,35 @@
   height: 3.33vw;
   border-radius: 0.83vw;
   background-color: rgba(249, 249, 249, 1);
+  z-index: 1000 !important;
+  position: relative;
 }
 
 .react-tel-input .form-control {
-  padding-left: 1.88vw !important;
+  padding-left: 3vw !important;
 }
 
 @media (max-width: 1024px) {
   .react-tel-input .form-control {
     box-sizing: border-box !important;
     font-size: 3.73vw !important;
-    padding-left: 5.33vw !important;
+    padding-left: 10.33vw !important;
   }
 
   .react-tel-input .flag-dropdown {
-    padding-left: 0!important;
+    padding-left: 0 !important;
   }
 
   .react-tel-input .country-list {
-    min-width: 40vw !important;
+    width: max-content !important;
+    max-width: none !important;
+    left: -6.4vw !important;
+  }
+  .react-tel-input .flag {
+    min-width: 16px !important;
+  }
+  .react-tel-input .country-list .country {
+    padding-left: 6.4vw !important;
   }
 
   .react-tel-input .selected-flag {
@@ -132,14 +173,9 @@
     }
   }
 
-  .react-tel-input .selected-flag .flag{
-    width: 4.27vw !important;
-    height: 3.27;
-  }
-
   .inputContainer {
     height: 12.8vw !important;
-    padding: 4.53vw 6.4vw !important;
+    padding: 0vw 6.4vw !important;
     border-radius: 2.7vw !important;
   }
 }

@@ -17,7 +17,6 @@
   font-size: 0.83vw;
   transition: color 300ms ease-in-out;
   color: var(--white);
-
 }
 
 .submitBtn:hover .btnText {
@@ -234,7 +233,7 @@
   color: var(--black);
 }
 
-.submitBtn:hover span svg{
+.submitBtn:hover span svg {
   stroke: #222222;
 }
 
@@ -282,15 +281,19 @@
   width: 6.15vw;
   height: 6.15vw;
   border-radius: 100%;
-  border: 0.1vw solid #494545;
   -webkit-backdrop-filter: blur(0.42vw);
   backdrop-filter: blur(0.42vw);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 1;
-  backdrop-filter: blur(3.2800562381744385px);
-  background: linear-gradient(149deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0) 100%);
+  border: 0.1vw solid rgba(0, 0, 0, 0.13);
+  background: linear-gradient(
+    169deg,
+    rgba(255, 255, 255, 0.16) -6.56%,
+    rgba(255, 255, 255, 0) 112.07%
+  );
+  backdrop-filter: blur(1.6400281190872192px);
 }
 
 .error {

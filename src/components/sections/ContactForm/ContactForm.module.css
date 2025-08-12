@@ -172,7 +172,7 @@
   width: 6.15vw;
   height: 6.15vw;
   border-radius: 100%;
-  border: 0.1vw solid #494545;
+  border: 0.1vw solid rgba(0, 0, 0, 0.13);
   -webkit-backdrop-filter: blur(0.42vw);
   backdrop-filter: blur(0.42vw);
   display: flex;

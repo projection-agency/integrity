@@ -5,6 +5,7 @@
   align-items: center;
   padding: 1.15vw 1.25vw;
   box-sizing: border-box;
+  width: max-content;
   border-radius: 0.63vw;
   background-color: rgba(249, 249, 249, 1);
 
@@ -23,6 +24,10 @@
 
   .labelText {
     white-space: nowrap;
+  }
+  span {
+    white-space: nowrap;
+    margin-bottom: 0px !important;
   }
 }
 
