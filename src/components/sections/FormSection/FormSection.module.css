@@ -226,7 +226,7 @@
           svg {
             width: 1.04vw;
             height: 1.04vw;
-            transition: fill 300ms ease-in-out;
+            transition: stroke 300ms ease-in-out;
             stroke: #ffffff;
             stroke-width: 0.1vw;
             fill: none;
