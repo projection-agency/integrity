@@ -64,7 +64,7 @@ export default function ReviewsSection({ block }: { block: ReviewsSection }) {
           <p>{t('leftBlock.description')}</p>
           <Link href="#call" className={s.button}>
             <span>
-              {phone} {t('leftBlock.button')}
+              {phone} <span>{t('leftBlock.button')}</span>
             </span>
           </Link>
         </div>

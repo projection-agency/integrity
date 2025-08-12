@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef, useLayoutEffect } from 'react'
 import s from './CustomSlider.module.css'
 interface SliderItem {
   number: string
@@ -105,9 +105,11 @@ export default function CustomSlider({ items, onSlideChange }: CustomSliderProps
     goToSlide(index)
   }
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const container = containerRef.current
     const activeItem = progressRefs.current[currentIndex]
+    console.log(activeItem)
+    console.log(container)
 
     if (!container || !activeItem) return
 
@@ -139,7 +141,7 @@ export default function CustomSlider({ items, onSlideChange }: CustomSliderProps
     return () => {
       activeItem.removeEventListener('transitionend', onTransitionEnd)
     }
-  }, [currentIndex, items.length])
+  }, [currentIndex, items.length, infiniteItems.length])
 
   return (
     <div className={s.customSliderContainer}>

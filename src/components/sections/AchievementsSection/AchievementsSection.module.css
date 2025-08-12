@@ -81,7 +81,7 @@
 
         h3 {
           color: #fff;
-          font-family: "Inter Tight";
+          font-family: 'Inter Tight';
           font-style: italic;
           font-size: 2.91vw;
           font-weight: 900;
@@ -138,6 +138,11 @@
 
           .cardIconText {
             font-size: 3.73vw;
+
+            span {
+              position: relative;
+              top: 0.5vw;
+            }
           }
         }
 
