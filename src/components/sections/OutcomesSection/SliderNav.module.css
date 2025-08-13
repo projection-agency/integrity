@@ -212,13 +212,12 @@
     width: max-content;
     gap: 6.4vw;
     align-self: stretch;
-    border-radius: 0.83vw;
+    border-radius: 4.26vw;
     /* background: var(--light-gray); */
     margin: 0 auto;
     width: 91.467vw;
     height: 14.4vw;
     padding: 2.13vw;
-    border-radius: 4.27vw;
     margin-bottom: 21.33vw;
   }
   .sliderDotsRow {

@@ -127,3 +127,139 @@
   fill: currentColor !important;
   stroke: currentColor !important;
 }
+
+@media (max-width: 1024px) {
+  .popup {
+    border-radius: 6.4vw;
+    padding: 16vw 7.47vw 7.47vw 7.47vw;
+    width: 87.2vw;
+    height: 71.2vw;
+  }
+  .header {
+    width: 73.87vw;
+    height: 15.2vw;
+  }
+  .thanksTextPop {
+    font-family: var(--second-family);
+    font-style: italic;
+    font-weight: 900;
+    font-size: 6.4vw;
+    line-height: 100%;
+    text-transform: uppercase;
+    color: var(--black);
+  }
+  .calcIconTitle {
+    width: 8.53vw;
+
+    height: 8.53vw;
+    flex: 0 0 auto;
+  }
+  .headerTextBusiness {
+    font-family: var(--second-family);
+    font-style: italic;
+    font-weight: 900;
+    font-size: 6.4vw;
+    line-height: 100%;
+    text-transform: uppercase;
+    color: var(--black);
+  }
+  .formGroup {
+    width: 72.27vw;
+    height: 20.27vw;
+  }
+  .input {
+    border-radius: 3.2vw;
+    padding: 4.53vw 6.4vw;
+    width: 72.27vw;
+    height: 12.8vw;
+    font-family: var(--second-family);
+    font-weight: 600;
+    font-size: 3.73vw;
+    line-height: 100%;
+    color: #a8a8a8;
+  }
+  .label {
+    display: block;
+    font-family: var(--second-family);
+    font-size: 3.2vw;
+    font-weight: 600;
+    color: var(--black);
+  }
+  .actionBtn {
+    max-width: none;
+    border-radius: 3.2vw;
+    padding: 3.73vw 10.67vw;
+    width: 72.27vw;
+    height: 12.8vw;
+    font-family: var(--font-family);
+    font-weight: 800;
+    font-size: 3.73vw;
+    line-height: 140%;
+    letter-spacing: -0.02em;
+    gap: 4vw;
+
+    color: var(--white);
+    svg {
+      width: 5.33vw;
+      height: 5.33vw;
+    }
+  }
+  .thanksBlock {
+    margin-bottom: 2.67vw;
+  }
+  .required {
+    width: max-content;
+    position: relative;
+    margin-bottom: 0.63vw;
+    font-family: var(--second-family);
+    font-style: italic;
+    font-weight: 800;
+    font-size: 3.2vw;
+    line-height: 100%;
+    color: var(--black);
+  }
+  .required::after {
+    content: '*';
+    position: absolute;
+    top: 0;
+    right: -1.5vw;
+    color: rgba(255, 228, 20, 1);
+  }
+  .closeBtn {
+    font-family: var(--second-family);
+    font-style: italic;
+    font-weight: 800;
+    font-size: 3.2vw;
+    line-height: 100%;
+    color: var(--black);
+    font-size: 4.27vw;
+    color: var(--yellow);
+    top: 1.04vw;
+    right: 1.04vw;
+    padding: 4.27vw;
+    width: 12.8vw;
+    height: 12.8vw;
+  }
+  .form {
+    display: flex;
+
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
+    align-items: stretch;
+    gap: 0;
+  }
+  .calcIcon {
+    width: 15.2vw;
+    height: 15.2vw;
+    display: block;
+  }
+  .iconWrap {
+    width: 4.8vw;
+    height: 4.8vw;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+  }
+}

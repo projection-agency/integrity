@@ -62,6 +62,31 @@
             line-height: 1.2;
             color: rgba(34, 34, 34, 1);
           }
+
+          .websiteLink {
+            margin-left: auto;
+            width: max-content;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.21vw;
+            padding: 0.31vw 0.42vw;
+            border-radius: 10.42vw;
+            background-color: rgba(249, 249, 249, 1);
+
+            font-size: 0.52vw;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 1.4;
+            letter-spacing: -0.2px;
+            text-decoration: underline;
+            color: rgba(181, 181, 181, 1);
+
+            svg {
+              width: 0.63vw;
+              height: 0.63vw;
+            }
+          }
         }
 
         p {
@@ -151,12 +176,16 @@
         }
       }
 
-      button {
+      a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         position: relative;
         overflow: hidden;
         width: 100%;
         padding: 1.25vw 0;
         border-radius: 0.83vw;
+        background-color: #fff;
 
         span {
           transition: all 300ms ease-in-out;
@@ -182,7 +211,7 @@
         }
       }
 
-      button::after {
+      a::after {
         content: ' ';
         position: absolute;
         top: 0;
@@ -195,16 +224,7 @@
         z-index: 1;
       }
 
-      button:hover {
-        span {
-          color: #ffffff;
-          svg {
-            fill: #ffffff;
-          }
-        }
-      }
-
-      button:hover::after {
+      a:hover::after {
         opacity: 0;
       }
     }
@@ -222,7 +242,7 @@
   .item {
     position: relative;
     transition: height 300ms ease-in-out;
-    height: 131.73vw;
+    height: 155.73vw;
     margin-bottom: 3.73vw;
     flex-direction: column-reverse;
     justify-content: flex-end;
@@ -256,6 +276,7 @@
             .topBlock {
               margin-bottom: 2.13vw;
               gap: 1.6vw;
+              align-items: baseline;
 
               span {
                 width: 5.33vw;
@@ -269,6 +290,17 @@
 
               p {
                 font-size: 3.73vw;
+              }
+
+              .websiteLink {
+                gap: 1.07vw;
+                width: 21.6vw;
+                height: 5.87vw;
+                background-color: rgba(255, 255, 255, 1);
+
+                a {
+                  font-size: 2.67vw;
+                }
               }
             }
 
@@ -292,6 +324,7 @@
             width: max-content;
             padding: 2.67vw 3.2vw;
             border-radius: 3.2vw;
+            gap: 2.13vw;
 
             svg {
               width: 5.33vw;
@@ -325,7 +358,7 @@
           }
         }
 
-        button {
+        a {
           height: 13.87vw;
           border-radius: 4.27vw;
 
@@ -345,8 +378,7 @@
     .results {
       flex-shrink: 0;
       width: 100%;
-      height: 110.93vw;
-      border-radius: 5.33vw;
+      border-radius: 8.53vw;
     }
 
     .bgCont {

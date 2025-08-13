@@ -48,6 +48,7 @@
 
       h3 {
         margin-bottom: 1.25vw;
+        font-family: 'Inter Tight';
         font-size: 2.92vw;
         font-style: italic;
         font-weight: 900;
@@ -71,13 +72,16 @@
         color: rgba(34, 34, 34, 0.6);
       }
 
-      button {
+      .button {
         position: relative;
         overflow: hidden;
         width: 100%;
         padding: 1.25vw 2.08vw;
         border-radius: 0.83vw;
-        border: 0.1vw solid var(--Black, #222);
+        border: 0.08vw solid var(--Black, #222);
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
         span {
           position: relative;
@@ -86,15 +90,19 @@
           gap: 0.42vw;
           justify-content: center;
           align-items: center;
+          transition: all 300ms ease-in-out;
 
           font-size: 0.83vw;
           font-style: normal;
           font-weight: 800;
           line-height: 1;
         }
+        path {
+          transition: stroke 300ms ease-in-out;
+        }
       }
 
-      button:after {
+      .button:after {
         content: '';
         position: absolute;
         z-index: 1;
@@ -102,13 +110,27 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: linear-gradient(94deg, #ffe414 0.19%, #ffae00 100.19%);
+        background: #222;
         transition: opacity 300ms ease-in-out;
         opacity: 0;
       }
 
-      button:hover::after {
+      .button:hover::after {
         opacity: 1;
+
+        span {
+          color: #fff;
+        }
+      }
+
+      .button:hover {
+        span {
+          color: #fff;
+        }
+
+        path {
+          stroke: #fff;
+        }
       }
     }
 
@@ -140,6 +162,7 @@
               }
 
               h3 {
+                text-align: center;
                 margin-bottom: 1.25vw;
                 font-size: 1.25vw;
                 font-style: italic;
@@ -194,7 +217,7 @@
 
             .reviewBlock {
               .stars {
-                width: max-content;
+                width: 10.52vw;
                 padding: 0.63vw 1.25vw;
                 margin-bottom: 2.5vw;
                 display: flex;
@@ -344,7 +367,7 @@
     padding-bottom: 21.33vw;
 
     .topBlock {
-      width: 54.67vw;
+      width: 84.67vw;
       margin-left: auto;
       margin-right: auto;
       margin-bottom: 8.53vw;
@@ -390,7 +413,7 @@
           letter-spacing: -0.28px;
         }
 
-        button {
+        .button {
           height: 12.8vw;
           border-width: 0.27vw;
           border-radius: 4.27vw;
@@ -398,6 +421,16 @@
           span {
             gap: 2.13vw;
             font-size: 3.73vw;
+
+            span {
+              position: relative;
+              top: 0.25vw;
+            }
+
+            svg {
+              height: 5.43vw;
+              width: 5.43vw;
+            }
           }
         }
       }
@@ -406,10 +439,16 @@
         .swiper {
           width: auto !important;
 
+          .swiperWrapper {
+            display: flex;
+          }
+
           .swiperSlide {
             width: 74.67vw !important;
+            height: auto;
             .swiperItem {
               width: 74.67vw;
+              height: 100%;
 
               padding: 7.47vw;
               border-radius: 6.4vw;
@@ -421,6 +460,7 @@
                 flex-wrap: wrap;
                 row-gap: 2.13vw;
                 column-gap: 3.2vw;
+                margin-bottom: auto;
 
                 img {
                   width: 11.2vw;
@@ -432,6 +472,7 @@
                   width: 18.33vw;
                   margin-bottom: 0;
                   font-size: 4.8vw;
+                  text-align: left;
                 }
 
                 .locationBlock {
@@ -527,7 +568,7 @@
 
           .paginationCont {
             width: 33.07vw;
-            gap: 4.27vw;
+            gap: 1.27vw;
 
             .paginationBullet {
               width: 1.6vw;

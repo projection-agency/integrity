@@ -112,6 +112,7 @@
   /* outline: 0.1vw solid var(--primary, #ffe414); */
   border: 1px dashed var(--gray);
   z-index: 2;
+  border: none;
 }
 
 /* .active {

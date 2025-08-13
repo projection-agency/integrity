@@ -23,7 +23,7 @@
 .workflow-left {
   display: flex;
   flex-direction: column;
-  gap: 6.82vw;
+  gap: 8.82vw;
   grid-column: 1;
   grid-row: 1 / span 3;
 }
@@ -31,7 +31,7 @@
 .workflow-right {
   display: flex;
   flex-direction: column;
-  gap: 6.82vw;
+  gap: 8.82vw;
   grid-column: 3;
   grid-row: 1 / span 3;
 }
@@ -53,7 +53,7 @@
   flex-direction: column;
   justify-content: flex-start;
   position: relative;
-  border: 0.05vw solid #fff;
+  border: 0.05vw solid #5e5959;
 }
 
 .step-badge {
@@ -217,7 +217,7 @@
   flex-direction: column;
   align-items: center;
 
-  gap: 12vw;
+  gap: 13vw;
   position: relative;
   z-index: 2;
 }
@@ -262,6 +262,7 @@
   line-height: 120%;
   text-align: center;
   color: var(--yellow);
+  margin-top: 0.8vw;
 }
 
 .step-top-row {
@@ -403,7 +404,8 @@
     align-items: center;
     justify-content: center;
     border: 0.08vw solid #a0a0a0c7;
-    background: var(--black);
+    /* background: var(--black); */
+    background: #272626fa;
     backdrop-filter: blur(2.13vw);
     box-shadow: 2px -2px 20px 0 rgba(255, 228, 20, 0.15);
     margin-bottom: 1.3rem;
@@ -414,7 +416,7 @@
     width: 8.53vw;
     height: 8.53vw;
     backdrop-filter: blur(0.42vw);
-    background: linear-gradient(149deg, rgba(40, 40, 40, 0.8) 0%, rgba(60, 60, 60, 0.6) 100%);
+    background: linear-gradient(149deg, rgb(65 64 64 / 80%) 0%, rgb(52 52 52) 100%);
     display: flex;
     align-items: center;
     justify-content: center;

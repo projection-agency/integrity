@@ -2,13 +2,77 @@
   background: var(--white);
   border-radius: 1.67vw;
   padding: 5.21vw;
-  width: 52.6vw;
+  width: 100%;
   height: 30.99vw;
   display: flex;
   flex-direction: column;
   gap: 1.25vw;
   align-items: center;
   position: relative;
+}
+
+.btnText {
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 0.83vw;
+  transition: color 300ms ease-in-out;
+  color: var(--white);
+}
+
+.submitBtn:hover .btnText {
+  color: black;
+}
+
+.input {
+  width: 100%;
+  padding: 1.25vw;
+
+  border-radius: 0.83vw;
+  font-size: 0.83vw;
+  transition: border-color 0.3s ease;
+}
+
+.input.errorBorder {
+  border-color: #ff4d4f !important;
+}
+
+.error {
+  font-weight: 500;
+  color: #ff4d4f;
+  font-size: 0.73vw;
+  height: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease,
+    height 0.3s ease;
+}
+
+.error.visible {
+  height: auto;
+  opacity: 1;
+  visibility: visible;
+}
+
+.numberInput {
+}
+
+@media (max-width: 1024px) {
+  .input {
+    padding: 3vw;
+    font-size: 3.2vw;
+    border-radius: 2vw;
+  }
+
+  .error {
+    font-size: 2.8vw;
+    margin-top: 1vw;
+  }
+
+  /* .input.errorBorder {
+    border-width: 0.3vw;
+  } */
 }
 
 .avatarWrapper {
@@ -57,6 +121,7 @@
   width: 3.13vw;
   height: 3.13vw;
   display: inline-block;
+  margin-left: 0.73vw;
 }
 
 .inputGroup {
@@ -76,6 +141,7 @@
   font-size: 0.83vw;
   margin-bottom: 0.42vw;
   width: 100%;
+  position: relative;
 }
 
 .input {
@@ -102,17 +168,19 @@
   padding: 0.42vw 0.83vw;
   font-weight: 700;
 }
-
 .submitBtn {
   position: relative;
   overflow: hidden;
   width: 42.19vw;
   height: 3.49vw;
   padding: 0.83vw 2.08vw;
+  transition: all 0.3s ease;
   background: var(--black);
   border-radius: 0.83vw;
   border: none;
   cursor: pointer;
+
+  color: var(--white);
 
   span {
     position: relative;
@@ -122,14 +190,16 @@
     justify-content: center;
     gap: 0.63vw;
 
-    .btnIcon {
-      transition: fill 300ms ease-in-out;
-      fill: #ffffff;
-    }
-
+    .btnIcon,
     svg {
-      transition: fill 300ms ease-in-out;
-      fill: #ffffff;
+      transition: stroke 300ms ease-in-out;
+      stroke: #ffffff;
+      width: 0.73vw;
+      height: 0.73vw;
+      @media (max-width: 1024px) {
+        width: 5.33vw;
+        height: 5.33vw;
+      }
     }
 
     .order {
@@ -155,27 +225,25 @@
   opacity: 0;
 }
 
-.submitBtn:hover {
-  span {
-    .btnIcon {
-      fill: rgba(34, 34, 34, 1);
-    }
-    svg {
-      fill: rgba(34, 34, 34, 1);
-    }
-    .order {
-      color: rgba(34, 34, 34, 1);
-    }
-  }
-}
-
 .submitBtn:hover::after {
   opacity: 1;
 }
 
-.btnIcon {
-  width: 1.25vw;
-  height: 1.25vw;
+.submitBtn:hover {
+  color: var(--black);
+}
+
+.submitBtn:hover span svg {
+  stroke: #222222;
+}
+
+.submitBtn:hover .order {
+  color: var(--black);
+}
+
+.submitBtn:hover .btnIcon,
+.submitBtn:hover svg {
+  stroke: #222222;
 }
 
 .wrapper {
@@ -185,7 +253,6 @@
   gap: 2.08vw;
 }
 
-/* Додаю горизонтальний layout для експерта і форми */
 .rowLayout {
   display: flex;
   flex-direction: row;
@@ -196,7 +263,7 @@
 }
 
 .expertBlock {
-  background: linear-gradient(135deg, #ffe466, #ffa700);
+  background: linear-gradient(135deg, #ffe414 0%, #ffae00 100%);
   border-radius: 1.67vw;
   padding: 5.21vw;
   width: 38.65vw;
@@ -211,19 +278,42 @@
   position: relative;
   width: 11.3vw;
   height: 6.15vw;
-  /* margin-bottom: 1.25vw; */
   width: 6.15vw;
   height: 6.15vw;
   border-radius: 100%;
-  border: 0.1vw solid #494545;
   -webkit-backdrop-filter: blur(0.42vw);
   backdrop-filter: blur(0.42vw);
   display: flex;
   align-items: center;
   justify-content: center;
   z-index: 1;
-  backdrop-filter: blur(3.2800562381744385px);
-  background: linear-gradient(149deg, rgba(255, 255, 255, 0.16) 0%, rgba(255, 255, 255, 0) 100%);
+  border: 0.1vw solid rgba(0, 0, 0, 0.13);
+  background: linear-gradient(
+    169deg,
+    rgba(255, 255, 255, 0.16) -6.56%,
+    rgba(255, 255, 255, 0) 112.07%
+  );
+  backdrop-filter: blur(1.6400281190872192px);
+}
+
+.error {
+  font-size: 0.63vw;
+  color: red;
+  min-height: 0.83vw;
+  visibility: hidden;
+  transition:
+    visibility 0.2s ease-in-out,
+    opacity 0.2s ease-in-out;
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  top: 5.21vw;
+  left: 0;
+}
+
+.error.visible {
+  visibility: visible;
+  opacity: 1;
 }
 
 .expertAvatar {
@@ -276,6 +366,29 @@
   color: var(--black-600);
   width: 19.69vw;
   margin-top: 0.83vw;
+}
+
+.errorMessage {
+  position: absolute;
+  left: 0;
+  bottom: 0.5vw;
+
+  font-size: 0.63vw;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.2;
+  color: red;
+}
+.errorMessage {
+  position: absolute;
+  left: 0;
+  bottom: -0.7vw;
+
+  font-size: 0.83vw;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.2;
+  color: red;
 }
 
 .phoneInputWrapper {
@@ -389,7 +502,6 @@
   width: 6.15vw;
   height: 6.15vw;
   z-index: 1;
-  /* width: 2.08vw; */
   height: 2.08vw;
   background: none;
   border-radius: 0;
@@ -425,6 +537,7 @@
   width: max-content;
   position: relative;
   margin-bottom: 0.63vw;
+  font-family: 'Inter Tight';
   font-size: 0.83vw;
   font-style: italic;
   font-weight: 800;
@@ -448,7 +561,7 @@
   width: 52.6vw;
   background-color: #ffffff;
   border-radius: 1.67vw;
-
+  height: 32.29vw;
   label {
     position: relative;
   }
@@ -458,18 +571,71 @@
   align-items: center;
 }
 
+.wrapper.contactsPage {
+  height: 100%;
+  .rowLayout {
+    display: block;
+    width: 100%;
+    height: 100%;
+    .form {
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+
+      .inputGroupBlock {
+        width: 100%;
+
+        .inputGroup {
+          width: auto;
+        }
+      }
+      .row {
+        width: auto;
+      }
+
+      bottom: unset;
+      .submitBtn {
+        width: 100%;
+      }
+    }
+  }
+}
+
 @media (max-width: 1024px) {
+  .row {
+    width: auto !important;
+  }
+  .btnText {
+    font-family: var(--font-family);
+    font-weight: 800;
+
+    font-size: 3.78vw;
+    line-height: 140%;
+    letter-spacing: -0.02em;
+    color: var(--white);
+  }
   .form {
     border-radius: 8.53vw;
     padding: 7.47vw;
     width: 91.47vw;
     height: max-content;
-    gap: 8vw;
+    gap: 2vw;
   }
 
-  /* .rowLayout {
-    padding-bottom: 21.33vw;
-  } */
+  .error {
+    font-size: 2.27vw;
+    color: red;
+    min-height: 4.32vw;
+    visibility: hidden;
+    transition:
+      visibility 0.2s ease-in-out,
+      opacity 0.2s ease-in-out;
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    top: 95%;
+    left: 0;
+  }
 
   .fillBlock {
     width: auto;
@@ -482,10 +648,11 @@
     height: 17.87vw;
     display: flex;
     flex-direction: column;
+    margin-bottom: 9vw;
   }
   .inputGroupBlock {
-    width: 76.533vw;
-    height: 69.333vw;
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
   }
@@ -497,6 +664,7 @@
   }
   .label {
     width: 76.533vw;
+    margin-bottom: 4.27vw;
   }
   .text {
     font-family: var(--second-family);
@@ -511,6 +679,7 @@
     width: 10.8vw;
     height: 10.5vw;
     display: inline-block;
+    /* margin-bottom: 4.8vw; */
   }
   .required {
     font-family: var(--second-family);
@@ -519,7 +688,7 @@
     font-size: 3.2vw;
     line-height: 100%;
     color: var(--black);
-    margin-bottom: 5.63vw;
+    margin-bottom: 3.2vw;
   }
   .required::after {
     content: '*';
@@ -563,8 +732,48 @@
     }
   }
 
+  .span {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.63vw;
+
+    .btnIcon,
+    svg {
+      /* fill: var(--white); */
+      transition: fill 300ms ease-in-out;
+      width: 5.33vw;
+      height: 5.33vw;
+    }
+  }
+
+  .submitBtn span .btnIcon svg {
+    width: 5.33vw !important;
+    height: 5.33vw !important;
+  }
+
   .btnIcon {
-    width: 5.25vw;
+    width: 5.33vw;
+    height: 5.33vw;
+    svg {
+      transition: fill 300ms ease-in-out;
+      width: 5.33vw;
+      height: 5.33vw;
+    }
+  }
+  .btnIconText {
     height: 5.25vw;
+    font-family: var(--font-family);
+    font-weight: 800;
+    font-size: 3.73vw;
+    line-height: 140%;
+    letter-spacing: -0.02em;
+    color: var(--white);
+  }
+
+  .btnIconText :hover {
+    color: var(--black-600);
   }
 }

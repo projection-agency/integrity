@@ -13,6 +13,10 @@
     column-gap: 0.83vw;
     row-gap: 3.125vw;
   }
+
+  .loaderWrapper {
+    margin: 0 auto;
+  }
 }
 
 .filterPostsCategories {
@@ -60,12 +64,13 @@
     .items {
       display: flex;
       flex-direction: column;
+      gap: 8.53vw;
     }
   }
 
   .filterPostsCategories {
-    margin-bottom: 13.33vw;
-    overflow-x: scroll;
+    margin-bottom: 4.33vw;
+    white-space: nowrap;
     gap: 1.6vw;
 
     .filterPostsCategory {
@@ -79,5 +84,9 @@
         font-size: 3.2vw;
       }
     }
+  }
+
+  .simpleBarCont {
+    margin-bottom: 10.67vw;
   }
 }

@@ -10,6 +10,7 @@
   box-sizing: border-box;
   padding-top: 10.42vw;
   padding-bottom: 10.42vw;
+  overflow: hidden;
 }
 .breadcrumbs {
   font-family: var(--third-family);
@@ -62,29 +63,22 @@
   justify-content: center;
   margin-bottom: 2vw;
 }
-.insightCard {
-  width: 30vw;
-  min-width: 30vw;
-  height: 33vw;
-  background: #fff;
-  border-radius: 0.63vw;
-  box-shadow: 0 0.1vw 0.5vw rgba(0, 0, 0, 0.04);
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
+.insightCardImageWrapper {
+  width: 100%;
+  height: 20vw;
+  /* overflow: hidden; */
+  border-radius: 2vw; /* якщо хочеш скруглення саме тут */
   position: relative;
 }
+
 .insightCardImage {
   width: 100%;
-  height: 18vw;
+  height: 100%;
   object-fit: cover;
-  /* border-radius: 0.63vw 0.63vw 0 0; */
-  border-radius: 2vw;
-  height: 20vw;
   transition: transform 0.4s ease;
 }
 .insightCard:hover .insightCardImage {
-  transform: scale(1.05); /* збільшення при наведені */
+  transform: scale(1.05);
 }
 .insightCardBadge {
   position: absolute;
@@ -165,12 +159,12 @@
   width: 1vw;
   height: 1vw;
 }
-.latestInsightsCta {
+.latestInsightsSection .latestInsightsCta {
   width: 30vw;
   height: 3.5vw;
   border-radius: 0.83vw;
   padding: 0.83vw 2vw;
-  background: linear-gradient(135deg, #ffe400, #ffcb05);
+  background: linear-gradient(94deg, #ffe414 0.19%, #ffae00 100.19%);
   font-family: var(--font-family);
   font-weight: 800;
   font-size: 0.83vw;
@@ -182,29 +176,92 @@
   margin: 2vw auto 0 auto;
   border: none;
   cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition:
+    color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
 }
-.latestInsightsCta:hover {
-  background: black;
-  color: white;
+.latestInsightsSection .latestInsightsCta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(94deg, #2d2d2a 0.19%, #282725 100.19%);
+  opacity: 0;
+  transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1;
+  border-radius: 0.83vw;
 }
 
-.latestInsightsCta:hover {
+.latestInsightsSection .latestInsightsCta:hover::before {
+  opacity: 1;
+}
+
+.latestInsightsSection .latestInsightsCta:hover {
   color: var(--white);
-}
-.latestInsightsCta:hover .icon {
-  background: brightness(0) invert(1);
-  background-color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-.latestInsightsCta:hover {
-  color: white;
+.latestInsightsSection .latestInsightsCta:hover span {
+  color: var(--white);
+  transform: scale(1.02);
 }
-.latestInsightsCta:hover .icon {
-  fill: currentColor;
+.latestInsightsSection .latestInsightsCta:hover .icon,
+.latestInsightsSection .latestInsightsCta:hover svg {
+  color: var(--white);
+  transform: scale(1.05);
 }
-.latestInsightsCta svg {
+
+.latestInsightsSection .latestInsightsCta.hovered::before {
+  opacity: 1;
+}
+
+.latestInsightsSection .latestInsightsCta.hovered {
+  color: var(--white);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.latestInsightsSection .latestInsightsCta.hovered span {
+  color: var(--white);
+  transform: scale(1.02);
+}
+
+.latestInsightsSection .latestInsightsCta.hovered .icon,
+.latestInsightsSection .latestInsightsCta.hovered svg {
+  color: var(--white);
+  transform: scale(1.05);
+}
+.latestInsightsSection .latestInsightsCta svg {
   width: 1vw;
   height: 1vw;
+  transition:
+    color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  color: var(--black);
+}
+
+.latestInsightsSection .latestInsightsCta .icon {
+  transition:
+    color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  color: var(--black);
+  position: relative;
+  z-index: 2;
+}
+
+.latestInsightsSection .latestInsightsCta span {
+  position: relative;
+  z-index: 2;
+  transition:
+    color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 .readMoreIcon {
   width: 1.04vw;
@@ -245,6 +302,9 @@
 }
 
 @media (max-width: 1024px) {
+  .latestInsightsHeader {
+    margin-bottom: 5.5vw;
+  }
   .latestInsightsSection {
     padding: 21vw 4vw 21vw;
   }
@@ -262,11 +322,12 @@
     gap: 1.5rem;
   }
   .insightCard {
-    .latestInsightsSection {
-      padding: 21.33vw 0vw;
-      width: 100vw;
-      height: 244.53vw;
-    }
+  }
+  .latestInsightsSection {
+    padding: 21.33vw 0vw;
+    width: 100vw;
+    height: 244.53vw;
+    gap: 2.67vw;
   }
   .insightCard {
     width: 30vw;
@@ -277,16 +338,14 @@
     box-shadow: 0 0.1vw 0.5vw rgba(0, 0, 0, 0.04);
     display: flex;
     flex-direction: column;
-    overflow: hidden;
+    /* overflow: hidden; */
     position: relative;
   }
-  .latestInsightsCta {
+  .latestInsightsSection .latestInsightsCta {
     width: 91.47vw;
     height: 14.93vw;
     border-radius: 4.27vw;
     padding: 4.8vw 10.67vw;
-    width: 91.47vw;
-    height: 14.93vw;
     background: linear-gradient(135deg, #ffe414 0%, #ffae00 100%);
     font-family: var(--font-family);
     font-weight: 800;
@@ -295,27 +354,95 @@
     letter-spacing: -0.02em;
     color: var(--black);
     gap: 2.67vw;
+    position: relative;
+    overflow: hidden;
+    transition:
+      color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+      transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+      box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
-  .latestInsightsCta svg {
+
+  .latestInsightsSection .latestInsightsCta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, #2d2d2a 0%, #282725 100%);
+    opacity: 0;
+    transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1;
+    border-radius: 4.27vw;
+  }
+
+  .latestInsightsSection .latestInsightsCta.hovered::before {
+    opacity: 1;
+  }
+  .latestInsightsSection .latestInsightsCta svg {
     width: 5.33vw;
     height: 5.33vw;
+    transition:
+      color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+      transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    color: var(--black);
   }
-  .latestText {
+
+  /* .latestInsightsCta .icon {
+    transition: fill 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    fill: currentColor;
+    position: relative;
+    z-index: 2;
+  } */
+  .latestInsightsSection .latestText {
     font-family: var(--font-family);
     font-weight: 800;
     font-size: 3.73vw;
     line-height: 140%;
     letter-spacing: -0.02em;
     color: var(--black);
+    transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    z-index: 2;
+    display: inline-block;
   }
-  .latestInsightsCta.hovered {
-    color: white;
+
+  .latestInsightsSection .latestInsightsCta .icon {
+    position: relative;
+    z-index: 2;
   }
-  .latestInsightsCta.hovered .icon {
-    fill: white;
+
+  .latestInsightsSection .latestInsightsCta .latestText {
+    position: relative;
+    z-index: 2;
+  }
+
+  .latestInsightsSection .latestInsightsCta span {
+    color: var(--black);
+    position: relative;
+    z-index: 2;
+  }
+  .latestInsightsSection .latestInsightsCta.hovered {
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  .latestInsightsSection .latestInsightsCta.hovered .icon,
+  .latestInsightsSection .latestInsightsCta.hovered svg {
+    color: var(--white);
+    transform: scale(1.05);
+  }
+  .latestInsightsSection .latestInsightsCta.hovered .latestText,
+  .latestInsightsSection .latestInsightsCta.hovered span {
+    color: var(--white);
+    transform: scale(1.02);
   }
 }
 
-.latestInsightsCta {
+.latestInsightsSection .latestInsightsCta {
   margin-top: 1.5rem;
 }

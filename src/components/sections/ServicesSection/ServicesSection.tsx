@@ -4,8 +4,6 @@ import React from 'react'
 import MainTitle from '@/components/ui/MainTitle/MainTitle'
 import s from './ServicesSection.module.css'
 import TabSection from '@/components/ui/TabSection/TabSection'
-import Image from 'next/image'
-import ArrowIcon from 'public/images/icons/arrow-2.svg'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import 'swiper/css/effect-coverflow'
@@ -15,7 +13,6 @@ import { EffectCoverflow, Pagination, Navigation } from 'swiper/modules'
 import { useRef, useState, useEffect } from 'react'
 import ExpertSection from '@/components/sections/ExpertSection/ExpertSection'
 import { ServicesBlock } from '@/blocks/ServicesBlock'
-import SliderNav from '@/components/ui/SliderNav/SliderNav'
 
 type ServicesBlock = {
   title?: string
@@ -52,45 +49,43 @@ export default function ServicesSection({ block }: { block: ServicesBlock }) {
         <div className={s.sliderWindow}>
           <Swiper
             grabCursor={true}
-            centeredSlides={true}
-            slidesPerView={1.2}
-            loop={services.length >= 6}
+            slidesPerView={'auto'}
+            loop={true}
             speed={600}
-            // spaceBetween={145}
-            spaceBetween={8}
-            pagination={false}
+            breakpoints={{
+              320: {
+                slidesPerView: 1.2,
+                spaceBetween: 20,
+                centeredSlides: false,
+              },
+              1024: {
+                slidesPerView: 'auto',
+                spaceBetween: 0,
+                centeredSlides: true,
+              },
+            }}
+            pagination={{
+              enabled: true,
+              el: `.${s.sliderDotsRow}`,
+              type: 'bullets',
+              clickable: true,
+              bulletActiveClass: `${s.sliderActiveDot}`,
+              bulletClass: `${s.sliderDot}`,
+            }}
             navigation={{
               nextEl: '.navSwiperNext',
               prevEl: '.navSwiperPrev',
             }}
-            observer={true}
-            observeParents={true}
             modules={[EffectCoverflow, Pagination, Navigation]}
             className={s.swiperCustom}
             onSwiper={(swiper) => (swiperRef.current = swiper)}
             onSlideChange={(swiper) => setSwiperIndex(swiper.realIndex)}
-            breakpoints={{
-              1024: {
-                slidesPerView: 3.6,
-                spaceBetween: 16,
-                centeredSlides: true,
-              },
-              320: {
-                slidesPerView: 1.2,
-                spaceBetween: 8,
-                centeredSlides: false,
-              },
-            }}
           >
             {services.map((service, idx) => (
-              <SwiperSlide key={service?.service_title || idx}>
+              <SwiperSlide key={service?.service_title || idx} className={s.swiperSlide}>
                 <div className={s.serviceCard}>
                   <div className={s.heroServices}>
                     <div className={s.serviceIconWrapper}>
-                      {/* <div
-                        className={s.iconService}
-                        dangerouslySetInnerHTML={{ __html: service?.service_icon || '' }}
-                      /> */}
                       <div className={s.cardBlock}>
                         <div className={s.cardIconcBlock}>
                           <div
@@ -118,43 +113,13 @@ export default function ServicesSection({ block }: { block: ServicesBlock }) {
         <div className={s.sliderNavWrapper}>
           <div className={s.arrowContainer}>
             <button className={'navSwiperPrev ' + s.arrowBtn} aria-label="Previous slide">
-              <Image
-                src={ArrowIcon}
-                alt="prev"
-                width={48}
-                height={48}
-                style={{ transform: 'rotate(180deg)', width: 'auto', height: 'auto' }}
-              />
+              {swiperArrow}
             </button>
           </div>
-          <div className={s.sliderDotsRow}>
-            {services.map((_, idx) =>
-              idx === swiperIndex ? (
-                <span
-                  key={idx}
-                  className={s.sliderActiveDot}
-                  onClick={() => swiperRef.current?.slideToLoop(idx)}
-                  style={{ cursor: 'pointer' }}
-                ></span>
-              ) : (
-                <span
-                  key={idx}
-                  className={s.sliderDot}
-                  onClick={() => swiperRef.current?.slideToLoop(idx)}
-                  style={{ cursor: 'pointer' }}
-                ></span>
-              ),
-            )}
-          </div>
+          <div className={s.sliderDotsRow}></div>
           <div className={s.arrowContainer}>
             <button className={'navSwiperNext ' + s.arrowBtn} aria-label="Next slide">
-              <Image
-                src={ArrowIcon}
-                alt="next"
-                width={48}
-                height={48}
-                style={{ width: 'auto', height: 'auto' }}
-              />
+              {swiperArrow}
             </button>
           </div>
         </div>
@@ -165,3 +130,9 @@ export default function ServicesSection({ block }: { block: ServicesBlock }) {
     </div>
   )
 }
+
+const swiperArrow = (
+  <svg xmlns="http://www.w3.org/2000/svg" width="21" height="16" viewBox="0 0 21 16" fill="none">
+    <path d="M19.5 7C20.0523 7 20.5 7.44772 20.5 8C20.5 8.55228 20.0523 9 19.5 9V7ZM0.792892 8.70711C0.402369 8.31658 0.402369 7.68342 0.792892 7.29289L7.15685 0.928932C7.54738 0.538408 8.18054 0.538408 8.57107 0.928932C8.96159 1.31946 8.96159 1.95262 8.57107 2.34315L2.91421 8L8.57107 13.6569C8.96159 14.0474 8.96159 14.6805 8.57107 15.0711C8.18054 15.4616 7.54738 15.4616 7.15685 15.0711L0.792892 8.70711ZM19.5 8V9H1.5V8V7H19.5V8Z" />
+  </svg>
+)

@@ -57,7 +57,7 @@ export default function WorkflowMarker({ index, total, scrollYProgress }: Props)
   const start = index * stepSize + shift
   const end = (index + 1) * stepSize + shift
 
-  const y = useTransform(scrollYProgress, [start, end], ['0px', '10vw']) // Використовуємо vw замість px
+  const y = useTransform(scrollYProgress, [start, end], ['0px', '11vw']) // Використовуємо vw замість px
   const smoothY = useSpring(y, {
     stiffness: 60, // Збільшуємо stiffness для швидшої реакції
     damping: 25, // Зменшуємо damping для швидшого завершення

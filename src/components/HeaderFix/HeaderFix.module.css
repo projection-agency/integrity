@@ -91,6 +91,9 @@
     }
 
     .btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       position: relative;
       overflow: hidden;
       padding: 0.625vw 1.04vw;
@@ -188,6 +191,7 @@
 @media screen and (max-width: 1024px) {
   .header {
     display: flex;
+    display: none;
     justify-content: space-between;
     padding-top: 6.4vw;
     padding-bottom: 6.4vw;

@@ -7,31 +7,24 @@ import MovingIconsLine from '@/components/MovingIconsLine/MovingIconsLine'
 import { JSX } from 'react'
 import GridBackground from '@/components/GridBackground/GridBackground'
 import { motion } from 'framer-motion'
+import { useTranslations } from 'next-intl'
 
 const advantages = [
   {
-    upper_desription: 'Expertise',
+    key: 'expertise',
     icon: 'star',
-    title: 'Expertise that integrates',
-    post_title: 'Consistency in language, execution, and numbers',
   },
   {
-    upper_desription: 'Precision',
+    key: 'precision',
     icon: 'precision',
-    title: 'Precision over promises',
-    post_title: 'We commit to what we can measure and deliver',
   },
   {
-    upper_desription: 'Focused',
+    key: 'focused',
     icon: 'focused',
-    title: 'Focused on what matters',
-    post_title: 'Everything we do ties back to growth',
   },
   {
-    upper_desription: 'Dialogue',
+    key: 'dialogue',
     icon: 'chat',
-    title: 'Direct communication',
-    post_title: 'Straight answers from the people responsible',
   },
 ]
 
@@ -41,6 +34,8 @@ type ApproachSection = {
 }
 
 export default function ApproachSection({ block }: { block: ApproachSection }) {
+  const t = useTranslations('ApproachSection')
+
   const iconMap: Record<string, JSX.Element> = {
     star,
     precision,
@@ -91,22 +86,18 @@ export default function ApproachSection({ block }: { block: ApproachSection }) {
             </motion.div>
           </div>
           <h3>
-            “ Good marketing <span className={s.computer}>{computer}</span> feels calm, focused and
-            connected That’s <span className={s.computer}>{like}</span> the work we believe in“
+            {t('slogan.part1')} <span className={s.computer}>{computer}</span> {t('slogan.part2')}{' '}
+            <span className={s.computer}>{like}</span> {t('slogan.part3')}
           </h3>
-          <p className={s.subtitle}>{block.subtitle}</p>
+          <p className={s.subtitle}>{t('subtitle')}</p>
           <article className={s.approach}>
             <p className={s.paragraph}>
-              We’re a small team <span>that takes marketing seriously.</span> We work with Meta,
-              Google, TikTok and LinkedIn —
-              <span>
-                building clear, well-structured campaigns that support real business growth
-              </span>
+              {t('description.part1')} <span>{t('description.part2')}</span>{' '}
+              {t('description.part3')}
+              <span>{t('description.part4')}</span>
             </p>
             <p>
-              Over the years, we’ve helped{' '}
-              <span>SaaS, FinTech, mobile apps and local companies from Tier-1 markets</span> grow
-              through practical strategies and long-term thinking
+              {t('experience.part1')} <span>{t('experience.part2')}</span> {t('experience.part3')}
             </p>
           </article>
         </motion.div>
@@ -123,10 +114,10 @@ export default function ApproachSection({ block }: { block: ApproachSection }) {
                 className={s.advantageItem}
               >
                 <div className={s.upperDescr}>
-                  {iconMap[item.icon]} <p>{item.upper_desription}</p>
+                  {iconMap[item.icon]} <p>{t(`advantages.${item.key}.upperDescription`)}</p>
                 </div>
-                <h3>{item.title}</h3>
-                <p>{item.post_title}</p>
+                <h3>{t(`advantages.${item.key}.title`)}</h3>
+                <p>{t(`advantages.${item.key}.postTitle`)}</p>
               </motion.li>
             )
           })}

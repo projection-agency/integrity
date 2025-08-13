@@ -39,6 +39,8 @@ export default async function BlogPage({
     getPostsWithFilter(categoryId),
   ])
 
+  console.log(filteredPosts)
+
   return (
     <div className={s.blog}>
       <div className={s.heroPage}>

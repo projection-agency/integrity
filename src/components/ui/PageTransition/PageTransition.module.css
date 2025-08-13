@@ -2,7 +2,7 @@
   position: relative;
   width: 100%;
   min-height: 100vh;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .transitionOverlay {
@@ -27,7 +27,7 @@
   min-height: 100vh;
   position: relative;
   z-index: 1;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 /* Анімація для попередньої сторінки */

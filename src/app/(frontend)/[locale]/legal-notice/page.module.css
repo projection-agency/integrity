@@ -73,7 +73,7 @@
     }
     .insightCardMetaItem {
       display: flex;
-      align-items: center;
+      align-items: baseline;
       border: 0.026vw solid var(--Light-garay-2, #b5b5b5);
       border-radius: 2vw;
       padding: 0.42vw 0.63vw;
@@ -150,6 +150,9 @@
     }
 
     .containerPage {
+      width: 91.467vw;
+      margin: 0 auto;
+
       .description {
         margin-bottom: 6.4vw;
         font-size: 3.73vw;
@@ -160,9 +163,11 @@
       }
 
       .description {
+        margin: 0 auto;
         margin-bottom: 21.33vw;
         padding-bottom: 0;
         font-size: 3.73vw;
+        width: 76.5vw;
       }
     }
   }

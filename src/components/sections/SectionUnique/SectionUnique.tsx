@@ -20,74 +20,7 @@ import useIsMobile from '../LatestInsightsSection/useIsMobile'
 import SliderNav from '@/components/ui/SliderNav/SliderNav'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
-// import SliderNav from './SliderNav'
-
-const cards = [
-  {
-    icon: <CanvasIcon className={styles.cardIcon} />,
-    title: 'STRUCTURED EXECUTION',
-    description: 'Every action supports the strategy and drives measurable progress',
-  },
-  {
-    icon: <GlobeIcon className={styles.cardIcon} />,
-    title: 'DATA-FIRST APPROACH',
-    description: 'Decisions are based on numbers, not gut feeling',
-  },
-  {
-    icon: <ChartIcon className={styles.cardIcon} />,
-    title: 'BUILT-IN CLARITY',
-    description: 'Every step is structured and transparent',
-  },
-  {
-    icon: <ChartBarIcon className={styles.cardIcon} />,
-    title: 'TRUE PARTNERSHIP',
-    description: 'We don’t take on projects unless we believe we can create real value',
-  },
-  {
-    icon: <DocumentIcon className={styles.cardIcon} />,
-    title: 'EXPERIENCE IN TIER-1 MARKETS',
-    description: 'Years of hands-on work across leading global markets',
-  },
-  {
-    icon: <AnalyticsIcon className={styles.cardIcon} />,
-    title: 'LONG-TERM MINDSET',
-    description: 'No short bursts. We create systems designed to grow, scale, and last',
-  },
-]
-
-const cardsMobile = [
-  {
-    icon: <CanvasIcon className={styles.cardIcon} />,
-    title: 'STRUCTURED EXECUTION',
-    description: 'Every action supports the strategy and drives measurable progress',
-  },
-  {
-    icon: <ChartBarIcon className={styles.cardIcon} />,
-    title: 'TRUE PARTNERSHIP',
-    description: 'We don’t take on projects unless we believe we can create real value',
-  },
-  {
-    icon: <GlobeIcon className={styles.cardIcon} />,
-    title: 'DATA-FIRST APPROACH',
-    description: 'Decisions are based on numbers, not gut feeling',
-  },
-
-  {
-    icon: <DocumentIcon className={styles.cardIcon} />,
-    title: 'EXPERIENCE IN TIER-1 MARKETS',
-    description: 'Years of hands-on work across leading global markets',
-  },
-  {
-    icon: <ChartIcon className={styles.cardIcon} />,
-    title: 'BUILT-IN CLARITY',
-    description: 'Every step is structured and transparent',
-  },
-  {
-    icon: <AnalyticsIcon className={styles.cardIcon} />,
-    title: 'LONG-TERM MINDSET',
-    description: 'No short bursts. We create systems designed to grow, scale, and last',
-  },
-]
+import { useTranslations } from 'next-intl'
 
 type SectionUniqueBlock = {
   subtitle: string
@@ -98,6 +31,73 @@ export default function SectionUnique({ block }: { block: SectionUniqueBlock }) 
   const isMobile = useIsMobile()
   const [activeIndex, setActiveIndex] = useState(0)
   const swiperRef = useRef<SwiperType | null>(null)
+  const t = useTranslations('SectionUnique')
+
+  const cards = [
+    {
+      icon: <CanvasIcon className={styles.cardIcon} />,
+      title: t('structuredExecution'),
+      description: t('structuredExecutionDesc'),
+    },
+    {
+      icon: <GlobeIcon className={styles.cardIcon} />,
+      title: t('dataFirstApproach'),
+      description: t('dataFirstApproachDesc'),
+    },
+    {
+      icon: <ChartIcon className={styles.cardIcon} />,
+      title: t('builtInClarity'),
+      description: t('builtInClarityDesc'),
+    },
+    {
+      icon: <ChartBarIcon className={styles.cardIcon} />,
+      title: t('truePartnership'),
+      description: t('truePartnershipDesc'),
+    },
+    {
+      icon: <DocumentIcon className={styles.cardIcon} />,
+      title: t('experienceInTier1Markets'),
+      description: t('experienceInTier1MarketsDesc'),
+    },
+    {
+      icon: <AnalyticsIcon className={styles.cardIcon} />,
+      title: t('longTermMindset'),
+      description: t('longTermMindsetDesc'),
+    },
+  ]
+
+  const cardsMobile = [
+    {
+      icon: <CanvasIcon className={styles.cardIcon} />,
+      title: t('structuredExecution'),
+      description: t('structuredExecutionDesc'),
+    },
+    {
+      icon: <ChartBarIcon className={styles.cardIcon} />,
+      title: t('truePartnership'),
+      description: t('truePartnershipDesc'),
+    },
+    {
+      icon: <GlobeIcon className={styles.cardIcon} />,
+      title: t('dataFirstApproach'),
+      description: t('dataFirstApproachDesc'),
+    },
+    {
+      icon: <DocumentIcon className={styles.cardIcon} />,
+      title: t('experienceInTier1Markets'),
+      description: t('experienceInTier1MarketsDesc'),
+    },
+    {
+      icon: <ChartIcon className={styles.cardIcon} />,
+      title: t('builtInClarity'),
+      description: t('builtInClarityDesc'),
+    },
+    {
+      icon: <AnalyticsIcon className={styles.cardIcon} />,
+      title: t('longTermMindset'),
+      description: t('longTermMindsetDesc'),
+    },
+  ]
 
   const cardPairsMobile = []
   for (let i = 0; i < cardsMobile.length; i += 1) {
@@ -143,13 +143,13 @@ export default function SectionUnique({ block }: { block: SectionUniqueBlock }) 
             />
           </div>
           <div className={styles.sideTitle}>
-            YOU ARE HERE <span>TO ACHIEVE RESULTS</span>
+            {t('youAreHere')} <span>{t('toAchieveResults')}</span>
           </div>
           <div className={styles.sideDescription}>
-            Order your first free call and receive a tailored strategy to promote your business
+            <p className={styles.sideText}>{t('orderFirstFreeCall')}</p>
           </div>
-          <a href="#form" className={styles.sideButton}>
-            <PhoneIcon className={styles.sidePhoneIcon} /> Demo call
+          <a href="#call" className={styles.sideButton}>
+            <PhoneIcon className={styles.sidePhoneIcon} /> {t('demoCall')}
           </a>
         </motion.div>
 
@@ -196,7 +196,22 @@ export default function SectionUnique({ block }: { block: SectionUniqueBlock }) 
           ) : (
             <div className={styles.sectionUniqueGrid}>
               {cards.map((card, idx) => (
-                <div className={styles.sectionUniqueCard} key={idx}>
+                <div
+                  className={styles.sectionUniqueCard}
+                  key={idx}
+                  onMouseEnter={(e) => {
+                    const lordIcons = e.currentTarget.querySelectorAll('lord-icon')
+                    lordIcons.forEach((icon) => {
+                      icon.dispatchEvent(new Event('mouseenter'))
+                    })
+                  }}
+                  onMouseLeave={(e) => {
+                    const lordIcons = e.currentTarget.querySelectorAll('lord-icon')
+                    lordIcons.forEach((icon) => {
+                      icon.dispatchEvent(new Event('mouseleave'))
+                    })
+                  }}
+                >
                   <div className={styles.cardIcon}>{card.icon}</div>
                   <div className={styles.cardBlok}>
                     <div className={styles.cardTitle}>{card.title}</div>

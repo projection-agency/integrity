@@ -41,11 +41,11 @@
       li a {
         display: flex;
         width: 6.8vw;
-        padding: 0.8vw 0.9vw;
+        padding: 0.7vw 1.2vw;
         justify-content: center;
         align-items: center;
         gap: 0.5vw;
-        width: 6.8vw;
+        width: max-content;
         color: var(--Light-gray, #f9f9f9);
         text-align: center;
         font-size: 0.72vw;
@@ -55,11 +55,13 @@
         transition-duration: 0.3s;
         border-radius: 0.6vw;
         cursor: pointer;
+        opacity: 0.6;
       }
       li a:hover {
         background: var(--Black, #222);
       }
       li.current a {
+        opacity: 1;
         background: var(--White, #fff);
         color: var(--Black, #222);
       }
@@ -71,9 +73,12 @@
     gap: 0.42vw;
 
     .btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
       position: relative;
       overflow: hidden;
-      padding: 1.09vw 2.08vw;
+      padding: 0.62vw 1.5vw;
       border-radius: 0.6vw;
       background: var(--White, #fff);
       color: var(--Black, #222);
@@ -88,13 +93,13 @@
         align-items: center;
         gap: 0.6vw;
 
-        font-size: 0.83vw;
+        font-size: 0.82vw;
         font-style: normal;
         font-weight: 600;
         line-height: normal;
 
         svg {
-          width: 1.04vw;
+          width: 0.82vw;
         }
       }
     }
@@ -105,7 +110,7 @@
       top: 0;
       left: 0;
       width: 100%;
-      height: 100%;
+      height: 20.81vw;
       z-index: 1;
       transition: opacity 300ms ease-in-out;
       opacity: 0;
@@ -124,7 +129,7 @@
 
 .localeWrap {
   display: flex;
-  padding: 0.41667vw;
+  padding: 0.32vw;
   align-items: center;
   gap: 0.20833vw;
   border-radius: 0.625vw;
@@ -139,7 +144,7 @@
 
   .currentLang {
     display: flex;
-    padding: 0.78125vw 0.625vw;
+    padding: 0.62vw;
     justify-content: center;
     align-items: center;
     gap: 0.41667vw;
@@ -168,6 +173,7 @@
     padding: 3.2vw;
     border-radius: 6.4vw;
     position: fixed;
+    top: 3.2vw;
 
     .logoHeader {
       width: 25.33vw;

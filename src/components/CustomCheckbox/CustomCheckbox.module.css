@@ -5,6 +5,7 @@
   align-items: center;
   padding: 1.15vw 1.25vw;
   box-sizing: border-box;
+  width: max-content;
   border-radius: 0.63vw;
   background-color: rgba(249, 249, 249, 1);
 
@@ -24,6 +25,10 @@
   .labelText {
     white-space: nowrap;
   }
+  span {
+    white-space: nowrap;
+    margin-bottom: 0px !important;
+  }
 }
 
 .active {
@@ -33,6 +38,7 @@
 
 @media screen and (max-width: 1024px) {
   .checkboxLabel {
+    flex-shrink: 0;
     width: max-content;
     height: 12.27vw;
     padding: 3.47vw 5.33vw;

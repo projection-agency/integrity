@@ -8,6 +8,8 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { Pagination, Navigation } from 'swiper/modules'
 import { useState, useEffect } from 'react'
 import 'swiper/css'
+import Link from 'next/link'
+import { useTranslations } from 'next-intl'
 
 type ReviewsSection = {
   subtitle: string
@@ -16,22 +18,21 @@ type ReviewsSection = {
 }
 
 type Review = {
-  client_image: { url: string }
+  client_image?: { url: string }
   client_name: string
-  location: string
-  rating: string
+  location?: string
+  rating?: string
   stars: number
-  siteLogo: { url: string }
+  siteLogo?: { url: string }
   quote: string
   review_content: string
 }
 
 export default function ReviewsSection({ block }: { block: ReviewsSection }) {
+  const t = useTranslations('ReviewsSection')
   const [windowWidth, setWindowWidth] = useState<number>(
     typeof window !== 'undefined' ? window.innerWidth : 0,
   )
-
-  console.log(block)
 
   useEffect(() => {
     const handleResize = () => {
@@ -58,12 +59,14 @@ export default function ReviewsSection({ block }: { block: ReviewsSection }) {
             <Image src={'/images/business-woman.png'} width={118} height={118} alt="woman" />
           </div>
           <h3>
-            <span>Do you want</span> the same result?
+            <span>{t('leftBlock.title.part1')}</span> {t('leftBlock.title.part2')}
           </h3>
-          <p>Order your first free call and receive a tailored strategy to promote your business</p>
-          <button>
-            <span>{phone} Demo call</span>
-          </button>
+          <p>{t('leftBlock.description')}</p>
+          <Link href="#call" className={s.button}>
+            <span>
+              {phone} <span>{t('leftBlock.button')}</span>
+            </span>
+          </Link>
         </div>
         <div className={s.rightBlock}>
           <Swiper
@@ -84,26 +87,31 @@ export default function ReviewsSection({ block }: { block: ReviewsSection }) {
               prevEl: `.${s.navigationPrev}`,
               disabledClass: s.disabled,
             }}
+            wrapperClass={s.swiperWrapper}
           >
             {block.review.map((item: Review, idx) => {
               return (
                 <SwiperSlide key={idx} className={s.swiperSlide}>
                   <div className={s.swiperItem}>
                     <div className={s.reviewerBlock}>
-                      <Image
-                        src={`${item.client_image.url}`}
-                        width={204}
-                        height={204}
-                        alt="reviewer avatar"
-                      />
+                      {item.client_image?.url && (
+                        <Image
+                          src={item.client_image.url}
+                          width={204}
+                          height={204}
+                          alt="reviewer avatar"
+                        />
+                      )}
                       <h3>{item.client_name}</h3>
-                      <div className={s.locationBlock}>
-                        <div className={s.icon}>{marker}</div>
-                        <div className={s.location}>
-                          <p className={s.blockTitle}>Location:</p>
-                          <p className={s.country}>{item.location}</p>
+                      {item.location && (
+                        <div className={s.locationBlock}>
+                          <div className={s.icon}>{marker}</div>
+                          <div className={s.location}>
+                            <p className={s.blockTitle}>{t('reviewBlock.location')}</p>
+                            <p className={s.country}>{item.location}</p>
+                          </div>
                         </div>
-                      </div>
+                      )}
                     </div>
                     <div className={s.reviewBlock}>
                       <div className={s.stars}>
@@ -111,12 +119,9 @@ export default function ReviewsSection({ block }: { block: ReviewsSection }) {
                           <span>{item.stars}</span>
                           {star}
                         </div>
-                        <Image
-                          src={`${item.siteLogo.url}`}
-                          width={100}
-                          height={100}
-                          alt="site logo"
-                        />
+                        {item.siteLogo?.url && (
+                          <Image src={item.siteLogo.url} width={100} height={100} alt="site logo" />
+                        )}
                       </div>
                       <h4>{item.quote}</h4>
                       <p

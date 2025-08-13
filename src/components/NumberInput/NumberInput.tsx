@@ -16,19 +16,19 @@ const NumberInput = ({ value, className, id, name }: Props) => {
   }>()
 
   const validatePhone = (phone: string) => {
-    return phone.length < 19 ? 'Введіть валідний номер' : undefined
+    return phone.length < 19 ? 'Enter your phone number' : undefined
   }
 
   return (
     <div className={`inputContainer`} id={id}>
       <PhoneInput
         country={'ua'}
+        preferredCountries={['ua', 'ca', 'en', 'de', 'fr', 'it', 'es', 'pl']}
         value={value}
         onChange={(e) => {
           setFieldValue('number', e)
 
           const error = validatePhone(e)
-          console.log(values)
           if (error) {
             setFieldError('number', error)
           } else {
@@ -37,7 +37,6 @@ const NumberInput = ({ value, className, id, name }: Props) => {
         }}
         onFocus={() => {
           setFieldTouched('number', true)
-          console.log(errors)
         }}
         enableSearch={false}
         disableDropdown={false}
@@ -46,7 +45,6 @@ const NumberInput = ({ value, className, id, name }: Props) => {
           required: true,
           autoFocus: false,
         }}
-        placeholder="63 105 83 15"
       />
     </div>
   )

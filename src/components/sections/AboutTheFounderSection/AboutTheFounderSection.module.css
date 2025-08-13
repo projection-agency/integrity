@@ -7,8 +7,8 @@
     display: flex;
     gap: 3.91vw;
     margin-left: auto;
-    margin-right: auto;
-    width: 91.67vw;
+    margin-right: 4.17vw;
+    width: 88.54vw;
 
     div {
       width: calc((100% - 3.91vw) / 2);
@@ -34,7 +34,6 @@
 
       .logoContainer {
         transform: none;
-        width: max-content;
         background: none;
         background-color: rgba(34, 34, 34, 1);
 
@@ -72,6 +71,7 @@
           justify-content: center;
           align-items: center;
           width: 4.17vw;
+          min-width: 4.17vw;
           height: 4.17vw;
           background-color: #ffffff;
           border-radius: 0.83vw;
@@ -96,7 +96,7 @@
           }
 
           .subtitle {
-            font-size: 0.8vw;
+            font-size: 0.72vw;
             font-style: normal;
             font-weight: 700;
             line-height: 1.4;
@@ -189,6 +189,7 @@
         margin-bottom: 1.41vw;
 
         text-align: center;
+        font-family: 'Inter Tight';
         font-size: 2.5vw;
         font-style: italic;
         font-weight: 900;
@@ -197,12 +198,20 @@
 
         color: rgba(34, 34, 34, 1);
 
+        pre{
+          display: inline;
+        }
+
         .computer {
+          position: relative;
+          top: 0.5vw;
+          left: 0.5vw;
           display: inline-flex;
           justify-content: center;
           align-items: center;
           height: 3.33vw;
-          transform: translateY(0.5vw);
+          margin-right: 0.2vw;
+          margin-left: 0.2vw;
 
           img {
             width: 3.33vw;
@@ -352,6 +361,7 @@
           }
 
           .arrowContainer {
+            min-width: 12.8vw;
             width: 12.8vw;
             height: 12.8vw;
             border-radius: 3.2vw;
@@ -387,13 +397,11 @@
           font-size: 6.1vw;
           line-height: 1.2;
 
-          span {
-            display: block;
-          }
 
           .computer {
             width: 8.53vw;
             height: 2.53vw;
+            margin-right: 1vw;
             transform: translateY(1.5vw);
 
             img {
@@ -405,6 +413,8 @@
           .stonks {
             width: 8.53vw;
             height: 8.53vw;
+            margin-right: 1vw;
+            margin-left: 1vw;
 
             img {
               width: 4.27vw;

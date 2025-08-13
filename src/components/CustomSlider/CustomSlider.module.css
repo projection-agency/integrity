@@ -1,0 +1,405 @@
+.customSliderContainer {
+  .customSliderWrapper {
+    margin-bottom: 3.13vw;
+    overflow: scroll;
+    scrollbar-width: 0;
+    scrollbar-color: transparent;
+  }
+
+  .customSliderWrapper::-webkit-scrollbar {
+    display: none;
+  }
+
+  @media (min-width: 1020px) {
+    .inactive {
+      opacity: 0.4;
+      backdrop-filter: blur(20px);
+      background: linear-gradient(141deg, rgba(255, 255, 255, 0.1) 0%, rgba(41, 41, 41, 0.1) 100%);
+    }
+
+    /* Якщо ви хочете, щоб затемнення було тільки на останніх слайдах, а не на всіх неактивних */
+    .lastSlide {
+      opacity: 0.4;
+      backdrop-filter: blur(20px);
+      background: linear-gradient(141deg, rgba(255, 255, 255, 0.1) 0%, rgba(41, 41, 41, 0.1) 100%);
+    }
+  }
+
+  .customSliderTrack {
+    width: max-content;
+    height: 26.72vw;
+    display: flex;
+    align-items: center;
+    gap: 0.83vw;
+
+    .customSliderSlide {
+      transition: all 300ms ease-in-out;
+      width: 19.27vw;
+      height: 15vw;
+      padding: 2.08vw;
+      flex-shrink: 0;
+      flex-grow: 0;
+      background-color: #222222;
+      border-radius: 1.67vw;
+      box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.1);
+
+      .card {
+        transition: all 300ms ease-in-out;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+
+        .cardNumberBlock {
+          transition: all 300ms ease-in-out;
+
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+
+          .cardNumber {
+            transition: all 300ms ease-in-out;
+            color: rgba(181, 181, 181, 1);
+            text-align: center;
+            font-family: 'Mont';
+            font-size: 0.94vw;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 1.2;
+          }
+
+          .cardBlock {
+            transition: all 300ms ease-in-out;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            width: 3.33vw;
+            height: 3.33vw;
+            border-radius: 0.52vw;
+            border: 0.05vw solid rgba(255, 255, 255, 0.5);
+            border-radius: 12px;
+            background: linear-gradient(
+              169deg,
+              rgba(255, 255, 255, 0.05) -6.56%,
+              rgba(255, 255, 255, 0) 112.07%
+            );
+            box-shadow: 2px -2px 20px 0 rgba(255, 228, 20, 0.15);
+            backdrop-filter: blur(4px);
+
+            .cardIconBlock {
+              transition: all 300ms ease-in-out;
+              background: linear-gradient(149deg, rgb(40 40 40 / 71%) 0%, rgb(43 41 41) 100%);
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              width: 100%;
+              height: 100%;
+              border-radius: 0.52vw;
+              border: 0.05vw solid transparent;
+              backdrop-filter: blur(3.3130671977996826px);
+
+              .cardIconWrapper {
+                overflow: hidden;
+
+                .cardIcon {
+                  position: relative;
+                  z-index: 3;
+                  transition: all 300ms ease-in-out;
+                  width: 2.5vw;
+                  height: 2.5vw;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  border-radius: 12px;
+                  background: linear-gradient(
+                    169deg,
+                    rgba(255, 255, 255, 0.13) -6.56%,
+                    rgba(255, 255, 255, 0) 112.07%
+                  );
+                  backdrop-filter: blur(4px);
+                  border-radius: 0.52vw;
+                  border: 0.05vw solid rgba(255, 255, 255, 0.5);
+                  svg {
+                    transition:
+                      width 300s ease-in-out,
+                      height 300ms ease-in-out;
+                    width: 1.25vw;
+                    height: 1.25vw;
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        .cardTextBlock {
+          .cardTitle {
+            .cardTitleText {
+              transition:
+                font-size 300ms ease-in-out,
+                line-height 300ms ease-in-out,
+                transform 300ms ease-in-out;
+              will-change: font-size, line-height, transform;
+              font-family: 'Mont', sans-serif;
+              font-size: 1.67vw;
+              font-style: italic;
+              font-weight: 900;
+              line-height: 100%;
+              text-transform: uppercase;
+
+              color: rgba(255, 255, 255, 1);
+            }
+          }
+        }
+      }
+    }
+
+    .customSliderSlide.active {
+      width: 30vw;
+      height: 26.72vw;
+      padding: 3.13vw;
+
+      .card {
+        .cardNumberBlock {
+          .cardNumber {
+            font-size: 1.25vw;
+          }
+
+          .cardBlock {
+            width: 4.17vw;
+            height: 4.17vw;
+
+            .cardIconBlock {
+              .cardIconWrapper {
+                .cardIcon {
+                  width: 2.92vw;
+                  height: 2.92vw;
+                  background: linear-gradient(149deg, rgb(40 40 40 / 71%) 0%, rgb(43 41 41) 100%);
+
+                  svg {
+                    width: 1.67vw;
+                    height: 1.67vw;
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        .cardTextBlock {
+          .cardTitle {
+            .cardTitleText {
+              font-size: 2.92vw;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .customSliderNav {
+    width: max-content;
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+    gap: 1.67vw;
+    align-items: center;
+    padding: 0.42vw;
+    background-color: #fff;
+    border-radius: 0.83vw;
+
+    .customSliderArrow {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 9.69vw;
+      height: 2.92vw;
+      transition: background-color 300ms ease-in-out;
+      background-color: rgba(249, 249, 249, 1);
+      border-radius: 0.83vw;
+
+      svg {
+        width: 0.94vw;
+        transition: fill 300ms ease-in-out;
+        fill: #222222;
+      }
+    }
+
+    .customSliderArrow:last-child {
+      transform: rotateZ(180deg);
+    }
+
+    .customSliderArrow:hover {
+      background-color: #222222;
+
+      svg {
+        fill: #ffffff;
+      }
+    }
+
+    .customSliderDots {
+      display: flex;
+      align-items: center;
+      gap: 0.83vw;
+
+      .customSliderDot {
+        transition:
+          width 300ms ease-in-out,
+          background-color 300ms ease-in-out,
+          border-radius 300ms ease-in-out;
+        width: 0.31vw;
+        height: 0.31vw;
+        border-radius: 50%;
+        background-color: rgba(228, 228, 228, 1);
+      }
+
+      .customSliderDot.active {
+        width: 1.88vw;
+        border-radius: 8.65vw;
+        background-color: #222222;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .customSliderContainer {
+    margin-bottom: 21.33vw;
+    .customSliderWrapper {
+      padding-left: 4.27vw;
+      margin-bottom: 8.53vw;
+    }
+    /* .inactive {
+      opacity: 0.4;
+      backdrop-filter: blur(20px);
+      background: linear-gradient(141deg, rgba(255, 255, 255, 0.1) 0%, rgba(41, 41, 41, 0.1) 100%);
+    } */
+
+    .customSliderTrack {
+      height: max-content;
+      .customSliderSlide {
+        width: 84vw;
+        height: 75.73vw;
+        padding: 7.47vw;
+        border-radius: 6.4vw;
+
+        .card {
+          .cardNumberBlock {
+            .cardNumber {
+              font-size: 4.67vw;
+            }
+
+            .cardBlock {
+              width: 14.93vw;
+              height: 14.93vw;
+              border-radius: 2.4vw;
+
+              .cardIconBlock {
+                .cardIconWrapper {
+                  width: 10.67vw;
+                  height: 10.67vw;
+                  border-radius: 2.4vw;
+                  background: linear-gradient(149deg, rgb(40 40 40 / 71%) 0%, rgb(43 41 41) 100%);
+
+                  .cardIcon {
+                    width: 100%;
+                    height: 100%;
+                    svg {
+                      width: 5.33vw;
+                      height: 5.33vw;
+                    }
+                  }
+                }
+              }
+            }
+          }
+
+          .cardTextBlock {
+            .cardTitle {
+              .cardTitleText {
+                font-size: 6.4vw;
+              }
+            }
+          }
+        }
+      }
+
+      .customSliderSlide.active {
+        width: 84vw;
+        height: 75.73vw;
+        padding: 7.48vw;
+        border-radius: 6.4vw;
+
+        .card {
+          .cardNumberBlock {
+            .cardNumber {
+              font-size: 4.67vw;
+            }
+
+            .cardBlock {
+              width: 14.93vw;
+              height: 14.93vw;
+              border-radius: 2.4vw;
+
+              .cardIconBlock {
+                .cardIconWrapper {
+                  width: 10.67vw;
+                  height: 10.67vw;
+                  border-radius: 2.4vw;
+
+                  .cardIcon {
+                    width: 100%;
+                    height: 100%;
+                    svg {
+                      width: 5.33vw;
+                      height: 5.33vw;
+                    }
+                  }
+                }
+              }
+            }
+          }
+
+          .cardTextBlock {
+            .cardTitle {
+              .cardTitleText {
+                font-size: 6.4vw;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .customSliderNav {
+      padding: 2.17vw;
+      gap: 4.27vw;
+      border-radius: 4.27vw;
+
+      .customSliderArrow {
+        border-radius: 3.2vw;
+        width: 22.67vw;
+        height: 10.13vw;
+
+        svg {
+          width: 4.8vw;
+        }
+      }
+
+      .customSliderDots {
+        gap: 4.27vw;
+
+        .customSliderDot {
+          width: 1.6vw;
+          height: 1.6vw;
+        }
+
+        .customSliderDot.active {
+          width: 9.6vw;
+        }
+      }
+    }
+  }
+}

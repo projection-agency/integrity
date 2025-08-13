@@ -1,0 +1,90 @@
+/* Кастомний контейнер */
+.customToastContainer {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  pointer-events: none;
+}
+
+.customToastContainer > * {
+  pointer-events: auto;
+  animation-delay: calc(var(--index, 0) * 0.1s);
+}
+
+.toast {
+  background-color: #222;
+  color: #fff;
+  padding: 1em 1.5em;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1em;
+  width: 300px;
+  transform: translateX(100%);
+  opacity: 0;
+  animation: slideIn 0.4s ease-out forwards;
+
+  p {
+    font-size: 1em;
+    font-weight: 400;
+  }
+
+  svg {
+    width: 1.5em;
+    height: 1.5em;
+  }
+}
+
+.toast.removing {
+  animation: slideOut 0.3s ease-in forwards;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+/* Hover ефект */
+.toast:hover {
+  transform: translateX(0) scale(1.02);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  transition: all 0.2s ease;
+}
+
+.success {
+  border-left: 3px solid #ffe414;
+}
+
+.error {
+  border-left: 3px solid #c80000;
+}
+
+.info {
+  border-left: 3px solid #000000;
+}
+
+.warning {
+  border-left: 3px solid #ffe414;
+}

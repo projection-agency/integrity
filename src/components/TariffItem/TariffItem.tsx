@@ -2,8 +2,12 @@
 import s from './TariffItem.module.css'
 import { useState } from 'react'
 import { tariffItem } from '../sections/TariffsSection/TariffsSection'
+import Link from 'next/link'
+import SimpleBar from 'simplebar-react'
+import { useTranslations } from 'next-intl'
 
 const TariffItem = ({ item, index }: { item: tariffItem; index: number }) => {
+  const t = useTranslations('TariffItem')
   const [flipped, setFlipped] = useState(false)
 
   return (
@@ -16,18 +20,27 @@ const TariffItem = ({ item, index }: { item: tariffItem; index: number }) => {
           <h3 className={s.slogan}>{item.title}</h3>
           <p className={s.descr} dangerouslySetInnerHTML={{ __html: item.description }}></p>
           <div className={s.services}>
-            <h4>{result}Result:</h4>
+            <h4>
+              {result}
+              {t('result')}
+            </h4>
             <ul className={s.servicesList}>
               {item.result.map((item, idx) => {
                 return <li key={idx}>{item.points}</li>
               })}
             </ul>
           </div>
-          <button className={s.orderBtn}>
-            <span>{order}Order</span>
-          </button>
+          <Link href="#call" className={s.orderBtn}>
+            <span>
+              {order}
+              {t('order')}
+            </span>
+          </Link>
           <button className={s.moreDetails} onClick={() => setFlipped(!flipped)}>
-            <span> More details {moreDetails}</span>
+            <span>
+              {' '}
+              {t('moreDetails')} {moreDetails}
+            </span>
           </button>
         </div>
 
@@ -36,19 +49,61 @@ const TariffItem = ({ item, index }: { item: tariffItem; index: number }) => {
           <span className={s.line}></span>
           <h3 className={s.slogan}>{item.title}</h3>
           <p className={s.descr} dangerouslySetInnerHTML={{ __html: item.description }}></p>
-          <div className={s.services}>
-            <h4>{whatsIncluded} What`s included:</h4>
-            <ul className={s.servicesList}>
-              {item.whats_included.map((item: { wi_points: string; id: string }, idx) => {
-                return <li key={idx}>{item.wi_points}</li>
-              })}
-            </ul>
-          </div>
-          <button className={s.orderBtn}>
-            <span>{order}Order</span>
-          </button>
+          <SimpleBar
+            className={s.simpleBarCont}
+            dir="vertical"
+            forceVisible="y"
+            autoHide={false}
+            classNames={{ scrollbar: s.scrollbar }}
+          >
+            <div className={s.services}>
+              <h4>
+                {whatsIncluded} {t('whatsIncluded')}
+              </h4>
+              <ul className={s.servicesList}>
+                {item.whats_included.map((item: { wi_points: string; id: string }, idx) => {
+                  return <li key={idx}>{item.wi_points}</li>
+                })}
+              </ul>
+              <h4 className={s.channelsHead}>
+                {channels} {t('channels')}
+              </h4>
+              <ul className={s.channelsList}>
+                {item.channels.map((item) => {
+                  return (
+                    <li key={item.id}>
+                      <span dangerouslySetInnerHTML={{ __html: item.c_icon }}></span>
+                      <p>{item.c_points}</p>
+                    </li>
+                  )
+                })}
+              </ul>
+              {item.result.length !== 0 ? (
+                <div className={s.results}>
+                  <h4>
+                    {result} {t('result')}
+                  </h4>
+                  <ul>
+                    {item.result.map((item, idx) => {
+                      return <li key={idx}>{item.points}</li>
+                    })}
+                  </ul>
+                </div>
+              ) : (
+                ' '
+              )}
+            </div>
+          </SimpleBar>
+          <Link href="#call" className={s.orderBtn}>
+            <span>
+              {order}
+              {t('order')}
+            </span>
+          </Link>
           <button onClick={() => setFlipped(!flipped)} className={s.moreDetails}>
-            <span>{iconBack} Back</span>
+            <span>
+              {iconBack} {t('back')}
+            </span>
           </button>
         </div>
       </div>
@@ -76,7 +131,6 @@ const order = (
     <path d="M13.3109 15.1939C13.2284 15.1941 13.1467 15.178 13.0705 15.1463C12.9944 15.1147 12.9252 15.0683 12.8672 15.0097L12.0299 14.1725C11.9682 14.1151 11.9188 14.0457 11.8844 13.9687C11.8501 13.8917 11.8317 13.8085 11.8302 13.7242C11.8287 13.6399 11.8442 13.5562 11.8758 13.478C11.9074 13.3998 11.9544 13.3288 12.014 13.2692C12.0736 13.2095 12.1446 13.1625 12.2228 13.131C12.301 13.0994 12.3848 13.0839 12.4691 13.0853C12.5534 13.0868 12.6365 13.1053 12.7136 13.1396C12.7906 13.1739 12.8599 13.2234 12.9174 13.2851L13.3109 13.6777L14.5416 12.4479C14.5991 12.3862 14.6684 12.3367 14.7454 12.3024C14.8225 12.2681 14.9056 12.2496 14.9899 12.2481C15.0742 12.2467 15.158 12.2622 15.2362 12.2937C15.3143 12.3253 15.3854 12.3723 15.445 12.432C15.5046 12.4916 15.5516 12.5626 15.5832 12.6408C15.6148 12.719 15.6303 12.8027 15.6288 12.887C15.6273 12.9713 15.6089 13.0545 15.5746 13.1315C15.5402 13.2085 15.4908 13.2778 15.4291 13.3353L13.7546 15.0097C13.6965 15.0683 13.6274 15.1147 13.5512 15.1463C13.475 15.178 13.3934 15.1941 13.3109 15.1939Z" />
   </svg>
 )
-
 const moreDetails = (
   <svg xmlns="http://www.w3.org/2000/svg" width="9" height="20" viewBox="0 0 9 20">
     <g clipPath="url(#clip0_3087_527)">
@@ -113,5 +167,50 @@ const whatsIncluded = (
         <rect width="20" height="20" fill="white" />
       </clipPath>
     </defs>
+  </svg>
+)
+
+const channels = (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+    <path
+      d="M8.93747 12C8.93747 11.4361 8.95945 10.8817 9.00089 10.3438H5.84367C5.70136 10.8721 5.625 11.4273 5.625 12C5.625 12.5727 5.70136 13.1278 5.84367 13.6562H9.00089C8.95945 13.1182 8.93747 12.5638 8.93747 12Z"
+      fill="#FFE414"
+    />
+    <path
+      d="M13.5897 10.3438H10.4104C10.3664 10.878 10.3438 11.4332 10.3438 12C10.3438 12.5667 10.3664 13.122 10.4104 13.6562H13.5897C13.6337 13.122 13.6563 12.5667 13.6563 12C13.6563 11.4332 13.6337 10.8779 13.5897 10.3438Z"
+      fill="#FFE414"
+    />
+    <path
+      d="M10.5859 15.0625C10.6916 15.6919 10.8303 16.2726 11.0003 16.7826C11.4014 17.9858 11.8481 18.375 12.0017 18.375C12.1552 18.375 12.6019 17.9858 13.003 16.7827C13.173 16.2727 13.3116 15.6919 13.4173 15.0625H10.5859V15.0625Z"
+      fill="#FFE414"
+    />
+    <path
+      d="M13.4173 8.93752C13.3116 8.30813 13.1729 7.72739 13.003 7.21739C12.6019 6.01425 12.1551 5.625 12.0016 5.625C11.8481 5.625 11.4013 6.01425 11.0003 7.21734C10.8303 7.72734 10.6916 8.30813 10.5859 8.93747H13.4173V8.93752Z"
+      fill="#FFE414"
+    />
+    <path
+      d="M9.16078 8.93805C9.28238 8.1452 9.45145 7.41241 9.6645 6.77322C9.76739 6.4645 9.87581 6.19239 9.9878 5.95117C8.45433 6.46253 7.1783 7.54164 6.41016 8.93805H9.16078Z"
+      fill="#FFE414"
+    />
+    <path
+      d="M14.8387 15.0625C14.7171 15.8553 14.5481 16.5881 14.335 17.2273C14.2321 17.536 14.1237 17.8082 14.0117 18.0494C15.5452 17.538 16.8212 16.4589 17.5894 15.0625H14.8387Z"
+      fill="#FFE414"
+    />
+    <path
+      d="M18.1572 13.6562C18.2995 13.1278 18.3759 12.5727 18.3759 12C18.3759 11.4273 18.2995 10.8721 18.1572 10.3438H15C15.0414 10.8817 15.0634 11.4362 15.0634 12C15.0634 12.5638 15.0414 13.1182 15 13.6562H18.1572Z"
+      fill="#FFE414"
+    />
+    <path
+      d="M9.9878 18.0494C9.87581 17.8082 9.76739 17.536 9.6645 17.2273C9.45141 16.5881 9.28237 15.8553 9.16078 15.0625H6.41016C7.17825 16.4589 8.45433 17.538 9.9878 18.0494Z"
+      fill="#FFE414"
+    />
+    <path
+      d="M14.0117 5.95117C14.1237 6.19239 14.2321 6.4645 14.335 6.77322C14.5481 7.41245 14.7171 8.1452 14.8387 8.93805H17.5894C16.8213 7.54164 15.5452 6.46253 14.0117 5.95117Z"
+      fill="#FFE414"
+    />
+    <path
+      d="M22.0255 15.4258C22.7887 13.2034 22.7883 10.8087 22.0242 8.5755C22.4243 8.19136 22.6741 7.65183 22.6741 7.05469C22.6741 5.89158 21.7279 4.94531 20.5648 4.94531C20.3612 4.94531 20.1646 4.97484 19.9783 5.02889C18.4357 3.25762 16.3625 2.06114 14.0475 1.60612C13.8211 0.685266 12.9889 0 11.9992 0C11.0101 0 10.1782 0.684422 9.95133 1.60444C7.64611 2.05481 5.57339 3.252 4.02183 5.02941C3.83498 4.97503 3.63778 4.94531 3.43364 4.94531C2.27053 4.94531 1.32427 5.89158 1.32427 7.05469C1.32427 7.65117 1.57355 8.19024 1.97287 8.57423C1.20966 10.7966 1.21008 13.1913 1.97414 15.4245C1.57402 15.8086 1.32422 16.3482 1.32422 16.9453C1.32422 18.1084 2.27048 19.0547 3.43359 19.0547C3.63712 19.0547 3.83377 19.0252 4.02009 18.9711C5.5627 20.7424 7.63584 21.9389 9.95091 22.3939C10.1773 23.3147 11.0095 24 11.9992 24C12.9883 24 13.8202 23.3156 14.0471 22.3956C16.3523 21.9452 18.425 20.748 19.9766 18.9706C20.1634 19.025 20.3606 19.0547 20.5648 19.0547C21.7279 19.0547 22.6741 18.1084 22.6741 16.9453C22.6741 16.3488 22.4249 15.8098 22.0255 15.4258ZM13.9058 20.9893C13.5672 20.2759 12.84 19.7812 11.9992 19.7812C11.1591 19.7812 10.4323 20.2751 10.0933 20.9876C8.18062 20.5834 6.46547 19.5938 5.16708 18.1453C5.4038 17.8043 5.54302 17.3909 5.54302 16.9453C5.54302 15.7822 4.59675 14.8359 3.43364 14.8359C3.37608 14.8359 3.31922 14.8389 3.26283 14.8434C2.65655 12.985 2.65589 11.005 3.261 9.15637C3.318 9.16102 3.37547 9.16401 3.43364 9.16401C4.59675 9.16401 5.54302 8.21775 5.54302 7.05464C5.54302 6.60975 5.40422 6.19683 5.16811 5.85619C6.47437 4.40175 8.18887 3.41105 10.0925 3.01069C10.4312 3.72412 11.1584 4.21875 11.9992 4.21875C12.8393 4.21875 13.5661 3.72492 13.9051 3.01237C15.8178 3.41658 17.5329 4.4062 18.8313 5.85473C18.5946 6.19566 18.4554 6.60909 18.4554 7.05469C18.4554 8.2178 19.4017 9.16406 20.5648 9.16406C20.6223 9.16406 20.6792 9.16111 20.7356 9.15656C21.3419 11.015 21.3425 12.995 20.7374 14.8436C20.6804 14.839 20.6229 14.836 20.5648 14.836C19.4017 14.836 18.4554 15.7823 18.4554 16.9454C18.4554 17.3903 18.5942 17.8032 18.8303 18.1438C17.524 19.5982 15.8095 20.5889 13.9058 20.9893Z"
+      fill="#FFE414"
+    />
   </svg>
 )

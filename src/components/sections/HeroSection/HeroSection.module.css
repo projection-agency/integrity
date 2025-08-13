@@ -57,19 +57,8 @@
     font-weight: 900;
     line-height: 110%; /* 5.72917rem */
     text-transform: uppercase;
-    background: linear-gradient(
-      99deg,
-      #fff -0.38%,
-      #b1b1b1 28.6%,
-      #fff 48.3%,
-      #b1b1b1 58.98%,
-      #b1b1b1 88.48%,
-      #fff 112.92%
-    );
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    max-width: 48.2vw;
+    color: rgba(255, 255, 255, 1);
+    max-width: 58.2vw;
   }
   p {
     color: var(--Light-garay-2, #b5b5b5);
@@ -99,7 +88,9 @@
       overflow: hidden;
       padding: 1.25vw 2vw;
       border-radius: 0.83vw;
-      transition: border-color 300ms ease-in-out;
+      transition:
+        border-color 300ms ease-in-out,
+        background-color 300ms ease-in-out;
       border: 0.05vw solid var(--White, #fff);
 
       span {
@@ -123,20 +114,8 @@
       }
     }
 
-    .firstButton:after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: 1;
-      width: 100%;
-      height: 100%;
-      transition: opacity 300ms ease-in-out;
-      opacity: 0;
-      background: linear-gradient(94deg, #ffe414 0.19%, #ffae00 100.19%);
-    }
-
     .firstButton:hover {
+      background-color: #fff;
       border-color: transparent;
       span {
         color: #222222;
@@ -147,13 +126,11 @@
       }
     }
 
-    .firstButton:hover::after {
-      opacity: 1;
-    }
-
     .lastButton {
       position: relative;
       overflow: hidden;
+      width: 12.1vw;
+      height: 3.68vw;
       padding: 1.25vw 2vw;
       border-radius: 0.83vw;
       background: #ffffff;
@@ -180,7 +157,7 @@
       left: 0;
       z-index: 1;
       width: 100%;
-      height: 100%;
+      height: 1000%;
       background: linear-gradient(94deg, #ffe414 0.19%, #ffae00 100.19%);
       transition: opacity 300ms ease-in-out;
       opacity: 1;
@@ -194,43 +171,67 @@
 
 .iconsAds {
   position: absolute;
-  bottom: 4.3vw;
+  bottom: 8.3vw;
   left: 50%;
-  transform: translate(-50%);
   width: 97vw;
 
+  .iconLine {
+    position: absolute;
+    bottom: -5.21vw;
+    transform: translate(-50%);
+  }
+
   .iconsWrapper {
-    img {
+    div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 0.05vw solid #fff;
+      background: linear-gradient(
+        141deg,
+        rgba(255, 255, 255, 0.12) 8.87%,
+        rgba(41, 41, 41, 0.12) 93.36%
+      );
+      backdrop-filter: blur(2.478468894958496px);
+      -webkit-backdrop-filter: blur(10px);
       position: absolute;
       z-index: 9;
     }
   }
 }
 
-.iconsAds img:first-child {
-  top: -3.48vw;
+.iconsAds div:nth-child(3) {
+  top: 3.52vw;
   left: 12.13vw;
-  transform: rotate(-7deg);
+  transform: rotate(12deg);
   width: 7.3vw;
+  height: 7.3vw;
+  border-radius: 1.25vw;
 }
 
-.iconsAds img:nth-child(2) {
-  bottom: 2.6vw;
+.iconsAds div:nth-child(2) {
+  bottom: 4.6vw;
   left: 35vw;
   transform: rotate(0deg);
   width: 4.16vw;
+  height: 4.16vw;
+  border-radius: 0.63vw;
 }
-.iconsAds img:nth-child(3) {
-  bottom: -1vw;
-  right: 25vw;
-  transform: rotate(0deg);
+.iconsAds div:first-child {
+  bottom: 6vw;
+  right: 31vw;
+  transform: rotate(-7deg);
   width: 8vw;
+  height: 8vw;
+  border-radius: 1.25vw;
 }
-.iconsAds img:nth-child(4) {
-  top: 4.3vw;
+.iconsAds div:nth-child(4) {
+  top: 2.3vw;
   right: 12vw;
   transform: rotate(0deg);
   width: 4.2vw;
+  height: 4.2vw;
+  border-radius: 0.63vw;
 }
 
 @media screen and (max-width: 1024px) {
@@ -260,6 +261,7 @@
 
         span {
           height: 12.8vw;
+          width: 24.93vw;
         }
       }
 
@@ -274,7 +276,10 @@
         flex-direction: column;
         gap: 3.2vw;
 
-        button {
+        a {
+          display: flex;
+          justify-content: center;
+          align-items: center;
           width: 63.47vw;
           height: 13.87vw;
           border-radius: 4.27vw;
@@ -289,6 +294,55 @@
             height: 5.33vw;
           }
         }
+      }
+    }
+
+    .iconsAds {
+      bottom: 20.67vw;
+
+      div {
+        border-radius: 2.13vw;
+      }
+    }
+
+    .iconsWrapper div:first-child {
+      transform: rotate(-7deg);
+      width: 14.93vw;
+      height: 14.93vw;
+      border-radius: 2.13vw;
+
+      svg {
+        width: 10.27vw;
+        height: 7.27vw;
+      }
+    }
+
+    .iconsWrapper div:nth-child(2) {
+      width: 9.33vw;
+      height: 9.33vw;
+
+      svg {
+        width: 4.27vw;
+        height: 4.27vw;
+      }
+    }
+
+    .iconsWrapper div:nth-child(3) {
+      transform: rotateZ(12deg);
+      width: 10.67vw;
+      height: 10.67vw;
+      svg {
+        width: 4.27vw;
+        height: 4.27vw;
+      }
+    }
+
+    .iconsWrapper div:nth-child(4) {
+      width: 9.33vw;
+      height: 9.33vw;
+      svg {
+        width: 4.27vw;
+        height: 4.27vw;
       }
     }
   }

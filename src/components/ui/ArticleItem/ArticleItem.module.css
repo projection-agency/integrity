@@ -2,19 +2,33 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
   position: relative;
+  height: 100%;
 }
 .insightCardImage {
   width: 100%;
-  height: 23.9vw;
+  height: 100%;
   object-fit: cover;
   border-radius: 1.66vw;
+  transition: transform 0.3s ease;
+}
+.insightCard:hover .insightCardImage {
+  transform: scale(1.05);
+}
+.insightCardImageBlock {
+  width: 100%;
+  height: 23.9vw;
+  overflow: hidden;
+  border-radius: 1.66vw;
+  position: relative;
 }
 .small {
   .insightCardImage {
     height: 20vw;
   }
+}
+.small .insightCardImageBlock {
+  height: 20vw;
 }
 .insightCardBadge {
   position: absolute;
@@ -46,7 +60,7 @@
   font-weight: 600;
   font-size: 0.83vw;
   line-height: 120%;
-  color: #686868;
+  color: #8c8686;
   gap: 0.4vw;
 
   img {
@@ -84,16 +98,41 @@
   padding: 0.83vw;
   gap: 0.41vw;
   border-radius: 0.62vw;
-  background: var(--Light-gray, #f9f9f9);
+  transition:
+    background-color 300ms ease-in-out,
+    border-color 300ms ease-in-out,
+    box-shadow 0.2s;
+  background: var(#f9f9f9);
+  border: 1px solid transparent;
   box-sizing: border-box;
   cursor: pointer;
   margin-top: auto;
-  transition: box-shadow 0.2s;
+  background: var(--light-gray);
   width: max-content;
+  border: 1px solid transparent;
 }
+
+.insightCard:hover {
+  .insightCardBtn {
+    background-color: transparent;
+    border-color: rgba(34, 34, 34, 1);
+  }
+}
+
 .insightCardBtn svg {
   width: 1vw;
   height: 1vw;
+}
+.insightCardImage {
+  transition: transform 0.3s ease;
+}
+
+.insightCard:hover .insightCardImage {
+  transform: scale(1.05);
+}
+.insightCardBtn:hover {
+  border: 1px solid var(--black);
+  background: var(--white);
 }
 .readMoreText {
   font-family: var(--font-family);
@@ -105,31 +144,39 @@
   margin-top: 0.1vw;
 }
 
-.insightCard:hover {
-  .insightCardBtn {
-    color: rgba(34, 34, 34, 1);
-    border-color: rgba(34, 34, 34, 1);
-  }
-}
-
 @media (max-width: 1024px) {
   .insightCardImage {
-    /* border-radius: 24px; */
-    width: 87.2vw;
+    width: 100%;
     height: 64vw;
+    background: var(--light-gray);
+    border-radius: 6.49vw;
+  }
+  .insightCard:hover .insightCardImage {
+    transform: none;
+  }
+  .insightCard:hover .insightCardBtn {
+    background-color: var(--light-gray);
+    border-color: transparent;
+  }
+  .insightCardBtn:hover {
+    border: 1px solid transparent;
     background: var(--light-gray);
   }
   .small {
     .insightCardImage {
       height: 64vw;
+      border-radius: 6.49vw;
     }
   }
+
   .insightCardBadge {
     border-radius: 10.67vw;
     padding: 2.13vw 6.4vw;
-    width: 23.47vw;
+    width: max-content;
     height: 8.8vw;
     background: var(--light-gray);
+    top: 3.2vw;
+    left: 3.2vw;
   }
   .insightCardText {
     font-family: var(--second-family);
@@ -149,14 +196,15 @@
     border: 0.5px solid var(--light-garay-2);
     border-radius: 10.67vw;
     padding: 1.6vw 3.2vw;
-    /* width: 139px; */
+    gap: 1.6vw;
     width: auto;
     height: 6.93vw;
     font-family: var(--second-family);
     font-weight: 600;
     font-size: 3.2vw;
     line-height: 120%;
-    color: var(--gray);
+    /* color: var(--gray); */
+    color: #8c8686;
 
     img {
       width: 3vw;
@@ -170,7 +218,6 @@
     line-height: 100%;
     text-transform: uppercase;
     color: var(--black);
-    /* margin-bottom: 0.83vw; */
 
     margin-bottom: 1.83vw;
   }
@@ -190,7 +237,6 @@
   .insightCardBtn {
     border-radius: 3.2vw;
     padding: 3.47vw 4.27vw;
-    /* width: auto; */
     gap: 2.13vw;
     height: 12.27vw;
     background: var(--light-gray);
@@ -216,5 +262,12 @@
     display: flex;
     width: 87.2vw;
     height: 48.27vw;
+  }
+  .insightCardImageBlock {
+    height: 64vw;
+  }
+
+  .small .insightCardImageBlock {
+    height: 64vw;
   }
 }

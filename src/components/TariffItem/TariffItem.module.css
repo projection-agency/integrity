@@ -1,6 +1,6 @@
 .cardContainer {
   display: flex;
-  height: auto;
+  height: 37.97vw;
   width: auto;
   perspective: 1000px;
 }
@@ -47,6 +47,7 @@
     border-radius: 0.63vw;
     background-color: #ffffff;
 
+    font-family: 'Inter';
     font-size: 0.73vw;
     font-style: normal;
     font-weight: 700;
@@ -99,11 +100,31 @@
     line-height: 1.4;
     text-align: center;
     letter-spacing: -0.32px;
-    color: rgba(181, 181, 181, 1);
+    color: rgba(249, 249, 249, 1);
+  }
+
+  .scrollbar {
+    height: 3.5vw !important;
+    width: 0.25vw;
+    border-radius: 1vw;
+    background-color: #ffffff;
+  }
+
+  .simpleBarCont {
+    height: 12.29vw;
+    margin-top: auto;
+    margin-bottom: 1.67vw;
+    border-radius: 1.25vw;
+
+    .services {
+      margin-bottom: 0;
+    }
   }
 
   .services {
+    overflow-y: scroll;
     padding: 1.04vw;
+    margin-top: auto;
     margin-bottom: 1.67vw;
     border-radius: 1.25vw;
     background-color: rgba(249, 249, 249, 0.1);
@@ -131,12 +152,11 @@
     }
 
     .servicesList {
-      max-height: 4.43vw;
       overflow-y: scroll;
       display: flex;
       flex-direction: column;
       gap: 0.63vw;
-      padding-left: 1.04vw;
+      padding: 0 1.04vw;
       list-style-image: linear-gradient(90deg, #ffffff 0%, #ffffff 100%);
       list-style: disc;
 
@@ -154,16 +174,59 @@
         color: #ffffff;
       }
     }
+
+    .channelsHead {
+      margin-top: 1.46vw;
+    }
+
+    .channelsList {
+      padding: 0 1.04vw;
+      margin-top: 0.83vw;
+      display: flex;
+      flex-direction: column;
+      gap: 0.83vw;
+
+      li {
+        display: flex;
+        align-items: center;
+        gap: 0.42vw;
+
+        span {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-shrink: 0;
+          width: 1.25vw;
+          height: 1.25vw;
+          background-color: rgba(255, 255, 255, 0.1);
+          border-radius: 50%;
+          svg {
+            width: 0.57vw;
+            height: 0.57vw;
+            path {
+              fill: white !important;
+            }
+          }
+        }
+
+        p {
+          color: rgba(249, 249, 249, 1);
+        }
+      }
+    }
   }
 
   .orderBtn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: relative;
     overflow: hidden;
     width: 100%;
     height: 3.49vw;
-    margin-top: auto;
     margin-bottom: 1.67vw;
     border-radius: 0.83vw;
+    flex-shrink: 0;
 
     background-color: #ffffff;
 
@@ -173,7 +236,7 @@
 
       display: flex;
       justify-content: center;
-      align-items: center;
+      align-items: end;
       gap: 0.52vw;
 
       font-size: 0.83vw;
@@ -260,8 +323,16 @@
     color: #ffffff;
   }
 
+  .descr {
+    color: rgba(34, 34, 34, 1);
+  }
+
   .slogan {
     color: rgba(34, 34, 34, 1);
+  }
+
+  .scrollbar {
+    background-color: #222222;
   }
 
   .services {
@@ -276,6 +347,24 @@
 
       li::marker {
         color: rgba(34, 34, 34, 1);
+      }
+    }
+
+    .channelsList {
+      li {
+        span {
+          background-color: rgba(0, 0, 0, 0.1);
+
+          svg {
+            path {
+              fill: rgba(34, 34, 34, 1) !important;
+            }
+          }
+        }
+
+        p {
+          color: rgba(34, 34, 34, 0.6);
+        }
       }
     }
   }
@@ -304,10 +393,12 @@
 
 .tariffPlan.back {
   height: 100%;
+  overflow: scroll;
   .services {
     background-color: transparent;
 
     h4 {
+      margin-left: 1.04vw;
       background: linear-gradient(
         141deg,
         rgba(255, 255, 255, 0.12) 8.87%,
@@ -315,6 +406,32 @@
       );
 
       color: rgba(255, 255, 255, 1);
+    }
+
+    .servicesList {
+      padding-left: 2.08vw;
+    }
+
+    .results {
+      margin-top: 1.04vw;
+      padding: 1.04vw;
+      border-radius: 1.25vw;
+      background-color: rgba(249, 249, 249, 0.1);
+
+      h4 {
+        margin-left: 0;
+        color: #222222 !important;
+        background-color: rgba(255, 228, 20, 1) !important;
+      }
+
+      ul {
+        padding-left: 1.04vw;
+        list-style: disc;
+
+        li {
+          color: #ffffff;
+        }
+      }
     }
   }
 }
@@ -325,10 +442,23 @@
       background-color: rgba(34, 34, 34, 1);
       color: #ffffff;
     }
+
+    .results {
+      background-color: rgba(249, 249, 249, 1);
+      ul {
+        li {
+          color: #222222;
+        }
+      }
+    }
   }
 }
 
 @media screen and (max-width: 1024px) {
+  .cardContainer {
+    height: auto;
+  }
+
   .card {
     width: 100%;
 
@@ -372,7 +502,23 @@
         letter-spacing: -0.28px;
       }
 
+      .simpleBarCont {
+        height: 49.07vw;
+        margin-bottom: 6.4vw;
+
+        .services {
+          margin-bottom: 0;
+        }
+      }
+
+      .scrollbar {
+        height: 5.5vw !important;
+        width: 1.25vw;
+      }
+
       .services {
+        height: auto;
+        margin-bottom: 6.4vw;
         padding: 5.33vw;
         border-radius: 6.4vw;
 
@@ -429,6 +575,33 @@
 
     .tariffPlan.back {
       overflow-y: scroll;
+
+      .services {
+        .channelsHead {
+          margin-top: 7.47vw;
+        }
+        .channelsList {
+          gap: 4.8vw;
+          li {
+            gap: 2.13vw;
+
+            span {
+              width: 6.4vw;
+              height: 6.4vw;
+
+              svg {
+                width: 3.2vw;
+                height: 2.2vw;
+              }
+            }
+          }
+        }
+        .results {
+          margin-top: 4.27vw;
+          border-radius: 5.33vw;
+          padding: 5.33vw;
+        }
+      }
     }
   }
 }

@@ -1,513 +1,149 @@
+'use client'
+
 import React from 'react'
 
-export const CanvasIcon = ({ className = '' }: { className?: string }) => (
-  <svg
-    className={className}
-    width="80"
-    height="80"
-    viewBox="0 0 80 80"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
+export const CanvasIcon = ({ className = '' }: { className?: string }) => {
+  const ref = React.useRef<HTMLDivElement>(null)
+
+  React.useEffect(() => {
+    if (ref.current) {
+      const lordIcon = document.createElement('lord-icon')
+      lordIcon.setAttribute('src', 'https://cdn.lordicon.com/rxpexbfb.json')
+      lordIcon.setAttribute('trigger', 'hover')
+      lordIcon.setAttribute('colors', 'primary:#222222,secondary:#ffe414')
+      lordIcon.style.width = '250px'
+      lordIcon.style.height = '250px'
+
+      ref.current.innerHTML = ''
+      ref.current.appendChild(lordIcon)
+    }
+  }, [])
+
+  return <div ref={ref} className={className} />
+}
+export const GlobeIcon = ({ className = '' }: { className?: string }) => {
+  const ref = React.useRef<HTMLDivElement>(null)
+
+  React.useEffect(() => {
+    if (ref.current) {
+      const lordIcon = document.createElement('lord-icon')
+      lordIcon.setAttribute('src', 'https://cdn.lordicon.com/xyzuxptc.json')
+      lordIcon.setAttribute('trigger', 'hover')
+      lordIcon.setAttribute('colors', 'primary:#222222,secondary:#ffe414')
+      lordIcon.style.width = '250px'
+      lordIcon.style.height = '250px'
+
+      ref.current.innerHTML = ''
+      ref.current.appendChild(lordIcon)
+    }
+  }, [])
+
+  return <div ref={ref} className={className} />
+}
+
+export const GlobeIcon04 = ({ className = '' }: { className?: string }) => (
+  <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
-      d="M11.1621 40.3722C20.9296 15.566 30.697 15.566 40.4644 40.3722C50.2319 65.1784 59.9993 65.1784 69.7668 40.3722"
-      stroke="url(#paint0_linear_3035_9445)"
-      strokeWidth="2"
-      strokeLinecap="round"
+      d="M12.0005 19.0867C15.6333 19.0867 18.5887 16.1312 18.5887 12.4984C18.5887 8.86562 15.6333 5.91016 12.0005 5.91016C8.367 5.91016 5.41092 8.86567 5.41092 12.4984C5.41092 16.1312 8.36704 19.0867 12.0005 19.0867ZM11.2974 8.80117V8.46044C11.2974 8.27396 11.3715 8.09511 11.5033 7.96325C11.6352 7.83139 11.814 7.75731 12.0005 7.75731C12.187 7.75731 12.3658 7.83139 12.4977 7.96325C12.6296 8.09511 12.7036 8.27396 12.7036 8.46044V8.80262C13.3607 8.98464 13.9202 9.41514 14.2194 9.99986C14.3044 10.1659 14.3199 10.3588 14.2626 10.5363C14.2053 10.7137 14.0798 10.8612 13.9138 10.9461C13.7478 11.031 13.5548 11.0466 13.3774 10.9893C13.1999 10.9319 13.0525 10.8065 12.9675 10.6405C12.8035 10.3201 12.4234 10.1131 11.9989 10.1131C11.4333 10.1131 10.9554 10.4983 10.9554 10.9542C10.9554 11.4758 11.1221 11.596 12.1449 11.8111C12.6387 11.915 13.1492 12.0224 13.5883 12.3118C14.1601 12.6889 14.4503 13.2712 14.4503 14.0427C14.4503 15.0574 13.7129 15.9168 12.7036 16.195V16.5365C12.7036 16.723 12.6296 16.9018 12.4977 17.0337C12.3658 17.1655 12.187 17.2396 12.0005 17.2396C11.814 17.2396 11.6352 17.1655 11.5033 17.0337C11.3715 16.9018 11.2974 16.723 11.2974 16.5365V16.195C10.6398 16.0134 10.0797 15.5825 9.78009 14.9971C9.69561 14.8311 9.68042 14.6384 9.73785 14.4613C9.79528 14.2841 9.92065 14.137 10.0864 14.0521C10.2522 13.9673 10.4449 13.9517 10.6222 14.0088C10.7994 14.0659 10.9468 14.1909 11.032 14.3565C11.196 14.6769 11.5755 14.8839 11.9989 14.8839C12.5752 14.8839 13.0442 14.5066 13.0442 14.0427C13.0442 13.5221 12.8776 13.4022 11.8556 13.1872C11.3617 13.0833 10.8509 12.9759 10.4118 12.6862C9.83962 12.3089 9.54933 11.7262 9.54933 10.9542C9.54923 9.93859 10.2876 9.07862 11.2975 8.80117H11.2974ZM21.045 16.9019C20.0541 18.9377 18.4054 20.5796 16.3655 21.5621C14.3256 22.5446 12.014 22.8101 9.80446 22.3158C7.59496 21.8214 5.61687 20.596 4.19023 18.8379C2.76359 17.0798 1.97183 14.8917 1.94306 12.6278L1.57514 12.9956C1.44291 13.1257 1.26464 13.1983 1.07915 13.1975C0.893665 13.1968 0.715992 13.1227 0.584835 12.9916C0.453678 12.8604 0.379663 12.6827 0.378912 12.4973C0.378161 12.3118 0.450735 12.1335 0.580826 12.0013L2.14739 10.4346C2.27925 10.3028 2.45809 10.2287 2.64457 10.2287C2.83105 10.2287 3.00989 10.3028 3.14175 10.4346L4.7084 12.0013C4.83931 12.1333 4.91258 12.3119 4.91217 12.4978C4.91176 12.6838 4.83772 12.862 4.70623 12.9935C4.57475 13.125 4.39653 13.199 4.21059 13.1994C4.02464 13.1998 3.8461 13.1265 3.71404 12.9956L3.3494 12.631C3.42056 17.3412 7.27284 21.1512 11.9992 21.1512C15.3357 21.1512 18.3175 19.2868 19.781 16.2856C19.8212 16.2021 19.8775 16.1275 19.9466 16.0659C20.0157 16.0043 20.0964 15.9569 20.1839 15.9266C20.2713 15.8962 20.364 15.8834 20.4564 15.889C20.5489 15.8945 20.6393 15.9182 20.7225 15.9588C20.8058 15.9994 20.8802 16.056 20.9415 16.1255C21.0028 16.1949 21.0497 16.2757 21.0797 16.3634C21.1096 16.451 21.122 16.5437 21.116 16.6361C21.1101 16.7285 21.0859 16.8188 21.045 16.9019ZM23.4189 12.9956L21.8523 14.5623C21.7204 14.6941 21.5416 14.7682 21.3551 14.7682C21.1686 14.7682 20.9898 14.6941 20.8579 14.5623L19.2913 12.9956C19.2255 12.9305 19.1733 12.8529 19.1376 12.7675C19.1018 12.6821 19.0833 12.5904 19.0831 12.4978C19.0829 12.4052 19.101 12.3135 19.1364 12.2279C19.1717 12.1423 19.2236 12.0646 19.2891 11.9991C19.3546 11.9336 19.4323 11.8817 19.5179 11.8464C19.6035 11.811 19.6952 11.793 19.7878 11.7932C19.8804 11.7934 19.972 11.8119 20.0575 11.8476C20.1429 11.8833 20.2204 11.9355 20.2856 12.0013L20.6503 12.3659C20.5791 7.65644 16.726 3.847 11.9992 3.847C8.66306 3.847 5.68176 5.71089 4.2187 8.71131C4.13645 8.87805 3.99151 9.00543 3.81559 9.06558C3.63966 9.12572 3.44708 9.11375 3.27996 9.03226C3.11285 8.95078 2.98481 8.80642 2.92385 8.63077C2.8629 8.45512 2.874 8.26249 2.95472 8.095C3.94579 6.05947 5.59456 4.4178 7.63436 3.43553C9.67415 2.45326 11.9857 2.18784 14.195 2.6822C16.4044 3.17656 18.3823 4.40179 19.809 6.1597C21.2356 7.91761 22.0275 10.1054 22.0566 12.3692L22.4246 12.0013C22.5568 11.8712 22.7351 11.7986 22.9206 11.7994C23.1061 11.8001 23.2837 11.8742 23.4149 12.0053C23.546 12.1365 23.6201 12.3142 23.6208 12.4997C23.6216 12.6851 23.549 12.8634 23.4189 12.9956Z"
+      fill="#FFE414"
     />
-    <path
-      d="M11.1621 6.51172V68.8373H73.4877"
-      stroke="#222222"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <path
-      d="M5.58203 12.0931L11.1634 6.51172L16.7448 12.0931M67.9076 63.2559L73.489 68.8373L67.9076 74.4187"
-      stroke="#222222"
-      strokeWidth="2"
-      strokeMiterlimit="10"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <defs>
-      <linearGradient
-        id="paint0_linear_3035_9445"
-        x1="11.2812"
-        y1="21.7676"
-        x2="73.3854"
-        y2="29.0233"
-        gradientUnits="userSpaceOnUse"
-      >
-        <stop stopColor="#FFE414" />
-        <stop offset="1" stopColor="#FFAE00" />
-      </linearGradient>
-    </defs>
   </svg>
 )
-export const GlobeIcon = ({ className = '' }: { className?: string }) => (
-  <svg
-    className={className}
-    width="80"
-    height="80"
-    viewBox="0 0 80 80"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
+
+export const GlobeIcon05 = ({ className = '' }: { className?: string }) => (
+  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
-      d="M40.0024 8.63184C26.3777 8.63184 15.0586 17.3281 10.1326 30.1893C9.13692 33.239 8.56055 36.62 8.56055 40.0007C8.56055 57.306 22.6569 71.3697 40.0024 71.3697C43.4435 71.3697 46.7449 70.8121 49.8366 69.8012M40.0549 40.9244L40.0024 40.8373L10.6567 30.3983"
-      stroke="#222222"
-      strokeWidth="2"
-      strokeMiterlimit="18"
-      strokeLinecap="round"
-      strokeLinejoin="round"
+      d="M19.05 9.54226H17.7883C17.3559 6.25349 14.732 3.63192 11.4422 3.20289V1.94999C11.4422 1.42532 11.0169 1 10.4922 1C9.96759 1 9.54226 1.42532 9.54226 1.94999V3.20289C6.25247 3.63192 3.62861 6.25352 3.19619 9.54226H1.94999C1.42532 9.54226 1 9.96758 1 10.4922C1 11.0169 1.42532 11.4422 1.94999 11.4422H3.19421C3.62048 14.7382 6.24734 17.3673 9.54226 17.797V19.0499C9.54226 19.5746 9.96758 19.9999 10.4922 19.9999C11.0169 19.9999 11.4422 19.5746 11.4422 19.0499V17.797C14.7372 17.3673 17.364 14.7382 17.7903 11.4422H19.05C19.5747 11.4422 20 11.0169 20 10.4922C20 9.96759 19.5747 9.54226 19.05 9.54226ZM10.4923 16.0206C7.45591 16.0206 4.97161 13.5363 4.97161 10.5C4.97161 7.46357 7.45591 4.9793 10.4923 4.9793C13.5286 4.9793 16.0129 7.46357 16.0129 10.5C16.0129 13.5363 13.5286 16.0206 10.4923 16.0206Z"
+      fill="#FFE414"
     />
     <path
-      d="M60.1409 63.7881L40.0181 40.8016L10.1309 30.1885M68.0886 54.1159C69.9576 50.4212 71.1106 46.3258 71.39 41.9691"
-      stroke="#222222"
-      strokeWidth="2"
-      strokeMiterlimit="18"
-      strokeLinecap="round"
-      strokeLinejoin="round"
+      d="M9.66536 13.834V7.16732C9.66536 6.70708 10.0385 6.33398 10.4987 6.33398C10.9589 6.33398 11.332 6.70708 11.332 7.16732V13.834C11.332 14.2942 10.9589 14.6673 10.4987 14.6673C10.0385 14.6673 9.66536 14.2942 9.66536 13.834Z"
+      fill="#FFE414"
     />
     <path
-      d="M68.1052 54.0635C64.6466 61.6616 57.5198 67.5172 49.834 69.8001"
-      stroke="#222222"
-      strokeWidth="2"
-      strokeMiterlimit="18"
-      strokeLinecap="round"
-      strokeLinejoin="round"
+      d="M13.832 11.334H7.16536C6.70513 11.334 6.33203 10.9609 6.33203 10.5007C6.33203 10.0404 6.70513 9.66732 7.16536 9.66732H13.832C14.2923 9.66732 14.6654 10.0404 14.6654 10.5007C14.6654 10.9609 14.2923 11.334 13.832 11.334Z"
+      fill="#FFE414"
     />
-    <path
-      d="M60.3848 64.0676L40.0176 40.8022L40.07 40.7324"
-      stroke="#222222"
-      strokeWidth="2"
-      strokeMiterlimit="18"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <path
-      d="M71.4419 40.5932V40.0007C71.4419 22.6955 57.4503 8.63184 40.0875 8.63184L40.0176 40.8024L71.1625 40.785"
-      stroke="url(#paint0_linear_3035_9453)"
-      strokeWidth="2"
-      strokeMiterlimit="18"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <defs>
-      <linearGradient
-        id="paint0_linear_3035_9453"
-        x1="40.0814"
-        y1="8.63183"
-        x2="73.6605"
-        y2="11.0649"
-        gradientUnits="userSpaceOnUse"
-      >
-        <stop stopColor="#FFE414" />
-        <stop offset="1" stopColor="#FFAE00" />
-      </linearGradient>
-    </defs>
   </svg>
 )
-export const ChartIcon = ({ className = '' }: { className?: string }) => (
-  <svg
-    className={className}
-    width="80"
-    height="80"
-    viewBox="0 0 80 80"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M33.3203 63.2578H46.1947C51.404 63.2578 55.6087 59.0444 55.6087 53.8657V23.2764M33.3203 39.2578H55.6087"
-      stroke="url(#paint0_linear_3035_9461)"
-      strokeWidth="2"
-      strokeMiterlimit="10"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <path
-      d="M62.4186 23.2762H48.8C47.5721 23.2762 46.5675 22.2739 46.5675 21.0489V12.5291C46.5675 11.3041 47.5721 10.3018 48.8 10.3018H62.4186C63.6466 10.3018 64.6512 11.3041 64.6512 12.5291V21.0489C64.6512 22.2739 63.6466 23.2762 62.4186 23.2762ZM31.107 69.7356H17.4884C16.2605 69.7356 15.2559 68.7333 15.2559 67.5083V58.9885C15.2559 57.7635 16.2605 56.7611 17.4884 56.7611H31.107C32.3349 56.7611 33.3396 57.7635 33.3396 58.9885V67.5083C33.3396 68.7333 32.3349 69.7356 31.107 69.7356ZM31.107 45.7356H17.4884C16.2605 45.7356 15.2559 44.7333 15.2559 43.5083V34.9885C15.2559 33.7635 16.2605 32.7612 17.4884 32.7612H31.107C32.3349 32.7612 33.3396 33.7635 33.3396 34.9885V43.5083C33.3396 44.7333 32.3349 45.7356 31.107 45.7356Z"
-      stroke="#222222"
-      strokeWidth="2"
-      strokeMiterlimit="10"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <defs>
-      <linearGradient
-        id="paint0_linear_3035_9461"
-        x1="33.3656"
-        y1="23.2764"
-        x2="57.2664"
-        y2="24.2647"
-        gradientUnits="userSpaceOnUse"
-      >
-        <stop stopColor="#FFE414" />
-        <stop offset="1" stopColor="#FFAE00" />
-      </linearGradient>
-    </defs>
-  </svg>
-)
-export const ChartBarIcon = ({ className = '' }: { className?: string }) => (
-  <svg
-    className={className}
-    width="62"
-    height="65"
-    viewBox="0 0 62 65"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M50.8597 38.96V35.4884C50.8597 34.666 50.1937 34 49.3714 34H37.4532C36.6309 34 35.9648 34.666 35.9648 35.4884V38.96"
-      stroke="url(#paint0_linear_5045_803)"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <path
-      d="M56.7049 38.96H30.1282C27.8675 38.96 26.0352 40.7925 26.0352 43.053V59.6967C26.0352 61.9572 27.8675 63.7897 30.1282 63.7897H56.7049C58.9654 63.7897 60.798 61.9572 60.798 59.6967V43.053C60.798 40.7925 58.9654 38.96 56.7049 38.96Z"
-      stroke="#222222"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <path d="M47.1408 53.8604V56.3441H39.6934V53.8604" fill="url(#paint1_linear_5045_803)" />
-    <path
-      d="M47.1408 53.8604V56.3441H39.6934V53.8604"
-      stroke="url(#paint2_linear_5045_803)"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <path
-      d="M60.798 53.8604H26.0352"
-      stroke="#222222"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <path
-      d="M18.0123 60.1745H18.0104L13.9695 57.7931C6.34156 53.2982 1.53226 45.2666 1.12109 36.4814"
-      stroke="url(#paint3_linear_5045_803)"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <path
-      d="M16.8791 55.7496L18.0121 60.1738L13.5879 61.3087M43.7648 7.82031L47.8058 10.2036C55.4355 14.6985 60.2448 22.7319 60.6541 31.5189"
-      stroke="url(#paint4_linear_5045_803)"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <path
-      d="M44.8987 12.2457L43.7656 7.82154L48.1898 6.68851M26.0257 6.68851V3.21689C26.0257 2.39456 25.3597 1.72852 24.5374 1.72852H12.6192C11.7969 1.72852 11.1309 2.39456 11.1309 3.21689V6.68851"
-      stroke="url(#paint5_linear_5045_803)"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <path
-      d="M31.8709 6.68848H5.2942C3.03373 6.68848 1.20117 8.52103 1.20117 10.7815V27.4252C1.20117 29.6857 3.03373 31.5182 5.2942 31.5182H31.8709C34.1314 31.5182 35.964 29.6857 35.964 27.4252V10.7815C35.964 8.52103 34.1314 6.68848 31.8709 6.68848Z"
-      stroke="#222222"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <path d="M22.3049 21.5869V24.0706H14.8574V21.5869" fill="url(#paint6_linear_5045_803)" />
-    <path
-      d="M22.3049 21.5869V24.0706H14.8574V21.5869"
-      stroke="url(#paint7_linear_5045_803)"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <path
-      d="M35.964 21.5869H1.20117"
-      stroke="#222222"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <defs>
-      <linearGradient
-        id="paint0_linear_5045_803"
-        x1="35.9951"
-        y1="34"
-        x2="51.2385"
-        y2="37.3956"
-        gradientUnits="userSpaceOnUse"
-      >
-        <stop stopColor="#FFE414" />
-        <stop offset="1" stopColor="#FFAE00" />
-      </linearGradient>
-      <linearGradient
-        id="paint1_linear_5045_803"
-        x1="39.7085"
-        y1="53.8604"
-        x2="47.3313"
-        y2="55.5558"
-        gradientUnits="userSpaceOnUse"
-      >
-        <stop stopColor="#FFE414" />
-        <stop offset="1" stopColor="#FFAE00" />
-      </linearGradient>
-      <linearGradient
-        id="paint2_linear_5045_803"
-        x1="39.7085"
-        y1="53.8604"
-        x2="47.3313"
-        y2="55.5558"
-        gradientUnits="userSpaceOnUse"
-      >
-        <stop stopColor="#FFE414" />
-        <stop offset="1" stopColor="#FFAE00" />
-      </linearGradient>
-      <linearGradient
-        id="paint3_linear_5045_803"
-        x1="1.15543"
-        y1="36.4814"
-        x2="19.249"
-        y2="37.4383"
-        gradientUnits="userSpaceOnUse"
-      >
-        <stop stopColor="#FFE414" />
-        <stop offset="1" stopColor="#FFAE00" />
-      </linearGradient>
-      <linearGradient
-        id="paint4_linear_5045_803"
-        x1="13.6836"
-        y1="7.82031"
-        x2="64.0266"
-        y2="11.1063"
-        gradientUnits="userSpaceOnUse"
-      >
-        <stop stopColor="#FFE414" />
-        <stop offset="1" stopColor="#FFAE00" />
-      </linearGradient>
-      <linearGradient
-        id="paint5_linear_5045_803"
-        x1="11.2062"
-        y1="1.72852"
-        x2="48.4684"
-        y2="11.4681"
-        gradientUnits="userSpaceOnUse"
-      >
-        <stop stopColor="#FFE414" />
-        <stop offset="1" stopColor="#FFAE00" />
-      </linearGradient>
-      <linearGradient
-        id="paint6_linear_5045_803"
-        x1="14.8726"
-        y1="21.5869"
-        x2="22.4953"
-        y2="23.2824"
-        gradientUnits="userSpaceOnUse"
-      >
-        <stop stopColor="#FFE414" />
-        <stop offset="1" stopColor="#FFAE00" />
-      </linearGradient>
-      <linearGradient
-        id="paint7_linear_5045_803"
-        x1="14.8726"
-        y1="21.5869"
-        x2="22.4953"
-        y2="23.2824"
-        gradientUnits="userSpaceOnUse"
-      >
-        <stop stopColor="#FFE414" />
-        <stop offset="1" stopColor="#FFAE00" />
-      </linearGradient>
-    </defs>
-  </svg>
-)
-export const DocumentIcon = ({ className = '' }: { className?: string }) => (
-  <svg
-    className={className}
-    width="80"
-    height="80"
-    viewBox="0 0 80 80"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <mask
-      id="mask0_3035_9475"
-      style={{ maskType: 'alpha' }}
-      maskUnits="userSpaceOnUse"
-      x="4"
-      y="6"
-      width="72"
-      height="71"
-    >
-      <path
-        d="M75.9421 6.06641H4.26562V76.7133H75.9421V69.7678H68.5986V71.0478C65.344 74.3023 53.4675 74.3023 50.2128 71.0478V63.4917H50.2146L42.7899 60.2562L59.3866 53.0236L75.9421 60.2299V6.06641Z"
-        fill="#D9D9D9"
-      />
-      <path d="M75.9427 60.2822L73.3848 61.3957H75.9427V60.2822Z" fill="#D9D9D9" />
-    </mask>
-    <g mask="url(#mask0_3035_9475)">
-      <path
-        d="M7.44336 43.7217H72.5596M32.1875 43.7217V51.1635H48.9317V43.7217"
-        stroke="#222222"
-        strokeWidth="2"
-        strokeMiterlimit="15.6"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M53.955 18.6051V13.0237C53.955 10.9686 52.2891 9.30273 50.2341 9.30273H29.7689C27.7139 9.30273 26.048 10.9686 26.048 13.0237V18.6051M72.5596 61.3958C72.5596 64.4782 70.0609 66.9772 66.9783 66.9772H13.0248C9.94234 66.9772 7.44336 64.4784 7.44336 61.3958V24.1865C7.44336 21.1039 9.94234 18.6051 13.0248 18.6051H66.9783C70.0609 18.6051 72.5596 21.1039 72.5596 24.1865V61.3958Z"
-        stroke="#222222"
-        strokeWidth="2"
-        strokeMiterlimit="15.6"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </g>
-    <path
-      d="M76.002 60.2549V69.3905"
-      stroke="url(#paint0_linear_3035_9475)"
-      strokeWidth="2.23256"
-      strokeMiterlimit="10"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <path
-      d="M76.0419 69.3916H75.9648"
-      stroke="url(#paint1_linear_3035_9475)"
-      strokeWidth="4.65116"
-      strokeMiterlimit="10"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <path
-      d="M68.5987 63.4717V71.0468C65.344 74.3013 53.4676 74.3013 50.2129 71.0468V63.4907"
-      stroke="url(#paint2_linear_3035_9475)"
-      strokeWidth="2.23256"
-      strokeMiterlimit="10"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <path
-      d="M59.3877 67.4884L76.0035 60.256L59.3877 53.0234L42.791 60.256L59.3877 67.4884Z"
-      stroke="url(#paint3_linear_3035_9475)"
-      strokeWidth="2.23256"
-      strokeMiterlimit="10"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <defs>
-      <linearGradient
-        id="paint0_linear_3035_9475"
-        x1="76.004"
-        y1="60.2549"
-        x2="77.0781"
-        y2="60.2636"
-        gradientUnits="userSpaceOnUse"
-      >
-        <stop stopColor="#FFE414" />
-        <stop offset="1" stopColor="#FFAE00" />
-      </linearGradient>
-      <linearGradient
-        id="paint1_linear_3035_9475"
-        x1="75.965"
-        y1="69.3916"
-        x2="76.0478"
-        y2="69.3921"
-        gradientUnits="userSpaceOnUse"
-      >
-        <stop stopColor="#FFE414" />
-        <stop offset="1" stopColor="#FFAE00" />
-      </linearGradient>
-      <linearGradient
-        id="paint2_linear_3035_9475"
-        x1="50.2503"
-        y1="63.4717"
-        x2="69.6404"
-        y2="66.112"
-        gradientUnits="userSpaceOnUse"
-      >
-        <stop stopColor="#FFE414" />
-        <stop offset="1" stopColor="#FFAE00" />
-      </linearGradient>
-      <linearGradient
-        id="paint3_linear_3035_9475"
-        x1="42.8585"
-        y1="53.0234"
-        x2="77.5289"
-        y2="58.9285"
-        gradientUnits="userSpaceOnUse"
-      >
-        <stop stopColor="#FFE414" />
-        <stop offset="1" stopColor="#FFAE00" />
-      </linearGradient>
-    </defs>
-  </svg>
-)
-export const AnalyticsIcon = ({ className = '' }: { className?: string }) => (
-  <svg
-    className={className}
-    width="80"
-    height="80"
-    viewBox="0 0 80 80"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M10.2344 69.6992H69.7693"
-      stroke="#222222"
-      strokeWidth="2"
-      strokeMiterlimit="14.8"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <path
-      d="M27.9061 69.6987V51.1372H14.8828V69.6987M46.5107 69.6987V34.4319H33.4875V69.6987M65.1154 69.6987V17.7266H52.0921V69.6987"
-      stroke="#222222"
-      strokeWidth="2"
-      strokeLinejoin="round"
-    />
-    <path
-      d="M14.8828 39.9992L46.5107 10.3008"
-      stroke="url(#paint0_linear_3035_9486)"
-      strokeWidth="2"
-      strokeMiterlimit="14.8"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <path
-      d="M35.3496 10.3008H46.5124V21.4377"
-      stroke="url(#paint1_linear_3035_9486)"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <defs>
-      <linearGradient
-        id="paint0_linear_3035_9486"
-        x1="14.9471"
-        y1="10.3008"
-        x2="48.7104"
-        y2="12.968"
-        gradientUnits="userSpaceOnUse"
-      >
-        <stop stopColor="#FFE414" />
-        <stop offset="1" stopColor="#FFAE00" />
-      </linearGradient>
-      <linearGradient
-        id="paint1_linear_3035_9486"
-        x1="35.3723"
-        y1="10.3008"
-        x2="47.2972"
-        y2="11.1874"
-        gradientUnits="userSpaceOnUse"
-      >
-        <stop stopColor="#FFE414" />
-        <stop offset="1" stopColor="#FFAE00" />
-      </linearGradient>
-    </defs>
-  </svg>
-)
+export const ChartIcon = ({ className = '' }: { className?: string }) => {
+  const ref = React.useRef<HTMLDivElement>(null)
+
+  React.useEffect(() => {
+    if (ref.current) {
+      const lordIcon = document.createElement('lord-icon')
+      lordIcon.setAttribute('src', 'https://cdn.lordicon.com/ontvaefu.json')
+      lordIcon.setAttribute('trigger', 'hover')
+      lordIcon.setAttribute('colors', 'primary:#222222,secondary:#ffe414')
+      lordIcon.style.width = '250px'
+      lordIcon.style.height = '250px'
+
+      ref.current.innerHTML = ''
+      ref.current.appendChild(lordIcon)
+    }
+  }, [])
+
+  return <div ref={ref} className={className} />
+}
+
+export const ChartBarIcon = ({ className = '' }: { className?: string }) => {
+  const ref = React.useRef<HTMLDivElement>(null)
+
+  React.useEffect(() => {
+    if (ref.current) {
+      const lordIcon = document.createElement('lord-icon')
+      lordIcon.setAttribute('src', 'https://cdn.lordicon.com/mqgoyiby.json')
+      lordIcon.setAttribute('trigger', 'hover')
+      lordIcon.setAttribute('colors', 'primary:#222222,secondary:#ffe414')
+      lordIcon.style.width = '250px'
+      lordIcon.style.height = '250px'
+
+      ref.current.innerHTML = ''
+      ref.current.appendChild(lordIcon)
+    }
+  }, [])
+
+  return <div ref={ref} className={className} />
+}
+
+export const DocumentIcon = ({ className = '' }: { className?: string }) => {
+  const ref = React.useRef<HTMLDivElement>(null)
+
+  React.useEffect(() => {
+    if (ref.current) {
+      const lordIcon = document.createElement('lord-icon')
+      lordIcon.setAttribute('src', 'https://cdn.lordicon.com/gxfwmcto.json')
+      lordIcon.setAttribute('trigger', 'hover')
+      lordIcon.setAttribute('colors', 'primary:#222222,secondary:#ffe414')
+      lordIcon.style.width = '250px'
+      lordIcon.style.height = '250px'
+
+      ref.current.innerHTML = ''
+      ref.current.appendChild(lordIcon)
+    }
+  }, [])
+
+  return <div ref={ref} className={className} />
+}
+export const AnalyticsIcon = ({ className = '' }: { className?: string }) => {
+  const ref = React.useRef<HTMLDivElement>(null)
+
+  React.useEffect(() => {
+    if (ref.current) {
+      const lordIcon = document.createElement('lord-icon')
+      lordIcon.setAttribute('src', 'https://cdn.lordicon.com/rfifkiwm.json')
+      lordIcon.setAttribute('trigger', 'hover')
+      lordIcon.setAttribute('colors', 'primary:#222222,secondary:#ffe414')
+      lordIcon.style.width = '250px'
+      lordIcon.style.height = '250px'
+
+      ref.current.innerHTML = ''
+      ref.current.appendChild(lordIcon)
+    }
+  }, [])
+
+  return <div ref={ref} className={className} />
+}
 
 // Тут треба вставити повний SVG-код з твоїх файлів для кожної іконки за тією ж структурою.
 // Всі іконки експортовані з одного файлу.
@@ -1362,7 +998,7 @@ export const Globe2Icon = ({ className = '' }: { className?: string }) => (
   </svg>
 )
 
-export const Chart2Icon = ({ className = '' }: { className?: string }) => (
+export const Chart03 = ({ className = '' }: { className?: string }) => (
   <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
       d="M16 0.999072C7.72165 0.999072 1 7.72072 1 15.9991C1 24.2774 7.72165 30.9991 16 30.9991C24.2784 30.9991 31 24.2774 31 15.9991C31 13.6982 30.4794 11.5178 29.5518 9.56835L28.0625 11.0576C27.7813 11.3404 27.3978 11.4999 26.999 11.5H26.585C27.1744 12.8825 27.501 14.4028 27.501 15.9991C27.501 22.3444 22.3454 27.5 16 27.5C9.65465 27.5 4.49902 22.3444 4.49902 15.9991C4.49902 9.65372 9.65465 4.49803 16 4.49803C17.5966 4.49803 19.1172 4.82445 20.5 5.41408V5C20.5001 4.60118 20.6596 4.21776 20.9424 3.93654L22.4307 2.44731C20.4812 1.5197 18.3009 0.999072 16 0.999072ZM25.4863 0.999072C25.3584 1.00289 25.2367 1.05559 25.1465 1.14642L21.6475 4.64544C21.6007 4.6919 21.5637 4.74717 21.5384 4.80801C21.513 4.86885 21.5 4.93405 21.5 4.99994V8.29394L14.8975 14.8965C14.2922 15.5017 14.2922 16.4992 14.8975 17.1045C15.5027 17.7097 16.4973 17.7068 17.1025 17.1006L23.7041 10.4991H26.999C27.0649 10.4991 27.1301 10.4861 27.191 10.4608C27.2518 10.4355 27.3071 10.3985 27.3535 10.3518L30.8525 6.85268C30.9222 6.78264 30.9695 6.69358 30.9885 6.59668C31.0076 6.49978 30.9975 6.39939 30.9596 6.30821C30.9217 6.21702 30.8576 6.1391 30.7755 6.08427C30.6933 6.02945 30.5968 6.00017 30.4981 6.00013H28.2031L28.6016 5.60174C29.2068 4.99648 29.2097 4.00188 28.6046 3.39663C28.302 3.094 27.9008 2.94253 27.5001 2.94253C27.0994 2.94253 26.6992 3.09408 26.3966 3.39663L25.9991 3.7941V1.49625C25.9989 1.42968 25.9853 1.36381 25.9593 1.30254C25.9332 1.24126 25.8952 1.18583 25.8475 1.13944C25.7997 1.09305 25.7432 1.05665 25.6812 1.03241C25.6192 1.00816 25.5529 0.997388 25.4863 0.999072ZM16 7.9971C11.5876 7.9971 7.99805 11.5867 7.99805 15.9991C7.99805 20.4114 11.5876 23.9971 16 23.9971C20.4124 23.9971 23.998 20.4114 23.998 15.9991C23.998 14.7261 23.6928 13.5256 23.1621 12.4561L20.4229 15.1953C20.4703 15.4566 20.499 15.7244 20.499 15.9991C20.499 18.4784 18.4794 20.498 16 20.498C13.5206 20.498 11.501 18.4784 11.501 15.9991C11.501 13.5197 13.5206 11.5 16 11.5C16.2747 11.5 16.5425 11.5287 16.8037 11.5762L19.5439 8.83593C18.4743 8.30419 17.2738 7.9971 16 7.9971Z"
@@ -1371,7 +1007,7 @@ export const Chart2Icon = ({ className = '' }: { className?: string }) => (
   </svg>
 )
 
-export const Analytics2Icon = ({ className = '' }: { className?: string }) => (
+export const Analytics02 = ({ className = '' }: { className?: string }) => (
   <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
     <g clip-path="url(#clip0_851_3125)">
       <path
@@ -1387,7 +1023,7 @@ export const Analytics2Icon = ({ className = '' }: { className?: string }) => (
   </svg>
 )
 
-export const Group6Icon = ({ className = '' }: { className?: string }) => (
+export const Group01 = ({ className = '' }: { className?: string }) => (
   <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
       d="M19.1473 14.1889L18.2089 13.6471C18.292 13.243 18.3315 12.8696 18.3315 12.5C18.3315 12.1304 18.292 11.757 18.2089 11.3529L19.1473 10.8111C19.3088 10.7179 19.4267 10.5643 19.4749 10.3842C19.5232 10.2041 19.4979 10.0121 19.4047 9.85063L17.9984 7.41495C17.8042 7.07862 17.3743 6.96341 17.038 7.15761L16.1081 7.69447C15.5253 7.20003 14.8488 6.81364 14.1128 6.5548V5.46875C14.1128 5.08044 13.798 4.76562 13.4096 4.76562H10.5971C10.2088 4.76562 9.89402 5.08044 9.89402 5.46875V6.5548C9.15799 6.81364 8.48149 7.20008 7.89869 7.69447L6.96883 7.15761C6.6325 6.96336 6.20247 7.07867 6.00836 7.41495L4.60211 9.85063C4.50888 10.0121 4.48361 10.2041 4.53185 10.3842C4.58013 10.5643 4.69797 10.7179 4.85945 10.8111L5.79785 11.3529C5.71474 11.757 5.67522 12.1304 5.67522 12.5C5.67522 12.8696 5.71474 13.243 5.79775 13.6471L4.85936 14.1889C4.69788 14.2821 4.58003 14.4358 4.53175 14.6158C4.48352 14.7959 4.50878 14.9879 4.60202 15.1494L6.00827 17.585C6.20247 17.9214 6.6325 18.0366 6.96874 17.8424L7.8986 17.3055C8.48144 17.8 9.15789 18.1864 9.89392 18.4452V19.5312C9.89392 19.9196 10.2087 20.2344 10.597 20.2344H13.4095C13.7979 20.2344 14.1127 19.9196 14.1127 19.5312V18.4452C14.8487 18.1864 15.5252 17.7999 16.108 17.3055L17.0379 17.8424C17.3741 18.0366 17.8041 17.9213 17.9983 17.585L19.4046 15.1494C19.4978 14.9879 19.5231 14.7959 19.4748 14.6158C19.4266 14.4357 19.3088 14.2821 19.1473 14.1889ZM12.0033 14.6094C10.8402 14.6094 9.89397 13.6631 9.89397 12.5C9.89397 11.3369 10.8402 10.3906 12.0033 10.3906C13.1665 10.3906 14.1127 11.3369 14.1127 12.5C14.1127 13.6631 13.1665 14.6094 12.0033 14.6094Z"
@@ -1405,17 +1041,36 @@ export const Group6Icon = ({ className = '' }: { className?: string }) => (
 )
 
 export const NumberIcon = ({ className = '' }: { className?: string }) => (
-  <svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-    <g clip-path="url(#clip0_3395_1179)">
+  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g clip-path="url(#clip0_659_3561)">
       <path
-        d="M7.45864 2.11351C7.1493 1.34013 6.40028 0.833008 5.56735 0.833008H2.76571C1.69993 0.833008 0.835938 1.69681 0.835938 2.76262C0.835938 11.822 8.18006 19.1663 17.2392 19.1663C18.305 19.1663 19.1688 18.3023 19.1688 17.2364L19.1693 14.4343C19.1693 13.6013 18.6623 12.8524 17.8889 12.5431L15.2037 11.4693C14.5091 11.1915 13.7181 11.3165 13.1433 11.7955L12.4503 12.3735C11.641 13.048 10.4501 12.9944 9.70517 12.2494L7.75376 10.2961C7.0088 9.55115 6.95375 8.36123 7.62821 7.55186L8.20608 6.85887C8.68506 6.28408 8.81123 5.4929 8.53336 4.7982L7.45864 2.11351Z"
+        d="M7.45669 2.11351C7.14735 1.34013 6.39833 0.833008 5.5654 0.833008H2.76376C1.69797 0.833008 0.833984 1.69681 0.833984 2.76262C0.833984 11.822 8.17811 19.1663 17.2373 19.1663C18.3031 19.1663 19.1668 18.3023 19.1668 17.2364L19.1673 14.4343C19.1673 13.6013 18.6603 12.8524 17.887 12.5431L15.2018 11.4693C14.5071 11.1915 13.7162 11.3165 13.1414 11.7955L12.4484 12.3735C11.639 13.048 10.4482 12.9944 9.70321 12.2494L7.75181 10.2961C7.00685 9.55115 6.9518 8.36123 7.62625 7.55186L8.20413 6.85887C8.68311 6.28408 8.80928 5.4929 8.53141 4.7982L7.45669 2.11351Z"
+        stroke="white"
         stroke-width="1.66667"
         stroke-linecap="round"
         stroke-linejoin="round"
       />
     </g>
     <defs>
-      <clipPath id="clip0_3395_1179">
+      <clipPath id="clip0_659_3561">
+        <rect width="20" height="20" fill="white" />
+      </clipPath>
+    </defs>
+  </svg>
+)
+
+export const NumberBlackIcon = ({ className = '' }: { className?: string }) => (
+  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g clip-path="url(#clip0_1135_8671)">
+      <path
+        d="M7.45669 2.11351C7.14735 1.34013 6.39833 0.833008 5.5654 0.833008H2.76376C1.69797 0.833008 0.833984 1.69681 0.833984 2.76262C0.833984 11.822 8.17811 19.1663 17.2373 19.1663C18.3031 19.1663 19.1668 18.3023 19.1668 17.2364L19.1673 14.4343C19.1673 13.6013 18.6603 12.8524 17.887 12.5431L15.2018 11.4693C14.5071 11.1915 13.7162 11.3165 13.1414 11.7955L12.4484 12.3735C11.639 13.048 10.4482 12.9944 9.70321 12.2494L7.75181 10.2961C7.00685 9.55115 6.9518 8.36123 7.62625 7.55186L8.20413 6.85887C8.68311 6.28408 8.80928 5.4929 8.53141 4.7982L7.45669 2.11351Z"
+        stroke-width="1.66667"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </g>
+    <defs>
+      <clipPath id="clip0_1135_8671">
         <rect width="20" height="20" />
       </clipPath>
     </defs>

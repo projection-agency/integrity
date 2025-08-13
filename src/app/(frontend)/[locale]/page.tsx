@@ -43,7 +43,7 @@ const BLOCK_COMPONENTS = {
   'what-us-block': SectionUnique,
   'expertise-block': IndustriesSection,
   'services-block': ServicesSection,
-  'form-block': FormSection,
+  // 'form-block': FormSection,
   'workflow-block': WorkflowSection,
   'about-founder-block': AboutTheFounderSection,
   'our-team-block': ApproachSection,
@@ -61,7 +61,6 @@ export default async function HomePage({ params }: { params: Promise<{ locale: s
   const payload = await getPayload({ config: payloadConfig })
 
   const faqs = await addFaqs(locale)
-  console.log(faqs)
 
   const { docs } = await payload.find({
     collection: 'pages',

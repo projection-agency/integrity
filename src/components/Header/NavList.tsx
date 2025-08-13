@@ -3,7 +3,7 @@
 import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import s from './Header.module.css'
-import AnimatedLink from '@/components/AnimatedLink/AnimatedLinkWrapper'
+import { AnimatedLink } from '@/components/ui/AnimatedLink/AnimatedLink'
 
 export type MenuItem = {
   label: string
@@ -11,14 +11,37 @@ export type MenuItem = {
   id?: string
 }
 
-export default function NavList({ menu }: { menu: MenuItem[] }) {
+export default function NavList({
+  menu,
+  handleClose,
+}: {
+  menu: MenuItem[]
+  handleClose: () => void
+}) {
   const pathname = usePathname()
   const [currentSection, setCurrentSection] = useState<string>('')
 
   // Функція для визначення поточної секції на основі хеша
   const getCurrentSectionFromHash = () => {
     if (typeof window !== 'undefined') {
-      return window.location.hash.slice(1) // Видаляємо #
+      const hash = window.location.hash.slice(1) // Видаляємо #
+      // Фільтруємо технічні хеші
+      if (
+        hash &&
+        !hash.startsWith('clip') &&
+        !hash.startsWith('defs') &&
+        !hash.startsWith('linearGradient') &&
+        !hash.startsWith('radialGradient') &&
+        !hash.startsWith('filter') &&
+        !hash.startsWith('mask') &&
+        !hash.startsWith('pattern') &&
+        !hash.startsWith('symbol') &&
+        !hash.startsWith('use') &&
+        !hash.includes('_') &&
+        hash.length > 3
+      ) {
+        return hash
+      }
     }
     return ''
   }
@@ -131,7 +154,21 @@ export default function NavList({ menu }: { menu: MenuItem[] }) {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             const sectionId = entry.target.id
-            if (sectionId) {
+            // Додаткова перевірка, щоб уникнути оновлення URL для технічних елементів
+            if (
+              sectionId &&
+              !sectionId.startsWith('clip') &&
+              !sectionId.startsWith('defs') &&
+              !sectionId.startsWith('linearGradient') &&
+              !sectionId.startsWith('radialGradient') &&
+              !sectionId.startsWith('filter') &&
+              !sectionId.startsWith('mask') &&
+              !sectionId.startsWith('pattern') &&
+              !sectionId.startsWith('symbol') &&
+              !sectionId.startsWith('use') &&
+              !sectionId.includes('_') &&
+              sectionId.length > 3
+            ) {
               setCurrentSection(sectionId)
               // Оновлюємо URL без перезавантаження сторінки
               if (typeof window !== 'undefined' && window.history && window.history.replaceState) {
@@ -144,10 +181,27 @@ export default function NavList({ menu }: { menu: MenuItem[] }) {
 
       // Функція для додавання секцій до observer
       const addSectionsToObserver = () => {
-        const sections = document.querySelectorAll('section[id], div[id], [id]')
-        sections.forEach((section) => {
+        // Спочатку шукаємо основні секції з класами, які зазвичай використовуються для навігації
+        const mainSections = document.querySelectorAll(
+          'section[id], [data-section], .section[id], main section[id]',
+        )
+        mainSections.forEach((section) => {
           const id = section.getAttribute('id')
-          if (id) {
+          if (
+            id &&
+            !id.startsWith('clip') &&
+            !id.startsWith('defs') &&
+            !id.startsWith('linearGradient') &&
+            !id.startsWith('radialGradient') &&
+            !id.startsWith('filter') &&
+            !id.startsWith('mask') &&
+            !id.startsWith('pattern') &&
+            !id.startsWith('symbol') &&
+            !id.startsWith('use') &&
+            !id.includes('_') &&
+            id.length > 3
+          ) {
+            // Виключаємо короткі ID та ID з підкресленнями
             observer.observe(section)
           }
         })
@@ -180,7 +234,14 @@ export default function NavList({ menu }: { menu: MenuItem[] }) {
                 {item.label}
               </a>
             ) : (
-              <AnimatedLink href={item.link}>{item.label}</AnimatedLink>
+              <AnimatedLink
+                href={item.link}
+                onClick={() => {
+                  handleClose()
+                }}
+              >
+                {item.label}
+              </AnimatedLink>
             )}
           </li>
         ))}

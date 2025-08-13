@@ -1,4 +1,6 @@
+'use client'
 import s from '../IconHero/IconHero.module.css'
+import { motion } from 'framer-motion'
 
 export default function IconHero({
   containerClass,
@@ -13,13 +15,17 @@ export default function IconHero({
     <span
       className={`${s.iconHero} ${containerClass ? containerClass : ''} ${style ? s[style] : ''}`}
     >
-      <svg
+      <motion.svg
         xmlns="http://www.w3.org/2000/svg"
         width="48"
         height="48"
         viewBox="0 0 48 48"
         fill="none"
         className={`${s.icon} ${iconClass ? iconClass : ''}`}
+        initial={{ x: 0 }}
+        animate={{ x: '115%' }} // зміщення на ширину контейнера мінус іконка
+        transition={{ duration: 0.5, delay: 2, ease: 'easeInOut' }}
+        viewport={{ once: false, amount: 0.2 }}
       >
         <g clipPath="url(#clip0_1034_6189)">
           <path
@@ -45,7 +51,7 @@ export default function IconHero({
             <rect width="48" height="48" fill="white" />
           </clipPath>
         </defs>
-      </svg>
+      </motion.svg>
     </span>
   )
 }

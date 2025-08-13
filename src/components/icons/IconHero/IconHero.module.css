@@ -1,7 +1,17 @@
+/* @keyframes animateMargin {
+  0% {
+    transform: translate(0%);
+  }
+  100% {
+    transform: translate(100%);
+  }
+} */
 .iconHero {
   display: flex;
-  padding: 0.4vw;
+  justify-content: flex-start;
   align-items: flex-start;
+  width: 9.79vw;
+  padding: 0.4vw;
   gap: 0.4vw;
   border-radius: 20.8vw;
   border: 0.05vw solid #fff;
@@ -25,24 +35,23 @@
     background: var(--White, #fff);
     box-shadow: 0px 4px 16px 0px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(3px);
-    margin-left: 4.8vw;
-  }
-}
-.small {
-  .icon {
-    margin-left: 3.9vw;
   }
 }
 
 @media screen and (max-width: 1024px) {
   .iconHero {
     border-radius: 53.33vw;
+    border-width: 0.135vw;
     padding: 1.07vw;
 
     .icon {
       width: 10.67vw;
       height: 10.67vw;
-      margin-left: 12.8vw;
     }
+  }
+
+  .iconHero.small {
+    width: 24.93vw !important;
+    height: 12.8vw;
   }
 }

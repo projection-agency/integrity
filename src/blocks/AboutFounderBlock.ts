@@ -15,7 +15,7 @@ export const AboutFounderBlock: Block = {
       name: 'subtitle',
       type: 'text',
       required: true,
-      localized:true,
+      localized: true,
       label: {
         en: 'Subtitle',
       },
@@ -24,7 +24,7 @@ export const AboutFounderBlock: Block = {
       name: 'title',
       type: 'text',
       required: true,
-      localized:true,
+      localized: true,
       label: {
         en: 'Title',
       },

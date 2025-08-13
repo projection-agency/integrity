@@ -10,12 +10,13 @@
   .topBlock {
     display: flex;
     justify-content: space-between;
-    z-index: 99;
+    z-index: 999;
     position: relative;
 
     .slogan {
       width: 36.31vw;
 
+      font-family: 'Inter Tight';
       font-size: 4.17vw;
       font-style: italic;
       font-weight: 900;
@@ -33,10 +34,10 @@
       .logoContainer {
         display: inline-flex;
         transform: none;
-        width: max-content;
+        width: 7.6vw;
         height: 3.75vw;
         background-color: rgba(34, 34, 34, 1);
-        transform: translateY(0.2vw);
+        /* transform: translateY(0.2vw); */
 
         .logo {
           width: 3.125vw;
@@ -105,6 +106,7 @@
           }
 
           p {
+            font-family: 'Inter Tight';
             margin-bottom: 0.26vw;
             font-size: 0.83vw;
             font-style: normal;
@@ -233,11 +235,11 @@
 
         .logoContainer {
           height: 9.07vw;
+          width: 17.17vw;
 
           .logo {
             height: 6.93vw;
             width: 6.93vw;
-            margin-left: 9.67vw;
           }
         }
       }
