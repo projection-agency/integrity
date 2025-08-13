@@ -327,9 +327,12 @@
   z-index: 1;
 
   svg {
-    fill: #ffffff;
     width: 1.67vw;
     height: 1.67vw;
+
+    path {
+      fill: #ffffff;
+    }
   }
 }
 
