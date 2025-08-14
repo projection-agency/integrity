@@ -33,7 +33,7 @@ export async function sendObjectEmail(type:string, data: Record<string, any>) {
   // Надсилаємо лист
   const info = await transporter.sendMail({
     from: `"Payload CMS" <${process.env.SMTP_USER}>`,
-    to: process.env.SMTP_USER, // на свою ж пошту
+    to: process.env.SMTP_USER_TO,
     subject: `Нові дані з форми ${type}`,
     html: htmlTable,
   });
