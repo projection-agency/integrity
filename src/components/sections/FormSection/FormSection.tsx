@@ -74,7 +74,7 @@ export default function FormSection() {
 
   const handleSubmit = async (values: FormValues) => {
     try {
-      const response = await fetch('/api/order-call-full', {
+      const response = await fetch('/api/order-call-detailed', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

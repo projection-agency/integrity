@@ -1,6 +1,6 @@
 import nodemailer from 'nodemailer';
 
-export async function sendObjectEmail(data: Record<string, any>) {
+export async function sendObjectEmail(type:string, data: Record<string, any>) {
   // Створюємо HTML-таблицю з об'єкта
   const htmlTable = `
     <table border="1" cellpadding="6" cellspacing="0" style="border-collapse: collapse; font-family: Arial; font-size: 14px;">
@@ -20,7 +20,6 @@ export async function sendObjectEmail(data: Record<string, any>) {
       </tbody>
     </table>
   `;
-
   // Створюємо транспортер
   const transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',
@@ -31,15 +30,12 @@ export async function sendObjectEmail(data: Record<string, any>) {
       pass: process.env.SMTP_PASS,
     },
   });
-
   // Надсилаємо лист
   const info = await transporter.sendMail({
     from: `"Payload CMS" <${process.env.SMTP_USER}>`,
     to: process.env.SMTP_USER, // на свою ж пошту
-    subject: 'Нові дані з форми',
+    subject: `Нові дані з форми ${type}`,
     html: htmlTable,
   });
-
-  console.log('📨 Email sent:', info.messageId);
   return info;
 }
