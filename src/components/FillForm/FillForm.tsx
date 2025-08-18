@@ -46,7 +46,7 @@ const FillForm = () => {
     { setSubmitting, resetForm }: FormikHelpers<FormValues>,
   ) => {
     try {
-      const response = await fetch('/api/order-call-full', {
+      const response = await fetch('/api/order-call', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

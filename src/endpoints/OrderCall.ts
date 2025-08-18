@@ -1,4 +1,5 @@
 import { addDataAndFileToRequest, Endpoint } from 'payload'
+import { sendObjectEmail } from '@/hooks/sendObjectEmail'
 
 type MetaItem = { key: string; value: string }
 type typeOrderCall = {
@@ -11,10 +12,11 @@ export const OrderCall: Endpoint = {
   path: '/order-call',
   method: 'post',
   handler: async (req) => {
+
     const apiKey = req.headers.get('x-api-key')
     const apiSecret = req.headers.get('x-api-secret')
 
-    if (apiKey !== process.env.API_KEY || apiSecret !== process.env.API_SECRET) {
+    if (apiKey !== process.env.NEXT_PUBLIC_API_KEY || apiSecret !== process.env.NEXT_PUBLIC_API_SECRET) {
       return Response.json({ error: 'Unauthorized: invalid API keys' }, { status: 403 })
     }
 
@@ -52,6 +54,12 @@ export const OrderCall: Endpoint = {
         meta: metaFields,
       },
       overrideAccess: true,
+    })
+
+    await sendObjectEmail('< Fill Form >',{
+      name: name,
+      email: email,
+      phone: phone,
     })
 
     return Response.json({ success: true, data: newApp })

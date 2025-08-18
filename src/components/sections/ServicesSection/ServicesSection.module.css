@@ -265,7 +265,6 @@
     right: -2vw;
     font-size: 2.08vw;
   }
-
 }
 
 .services :global(.swiper-slide) {
@@ -358,6 +357,14 @@
       svg {
         width: 4.8vw;
       }
+    }
+  }
+
+  .arrowBtn:hover {
+    background-color: #222222;
+
+    svg {
+      fill: #ffffff;
     }
   }
 
