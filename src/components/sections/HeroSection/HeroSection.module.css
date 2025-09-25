@@ -129,7 +129,7 @@
     .lastButton {
       position: relative;
       overflow: hidden;
-      width: 12.1vw;
+      width: max-content;
       height: 3.68vw;
       padding: 1.25vw 2vw;
       border-radius: 0.83vw;

@@ -24,7 +24,10 @@ export const OrderCallFull: Endpoint = {
     const apiSecret = req.headers.get('x-api-secret')
 
     // Перевіряємо
-    if (apiKey !== process.env.NEXT_PUBLIC_API_KEY || apiSecret !== process.env.NEXT_PUBLIC_API_SECRET) {
+    if (
+      apiKey !== process.env.NEXT_PUBLIC_API_KEY ||
+      apiSecret !== process.env.NEXT_PUBLIC_API_SECRET
+    ) {
       return Response.json({ error: 'Unauthorized: invalid API keys' }, { status: 403 })
     }
 
@@ -88,19 +91,18 @@ export const OrderCallFull: Endpoint = {
       { key: 'message', value: message },
     ]
 
-
-    await sendObjectEmail('< Strategy Form>',{
-      name:name,
-      email:email,
-      phone:phone,
-      country:country,
-      employees:employees,
-      position:position,
-      industry:industry,
-      stage:stage,
-      website:website,
-      message:message,
-    });
+    await sendObjectEmail('< Strategy Form>', {
+      name: name,
+      email: email,
+      phone: phone,
+      country: country,
+      employees: employees,
+      position: position,
+      industry: industry,
+      stage: stage,
+      website: website,
+      message: message,
+    })
 
     const newApp = await req.payload.create({
       collection: 'applications',
@@ -110,9 +112,6 @@ export const OrderCallFull: Endpoint = {
       },
       overrideAccess: true,
     })
-
-
-
 
     return Response.json({ success: true, data: newApp })
   },

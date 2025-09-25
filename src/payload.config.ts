@@ -18,11 +18,13 @@ import { FAQ } from '@/collections/FAQ'
 import { buildConfig } from 'payload'
 
 import { OrderCall } from '@/endpoints/OrderCall'
+import { OrderCallFull } from '@/endpoints/OrderCallFull'
 import Applications from '@/collections/Applications'
 import applicationCategory from '@/collections/categories/applicationCategory'
-import { OrderCallFull } from '@/endpoints/OrderCallFull'
-import { s3Storage } from '@payloadcms/storage-s3'
+
 import { GetCalculate } from '@/endpoints/GetCalculate'
+import { zapierPlugin } from '@payloadcms/plugin-zapier'
+import ZapierSettings from '@/globals/ZapierSettings'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -34,7 +36,7 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
   },
-  globals: [MainInfo, Menu],
+  globals: [MainInfo, Menu, ZapierSettings],
   collections: [
     applicationCategory,
     Users,
@@ -75,27 +77,10 @@ export default buildConfig({
       uploadsCollection: 'media',
       generateTitle: ({ doc }) => `${doc.title} — INTEGRITY`,
       generateDescription: ({ doc }) => doc.description,
-      generateURL: ({ doc, collectionSlug }) =>
-        `https://integrity.com/${collectionSlug}/${doc.slug}`,
+      generateURL: ({ doc, collectionSlug }) => {
+        return `https://www.integritymarketing.systems/${collectionSlug}/${doc.slug}`
+      },
       tabbedUI: true,
-    }),
-    s3Storage({
-      bucket: process.env.S3_BUCKET_NAME!,
-      config: {
-        credentials: {
-          accessKeyId: process.env.S3_ACCESS_KEY_ID!,
-          secretAccessKey: process.env.S3_SECRET_ACCESS_KEY!,
-        },
-        region: process.env.AWS_REGION!,
-        forcePathStyle: true,
-        endpoint: `https://${process.env.S3_BUCKET_NAME}.s3.${process.env.AWS_REGION}.amazonaws.com`,
-      },
-      collections: {
-        media: {
-          prefix: 'media',
-        },
-      },
-      disableLocalStorage: true,
     }),
   ],
   endpoints: [OrderCall, OrderCallFull, GetCalculate],

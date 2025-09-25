@@ -1,6 +1,6 @@
-import nodemailer from 'nodemailer';
+import nodemailer from 'nodemailer'
 
-export async function sendObjectEmail(type:string, data: Record<string, any>) {
+export async function sendObjectEmail(type: string, data: Record<string, any>) {
   // Створюємо HTML-таблицю з об'єкта
   const htmlTable = `
     <table border="1" cellpadding="6" cellspacing="0" style="border-collapse: collapse; font-family: Arial; font-size: 14px;">
@@ -12,14 +12,11 @@ export async function sendObjectEmail(type:string, data: Record<string, any>) {
       </thead>
       <tbody>
         ${Object.entries(data)
-    .map(
-      ([key, value]) =>
-        `<tr><td>${key}</td><td>${String(value)}</td></tr>`
-    )
-    .join('')}
+          .map(([key, value]) => `<tr><td>${key}</td><td>${String(value)}</td></tr>`)
+          .join('')}
       </tbody>
     </table>
-  `;
+  `
   // Створюємо транспортер
   const transporter = nodemailer.createTransport({
     host: 'smtp.gmail.com',
@@ -29,13 +26,13 @@ export async function sendObjectEmail(type:string, data: Record<string, any>) {
       user: process.env.SMTP_USER,
       pass: process.env.SMTP_PASS,
     },
-  });
+  })
   // Надсилаємо лист
   const info = await transporter.sendMail({
-    from: `"Payload CMS" <${process.env.SMTP_USER}>`,
+    from: `"Leads from Integrity Marketing" <${process.env.SMTP_USER}>`,
     to: process.env.SMTP_USER_TO,
-    subject: `Нові дані з форми ${type}`,
+    subject: `New Leads from Integrity Marketing ${type}`,
     html: htmlTable,
-  });
-  return info;
+  })
+  return info
 }

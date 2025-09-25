@@ -83,10 +83,10 @@ const phone = (
 
 const logo = (
   <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <g clip-path="url(#clip0_1660_1743)">
+    <g clipPath="url(#clip0_1660_1743)">
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M29.7411 2.6795L19.731 0L9.72098 2.6795L2.39313 10L-0.289062 20L2.39313 30L9.72098 37.3205L19.731 40L29.7411 37.3205L37.0689 30L39.7511 20L37.0689 10L29.7411 2.6795ZM28.8973 4.0613L19.7024 1.6L10.5075 4.0613L3.77632 10.7857L1.31254 19.9714L3.77632 29.1571L10.5075 35.8815L19.7024 38.3428L28.8973 35.8815L35.6285 29.1571L38.0923 19.9714L35.6285 10.7857L28.8973 4.0613Z"
         fill="white"
       />

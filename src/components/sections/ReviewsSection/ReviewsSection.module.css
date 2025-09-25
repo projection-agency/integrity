@@ -141,10 +141,12 @@
 
         .swiperSlide {
           width: 48.75vw !important;
+          height: auto !important;
           .swiperItem {
             display: flex;
             gap: 3.13vw;
             width: 48.75vw;
+            height: 100%;
             padding: 3.13vw;
             border-radius: 1.67vw;
             background-color: rgba(249, 249, 249, 1);

@@ -79,57 +79,63 @@
     "count": "(5)"
   },
   "WorkflowSection": {
-    "title": "OUR WORKFLOW",
-    "subtitle": "HOW WE WORK",
-    "step": "Step",
+    "subtitle": "WORKFLOW",
+    "title": "STEP BY STEP [[TO RESULTS]]",
+    "step": "STEP",
     "steps": {
       "step1": {
-        "title": "ANALYSIS & RESEARCH",
-        "list": [
-          ["Deep analysis of ", "market and competitors", " to understand current situation"],
-          ["Research of ", "target audience", " and their needs"],
-          ["Analysis of ", "current marketing channels", " and their effectiveness"]
-        ]
+        "title": "Initial Contact and Analytics",
+        "list": {
+          "item1": "Zoom call for initial diagnosis (up to 45 min)",
+          "item2": "Analysis of previous campaigns, funnel, website, analytics",
+          "item3": "Study of competitors and the market (manually + through AI analytics)",
+          "item4": "Collection of technical brief and business goals"
+        }
       },
       "step2": {
-        "title": "STRATEGIC PLANNING",
-        "list": [
-          ["Development of ", "target strategy", " based on analysis"],
-          ["Definition of ", "key metrics", " and KPI for measuring success"],
-          ["Creation of ", "detailed action plan", " with timelines"]
-        ]
+        "title": "Strategy and Roadmap Development",
+        "list": {
+          "item1": "Building an individual strategic funnel",
+          "item2": "Building a Growth Map (what to test, what hypotheses, what stages)",
+          "item3": "Defining KPIs: CPL, ROAS, CAC, LTV",
+          "item4": "Agreeing on budget and channels"
+        }
       },
       "step3": {
-        "title": "IMPLEMENTATION & OPTIMIZATION",
-        "list": [
-          ["Step-by-step ", "strategy implementation", " with continuous monitoring"],
-          ["Optimization of ", "campaigns", " based on real data"],
-          ["Adaptation of ", "approaches", " to achieve better results"]
-        ]
+        "title": "Preparing for Launch",
+        "list": {
+          "item1": "Producing ad creatives (UGC, static, video, AI)",
+          "item2": "Setting up campaigns (Meta, Google, TikTok, etc.)",
+          "item3": "Configuring event tracking via GTM and GA4",
+          "item4": "Creating a test lead form or landing page",
+          "item5": "Setting up a client dashboard (Looker Studio or Google Sheets)"
+        }
       },
       "step4": {
-        "title": "TESTING & VALIDATION",
-        "list": [
-          ["A/B testing of ", "different approaches", " to find optimal solutions"],
-          ["Validation of ", "results", " and making necessary adjustments"],
-          ["Checking ", "effectiveness", " and ROI of all marketing activities"]
-        ]
+        "title": "Testing and Optimization",
+        "list": {
+          "item1": "A/B testing of creatives, audiences, and offers",
+          "item2": "Optimizing based on key metrics: CPC, CTR, CPL, ROAS",
+          "item3": "Updating creatives, forms, or pages based on data",
+          "item4": "Regular communication + analytics in Looker/spreadsheets"
+        }
       },
       "step5": {
-        "title": "SCALING & DEVELOPMENT",
-        "list": [
-          ["Scaling ", "successful strategies", " to larger volumes"],
-          ["Development of ", "new channels", " and growth opportunities"],
-          ["Creation of ", "long-term systems", " for sustainable development"]
-        ]
+        "title": "Scaling",
+        "list": {
+          "item1": "Expanding into new channels (TikTok, YouTube, SEO, Email)",
+          "item2": "Implementing new strategies (retargeting, cross-sell)",
+          "item3": "Building LTV and automation systems (Email, CRM, analytics)"
+        }
       },
       "step6": {
-        "title": "MONITORING & SUPPORT",
-        "list": [
-          ["Continuous ", "monitoring of results", " and performance"],
-          ["Regular ", "analytics and reporting", " for clients"],
-          ["Support of ", "optimal operation", " of all systems and processes"]
-        ]
+        "title": "Continuous Improvement and Partnership",
+        "list": {
+          "item1": "Strategic calls held 1–2 times per month",
+          "item2": "Transparent performance analytics and reporting",
+          "item3": "Proactive recommendations for new growth areas",
+          "item4": "Optional add-on services: SEO, email, content, video, CRO"
+        }
       }
     }
   },

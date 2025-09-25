@@ -134,8 +134,6 @@ export default function CustomSlider({ items, onSlideChange }: CustomSliderProps
   useLayoutEffect(() => {
     const container = containerRef.current
     const activeItem = progressRefs.current[currentIndex]
-    console.log(activeItem)
-    console.log(container)
 
     if (!container || !activeItem || !isInitialized) return
 

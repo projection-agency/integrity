@@ -65,7 +65,7 @@ export default function OutcomesSection({ block }: { block: OutcomesSection }) {
         <div className={s.sliderWindow}>
           <CustomSlider items={outcomes} />
         </div>
-        <ExpertSection />
+        <ExpertSection block={undefined} />
       </div>
     </section>
   )

@@ -1,11 +1,13 @@
-import type { CollectionConfig} from 'payload'
-
-
+import type { CollectionConfig } from 'payload'
+import { createZapierHooks } from '@/utils/zapierIntegration'
 
 const Applications: CollectionConfig = {
   slug: 'applications',
   admin: {
     useAsTitle: 'category',
+  },
+  hooks: {
+    afterChange: [...createZapierHooks('applications').afterChange],
   },
   fields: [
     {
@@ -48,6 +50,6 @@ const Applications: CollectionConfig = {
     },
   ],
   timestamps: true,
-};
+}
 
-export default Applications;
+export default Applications

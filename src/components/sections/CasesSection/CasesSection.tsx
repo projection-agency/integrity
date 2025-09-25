@@ -204,9 +204,9 @@ const btnArrow = (
     <path
       d="M1.5 11.7637L9.5 3.76367L17.5 11.7637"
       stroke="#686868"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
   </svg>
 )
