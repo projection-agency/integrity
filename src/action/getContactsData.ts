@@ -1,12 +1,12 @@
 import { getPayloadInstance } from '@/utils/payload'
 
-export async function getContactsData() {
+export async function getContactsData(locale: string) {
   const payload = await getPayloadInstance()
 
   const { docs } = await payload.find({
     collection: 'pages',
     where: { slug: { equals: 'contacts' } },
-    locale: 'en',
+    locale: locale as 'en' | 'ua',
   })
 
   const page = docs[0]

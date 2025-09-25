@@ -11,6 +11,7 @@ import 'simplebar-react/dist/simplebar.min.css'
 import SimpleBar from 'simplebar-react'
 import { useCustomToastContext } from '@/contexts/CustomToastProvider'
 import { useTranslations } from 'next-intl'
+import { useRouter } from 'next/navigation'
 
 // Validation schema will be created inside the component to access translations
 
@@ -24,6 +25,7 @@ const initialValues = {
   industry: '',
   stage: '',
   website: '',
+  message: '',
 }
 
 export interface FormValues {
@@ -36,13 +38,14 @@ export interface FormValues {
   industry: string
   stage: string
   website: string
+  message: string
 }
 
-export default function FormSection() {
+export default function FormSection({ block }: { block: any }) {
   const [windowWidth, setWindowWidth] = useState(0)
   const { showSuccessToast, showErrorToast } = useCustomToastContext()
   const t = useTranslations('FormSection')
-
+  const router = useRouter()
   // Create validation schema with translations
   const validationSchema = object({
     name: string().required(t('validation.nameRequired')),
@@ -91,19 +94,25 @@ export default function FormSection() {
           industry: values.industry,
           stage: values.stage,
           website: values.website,
+          message: values.message,
         }),
       })
 
       if (!response.ok) {
-        throw new Error(`Помилка при відправці форми: ${response.status}`)
+        const errorData = await response.json().catch(() => ({}))
+        throw new Error(
+          `Помилка при відправці форми: ${response.status} - ${errorData.error || 'Невідома помилка'}`,
+        )
       }
 
       const result = await response.json()
-      console.log('Form sent successfully:', result)
       showSuccessToast(t('formSentSuccess'))
+      console.log('Form submitted successfully:', block)
+      router.push(block.url ?? '/') // редірект
     } catch (error) {
       console.error('Error:', error)
-      showErrorToast(t('formSentError'))
+      const errorMessage = error instanceof Error ? error.message : 'Невідома помилка'
+      showErrorToast(`${t('formSentError')}: ${errorMessage}`)
     }
   }
 
@@ -314,7 +323,7 @@ export default function FormSection() {
 
 const chat = (
   <svg xmlns="http://www.w3.org/2000/svg" width="32" height="33" viewBox="0 0 32 33" fill="none">
-    <g clip-path="url(#clip0_678_3415)">
+    <g clipPath="url(#clip0_678_3415)">
       <path
         d="M13.1873 10.1875C5.95019 10.1875 6.58184e-05 15.1642 6.58184e-05 21.2816C6.58184e-05 23.7269 0.948566 26.2121 2.688 28.1383L0.231691 30.9452C-0.00999668 31.2217 -0.0686217 31.6145 0.0843158 31.9496C0.236316 32.2846 0.569566 32.4998 0.937566 32.4998H14.1248C19.4682 32.4998 26.3744 27.8986 26.3744 21.2816C26.3744 15.1642 20.4243 10.1875 13.1873 10.1875ZM7.49988 23C6.46625 23 5.62494 22.1586 5.62494 21.1251C5.62494 20.0914 6.46632 19.2501 7.49988 19.2501C8.53344 19.2501 9.37481 20.0915 9.37481 21.1251C9.37488 22.1586 8.5335 23 7.49988 23ZM13.1873 23C12.1536 23 11.3123 22.1586 11.3123 21.1251C11.3123 20.0914 12.1537 19.2501 13.1873 19.2501C14.2208 19.2501 15.0622 20.0915 15.0622 21.1251C15.0622 22.1586 14.2209 23 13.1873 23ZM18.8746 23C17.841 23 16.9997 22.1586 16.9997 21.1251C16.9997 20.0914 17.8411 19.2501 18.8746 19.2501C19.9082 19.2501 20.7496 20.0915 20.7496 21.1251C20.7496 22.1586 19.9083 23 18.8746 23Z"
         fill="#222222"
@@ -386,12 +395,12 @@ const report = (
         y2="3.7954"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#737373" />
-        <stop offset="0.255809" stop-color="#222222" />
-        <stop offset="0.429644" stop-color="#737373" />
-        <stop offset="0.523944" stop-color="#222222" />
-        <stop offset="0.784245" stop-color="#222222" />
-        <stop offset="1" stop-color="#737373" />
+        <stop stopColor="#737373" />
+        <stop offset="0.255809" stopColor="#222222" />
+        <stop offset="0.429644" stopColor="#737373" />
+        <stop offset="0.523944" stopColor="#222222" />
+        <stop offset="0.784245" stopColor="#222222" />
+        <stop offset="1" stopColor="#737373" />
       </linearGradient>
       <linearGradient
         id="paint1_linear_3388_1549"
@@ -401,12 +410,12 @@ const report = (
         y2="5.70273"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#737373" />
-        <stop offset="0.255809" stop-color="#222222" />
-        <stop offset="0.429644" stop-color="#737373" />
-        <stop offset="0.523944" stop-color="#222222" />
-        <stop offset="0.784245" stop-color="#222222" />
-        <stop offset="1" stop-color="#737373" />
+        <stop stopColor="#737373" />
+        <stop offset="0.255809" stopColor="#222222" />
+        <stop offset="0.429644" stopColor="#737373" />
+        <stop offset="0.523944" stopColor="#222222" />
+        <stop offset="0.784245" stopColor="#222222" />
+        <stop offset="1" stopColor="#737373" />
       </linearGradient>
       <linearGradient
         id="paint2_linear_3388_1549"
@@ -416,12 +425,12 @@ const report = (
         y2="14.5245"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#737373" />
-        <stop offset="0.255809" stop-color="#222222" />
-        <stop offset="0.429644" stop-color="#737373" />
-        <stop offset="0.523944" stop-color="#222222" />
-        <stop offset="0.784245" stop-color="#222222" />
-        <stop offset="1" stop-color="#737373" />
+        <stop stopColor="#737373" />
+        <stop offset="0.255809" stopColor="#222222" />
+        <stop offset="0.429644" stopColor="#737373" />
+        <stop offset="0.523944" stopColor="#222222" />
+        <stop offset="0.784245" stopColor="#222222" />
+        <stop offset="1" stopColor="#737373" />
       </linearGradient>
       <linearGradient
         id="paint3_linear_3388_1549"
@@ -431,12 +440,12 @@ const report = (
         y2="17.0803"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#737373" />
-        <stop offset="0.255809" stop-color="#222222" />
-        <stop offset="0.429644" stop-color="#737373" />
-        <stop offset="0.523944" stop-color="#222222" />
-        <stop offset="0.784245" stop-color="#222222" />
-        <stop offset="1" stop-color="#737373" />
+        <stop stopColor="#737373" />
+        <stop offset="0.255809" stopColor="#222222" />
+        <stop offset="0.429644" stopColor="#737373" />
+        <stop offset="0.523944" stopColor="#222222" />
+        <stop offset="0.784245" stopColor="#222222" />
+        <stop offset="1" stopColor="#737373" />
       </linearGradient>
       <linearGradient
         id="paint4_linear_3388_1549"
@@ -446,12 +455,12 @@ const report = (
         y2="26.6781"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#737373" />
-        <stop offset="0.255809" stop-color="#222222" />
-        <stop offset="0.429644" stop-color="#737373" />
-        <stop offset="0.523944" stop-color="#222222" />
-        <stop offset="0.784245" stop-color="#222222" />
-        <stop offset="1" stop-color="#737373" />
+        <stop stopColor="#737373" />
+        <stop offset="0.255809" stopColor="#222222" />
+        <stop offset="0.429644" stopColor="#737373" />
+        <stop offset="0.523944" stopColor="#222222" />
+        <stop offset="0.784245" stopColor="#222222" />
+        <stop offset="1" stopColor="#737373" />
       </linearGradient>
     </defs>
   </svg>

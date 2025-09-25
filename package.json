@@ -12,16 +12,25 @@
     "generate:types": "cross-env NODE_OPTIONS=--no-deprecation payload generate:types",
     "lint": "cross-env NODE_OPTIONS=--no-deprecation next lint",
     "payload": "cross-env NODE_OPTIONS=--no-deprecation payload",
-    "start": "cross-env NODE_OPTIONS=--no-deprecation next start",
+    "start": "cross-env NODE_OPTIONS=--no-deprecation next start --hostname 127.1.5.231",
     "test": "pnpm run test:int && pnpm run test:e2e",
     "test:e2e": "cross-env NODE_OPTIONS=\"--no-deprecation --no-experimental-strip-types\" pnpm exec playwright test",
-    "test:int": "cross-env NODE_OPTIONS=--no-deprecation vitest run --config ./vitest.config.mts"
+    "test:int": "cross-env NODE_OPTIONS=--no-deprecation vitest run --config ./vitest.config.mts",
+    "download:media": "node scripts/download-s3-media.mjs",
+    "update:config": "node scripts/update-payload-config.mjs",
+    "update:references": "node scripts/update-media-references.mjs",
+    "migrate:media": "node scripts/migrate-s3-to-local.mjs",
+    "test:env": "node scripts/test-env.mjs",
+    "check:s3": "node scripts/check-s3-content.mjs",
+    "test:media": "node scripts/test-media-access.mjs"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.864.0",
     "@payloadcms/db-mongodb": "^3.48.0",
     "@payloadcms/next": "^3.48.0",
     "@payloadcms/payload-cloud": "^3.48.0",
     "@payloadcms/plugin-seo": "^3.48.0",
+    "@payloadcms/plugin-zapier": "^0.0.9",
     "@payloadcms/richtext-lexical": "^3.48.0",
     "@payloadcms/storage-s3": "^3.48.0",
     "@payloadcms/ui": "^3.48.0",
@@ -40,7 +49,6 @@
     "nodemailer": "^7.0.5",
     "payload": "^3.48.0",
     "pnpm": "^10.14.0",
-    "react-loader-spinner": "^6.1.6",
     "react-phone-input-2": "^2.15.1",
     "react-select": "^5.10.2",
     "react-select-country-list": "^2.2.3",
@@ -48,7 +56,8 @@
     "sharp": "^0.34.3",
     "simplebar-react": "^3.3.2",
     "swiper": "^11.2.10",
-    "yup": "^1.6.1"
+    "yup": "^1.6.1",
+    "zapier-platform-core": "^17.7.2"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.1",

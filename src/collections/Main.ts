@@ -57,6 +57,13 @@ export const MainInfo: GlobalConfig = {
         type: 'code',
         label: 'SVG logo',
         localized: true,
+    },
+    {
+      type:'text',
+      name:'redirect',
+      label:'Redirect URL',
+      localized:true,
+      defaultValue:'/'
     }
   ],
 };

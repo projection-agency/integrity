@@ -103,10 +103,12 @@ export interface Config {
   globals: {
     main: Main;
     menu: Menu;
+    'zapier-settings': ZapierSetting;
   };
   globalsSelect: {
     main: MainSelect<false> | MainSelect<true>;
     menu: MenuSelect<false> | MenuSelect<true>;
+    'zapier-settings': ZapierSettingsSelect<false> | ZapierSettingsSelect<true>;
   };
   locale: 'en' | 'ua';
   user: User & {
@@ -176,7 +178,6 @@ export interface User {
 export interface Media {
   id: string;
   alt?: string | null;
-  prefix?: string | null;
   updatedAt: string;
   createdAt: string;
   url?: string | null;
@@ -368,6 +369,7 @@ export interface Page {
           }
         | {
             enabled?: boolean | null;
+            url?: string | null;
             id?: string | null;
             blockName?: string | null;
             blockType: 'order-call-block';
@@ -489,6 +491,7 @@ export interface Page {
           }
         | {
             enabled?: boolean | null;
+            url?: string | null;
             id?: string | null;
             blockName?: string | null;
             blockType: 'order-call-extend-block';
@@ -528,6 +531,43 @@ export interface Page {
             id?: string | null;
             blockName?: string | null;
             blockType: 'accordion-block';
+          }
+        | {
+            enabled?: boolean | null;
+            excerpt: {
+              root: {
+                type: string;
+                children: {
+                  type: string;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ('ltr' | 'rtl') | null;
+                format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            };
+            futured_image?: (string | null) | Media;
+            content: {
+              root: {
+                type: string;
+                children: {
+                  type: string;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ('ltr' | 'rtl') | null;
+                format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'simple-page';
           }
       )[]
     | null;
@@ -689,7 +729,6 @@ export interface UsersSelect<T extends boolean = true> {
  */
 export interface MediaSelect<T extends boolean = true> {
   alt?: T;
-  prefix?: T;
   updatedAt?: T;
   createdAt?: T;
   url?: T;
@@ -860,6 +899,7 @@ export interface PagesSelect<T extends boolean = true> {
           | T
           | {
               enabled?: T;
+              url?: T;
               id?: T;
               blockName?: T;
             };
@@ -996,6 +1036,7 @@ export interface PagesSelect<T extends boolean = true> {
           | T
           | {
               enabled?: T;
+              url?: T;
               id?: T;
               blockName?: T;
             };
@@ -1020,6 +1061,16 @@ export interface PagesSelect<T extends boolean = true> {
                     content?: T;
                     id?: T;
                   };
+              id?: T;
+              blockName?: T;
+            };
+        'simple-page'?:
+          | T
+          | {
+              enabled?: T;
+              excerpt?: T;
+              futured_image?: T;
+              content?: T;
               id?: T;
               blockName?: T;
             };
@@ -1110,6 +1161,7 @@ export interface Main {
   };
   button?: string | null;
   logo?: string | null;
+  redirect?: string | null;
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -1138,6 +1190,32 @@ export interface Menu {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "zapier-settings".
+ */
+export interface ZapierSetting {
+  id: string;
+  enabled?: boolean | null;
+  /**
+   * URL webhook з Zapier для відправки подій
+   */
+  webhookURL?: string | null;
+  /**
+   * Оберіть колекції, зміни в яких будуть відправлятися в Zapier
+   */
+  collections?: ('applications' | 'users' | 'category-app')[] | null;
+  /**
+   * Оберіть які операції відстежувати
+   */
+  operations?: ('create' | 'update' | 'delete')[] | null;
+  /**
+   * В тестовому режимі події логуються, але не відправляються в Zapier
+   */
+  testMode?: boolean | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "main_select".
  */
 export interface MainSelect<T extends boolean = true> {
@@ -1156,6 +1234,7 @@ export interface MainSelect<T extends boolean = true> {
       };
   button?: T;
   logo?: T;
+  redirect?: T;
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;
@@ -1179,6 +1258,20 @@ export interface MenuSelect<T extends boolean = true> {
         link?: T;
         id?: T;
       };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "zapier-settings_select".
+ */
+export interface ZapierSettingsSelect<T extends boolean = true> {
+  enabled?: T;
+  webhookURL?: T;
+  collections?: T;
+  operations?: T;
+  testMode?: T;
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;

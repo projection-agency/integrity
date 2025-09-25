@@ -17,6 +17,7 @@ import { FaqBlock } from '@/blocks/FaqBlock'
 import { OrderCallExtendBlock } from '@/blocks/OrderCallExtendBlock'
 import { HeroContacts } from '@/blocks/HeroContacts'
 import { AccordionBlock } from '@/blocks/AccordionBlock'
+import { SimplePageBody } from '@/blocks/SimplePageBody'
 
 export const Pages: CollectionConfig = {
   slug: 'pages',
@@ -82,6 +83,7 @@ export const Pages: CollectionConfig = {
         OrderCallExtendBlock,
         HeroContacts,
         AccordionBlock,
+        SimplePageBody,
       ],
     },
   ],

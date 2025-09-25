@@ -1,6 +1,6 @@
 import { NextRequest } from 'next/server'
-import configPromise from '@payload-config'
 import { getPayload } from 'payload'
+import payloadConfig from '../../../../payload.config'
 
 type MetaItem = { key: string; value: string }
 
@@ -25,7 +25,7 @@ export async function POST(req: NextRequest) {
     })
   }
 
-  const payload = await getPayload({ config: configPromise })
+  const payload = await getPayload({ config: payloadConfig })
 
   const metaFields: MetaItem[] = [
     { key: 'name', value: name },

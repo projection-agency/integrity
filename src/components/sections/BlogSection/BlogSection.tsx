@@ -3,7 +3,7 @@ import s from './BlogSection.module.css'
 import ArticleItem from '@/components/ui/ArticleItem/ArticleItem'
 import FilterBlog from './FilterBlog'
 import { useState, useEffect } from 'react'
-import { Oval } from 'react-loader-spinner'
+
 type Category = {
   id: string
   name: string
@@ -32,14 +32,7 @@ export default function BlogPosts({
           })}
         </div>
       ) : (
-        <Oval
-          wrapperClass={s.loaderWrapper}
-          color="rgba(249, 249, 249, 1)"
-          secondaryColor="rgba(34, 34, 34, 1)"
-          visible={true}
-          height="80"
-          width="80"
-        />
+        <div className={s.loaderWrapper}>Loading...</div>
       )}
     </div>
   )

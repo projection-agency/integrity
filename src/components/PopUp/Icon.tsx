@@ -1,14 +1,14 @@
 export const SendIcon = ({ className = '' }: { className?: string }) => (
   <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
-      fill-rule="evenodd"
-      clip-rule="evenodd"
+      fillRule="evenodd"
+      clipRule="evenodd"
       d="M9.30103 10.6985L1.76103 8.18513C1.32937 8.04096 1.03853 7.63596 1.04103 7.18096C1.04353 6.72596 1.3377 6.32346 1.77103 6.1843L17.5819 1.09263C17.9577 0.971795 18.3702 1.07096 18.6494 1.35013C18.9285 1.6293 19.0277 2.0418 18.9069 2.41763L13.8152 18.2285C13.676 18.6618 13.2735 18.956 12.8185 18.9585C12.3635 18.961 11.9585 18.6701 11.8144 18.2385L9.30103 10.6985ZM2.72686 7.1893L9.9927 9.6118C10.1794 9.67346 10.326 9.82013 10.3877 10.0068L12.8102 17.2726L17.5994 2.40013L2.72686 7.1893Z"
       fill="white"
     />
     <path
-      fill-rule="evenodd"
-      clip-rule="evenodd"
+      fillRule="evenodd"
+      clipRule="evenodd"
       d="M10.2383 10.6461C9.995 10.8902 9.59833 10.8902 9.355 10.6461C9.11083 10.4027 9.11083 10.0061 9.355 9.76273L17.5225 1.59523C17.7658 1.35107 18.1625 1.35107 18.4058 1.59523C18.65 1.83857 18.65 2.23523 18.4058 2.47857L10.2383 10.6461Z"
       fill="white"
     />
@@ -42,12 +42,12 @@ export const CalcIcon = ({ className = '' }: { className?: string }) => (
         y2="15.2382"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#737373" />
-        <stop offset="0.255809" stop-color="#222222" />
-        <stop offset="0.429644" stop-color="#737373" />
-        <stop offset="0.523944" stop-color="#222222" />
-        <stop offset="0.784245" stop-color="#222222" />
-        <stop offset="1" stop-color="#737373" />
+        <stop stopColor="#737373" />
+        <stop offset="0.255809" stopColor="#222222" />
+        <stop offset="0.429644" stopColor="#737373" />
+        <stop offset="0.523944" stopColor="#222222" />
+        <stop offset="0.784245" stopColor="#222222" />
+        <stop offset="1" stopColor="#737373" />
       </linearGradient>
       <linearGradient
         id="paint1_linear_874_3149"
@@ -57,12 +57,12 @@ export const CalcIcon = ({ className = '' }: { className?: string }) => (
         y2="15.2382"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#737373" />
-        <stop offset="0.255809" stop-color="#222222" />
-        <stop offset="0.429644" stop-color="#737373" />
-        <stop offset="0.523944" stop-color="#222222" />
-        <stop offset="0.784245" stop-color="#222222" />
-        <stop offset="1" stop-color="#737373" />
+        <stop stopColor="#737373" />
+        <stop offset="0.255809" stopColor="#222222" />
+        <stop offset="0.429644" stopColor="#737373" />
+        <stop offset="0.523944" stopColor="#222222" />
+        <stop offset="0.784245" stopColor="#222222" />
+        <stop offset="1" stopColor="#737373" />
       </linearGradient>
       <linearGradient
         id="paint2_linear_874_3149"
@@ -72,12 +72,12 @@ export const CalcIcon = ({ className = '' }: { className?: string }) => (
         y2="15.2382"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#737373" />
-        <stop offset="0.255809" stop-color="#222222" />
-        <stop offset="0.429644" stop-color="#737373" />
-        <stop offset="0.523944" stop-color="#222222" />
-        <stop offset="0.784245" stop-color="#222222" />
-        <stop offset="1" stop-color="#737373" />
+        <stop stopColor="#737373" />
+        <stop offset="0.255809" stopColor="#222222" />
+        <stop offset="0.429644" stopColor="#737373" />
+        <stop offset="0.523944" stopColor="#222222" />
+        <stop offset="0.784245" stopColor="#222222" />
+        <stop offset="1" stopColor="#737373" />
       </linearGradient>
       <linearGradient
         id="paint3_linear_874_3149"
@@ -87,12 +87,12 @@ export const CalcIcon = ({ className = '' }: { className?: string }) => (
         y2="15.2382"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#737373" />
-        <stop offset="0.255809" stop-color="#222222" />
-        <stop offset="0.429644" stop-color="#737373" />
-        <stop offset="0.523944" stop-color="#222222" />
-        <stop offset="0.784245" stop-color="#222222" />
-        <stop offset="1" stop-color="#737373" />
+        <stop stopColor="#737373" />
+        <stop offset="0.255809" stopColor="#222222" />
+        <stop offset="0.429644" stopColor="#737373" />
+        <stop offset="0.523944" stopColor="#222222" />
+        <stop offset="0.784245" stopColor="#222222" />
+        <stop offset="1" stopColor="#737373" />
       </linearGradient>
     </defs>
   </svg>
@@ -109,7 +109,7 @@ export const DownloadIcon = ({ className = '' }: { className?: string }) => (
 
 export const ClosedIcon = ({ className = '' }: { className?: string }) => (
   <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <g clip-path="url(#clip0_3263_3014)">
+    <g clipPath="url(#clip0_3263_3014)">
       <path
         d="M16.5633 14.0234L27.4659 3.12039C28.1754 2.41119 28.1754 1.26453 27.4659 0.555333C26.7567 -0.153861 25.6101 -0.153861 24.9009 0.555333L13.9979 11.4583L3.09525 0.555333C2.38572 -0.153861 1.23938 -0.153861 0.530191 0.555333C-0.179335 1.26453 -0.179335 2.41119 0.530191 3.12039L11.4328 14.0234L0.530191 24.9263C-0.179335 25.6355 -0.179335 26.7822 0.530191 27.4914C0.883625 27.8452 1.34834 28.0229 1.81272 28.0229C2.2771 28.0229 2.74148 27.8452 3.09525 27.4914L13.9979 16.5884L24.9009 27.4914C25.2546 27.8452 25.719 28.0229 26.1834 28.0229C26.6478 28.0229 27.1122 27.8452 27.4659 27.4914C28.1754 26.7822 28.1754 25.6355 27.4659 24.9263L16.5633 14.0234Z"
         fill="#151623"

@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState } from 'react'
-import { usePathname } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 import 'react-phone-input-2/lib/style.css'
 import styles from './FillForm.module.css'
 import Image from 'next/image'
@@ -26,11 +26,11 @@ const initialValues = {
   county: '',
 }
 
-const FillForm = () => {
+const FillForm = ({ block }: { block: any }) => {
   const t = useTranslations('FillForm')
   const { showSuccessToast, showErrorToast } = useCustomToastContext()
   const [isHovered, setIsHovered] = useState(false)
-
+  const router = useRouter();
   // Оновлена схема валідації
   const validationSchema = Yup.object({
     name: Yup.string().required(t('enterYourNameError')),
@@ -40,7 +40,7 @@ const FillForm = () => {
       .matches(/^\+?[0-9\s-]+$/, t('invalidPhoneNumberFormat')),
     county: Yup.string(),
   })
-
+  console.log('block = ', block)
   const handleSubmit = async (
     values: FormValues,
     { setSubmitting, resetForm }: FormikHelpers<FormValues>,
@@ -61,16 +61,21 @@ const FillForm = () => {
       })
 
       if (!response.ok) {
-        throw new Error(`Помилка при відправці форми: ${response.status}`)
+        const errorData = await response.json().catch(() => ({}))
+        throw new Error(
+          `Помилка при відправці форми: ${response.status} - ${errorData.error || 'Невідома помилка'}`,
+        )
       }
 
       const result = await response.json()
-      console.log('Form sent successfully:', result)
       showSuccessToast(t('formSentSuccessfully'))
+      console.log('Form submitted successfully:', block)
+      router.push(block?.url ?? '/'); // редірект
       resetForm()
     } catch (error) {
       console.error('Error:', error)
-      showErrorToast(t('failedToSendForm'))
+      const errorMessage = error instanceof Error ? error.message : 'Невідома помилка'
+      showErrorToast(`${t('failedToSendForm')}: ${errorMessage}`)
     } finally {
       setSubmitting(false)
     }
@@ -186,12 +191,12 @@ export default FillForm
 
 const phone = (
   <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <g clip-path="url(#clip0_1135_8671)">
+    <g clipPath="url(#clip0_1135_8671)">
       <path
         d="M7.45669 2.11351C7.14735 1.34013 6.39833 0.833008 5.5654 0.833008H2.76376C1.69797 0.833008 0.833984 1.69681 0.833984 2.76262C0.833984 11.822 8.17811 19.1663 17.2373 19.1663C18.3031 19.1663 19.1668 18.3023 19.1668 17.2364L19.1673 14.4343C19.1673 13.6013 18.6603 12.8524 17.887 12.5431L15.2018 11.4693C14.5071 11.1915 13.7162 11.3165 13.1414 11.7955L12.4484 12.3735C11.639 13.048 10.4482 12.9944 9.70321 12.2494L7.75181 10.2961C7.00685 9.55115 6.9518 8.36123 7.62625 7.55186L8.20413 6.85887C8.68311 6.28408 8.80928 5.4929 8.53141 4.7982L7.45669 2.11351Z"
-        stroke-width="1.66667"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="1.66667"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </g>
     <defs>
