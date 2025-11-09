@@ -1,4 +1,5 @@
 import { addDataAndFileToRequest, Endpoint } from 'payload'
+import { sendObjectEmail } from '@/hooks/sendObjectEmail'
 
 type MetaItem = { key: string; value: string }
 type typeOrderCall = {
@@ -46,7 +47,10 @@ export const GetCalculate: Endpoint = {
       },
       overrideAccess: true,
     })
-
+    await sendObjectEmail('< Get a calculator >', {
+      name: name,
+      email: email,
+    })
     return Response.json({ success: true, data: newApp })
   },
 }

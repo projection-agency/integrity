@@ -65,23 +65,23 @@ const checkboxChecked = (
       cy="10.0004"
       r="7.05882"
       stroke="url(#paint0_radial_1360_2533)"
-      stroke-opacity="0.46"
-      stroke-width="0.392157"
+      strokeOpacity="0.46"
+      strokeWidth="0.392157"
     />
     <circle
       cx="10.001"
       cy="10.0004"
       r="7.05882"
       stroke="url(#paint1_radial_1360_2533)"
-      stroke-opacity="0.33"
-      stroke-width="0.392157"
+      strokeOpacity="0.33"
+      strokeWidth="0.392157"
     />
     <circle
       cx="10.001"
       cy="10.0004"
       r="7.05882"
       stroke="url(#paint2_radial_1360_2533)"
-      stroke-width="0.392157"
+      strokeWidth="0.392157"
     />
     <defs>
       <radialGradient
@@ -92,8 +92,8 @@ const checkboxChecked = (
         gradientUnits="userSpaceOnUse"
         gradientTransform="translate(20.0573 34.2194) rotate(-116.098) scale(38.882 18.3068)"
       >
-        <stop stop-color="white" />
-        <stop offset="1" stop-color="white" stop-opacity="0" />
+        <stop stopColor="white" />
+        <stop offset="1" stopColor="white" stopOpacity="0" />
       </radialGradient>
       <radialGradient
         id="paint1_radial_1360_2533"
@@ -103,8 +103,8 @@ const checkboxChecked = (
         gradientUnits="userSpaceOnUse"
         gradientTransform="translate(2.22634 -7.51485) rotate(55.5429) scale(28.7853 14.5744)"
       >
-        <stop stop-color="white" />
-        <stop offset="1" stop-color="white" stop-opacity="0" />
+        <stop stopColor="white" />
+        <stop offset="1" stopColor="white" stopOpacity="0" />
       </radialGradient>
       <radialGradient
         id="paint2_radial_1360_2533"
@@ -114,8 +114,8 @@ const checkboxChecked = (
         gradientUnits="userSpaceOnUse"
         gradientTransform="translate(10.9715 9.00937) rotate(132.906) scale(10.1171 7.54075)"
       >
-        <stop stop-color="#FFEE6B" />
-        <stop offset="1" stop-color="white" stop-opacity="0" />
+        <stop stopColor="#FFEE6B" />
+        <stop offset="1" stopColor="white" stopOpacity="0" />
       </radialGradient>
     </defs>
   </svg>

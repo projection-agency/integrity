@@ -50,7 +50,8 @@
 .arrowBtn svg {
   width: 1.042vw;
   height: 0.833vw;
-  stroke: var(--black);
+  /* stroke: var(--black); */
+  fill: var(--black);
   stroke-width: 0.104vw;
 }
 
@@ -203,6 +204,7 @@
     border-radius: 50%;
     margin: 0 !important;
   }
+
   .navContainer {
     display: flex;
     padding: 0.41vw;
@@ -246,6 +248,42 @@
     border: none;
     cursor: pointer;
     transition: box-shadow 0.2s;
+    svg {
+    }
+  }
+  .iconRight {
+    width: 4.8vw;
+    transform: rotateZ(180deg);
+  }
+  .arrowBtn {
+    width: 23vw;
+    height: 10.5vw;
+
+    border-radius: 3.2vw;
+    background: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    cursor: pointer;
+    transition:
+      background 0.3s ease-in-out,
+      box-shadow 0.2s;
+    svg {
+      width: 4.8vw;
+    }
+  }
+  .arrowBtn:hover {
+    fill: var(--black-600);
+    background: #222;
+  }
+  .arrowBtn svg path {
+    fill: var(--black);
+    transition: fill 0.3s ease-in-out;
+  }
+
+  .arrowBtn:hover svg path {
+    fill: var(--white);
   }
   .iconLeft {
     display: flex;
@@ -254,7 +292,6 @@
     transform: rotate(180deg);
     border-radius: 1.07vw;
     stroke-width: 0.53vw;
-    stroke: var(--black-600);
 
     img {
       transform: rotate(180deg);
@@ -273,9 +310,34 @@
     }
   }
   .arrowBtn svg {
-    width: 1.042vw;
-    height: 0.833vw;
-    stroke: var(--black);
+    fill: var(--black);
     stroke-width: 0.104vw;
+  }
+  .iconRight {
+    width: 4.8vw;
+    height: 4.27vw;
+    svg {
+      width: 4.8vw;
+      height: 4.27vw;
+      transform: rotateZ(0deg);
+    }
+  }
+
+  .iconLeft {
+    width: 4.8vw;
+    height: 4.27vw;
+    svg {
+      width: 4.8vw;
+      height: 4.27vw;
+    }
+  }
+  .arrowContainer .arrowBtn:hover {
+    width: 8.5vw;
+    height: 2.9vw;
+    border-radius: 0.83vw;
+    background: var(--black);
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }

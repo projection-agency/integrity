@@ -1,4 +1,5 @@
 import { addDataAndFileToRequest, Endpoint } from 'payload'
+import { sendObjectEmail } from '@/hooks/sendObjectEmail'
 
 type MetaItem = { key: string; value: string }
 type typeOrderCall = {
@@ -15,7 +16,7 @@ type typeOrderCall = {
 }
 
 export const OrderCallFull: Endpoint = {
-  path: '/order-call-full',
+  path: '/order-call-detailed',
   method: 'post',
   handler: async (req) => {
     // Отримуємо ключі з заголовків
@@ -23,7 +24,10 @@ export const OrderCallFull: Endpoint = {
     const apiSecret = req.headers.get('x-api-secret')
 
     // Перевіряємо
-    if (apiKey !== process.env.API_KEY || apiSecret !== process.env.API_SECRET) {
+    if (
+      apiKey !== process.env.NEXT_PUBLIC_API_KEY ||
+      apiSecret !== process.env.NEXT_PUBLIC_API_SECRET
+    ) {
       return Response.json({ error: 'Unauthorized: invalid API keys' }, { status: 403 })
     }
 
@@ -63,7 +67,6 @@ export const OrderCallFull: Endpoint = {
       // 'website',
       // 'message',
     ]
-
     // Перевірка на відсутні значення
     for (const field of requiredFields) {
       if (!body[field]) {
@@ -87,6 +90,19 @@ export const OrderCallFull: Endpoint = {
 
       { key: 'message', value: message },
     ]
+
+    await sendObjectEmail('< Strategy Form>', {
+      name: name,
+      email: email,
+      phone: phone,
+      country: country,
+      employees: employees,
+      position: position,
+      industry: industry,
+      stage: stage,
+      website: website,
+      message: message,
+    })
 
     const newApp = await req.payload.create({
       collection: 'applications',

@@ -11,10 +11,11 @@ import useIsMobile from './useIsMobile'
 import ArticleItem from '@/components/ui/ArticleItem/ArticleItem'
 
 import type { Post as PayloadPost } from '@/payload-types'
-import SliderNav from './SliderNav'
+// import SliderNav from './SliderNav'
 import useHasMounted from './useHasMounted'
 import Link from 'next/link'
 import { useTranslations } from 'next-intl'
+import SliderNav from '@/components/ui/SliderNav/SliderNav'
 
 type Post = PayloadPost & {
   readingTime: string

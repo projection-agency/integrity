@@ -16,33 +16,22 @@ import GridBackground from '@/components/GridBackground/GridBackground'
 import useIsMobile from '../LatestInsightsSection/useIsMobile'
 import { motion, useInView, useScroll, useTransform, useSpring } from 'framer-motion'
 import WorkflowMarker from './WorkflowMarker'
+import { useTranslations } from 'next-intl'
 
-const steps = [
+const createSteps = (t: any) => [
   {
     step: 1,
     title: (
       <>
         <span style={{ fontWeight: 900, fontStyle: 'italic', textTransform: 'uppercase' }}>
-          Initial Contact <br /> and Analytics
+          {t('steps.step1.title')}
         </span>
       </>
     ),
-    list: [
-      [
-        { type: 'desc', text: 'Zoom call ' },
-        { type: 'main', text: 'for initial diagnosis' },
-        { type: 'desc', text: ' (up to 45 min)' },
-      ],
-      [{ type: 'main', text: 'Analysis of previous campaigns, funnel, website, analytics' }],
-      [
-        { type: 'main', text: 'Study of competitors and the market' },
-        { type: 'desc', text: ' (manually + through AI analytics)' },
-      ],
-      [
-        { type: 'desc', text: 'Collection ' },
-        { type: 'main', text: 'of technical brief and business goals' },
-      ],
-    ],
+    list: Object.values(t.raw('steps.step1.list')).map((item: any) => ({
+      type: 'main',
+      text: item,
+    })),
     icon: <IconAnalytics />,
   },
   {
@@ -50,32 +39,14 @@ const steps = [
     title: (
       <>
         <span style={{ fontWeight: 900, fontStyle: 'italic', textTransform: 'uppercase' }}>
-          Preparing for Launch
+          {t('steps.step3.title')}
         </span>
       </>
     ),
-    list: [
-      [
-        { type: 'main', text: 'Producing ad creatives' },
-        { type: 'desc', text: ' (UGC, static, video, AI)' },
-      ],
-      [
-        { type: 'main', text: 'Setting up campaigns' },
-        { type: 'desc', text: ' (Meta, Google, TikTok, etc.)' },
-      ],
-      [
-        { type: 'main', text: 'Configuring event tracking ' },
-        { type: 'desc', text: 'via GTM and GA4' },
-      ],
-      [
-        { type: 'desc', text: 'Creating ' },
-        { type: 'main', text: 'a test lead form or landing page' },
-      ],
-      [
-        { type: 'main', text: 'Setting up a client dashboard' },
-        { type: 'desc', text: ' (Looker Studio or Google Sheets)' },
-      ],
-    ],
+    list: Object.values(t.raw('steps.step3.list')).map((item: any) => ({
+      type: 'main',
+      text: item,
+    })),
     icon: <IconResearch />,
   },
   {
@@ -83,59 +54,32 @@ const steps = [
     title: (
       <>
         <span style={{ fontWeight: 900, fontStyle: 'italic', textTransform: 'uppercase' }}>
-          Scaling
+          {t('steps.step5.title')}
         </span>
       </>
     ),
-    list: [
-      [
-        { type: 'desc', text: 'Expanding into ' },
-        { type: 'main', text: 'new channels' },
-        { type: 'desc', text: ' (TikTok, YouTube, SEO, Email)' },
-      ],
-      [
-        { type: 'desc', text: 'Implementing ' },
-        { type: 'main', text: 'new strategies' },
-        { type: 'main', text: ' (retargeting, cross-sell)' },
-      ],
-      [
-        { type: 'desc', text: 'Building ' },
-        { type: 'main', text: 'LTV and automation systems' },
-        { type: 'desc', text: ' (Email, CRM, analytics)' },
-      ],
-    ],
+    list: Object.values(t.raw('steps.step5.list')).map((item: any) => ({
+      type: 'main',
+      text: item,
+    })),
     icon: <IconGrowth />,
   },
 ]
 
-const rightStepsData = [
+const createRightStepsData = (t: any) => [
   {
     step: 2,
     title: (
       <>
         <span style={{ fontWeight: 900, fontStyle: 'italic', textTransform: 'uppercase' }}>
-          Strategy and Roadmap Development
+          {t('steps.step2.title')}
         </span>
       </>
     ),
-    list: [
-      [
-        { type: 'desc', text: 'Building an ' },
-        { type: 'main', text: 'individual strategic funnel' },
-      ],
-      [
-        { type: 'main', text: 'Building a Growth Map' },
-        { type: 'desc', text: ' (what to test, what hypotheses, what stages)' },
-      ],
-      [
-        { type: 'main', text: 'Defining KPIs:' },
-        { type: 'desc', text: ' CPL, ROAS, CAC, LTV' },
-      ],
-      [
-        { type: 'desc', text: 'Agreeing ' },
-        { type: 'main', text: 'on budget and channels' },
-      ],
-    ],
+    list: Object.values(t.raw('steps.step2.list')).map((item: any) => ({
+      type: 'main',
+      text: item,
+    })),
     icon: <IconMap />,
   },
   {
@@ -143,25 +87,14 @@ const rightStepsData = [
     title: (
       <>
         <span style={{ fontWeight: 900, fontStyle: 'italic', textTransform: 'uppercase' }}>
-          Testing and Optimization
+          {t('steps.step4.title')}
         </span>
       </>
     ),
-    list: [
-      [
-        { type: 'main', text: 'A/B testing ' },
-        { type: 'desc', text: 'of creatives, audiences, and offers' },
-      ],
-      [
-        { type: 'desc', text: 'Optimizing based on key metrics:' },
-        { type: 'main', text: ' CPC, CTR, CPL, ROAS' },
-      ],
-      [{ type: 'desc', text: 'Updating creatives, forms, or pages based on data' }],
-      [
-        { type: 'main', text: 'Regular communication + analytics ' },
-        { type: 'desc', text: 'in Looker/spreadsheets' },
-      ],
-    ],
+    list: Object.values(t.raw('steps.step4.list')).map((item: any) => ({
+      type: 'main',
+      text: item,
+    })),
     icon: <IconForm />,
   },
   {
@@ -169,59 +102,34 @@ const rightStepsData = [
     title: (
       <>
         <span style={{ fontWeight: 900, fontStyle: 'italic', textTransform: 'uppercase' }}>
-          Continuous Improvement <br /> and Partnership
+          {t('steps.step6.title')}
         </span>
       </>
     ),
-    list: [
-      [
-        { type: 'main', text: 'Strategic calls ' },
-        { type: 'desc', text: 'held 1–2 times per month' },
-      ],
-      [
-        { type: 'desc', text: 'Transparent ' },
-        { type: 'main', text: 'performance analytics and reporting' },
-      ],
-      [
-        { type: 'desc', text: 'Proactive recommendations ' },
-        { type: 'main', text: 'for new growth areas' },
-      ],
-      [
-        { type: 'main', text: 'Optional add-on services:' },
-        { type: 'desc', text: ' SEO, email, content, video, CRO' },
-      ],
-    ],
+    list: Object.values(t.raw('steps.step6.list')).map((item: any) => ({
+      type: 'main',
+      text: item,
+    })),
     icon: <IconFolder />,
   },
 ]
 
-const addSpaceToDesc = (
-  list: { type: string; text: string }[][],
-): { type: string; text: string }[][] =>
-  list.map((parts: { type: string; text: string }[]) =>
-    parts.map((part: { type: string; text: string }, idx: number) =>
-      part.type === 'desc' && !part.text.endsWith(' ') ? { ...part, text: part.text + ' ' } : part,
-    ),
+const addSpaceToDesc = (list: { type: string; text: string }[]): { type: string; text: string }[] =>
+  list.map((part: { type: string; text: string }) =>
+    part.type === 'desc' && !part.text.endsWith(' ') ? { ...part, text: part.text + ' ' } : part,
   )
-
-const stepsWithSpaces = steps.map((step) => ({ ...step, list: addSpaceToDesc(step.list) }))
-const rightStepsDataWithSpaces = rightStepsData.map((step) => ({
-  ...step,
-  list: addSpaceToDesc(step.list),
-}))
-
-const rightSteps = [null, ...rightStepsDataWithSpaces]
 
 export default function WorkflowSection({
   block,
 }: {
   block?: { enabled?: boolean; title?: string; subtitle?: string; tabStyle?: string }
 }) {
+  const t = useTranslations('WorkflowSection')
   const isMobile = useIsMobile()
   const safeBlock = {
     enabled: true,
-    subtitle: 'WORKFLOW',
-    title: 'STEP BY STEP [[TO RESULTS]]',
+    subtitle: t('subtitle'),
+    title: t('title'),
     tabStyle: 'dark',
     ...block,
   }
@@ -242,8 +150,17 @@ export default function WorkflowSection({
 
   if (!safeBlock.enabled) return null
 
+  const steps = createSteps(t)
+  const rightStepsData = createRightStepsData(t)
+  const stepsWithSpaces = steps.map((step) => ({ ...step, list: addSpaceToDesc(step.list) }))
+  const rightStepsDataWithSpaces = rightStepsData.map((step) => ({
+    ...step,
+    list: addSpaceToDesc(step.list),
+  }))
+
   const left = stepsWithSpaces
   const right = rightStepsDataWithSpaces
+  const rightSteps = [null, ...rightStepsDataWithSpaces]
   const mobileSteps = [
     left.find((s) => s.step === 1)!,
     right.find((s) => s.step === 2)!,
@@ -304,7 +221,9 @@ export default function WorkflowSection({
                   }}
                 >
                   <div className={styles['step-top-row']}>
-                    <div className={styles['step-badge']}>STEP {step.step}</div>
+                    <div className={styles['step-badge']}>
+                      {t('step')} {step.step}
+                    </div>
                     <div className={styles['step-icon-wrapper']}>
                       {step.step === 1 ? (
                         <>
@@ -329,18 +248,15 @@ export default function WorkflowSection({
                             </span>
                           </div>
                           <span className={styles['step-list-text-wrap']}>
-                            {parts.map((part, i) => (
-                              <span
-                                key={i}
-                                className={
-                                  part.type === 'main'
-                                    ? styles['step-list-main']
-                                    : styles['step-list-desc']
-                                }
-                              >
-                                {part.text}
-                              </span>
-                            ))}
+                            <span
+                              className={
+                                parts.type === 'main'
+                                  ? styles['step-list-main']
+                                  : styles['step-list-desc']
+                              }
+                            >
+                              {parts.text}
+                            </span>
                           </span>
                         </li>
                       ))}
@@ -368,7 +284,9 @@ export default function WorkflowSection({
                 }}
               >
                 <div className={styles['step-top-row']}>
-                  <div className={styles['step-badge']}>STEP {step.step}</div>
+                  <div className={styles['step-badge']}>
+                    {t('step')} {step.step}
+                  </div>
                   <div className={styles['step-icon-wrapper']}>
                     {step.step === 1 ? (
                       <>
@@ -391,18 +309,15 @@ export default function WorkflowSection({
                           <IconDot />
                         </span>
                         <span className={styles['step-list-text-wrap']}>
-                          {parts.map((part, i) => (
-                            <span
-                              key={i}
-                              className={
-                                part.type === 'main'
-                                  ? styles['step-list-main']
-                                  : styles['step-list-desc']
-                              }
-                            >
-                              {part.text}
-                            </span>
-                          ))}
+                          <span
+                            className={
+                              parts.type === 'main'
+                                ? styles['step-list-main']
+                                : styles['step-list-desc']
+                            }
+                          >
+                            {parts.text}
+                          </span>
                         </span>
                       </li>
                     ))}
@@ -437,7 +352,9 @@ export default function WorkflowSection({
                   }}
                 >
                   <div className={styles['step-top-row']}>
-                    <div className={styles['step-badge']}>STEP {step.step}</div>
+                    <div className={styles['step-badge']}>
+                      {t('step')} {step.step}
+                    </div>
                     <div className={styles['step-icon-wrapper']}>
                       <span className={styles['step-icon-svg']}>{step.icon}</span>
                     </div>
@@ -452,18 +369,15 @@ export default function WorkflowSection({
                             <IconDot />
                           </span>
                           <span className={styles['step-list-text-wrap']}>
-                            {parts.map((part, i) => (
-                              <span
-                                key={i}
-                                className={
-                                  part.type === 'main'
-                                    ? styles['step-list-main']
-                                    : styles['step-list-desc']
-                                }
-                              >
-                                {part.text}
-                              </span>
-                            ))}
+                            <span
+                              className={
+                                parts.type === 'main'
+                                  ? styles['step-list-main']
+                                  : styles['step-list-desc']
+                              }
+                            >
+                              {parts.text}
+                            </span>
                           </span>
                         </li>
                       ))}

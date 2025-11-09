@@ -1,7 +1,6 @@
 import { getPostsWithSlug } from '@/action/getPostWithSlug'
 import { notFound } from 'next/navigation'
 import { RichText } from '@payloadcms/richtext-lexical/react'
-import { JSX } from 'react'
 import { extractHeadingsFromRichText } from '@/components/RichTextComponent/extractHeadingsFromRichText'
 import s from './page.module.css'
 import Image from 'next/image'
@@ -16,6 +15,7 @@ import { getPostsWithFilter } from '@/action/getPostsWithFilter'
 import GridBackground from '@/components/GridBackground/GridBackground'
 import { SocialSharing } from '@/components/SocialSharing/SocialSharing'
 import { getMessages } from 'next-intl/server'
+import { getBlogPageData } from '@/action/getBlogPageData'
 
 export async function generateMetadata({
   params,
@@ -47,6 +47,11 @@ export default async function BlogPostPage({
   const { locale, slug } = await params
   const messages = await getMessages({ locale })
   const post = await getPostsWithSlug(slug, locale)
+
+  const { page:blog } = await getBlogPageData(locale)
+  const blogRedirect = blog.blocks?.find(
+    (b: { blockType: string }) => b.blockType === 'order-call-block',
+  )
 
   const fetched = await getPostsWithFilter('all')
 
@@ -114,7 +119,7 @@ export default async function BlogPostPage({
               </Link>
               <SocialSharing
                 title={post[0].title as string}
-                url={`${process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'}/${locale}/blog/${slug}`}
+                url={`https://www.integritymarketing.systems/${locale}/blog/${slug}`}
               />
             </div>
           </div>
@@ -139,7 +144,7 @@ export default async function BlogPostPage({
         <SimilarArticlesSectionServer />
       </div>
       <div className={s.expertSectionCont}>
-        <ExpertSection />
+        <ExpertSection block={blogRedirect} />
       </div>
     </div>
   )
@@ -156,7 +161,7 @@ const arrow = (
 
 const articleNavIcon = (
   <svg xmlns="http://www.w3.org/2000/svg" width="29" height="28" viewBox="0 0 29 28" fill="none">
-    <g clip-path="url(#clip0_1245_11545)">
+    <g clipPath="url(#clip0_1245_11545)">
       <path
         d="M21.4775 20.7065C21.3662 20.8152 21.255 20.9239 21.1437 20.9783L17.1373 22.7174C16.9704 22.7717 16.8591 22.8261 16.6922 22.8261C16.6366 22.8261 16.6366 22.8261 16.5809 22.8261C16.1914 22.8261 15.8576 22.8261 15.468 22.8261C12.8528 22.8261 10.2932 22.8261 7.67799 22.8261C6.62076 22.8261 6.62076 21.1957 7.67799 21.1957H8.79085H15.7463L16.9148 17.337C16.9704 17.1739 17.0261 17.0652 17.1373 16.9565L22.1452 11.4674L23.8145 9.61957V7.66305C23.8145 7.6087 23.8145 7.55435 23.8145 7.5H22.1452H17.7494C16.7478 7.5 15.9688 6.68478 15.9688 5.76087V1.63043V0H3.22652C1.72415 0 0.5 1.19565 0.5 2.66304V23.587C0.5 25.0544 1.72415 26.25 3.22652 26.25H21.0324C22.5347 26.25 23.7589 25.0544 23.7589 23.587V18.2065L22.0896 20.0543L21.4775 20.7065ZM15.8019 17.2826C15.468 17.2826 15.1342 17.2826 14.8003 17.2826C12.4077 17.2826 10.0706 17.2826 7.67799 17.2826C6.62076 17.2826 6.62076 15.6522 7.67799 15.6522H8.67956H15.8019C16.8591 15.6522 16.8591 17.2826 15.8019 17.2826ZM16.5809 10.7065C17.6381 10.7065 17.6381 12.337 16.5809 12.337C16.1914 12.337 15.8576 12.337 15.468 12.337C12.8528 12.337 10.2932 12.337 7.67799 12.337C6.62076 12.337 6.62076 10.7065 7.67799 10.7065H8.79085H16.5809Z"
         fill="url(#paint0_linear_1245_11545)"
@@ -187,12 +192,12 @@ const articleNavIcon = (
         y2="-1.05402"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#737373" />
-        <stop offset="0.255809" stop-color="#222222" />
-        <stop offset="0.429644" stop-color="#737373" />
-        <stop offset="0.523944" stop-color="#222222" />
-        <stop offset="0.784245" stop-color="#222222" />
-        <stop offset="1" stop-color="#737373" />
+        <stop stopColor="#737373" />
+        <stop offset="0.255809" stopColor="#222222" />
+        <stop offset="0.429644" stopColor="#737373" />
+        <stop offset="0.523944" stopColor="#222222" />
+        <stop offset="0.784245" stopColor="#222222" />
+        <stop offset="1" stopColor="#737373" />
       </linearGradient>
       <linearGradient
         id="paint1_linear_1245_11545"
@@ -202,12 +207,12 @@ const articleNavIcon = (
         y2="0.614399"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#737373" />
-        <stop offset="0.255809" stop-color="#222222" />
-        <stop offset="0.429644" stop-color="#737373" />
-        <stop offset="0.523944" stop-color="#222222" />
-        <stop offset="0.784245" stop-color="#222222" />
-        <stop offset="1" stop-color="#737373" />
+        <stop stopColor="#737373" />
+        <stop offset="0.255809" stopColor="#222222" />
+        <stop offset="0.429644" stopColor="#737373" />
+        <stop offset="0.523944" stopColor="#222222" />
+        <stop offset="0.784245" stopColor="#222222" />
+        <stop offset="1" stopColor="#737373" />
       </linearGradient>
       <linearGradient
         id="paint2_linear_1245_11545"
@@ -217,12 +222,12 @@ const articleNavIcon = (
         y2="8.33371"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#737373" />
-        <stop offset="0.255809" stop-color="#222222" />
-        <stop offset="0.429644" stop-color="#737373" />
-        <stop offset="0.523944" stop-color="#222222" />
-        <stop offset="0.784245" stop-color="#222222" />
-        <stop offset="1" stop-color="#737373" />
+        <stop stopColor="#737373" />
+        <stop offset="0.255809" stopColor="#222222" />
+        <stop offset="0.429644" stopColor="#737373" />
+        <stop offset="0.523944" stopColor="#222222" />
+        <stop offset="0.784245" stopColor="#222222" />
+        <stop offset="1" stopColor="#737373" />
       </linearGradient>
       <linearGradient
         id="paint3_linear_1245_11545"
@@ -232,12 +237,12 @@ const articleNavIcon = (
         y2="10.5705"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#737373" />
-        <stop offset="0.255809" stop-color="#222222" />
-        <stop offset="0.429644" stop-color="#737373" />
-        <stop offset="0.523944" stop-color="#222222" />
-        <stop offset="0.784245" stop-color="#222222" />
-        <stop offset="1" stop-color="#737373" />
+        <stop stopColor="#737373" />
+        <stop offset="0.255809" stopColor="#222222" />
+        <stop offset="0.429644" stopColor="#737373" />
+        <stop offset="0.523944" stopColor="#222222" />
+        <stop offset="0.784245" stopColor="#222222" />
+        <stop offset="1" stopColor="#737373" />
       </linearGradient>
       <linearGradient
         id="paint4_linear_1245_11545"
@@ -247,12 +252,12 @@ const articleNavIcon = (
         y2="18.9681"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#737373" />
-        <stop offset="0.255809" stop-color="#222222" />
-        <stop offset="0.429644" stop-color="#737373" />
-        <stop offset="0.523944" stop-color="#222222" />
-        <stop offset="0.784245" stop-color="#222222" />
-        <stop offset="1" stop-color="#737373" />
+        <stop stopColor="#737373" />
+        <stop offset="0.255809" stopColor="#222222" />
+        <stop offset="0.429644" stopColor="#737373" />
+        <stop offset="0.523944" stopColor="#222222" />
+        <stop offset="0.784245" stopColor="#222222" />
+        <stop offset="1" stopColor="#737373" />
       </linearGradient>
       <clipPath id="clip0_1245_11545">
         <rect width="28" height="28" fill="white" transform="translate(0.5)" />

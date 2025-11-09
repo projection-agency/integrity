@@ -1,6 +1,6 @@
 'use client'
 
-import { usePathname } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import s from './Header.module.css'
 import { AnimatedLink } from '@/components/ui/AnimatedLink/AnimatedLink'
@@ -19,6 +19,7 @@ export default function NavList({
   handleClose: () => void
 }) {
   const pathname = usePathname()
+  const router = useRouter()
   const [currentSection, setCurrentSection] = useState<string>('')
 
   // Функція для визначення поточної секції на основі хеша
@@ -89,7 +90,8 @@ export default function NavList({
       if (pathname !== '/' && !pathname.endsWith('/en') && !pathname.endsWith('/ua')) {
         // Отримуємо поточну локаль з pathname
         const locale = pathname.split('/')[1] || 'en'
-        window.location.href = `/${locale}${link}`
+        // Використовуємо router.push замість window.location.href
+        router.push(`/${locale}${link}`)
         return
       }
 

@@ -9,8 +9,13 @@ import ExpertSection from '@/components/sections/ExpertSection/ExpertSection'
 import { getSinglePage } from '@/action/getPage'
 import { Metadata } from 'next'
 
-export async function generateMetadata(): Promise<Metadata> {
-  const page = await getSinglePage('blog')
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}): Promise<Metadata> {
+  const { locale } = await params
+  const page = await getSinglePage('blog', locale)
 
   return {
     title: page?.meta?.title || 'Blog',
@@ -39,8 +44,6 @@ export default async function BlogPage({
     getPostsWithFilter(categoryId),
   ])
 
-  console.log(filteredPosts)
-
   return (
     <div className={s.blog}>
       <div className={s.heroPage}>
@@ -53,7 +56,7 @@ export default async function BlogPage({
       <BlogPosts posts={filteredPosts} categories={categories} />
 
       <div className={s.fillFormWrapper}>
-        <ExpertSection />
+        <ExpertSection block={page.blocks?.find((b) => b.blockType === 'order-call-block')} />
       </div>
     </div>
   )

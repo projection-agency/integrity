@@ -22,9 +22,15 @@ import OutcomesSection from '@/components/sections/OutcomesSection/OutcomesSecti
 import { addFaqs } from '@/action/addFaqs'
 import { getSinglePage } from '@/action/getPage'
 import { Metadata } from 'next'
+import ExpertSection from '@/components/sections/ExpertSection/ExpertSection'
 
-export async function generateMetadata(): Promise<Metadata> {
-  const page = await getSinglePage('main')
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}): Promise<Metadata> {
+  const { locale } = await params
+  const page = await getSinglePage('main', locale)
 
   return {
     title: page?.meta?.title || 'Home',
@@ -43,7 +49,7 @@ const BLOCK_COMPONENTS = {
   'what-us-block': SectionUnique,
   'expertise-block': IndustriesSection,
   'services-block': ServicesSection,
-  // 'form-block': FormSection,
+  'order-call-block': ExpertSection,
   'workflow-block': WorkflowSection,
   'about-founder-block': AboutTheFounderSection,
   'our-team-block': ApproachSection,

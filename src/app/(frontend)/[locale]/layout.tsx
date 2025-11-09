@@ -21,6 +21,10 @@ import Script from 'next/script'
 const interTight = Inter_Tight({ subsets: ['latin'], variable: '--font-inter-tight' })
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
 
+export const dynamic = 'force-dynamic'
+export const fetchCache = 'default-no-store'
+export const revalidate = 0
+
 export async function generateMetadata({
   params,
 }: {
@@ -81,7 +85,7 @@ export async function generateMetadata({
       address: false,
       telephone: false,
     },
-    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'),
+    metadataBase: new URL('https://www.integritymarketing.systems'),
     alternates: {
       canonical: '/',
       languages: {
@@ -122,7 +126,6 @@ export async function generateMetadata({
       shortcut: '/favicon.ico',
       apple: '/apple-touch-icon.png',
     },
-    manifest: '/manifest.json',
     themeColor: '#222222',
     other: {
       'msapplication-TileColor': '#222222',
@@ -161,7 +164,10 @@ export default async function LocaleLayout({
             <Header menu={headerMenu} logo={main.logo || ''} buttonText={main.button || ''} />
             <HeaderFix menu={headerMenu} buttonText={main.button || ''} />
             <main>{children}</main>
+
             <Script src="https://cdn.lordicon.com/lordicon.js" strategy="afterInteractive" />
+
+
             <Footer menu={footerMenu} />
           </CustomToastProvider>
         </NextIntlClientProvider>

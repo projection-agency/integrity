@@ -23,7 +23,7 @@
    ```bash
    pnpm dev
    ```
-   Проєкт буде доступний на http://localhost:3000
+   Проєкт буде доступний на https://www.integritymarketing.systems
 
 ## Тестування
 

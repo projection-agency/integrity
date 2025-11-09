@@ -4,8 +4,13 @@ import { getSinglePage } from '@/action/getPage'
 import { Metadata } from 'next'
 import PageInfo from '@/components/PageInfo/PageInfo'
 
-export async function generateMetadata(): Promise<Metadata> {
-  const page = await getSinglePage('terms')
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>
+}): Promise<Metadata> {
+  const { locale } = await params
+  const page = await getSinglePage('terms', locale)
 
   return {
     title: page?.meta?.title || 'Terms',

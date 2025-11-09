@@ -54,8 +54,6 @@ export default function PopUp({ isOpen, onClose, onDownload }: PopUpProps) {
         throw new Error(`Error submitting form: ${response.status}`)
       }
 
-      const result = await response.json()
-      console.log('Success:', result)
       setSent(true)
     } catch (error) {
       console.error('Submission error:', error)

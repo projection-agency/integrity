@@ -1,4 +1,3 @@
-// import {NextConfig} from 'next'; // Видалено, бо це некоректний імпорт для ESM
 import createNextIntlPlugin from 'next-intl/plugin'
 import { withPayload } from '@payloadcms/next/withPayload'
 
